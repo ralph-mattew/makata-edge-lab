@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- PoC 009 host run, headline *reject* (no gain): 5 retrieved chunks instead of 3 move Qwen2.5-1.5B's key-fact
+  rate by +0.4 points (95% CI -3.7 to +4.4, 464 items) with EmbeddingGemma retrieval, at 1.44 times the prefill
+  time; on the items where 3 chunks already hold the answer the extra chunks cost 5.0 points (CI -9.3 to -0.8).
+  The same rule for NLEmbedding retrieval gives *adopt* (host stage): +4.5 points (CI +0.5 to +8.4) at 1.59 times.
+  H1 to H3 held. One chunk loses 12.5 points against 3. Run 2 (seed 2) repeats the gain as +3.7 points, so the
+  headline interval does not exclude a gain of 3 points. A 54-second battery interval fell inside the `nl-k3`
+  stage and the host was not idle; neither changes a criterion.
 - PoC 009 registered (retrieval depth for Qwen2.5-1.5B): does 5 retrieved chunks instead of 3 raise how often
   Qwen's answer holds the right key fact on answerable contract questions, at an acceptable prefill cost?
   Reuses PoC 006's harness and PoC 007's retrieval over five conditions (EmbeddingGemma at 1, 3 and 5 chunks;

@@ -1,0 +1,1325 @@
+{"chunks": [1], "coverage": 1.0, "dropped": 0, "item": 0, "numbers": ["1500", "2500", "3000"], "section_words": 145}
+{"chunks": [29], "coverage": 0.0, "dropped": 0, "item": 1, "numbers": ["12"], "section_words": 46}
+{"chunks": [64], "coverage": 0.0, "dropped": 0, "item": 2, "numbers": ["7.7", "7.8"], "section_words": 137}
+{"chunks": [227], "coverage": 0.0, "dropped": 0, "item": 3, "numbers": ["2.1", "4.1"], "section_words": 188}
+{"chunks": [8], "coverage": 0.5490196078431373, "dropped": 0, "item": 4, "numbers": ["45"], "section_words": 197}
+{"chunks": [309], "coverage": 0.0, "dropped": 0, "item": 5, "numbers": ["12", "23"], "section_words": 41}
+{"chunks": [126], "coverage": 1.0, "dropped": 0, "item": 6, "numbers": ["10", "11"], "section_words": 79}
+{"chunks": [102], "coverage": 0.9629629629629629, "dropped": 0, "item": 7, "numbers": ["1401"], "section_words": 56}
+{"chunks": [163], "coverage": 1.0, "dropped": 0, "item": 8, "numbers": ["13", "16", "17"], "section_words": 103}
+{"chunks": [49], "coverage": 1.0, "dropped": 0, "item": 9, "numbers": ["11"], "section_words": 135}
+{"chunks": [58], "coverage": 0.0, "dropped": 0, "item": 10, "numbers": ["14", "14.3", "14.4", "14.5", "14.6", "2010", "29"], "section_words": 152}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 11, "numbers": ["30", "5.1", "5.2"], "section_words": 167}
+{"chunks": [17], "coverage": 0.0, "dropped": 0, "item": 12, "numbers": ["21", "7.3"], "section_words": 198}
+{"chunks": [33], "coverage": 1.0, "dropped": 0, "item": 13, "numbers": ["10", "10.1", "60"], "section_words": 94}
+{"chunks": [150], "coverage": 1.0, "dropped": 0, "item": 14, "numbers": ["1000000", "16", "5000000", "9.5"], "section_words": 157}
+{"chunks": [55], "coverage": 0.0, "dropped": 0, "item": 15, "numbers": ["21", "5000000"], "section_words": 32}
+{"chunks": [50], "coverage": 1.0, "dropped": 0, "item": 16, "numbers": ["9.5"], "section_words": 127}
+{"chunks": [3], "coverage": 1.0, "dropped": 0, "item": 17, "numbers": ["2.2", "30"], "section_words": 199}
+{"chunks": [258], "coverage": 0.0, "dropped": 0, "item": 18, "numbers": ["10", "22", "26", "29"], "section_words": 76}
+{"chunks": [19], "coverage": 1.0, "dropped": 0, "item": 19, "numbers": ["4.2", "4.3"], "section_words": 195}
+{"chunks": [90], "coverage": 1.0, "dropped": 0, "item": 20, "numbers": ["6.4", "6.5", "6.7", "9.02"], "section_words": 89}
+{"chunks": [357], "coverage": 1.0, "dropped": 0, "item": 21, "numbers": ["11.14", "25"], "section_words": 78}
+{"chunks": [12], "coverage": 0.5471698113207547, "dropped": 0, "item": 22, "numbers": ["5.1", "6.1", "970000"], "section_words": 201}
+{"chunks": [34], "coverage": 1.0, "dropped": 0, "item": 23, "numbers": ["30"], "section_words": 205}
+{"chunks": [124], "coverage": 1.0, "dropped": 0, "item": 24, "numbers": ["10", "18.2"], "section_words": 96}
+{"chunks": [294], "coverage": 0.5, "dropped": 0, "item": 25, "numbers": ["25", "25.1", "28"], "section_words": 35}
+{"chunks": [30], "coverage": 1.0, "dropped": 0, "item": 26, "numbers": ["9.1"], "section_words": 185}
+{"chunks": [39], "coverage": 0.8108108108108109, "dropped": 0, "item": 27, "numbers": ["6.1"], "section_words": 50}
+{"chunks": [282], "coverage": 0.96, "dropped": 0, "item": 28, "numbers": ["15", "15.1", "15.2", "19"], "section_words": 53}
+{"chunks": [273], "coverage": 0.0, "dropped": 0, "item": 29, "numbers": ["11", "12", "15", "15.1", "15.5", "18", "22"], "section_words": 102}
+{"chunks": [24], "coverage": 0.5263157894736842, "dropped": 0, "item": 30, "numbers": ["2.0"], "section_words": 32}
+{"chunks": [119], "coverage": 0.0, "dropped": 0, "item": 31, "numbers": ["14", "5.1"], "section_words": 157}
+{"chunks": [51], "coverage": 0.5283018867924528, "dropped": 0, "item": 32, "numbers": ["10.2", "120"], "section_words": 131}
+{"chunks": [245], "coverage": 1.0, "dropped": 0, "item": 33, "numbers": ["16.3", "16.4", "16.5", "40", "51"], "section_words": 147}
+{"chunks": [40], "coverage": 0.0, "dropped": 0, "item": 34, "numbers": [], "section_words": 38}
+{"chunks": [1440], "coverage": 0.0, "dropped": 0, "item": 35, "numbers": ["71"], "section_words": 89}
+{"chunks": [111], "coverage": 0.0, "dropped": 0, "item": 36, "numbers": ["12"], "section_words": 107}
+{"chunks": [283], "coverage": 0.0, "dropped": 0, "item": 37, "numbers": ["25"], "section_words": 172}
+{"chunks": [77], "coverage": 1.0, "dropped": 0, "item": 38, "numbers": ["6.2"], "section_words": 105}
+{"chunks": [62], "coverage": 0.0, "dropped": 0, "item": 39, "numbers": ["12", "19", "20"], "section_words": 77}
+{"chunks": [67], "coverage": 1.0, "dropped": 0, "item": 40, "numbers": ["045", "10", "12", "14.3", "15", "15.1", "15.2", "17", "4010", "4011", "42", "55", "5572", "81227", "932", "972"], "section_words": 184}
+{"chunks": [15], "coverage": 0.0, "dropped": 0, "item": 41, "numbers": ["10", "3500000.00"], "section_words": 32}
+{"chunks": [83], "coverage": 0.39344262295081966, "dropped": 0, "item": 42, "numbers": ["13", "15.2", "180", "30"], "section_words": 222}
+{"chunks": [41], "coverage": 0.0, "dropped": 0, "item": 43, "numbers": [], "section_words": 197}
+{"chunks": [145], "coverage": 1.0, "dropped": 0, "item": 44, "numbers": ["15", "5000000"], "section_words": 155}
+{"chunks": [37], "coverage": 1.0, "dropped": 0, "item": 45, "numbers": [], "section_words": 50}
+{"chunks": [10], "coverage": 1.0, "dropped": 0, "item": 46, "numbers": ["30", "60"], "section_words": 116}
+{"chunks": [44], "coverage": 0.8823529411764706, "dropped": 0, "item": 47, "numbers": ["15"], "section_words": 53}
+{"chunks": [31], "coverage": 0.29545454545454547, "dropped": 0, "item": 48, "numbers": ["6.11"], "section_words": 109}
+{"chunks": [675], "coverage": 1.0, "dropped": 0, "item": 49, "numbers": ["14.1", "14.2", "14.6", "65"], "section_words": 164}
+{"chunks": [33], "coverage": 1.0, "dropped": 0, "item": 50, "numbers": ["12"], "section_words": 161}
+{"chunks": [69], "coverage": 1.0, "dropped": 0, "item": 51, "numbers": ["15", "2.1", "30"], "section_words": 78}
+{"chunks": [105], "coverage": 1.0, "dropped": 0, "item": 52, "numbers": ["11", "12"], "section_words": 92}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 53, "numbers": ["100", "13", "15", "5000000.00"], "section_words": 103}
+{"chunks": [45], "coverage": 0.0, "dropped": 0, "item": 54, "numbers": ["4.3"], "section_words": 111}
+{"chunks": [214], "coverage": 0.0, "dropped": 0, "item": 55, "numbers": ["16", "17"], "section_words": 32}
+{"chunks": [10], "coverage": 0.0, "dropped": 0, "item": 56, "numbers": [], "section_words": 183}
+{"chunks": [42], "coverage": 1.0, "dropped": 0, "item": 57, "numbers": ["10.3", "10.4", "10.5", "11", "31"], "section_words": 178}
+{"chunks": [71], "coverage": 0.0, "dropped": 0, "item": 58, "numbers": [], "section_words": 102}
+{"chunks": [106], "coverage": 1.0, "dropped": 0, "item": 59, "numbers": ["10", "12.2"], "section_words": 80}
+{"chunks": [30], "coverage": 0.0, "dropped": 0, "item": 60, "numbers": ["60"], "section_words": 124}
+{"chunks": [95], "coverage": 0.0, "dropped": 0, "item": 61, "numbers": ["10", "5.8"], "section_words": 190}
+{"chunks": [188], "coverage": 0.0, "dropped": 0, "item": 62, "numbers": ["120", "14", "26"], "section_words": 171}
+{"chunks": [29], "coverage": 1.0, "dropped": 0, "item": 63, "numbers": [], "section_words": 94}
+{"chunks": [59], "coverage": 0.0, "dropped": 0, "item": 64, "numbers": ["01", "076", "11", "13", "31"], "section_words": 183}
+{"chunks": [32], "coverage": 1.0, "dropped": 0, "item": 65, "numbers": ["30"], "section_words": 168}
+{"chunks": [16], "coverage": 1.0, "dropped": 0, "item": 66, "numbers": ["19", "2023", "2024", "30", "31"], "section_words": 76}
+{"chunks": [50], "coverage": 1.0, "dropped": 0, "item": 67, "numbers": ["10.4", "10.5"], "section_words": 198}
+{"chunks": [24], "coverage": 0.0, "dropped": 0, "item": 68, "numbers": [], "section_words": 189}
+{"chunks": [27], "coverage": 1.0, "dropped": 0, "item": 69, "numbers": ["8.1", "8.2", "911"], "section_words": 203}
+{"chunks": [145], "coverage": 1.0, "dropped": 0, "item": 70, "numbers": ["13", "14", "14.1", "14.2", "60"], "section_words": 133}
+{"chunks": [36], "coverage": 1.0, "dropped": 0, "item": 71, "numbers": ["10", "11", "90"], "section_words": 121}
+{"chunks": [33], "coverage": 0.0, "dropped": 0, "item": 72, "numbers": ["1.50", "3.3", "30", "45"], "section_words": 159}
+{"chunks": [208], "coverage": 1.0, "dropped": 0, "item": 73, "numbers": ["15", "8.1"], "section_words": 31}
+{"chunks": [60], "coverage": 0.0, "dropped": 0, "item": 74, "numbers": ["1.38", "12"], "section_words": 186}
+{"chunks": [63], "coverage": 0.21052631578947367, "dropped": 0, "item": 75, "numbers": ["2.2", "2.3"], "section_words": 88}
+{"chunks": [4], "coverage": 1.0, "dropped": 0, "item": 76, "numbers": ["12", "180", "2.1", "2020"], "section_words": 111}
+{"chunks": [64], "coverage": 1.0, "dropped": 0, "item": 77, "numbers": ["10", "11", "11.8", "11.9", "20", "2019"], "section_words": 146}
+{"chunks": [34], "coverage": 0.0, "dropped": 0, "item": 78, "numbers": [], "section_words": 193}
+{"chunks": [23], "coverage": 0.0, "dropped": 0, "item": 79, "numbers": [], "section_words": 11}
+{"chunks": [171], "coverage": 1.0, "dropped": 0, "item": 80, "numbers": ["120", "13", "14.5", "18", "30"], "section_words": 102}
+{"chunks": [57], "coverage": 1.0, "dropped": 0, "item": 81, "numbers": [], "section_words": 62}
+{"chunks": [18], "coverage": 0.0, "dropped": 0, "item": 82, "numbers": ["10"], "section_words": 204}
+{"chunks": [40], "coverage": 1.0, "dropped": 0, "item": 83, "numbers": ["038", "14.2", "1649"], "section_words": 194}
+{"chunks": [321], "coverage": 1.0, "dropped": 0, "item": 84, "numbers": ["28.8", "31"], "section_words": 71}
+{"chunks": [343], "coverage": 0.0, "dropped": 0, "item": 85, "numbers": ["31"], "section_words": 125}
+{"chunks": [36], "coverage": 1.0, "dropped": 0, "item": 86, "numbers": ["10", "12", "15", "5.3"], "section_words": 161}
+{"chunks": [183], "coverage": 0.0, "dropped": 0, "item": 87, "numbers": ["16", "17.2", "18"], "section_words": 99}
+{"chunks": [32], "coverage": 0.0, "dropped": 0, "item": 88, "numbers": ["13.1", "60"], "section_words": 134}
+{"chunks": [43], "coverage": 0.0, "dropped": 0, "item": 89, "numbers": ["15.3", "16", "16.1", "16.2"], "section_words": 193}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 90, "numbers": ["30", "8.1"], "section_words": 112}
+{"chunks": [50], "coverage": 0.0, "dropped": 0, "item": 91, "numbers": [], "section_words": 34}
+{"chunks": [237], "coverage": 1.0, "dropped": 0, "item": 92, "numbers": ["19", "2007", "22", "30"], "section_words": 78}
+{"chunks": [240], "coverage": 0.0, "dropped": 0, "item": 93, "numbers": ["10", "10.1", "18", "2010", "30"], "section_words": 35}
+{"chunks": [4], "coverage": 0.0, "dropped": 0, "item": 94, "numbers": ["10", "11", "13"], "section_words": 173}
+{"chunks": [81], "coverage": 1.0, "dropped": 0, "item": 95, "numbers": ["12", "16.14", "16.15"], "section_words": 160}
+{"chunks": [76], "coverage": 0.8108108108108109, "dropped": 0, "item": 96, "numbers": ["10.3"], "section_words": 100}
+{"chunks": [227], "coverage": 1.0, "dropped": 0, "item": 97, "numbers": ["1051", "15", "17.11", "17.9", "1946", "32", "46"], "section_words": 147}
+{"chunks": [14], "coverage": 0.0, "dropped": 0, "item": 98, "numbers": ["1.1", "1.6"], "section_words": 95}
+{"chunks": [27], "coverage": 1.0, "dropped": 0, "item": 99, "numbers": ["10", "18", "4.6"], "section_words": 197}
+{"chunks": [348], "coverage": 0.0, "dropped": 0, "item": 100, "numbers": ["34"], "section_words": 77}
+{"chunks": [669], "coverage": 0.0, "dropped": 0, "item": 101, "numbers": ["1081", "55"], "section_words": 50}
+{"chunks": [45], "coverage": 0.0, "dropped": 0, "item": 102, "numbers": ["15", "2018"], "section_words": 174}
+{"chunks": [46], "coverage": 0.0, "dropped": 0, "item": 103, "numbers": ["9.11", "9.12", "9.13", "9.14"], "section_words": 186}
+{"chunks": [40], "coverage": 1.0, "dropped": 0, "item": 104, "numbers": ["10", "20", "21", "22"], "section_words": 182}
+{"chunks": [32], "coverage": 0.0, "dropped": 0, "item": 105, "numbers": ["48", "5.7"], "section_words": 195}
+{"chunks": [286], "coverage": 1.0, "dropped": 0, "item": 106, "numbers": ["22", "22.1", "25"], "section_words": 42}
+{"chunks": [164], "coverage": 0.0, "dropped": 0, "item": 107, "numbers": ["20", "23.2"], "section_words": 123}
+{"chunks": [131], "coverage": 0.0, "dropped": 0, "item": 108, "numbers": ["10.2", "11", "30"], "section_words": 56}
+{"chunks": [225], "coverage": 1.0, "dropped": 0, "item": 109, "numbers": ["13", "24"], "section_words": 67}
+{"chunks": [269], "coverage": 1.0, "dropped": 0, "item": 110, "numbers": ["19", "7.1", "7.2", "7.3", "7.4"], "section_words": 48}
+{"chunks": [10], "coverage": 0.0, "dropped": 0, "item": 111, "numbers": ["1.1"], "section_words": 42}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 112, "numbers": ["19", "30", "60"], "section_words": 219}
+{"chunks": [160], "coverage": 0.0, "dropped": 0, "item": 113, "numbers": ["11", "16"], "section_words": 97}
+{"chunks": [903], "coverage": 0.0, "dropped": 0, "item": 114, "numbers": ["15.11", "78"], "section_words": 162}
+{"chunks": [47], "coverage": 1.0, "dropped": 0, "item": 115, "numbers": ["14", "16", "17"], "section_words": 190}
+{"chunks": [501], "coverage": 0.0, "dropped": 0, "item": 116, "numbers": ["38"], "section_words": 105}
+{"chunks": [38], "coverage": 0.20689655172413793, "dropped": 0, "item": 117, "numbers": ["7.1", "7.2", "7.3", "7.4"], "section_words": 157}
+{"chunks": [221], "coverage": 1.0, "dropped": 0, "item": 118, "numbers": ["18", "29", "30", "8.5", "8.6", "8.7"], "section_words": 97}
+{"chunks": [9], "coverage": 0.0, "dropped": 0, "item": 119, "numbers": ["2011", "31"], "section_words": 31}
+{"chunks": [92], "coverage": 0.0, "dropped": 0, "item": 120, "numbers": ["10", "12", "5.1"], "section_words": 199}
+{"chunks": [66], "coverage": 0.6607142857142857, "dropped": 0, "item": 121, "numbers": ["10", "8.17", "8.18"], "section_words": 139}
+{"chunks": [7], "coverage": 1.0, "dropped": 0, "item": 122, "numbers": ["90"], "section_words": 112}
+{"chunks": [222], "coverage": 0.0, "dropped": 0, "item": 123, "numbers": ["16"], "section_words": 133}
+{"chunks": [181], "coverage": 0.0, "dropped": 0, "item": 124, "numbers": ["15.6", "15.7", "16"], "section_words": 108}
+{"chunks": [90], "coverage": 0.0, "dropped": 0, "item": 125, "numbers": ["12"], "section_words": 151}
+{"chunks": [43], "coverage": 0.0, "dropped": 0, "item": 126, "numbers": ["10", "30"], "section_words": 53}
+{"chunks": [21], "coverage": 1.0, "dropped": 0, "item": 127, "numbers": [], "section_words": 118}
+{"chunks": [107], "coverage": 1.0, "dropped": 0, "item": 128, "numbers": ["12", "18", "19"], "section_words": 87}
+{"chunks": [5], "coverage": 0.44776119402985076, "dropped": 0, "item": 129, "numbers": ["30"], "section_words": 93}
+{"chunks": [18], "coverage": 1.0, "dropped": 0, "item": 130, "numbers": ["30", "7.1", "7.2", "7.3", "7.4"], "section_words": 199}
+{"chunks": [408], "coverage": 0.0, "dropped": 0, "item": 131, "numbers": ["30", "34", "60"], "section_words": 205}
+{"chunks": [15], "coverage": 0.0, "dropped": 0, "item": 132, "numbers": ["15", "2.4", "2.5"], "section_words": 148}
+{"chunks": [448], "coverage": 1.0, "dropped": 0, "item": 133, "numbers": ["3.45", "41"], "section_words": 97}
+{"chunks": [134], "coverage": 0.0, "dropped": 0, "item": 134, "numbers": ["17.3"], "section_words": 68}
+{"chunks": [82], "coverage": 1.0, "dropped": 0, "item": 135, "numbers": ["5.7"], "section_words": 150}
+{"chunks": [118], "coverage": 0.0, "dropped": 0, "item": 136, "numbers": ["9.1"], "section_words": 24}
+{"chunks": [117], "coverage": 0.0, "dropped": 0, "item": 137, "numbers": [], "section_words": 51}
+{"chunks": [55], "coverage": 0.0, "dropped": 0, "item": 138, "numbers": ["7.1"], "section_words": 46}
+{"chunks": [71], "coverage": 0.0, "dropped": 0, "item": 139, "numbers": [], "section_words": 55}
+{"chunks": [29], "coverage": 1.0, "dropped": 0, "item": 140, "numbers": [], "section_words": 189}
+{"chunks": [225], "coverage": 0.0, "dropped": 0, "item": 141, "numbers": ["3.1"], "section_words": 63}
+{"chunks": [109], "coverage": 0.0, "dropped": 0, "item": 142, "numbers": ["12"], "section_words": 67}
+{"chunks": [7], "coverage": 0.0, "dropped": 0, "item": 143, "numbers": ["24"], "section_words": 74}
+{"chunks": [250], "coverage": 1.0, "dropped": 0, "item": 144, "numbers": ["21", "8.2", "8.3", "8.4"], "section_words": 147}
+{"chunks": [5], "coverage": 1.0, "dropped": 0, "item": 145, "numbers": ["11", "60"], "section_words": 173}
+{"chunks": [68], "coverage": 0.0, "dropped": 0, "item": 146, "numbers": ["7.1", "7.2"], "section_words": 150}
+{"chunks": [32], "coverage": 1.0, "dropped": 0, "item": 147, "numbers": ["120", "13", "2020", "2029", "30", "5.1", "5.2", "5.3"], "section_words": 95}
+{"chunks": [1], "coverage": 1.0, "dropped": 0, "item": 148, "numbers": ["1.1", "1.2", "2003", "30"], "section_words": 202}
+{"chunks": [129], "coverage": 0.0, "dropped": 0, "item": 149, "numbers": ["9.05"], "section_words": 136}
+{"chunks": [47], "coverage": 0.6, "dropped": 0, "item": 150, "numbers": ["3.6", "30", "5.2", "5.3", "60"], "section_words": 242}
+{"chunks": [20], "coverage": 0.0, "dropped": 0, "item": 151, "numbers": ["90"], "section_words": 201}
+{"chunks": [15], "coverage": 0.0, "dropped": 0, "item": 152, "numbers": [], "section_words": 195}
+{"chunks": [15], "coverage": 1.0, "dropped": 0, "item": 153, "numbers": ["12", "2020", "2021", "31"], "section_words": 78}
+{"chunks": [245], "coverage": 0.0, "dropped": 0, "item": 154, "numbers": ["14", "2015", "30", "40"], "section_words": 35}
+{"chunks": [14], "coverage": 0.0, "dropped": 0, "item": 155, "numbers": ["1999", "29", "30", "31", "60"], "section_words": 177}
+{"chunks": [145], "coverage": 1.0, "dropped": 0, "item": 156, "numbers": ["11", "12.06"], "section_words": 56}
+{"chunks": [449], "coverage": 0.0, "dropped": 0, "item": 157, "numbers": ["11.1", "37"], "section_words": 160}
+{"chunks": [266], "coverage": 0.0, "dropped": 0, "item": 158, "numbers": ["12", "32", "7.2", "7.3", "7.4", "7.5", "7.6", "7.7"], "section_words": 127}
+{"chunks": [1], "coverage": 1.0, "dropped": 0, "item": 159, "numbers": ["18", "2018", "94"], "section_words": 145}
+{"chunks": [19], "coverage": 0.0, "dropped": 0, "item": 160, "numbers": ["8.1"], "section_words": 158}
+{"chunks": [78], "coverage": 0.0, "dropped": 0, "item": 161, "numbers": ["10"], "section_words": 59}
+{"chunks": [9], "coverage": 1.0, "dropped": 0, "item": 162, "numbers": ["2.2"], "section_words": 202}
+{"chunks": [119], "coverage": 0.0, "dropped": 0, "item": 163, "numbers": ["10", "4.3", "5.8"], "section_words": 31}
+{"chunks": [6], "coverage": 0.0, "dropped": 0, "item": 164, "numbers": [], "section_words": 236}
+{"chunks": [30], "coverage": 1.0, "dropped": 0, "item": 165, "numbers": ["30"], "section_words": 33}
+{"chunks": [129], "coverage": 1.0, "dropped": 0, "item": 166, "numbers": ["11", "30"], "section_words": 150}
+{"chunks": [308], "coverage": 1.0, "dropped": 0, "item": 167, "numbers": ["1401", "24", "4.1", "9.6"], "section_words": 82}
+{"chunks": [55], "coverage": 1.0, "dropped": 0, "item": 168, "numbers": [], "section_words": 25}
+{"chunks": [270], "coverage": 0.0, "dropped": 0, "item": 169, "numbers": ["10", "12", "2020", "21", "33", "50"], "section_words": 35}
+{"chunks": [723], "coverage": 1.0, "dropped": 0, "item": 170, "numbers": ["10", "16.1", "16.2", "16.5", "68"], "section_words": 182}
+{"chunks": [87], "coverage": 0.0, "dropped": 0, "item": 171, "numbers": [], "section_words": 47}
+{"chunks": [51], "coverage": 0.0, "dropped": 0, "item": 172, "numbers": ["10", "12", "2014", "21", "8.2", "9.1", "9.2", "9.3"], "section_words": 132}
+{"chunks": [36], "coverage": 0.7692307692307693, "dropped": 0, "item": 173, "numbers": [], "section_words": 32}
+{"chunks": [105], "coverage": 0.32142857142857145, "dropped": 0, "item": 174, "numbers": ["5.0"], "section_words": 33}
+{"chunks": [144], "coverage": 0.0, "dropped": 0, "item": 175, "numbers": ["30"], "section_words": 77}
+{"chunks": [58], "coverage": 0.0, "dropped": 0, "item": 176, "numbers": [], "section_words": 193}
+{"chunks": [5], "coverage": 1.0, "dropped": 0, "item": 177, "numbers": ["115", "60"], "section_words": 161}
+{"chunks": [37], "coverage": 0.21951219512195122, "dropped": 0, "item": 178, "numbers": ["13", "7.1", "7.2"], "section_words": 107}
+{"chunks": [16], "coverage": 1.0, "dropped": 0, "item": 179, "numbers": ["30"], "section_words": 184}
+{"chunks": [235], "coverage": 1.0, "dropped": 0, "item": 180, "numbers": ["16.13", "25", "26", "38"], "section_words": 126}
+{"chunks": [731], "coverage": 0.0, "dropped": 0, "item": 181, "numbers": ["12.5", "59"], "section_words": 34}
+{"chunks": [95], "coverage": 1.0, "dropped": 0, "item": 182, "numbers": ["14", "17", "18"], "section_words": 178}
+{"chunks": [78], "coverage": 0.0, "dropped": 0, "item": 183, "numbers": ["10", "11.2", "12", "12.1", "13", "13.1", "14"], "section_words": 182}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 184, "numbers": ["16"], "section_words": 129}
+{"chunks": [78], "coverage": 1.0, "dropped": 0, "item": 185, "numbers": ["15", "1997", "1999"], "section_words": 40}
+{"chunks": [213], "coverage": 0.0, "dropped": 0, "item": 186, "numbers": ["12", "29"], "section_words": 58}
+{"chunks": [38], "coverage": 0.0, "dropped": 0, "item": 187, "numbers": ["10", "17", "19087", "435", "600"], "section_words": 183}
+{"chunks": [186], "coverage": 0.0, "dropped": 0, "item": 188, "numbers": ["10", "21", "9.5"], "section_words": 172}
+{"chunks": [29], "coverage": 0.0, "dropped": 0, "item": 189, "numbers": [], "section_words": 537}
+{"chunks": [622], "coverage": 0.0, "dropped": 0, "item": 190, "numbers": ["46"], "section_words": 103}
+{"chunks": [27], "coverage": 1.0, "dropped": 0, "item": 191, "numbers": ["10", "12", "610"], "section_words": 98}
+{"chunks": [54], "coverage": 1.0, "dropped": 0, "item": 192, "numbers": ["100", "15.10", "15.9"], "section_words": 163}
+{"chunks": [19], "coverage": 1.0, "dropped": 0, "item": 193, "numbers": ["2.05"], "section_words": 57}
+{"chunks": [103], "coverage": 0.0, "dropped": 0, "item": 194, "numbers": ["13", "15", "20", "2019", "32", "60", "65.11"], "section_words": 416}
+{"chunks": [33], "coverage": 1.0, "dropped": 0, "item": 195, "numbers": ["10", "13.2", "13.3", "14", "15", "2000000.00"], "section_words": 187}
+{"chunks": [42], "coverage": 0.0, "dropped": 0, "item": 196, "numbers": ["3.3", "3.4", "30"], "section_words": 118}
+{"chunks": [145], "coverage": 0.0, "dropped": 0, "item": 197, "numbers": ["12", "2019", "27"], "section_words": 114}
+{"chunks": [96], "coverage": 1.0, "dropped": 0, "item": 198, "numbers": ["11", "11.1", "30"], "section_words": 85}
+{"chunks": [250], "coverage": 0.0, "dropped": 0, "item": 199, "numbers": ["17", "19"], "section_words": 66}
+{"chunks": [60], "coverage": 1.0, "dropped": 0, "item": 200, "numbers": ["7.1"], "section_words": 66}
+{"chunks": [25], "coverage": 1.0, "dropped": 0, "item": 201, "numbers": ["30"], "section_words": 39}
+{"chunks": [85], "coverage": 1.0, "dropped": 0, "item": 202, "numbers": ["11", "7.1"], "section_words": 119}
+{"chunks": [113], "coverage": 0.0, "dropped": 0, "item": 203, "numbers": ["16", "180", "270", "30", "8.2"], "section_words": 91}
+{"chunks": [312], "coverage": 0.0, "dropped": 0, "item": 204, "numbers": ["10", "21"], "section_words": 122}
+{"chunks": [32], "coverage": 1.0, "dropped": 0, "item": 205, "numbers": ["30"], "section_words": 168}
+{"chunks": [70], "coverage": 0.0, "dropped": 0, "item": 206, "numbers": [], "section_words": 130}
+{"chunks": [75], "coverage": 0.0, "dropped": 0, "item": 207, "numbers": [], "section_words": 198}
+{"chunks": [235], "coverage": 0.0, "dropped": 0, "item": 208, "numbers": ["20"], "section_words": 87}
+{"chunks": [261], "coverage": 1.0, "dropped": 0, "item": 209, "numbers": ["10.8", "23"], "section_words": 95}
+{"chunks": [26], "coverage": 1.0, "dropped": 0, "item": 210, "numbers": ["9.7"], "section_words": 184}
+{"chunks": [176], "coverage": 0.0, "dropped": 0, "item": 211, "numbers": ["18"], "section_words": 56}
+{"chunks": [150], "coverage": 0.5555555555555556, "dropped": 0, "item": 212, "numbers": ["11.2", "12"], "section_words": 57}
+{"chunks": [136], "coverage": 0.5769230769230769, "dropped": 0, "item": 213, "numbers": ["11.2", "14", "30", "60"], "section_words": 64}
+{"chunks": [151], "coverage": 0.0, "dropped": 0, "item": 214, "numbers": ["14", "1934", "406"], "section_words": 47}
+{"chunks": [536], "coverage": 0.0, "dropped": 0, "item": 215, "numbers": ["55", "65", "85"], "section_words": 60}
+{"chunks": [463], "coverage": 0.0, "dropped": 0, "item": 216, "numbers": ["15", "30", "45"], "section_words": 117}
+{"chunks": [130], "coverage": 1.0, "dropped": 0, "item": 217, "numbers": ["10", "17"], "section_words": 36}
+{"chunks": [78], "coverage": 0.0, "dropped": 0, "item": 218, "numbers": ["10", "11.2", "12", "12.1", "13", "13.1", "14"], "section_words": 182}
+{"chunks": [14], "coverage": 0.0, "dropped": 0, "item": 219, "numbers": ["10", "11", "2.3", "20", "2019"], "section_words": 101}
+{"chunks": [259], "coverage": 0.0, "dropped": 0, "item": 220, "numbers": ["10.5", "10.6", "23", "47"], "section_words": 155}
+{"chunks": [59], "coverage": 0.0, "dropped": 0, "item": 221, "numbers": ["13", "13.4", "14", "23"], "section_words": 112}
+{"chunks": [141], "coverage": 1.0, "dropped": 0, "item": 222, "numbers": ["10", "10.3", "2015", "24", "7.1"], "section_words": 31}
+{"chunks": [19], "coverage": 1.0, "dropped": 0, "item": 223, "numbers": ["90"], "section_words": 47}
+{"chunks": [107], "coverage": 0.0, "dropped": 0, "item": 224, "numbers": ["5.1"], "section_words": 22}
+{"chunks": [5], "coverage": 0.0, "dropped": 0, "item": 225, "numbers": [], "section_words": 134}
+{"chunks": [135], "coverage": 1.0, "dropped": 0, "item": 226, "numbers": ["11", "11.1", "14", "30"], "section_words": 92}
+{"chunks": [33], "coverage": 0.0, "dropped": 0, "item": 227, "numbers": ["13", "13.1", "13.2", "14", "14.1", "2018", "25"], "section_words": 178}
+{"chunks": [35], "coverage": 1.0, "dropped": 0, "item": 228, "numbers": ["2.2", "2.4", "3.0"], "section_words": 170}
+{"chunks": [6], "coverage": 0.0, "dropped": 0, "item": 229, "numbers": [], "section_words": 74}
+{"chunks": [67], "coverage": 0.0, "dropped": 0, "item": 230, "numbers": [], "section_words": 40}
+{"chunks": [275], "coverage": 0.0, "dropped": 0, "item": 231, "numbers": ["21.3", "21.4", "49", "52", "80"], "section_words": 155}
+{"chunks": [84], "coverage": 0.0, "dropped": 0, "item": 232, "numbers": ["10", "2018", "28", "6.10"], "section_words": 127}
+{"chunks": [137], "coverage": 1.0, "dropped": 0, "item": 233, "numbers": ["14", "2003", "31", "9.1"], "section_words": 129}
+{"chunks": [19], "coverage": 0.7894736842105263, "dropped": 0, "item": 234, "numbers": ["2003", "2004", "28", "30"], "section_words": 185}
+{"chunks": [254], "coverage": 1.0, "dropped": 0, "item": 235, "numbers": ["10", "12", "15", "22", "24"], "section_words": 138}
+{"chunks": [10], "coverage": 1.0, "dropped": 0, "item": 236, "numbers": ["1998", "30"], "section_words": 45}
+{"chunks": [182], "coverage": 1.0, "dropped": 0, "item": 237, "numbers": ["13.1", "14", "15"], "section_words": 92}
+{"chunks": [75], "coverage": 0.0, "dropped": 0, "item": 238, "numbers": ["14", "8.4", "9.1"], "section_words": 200}
+{"chunks": [124], "coverage": 0.0, "dropped": 0, "item": 239, "numbers": ["13"], "section_words": 48}
+{"chunks": [26], "coverage": 1.0, "dropped": 0, "item": 240, "numbers": ["15"], "section_words": 132}
+{"chunks": [238], "coverage": 0.0, "dropped": 0, "item": 241, "numbers": ["17.2", "17.3", "17.5", "17.6", "17.7", "18", "42"], "section_words": 168}
+{"chunks": [60], "coverage": 0.0, "dropped": 0, "item": 242, "numbers": ["18"], "section_words": 75}
+{"chunks": [50], "coverage": 1.0, "dropped": 0, "item": 243, "numbers": ["14", "15", "2006"], "section_words": 111}
+{"chunks": [26], "coverage": 1.0, "dropped": 0, "item": 244, "numbers": [], "section_words": 45}
+{"chunks": [61], "coverage": 1.0, "dropped": 0, "item": 245, "numbers": [], "section_words": 93}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 246, "numbers": ["12", "13"], "section_words": 407}
+{"chunks": [155], "coverage": 0.7894736842105263, "dropped": 0, "item": 247, "numbers": ["11", "9.02", "9.03"], "section_words": 123}
+{"chunks": [378], "coverage": 0.0, "dropped": 0, "item": 248, "numbers": ["1934", "24", "28"], "section_words": 51}
+{"chunks": [77], "coverage": 0.0, "dropped": 0, "item": 249, "numbers": ["10", "12", "12.05", "13", "16.08", "9.07"], "section_words": 191}
+{"chunks": [82], "coverage": 0.0, "dropped": 0, "item": 250, "numbers": ["13.5", "13.6"], "section_words": 101}
+{"chunks": [49], "coverage": 1.0, "dropped": 0, "item": 251, "numbers": ["10", "10.1", "10.2", "10.3", "12", "2018", "60", "9.3"], "section_words": 158}
+{"chunks": [448], "coverage": 1.0, "dropped": 0, "item": 252, "numbers": ["19", "7.5", "8.1"], "section_words": 175}
+{"chunks": [39], "coverage": 0.0, "dropped": 0, "item": 253, "numbers": ["1.27", "1.28", "10"], "section_words": 191}
+{"chunks": [35], "coverage": 0.375, "dropped": 0, "item": 254, "numbers": ["20", "25000000", "30"], "section_words": 110}
+{"chunks": [380], "coverage": 0.0, "dropped": 0, "item": 255, "numbers": ["11", "31"], "section_words": 137}
+{"chunks": [57], "coverage": 0.0, "dropped": 0, "item": 256, "numbers": ["4.3", "4.4"], "section_words": 159}
+{"chunks": [1], "coverage": 1.0, "dropped": 0, "item": 257, "numbers": ["10.1", "20", "201", "2020", "30024", "33304", "4060", "512"], "section_words": 154}
+{"chunks": [129], "coverage": 0.0, "dropped": 0, "item": 258, "numbers": ["13", "9.5"], "section_words": 174}
+{"chunks": [106], "coverage": 0.0, "dropped": 0, "item": 259, "numbers": ["10", "12", "30", "6.2"], "section_words": 154}
+{"chunks": [516], "coverage": 0.6086956521739131, "dropped": 0, "item": 260, "numbers": ["28"], "section_words": 70}
+{"chunks": [8], "coverage": 0.0, "dropped": 0, "item": 261, "numbers": [], "section_words": 149}
+{"chunks": [13], "coverage": 1.0, "dropped": 0, "item": 262, "numbers": ["10", "13", "14", "2000000", "30"], "section_words": 132}
+{"chunks": [78], "coverage": 1.0, "dropped": 0, "item": 263, "numbers": ["11", "11.4", "11.5", "11.6", "11.7"], "section_words": 188}
+{"chunks": [55], "coverage": 1.0, "dropped": 0, "item": 264, "numbers": ["12", "2.1", "30"], "section_words": 76}
+{"chunks": [42], "coverage": 0.0, "dropped": 0, "item": 265, "numbers": ["10"], "section_words": 52}
+{"chunks": [150], "coverage": 0.38666666666666666, "dropped": 0, "item": 266, "numbers": ["19", "27"], "section_words": 180}
+{"chunks": [252], "coverage": 0.0, "dropped": 0, "item": 267, "numbers": ["16.5", "21"], "section_words": 101}
+{"chunks": [690], "coverage": 0.0, "dropped": 0, "item": 268, "numbers": ["10.3", "14.2", "45"], "section_words": 162}
+{"chunks": [4], "coverage": 0.0, "dropped": 0, "item": 269, "numbers": ["12", "180", "2.1", "2020"], "section_words": 111}
+{"chunks": [491], "coverage": 1.0, "dropped": 0, "item": 270, "numbers": ["11", "11.1", "11.2", "11.5", "38"], "section_words": 164}
+{"chunks": [50], "coverage": 1.0, "dropped": 0, "item": 271, "numbers": ["13.14", "13.15"], "section_words": 81}
+{"chunks": [624], "coverage": 1.0, "dropped": 0, "item": 272, "numbers": ["12.6", "13.2", "56"], "section_words": 108}
+{"chunks": [87], "coverage": 0.0, "dropped": 0, "item": 273, "numbers": ["1999", "7.6"], "section_words": 61}
+{"chunks": [151], "coverage": 0.0, "dropped": 0, "item": 274, "numbers": ["10", "13", "14"], "section_words": 90}
+{"chunks": [19], "coverage": 0.0, "dropped": 0, "item": 275, "numbers": ["11", "12"], "section_words": 205}
+{"chunks": [388], "coverage": 1.0, "dropped": 0, "item": 276, "numbers": ["18.2", "18.6", "18.7", "40"], "section_words": 124}
+{"chunks": [37], "coverage": 0.0, "dropped": 0, "item": 277, "numbers": ["10000", "201812130044", "9.4", "9.5"], "section_words": 162}
+{"chunks": [553], "coverage": 1.0, "dropped": 0, "item": 278, "numbers": ["15", "19.2", "31"], "section_words": 46}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 279, "numbers": [], "section_words": 69}
+{"chunks": [22], "coverage": 1.0, "dropped": 0, "item": 280, "numbers": ["1.02", "2.02"], "section_words": 64}
+{"chunks": [43], "coverage": 1.0, "dropped": 0, "item": 281, "numbers": ["180", "30", "5.01"], "section_words": 112}
+{"chunks": [30], "coverage": 0.0, "dropped": 0, "item": 282, "numbers": [], "section_words": 73}
+{"chunks": [85], "coverage": 0.0, "dropped": 0, "item": 283, "numbers": ["10", "6.11", "6.12"], "section_words": 178}
+{"chunks": [157], "coverage": 0.0, "dropped": 0, "item": 284, "numbers": ["13", "14.2", "14.5"], "section_words": 105}
+{"chunks": [84], "coverage": 1.0, "dropped": 0, "item": 285, "numbers": ["4.4"], "section_words": 92}
+{"chunks": [57], "coverage": 0.0, "dropped": 0, "item": 286, "numbers": ["11"], "section_words": 199}
+{"chunks": [273], "coverage": 0.0, "dropped": 0, "item": 287, "numbers": ["23", "50"], "section_words": 176}
+{"chunks": [27], "coverage": 0.0, "dropped": 0, "item": 288, "numbers": ["10", "11", "36"], "section_words": 57}
+{"chunks": [391], "coverage": 1.0, "dropped": 0, "item": 289, "numbers": ["118", "19"], "section_words": 56}
+{"chunks": [145], "coverage": 0.0, "dropped": 0, "item": 290, "numbers": ["10", "10.4"], "section_words": 91}
+{"chunks": [49], "coverage": 1.0, "dropped": 0, "item": 291, "numbers": ["10", "10.1", "10.2", "10.3", "12", "2018", "60", "9.3"], "section_words": 158}
+{"chunks": [68], "coverage": 0.0, "dropped": 0, "item": 292, "numbers": ["7.1", "7.2"], "section_words": 150}
+{"chunks": [113], "coverage": 0.0, "dropped": 0, "item": 293, "numbers": ["15"], "section_words": 45}
+{"chunks": [32], "coverage": 0.04081632653061224, "dropped": 0, "item": 294, "numbers": [], "section_words": 53}
+{"chunks": [67], "coverage": 0.0, "dropped": 0, "item": 295, "numbers": ["1000000", "11", "2000000", "30"], "section_words": 151}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 296, "numbers": ["19", "21", "22", "23"], "section_words": 25}
+{"chunks": [126], "coverage": 0.0, "dropped": 0, "item": 297, "numbers": ["2.6"], "section_words": 20}
+{"chunks": [33], "coverage": 0.0, "dropped": 0, "item": 298, "numbers": ["10", "20", "7.3", "7.7", "8.0", "8.1"], "section_words": 180}
+{"chunks": [75], "coverage": 0.0, "dropped": 0, "item": 299, "numbers": ["10", "15", "20", "2019"], "section_words": 180}
+{"chunks": [160], "coverage": 1.0, "dropped": 0, "item": 300, "numbers": ["11", "11.1", "11.2", "11.3", "11.5", "11.6", "12", "27"], "section_words": 202}
+{"chunks": [167], "coverage": 0.7317073170731707, "dropped": 0, "item": 301, "numbers": ["10.5", "14", "7.2", "8.2", "8.3"], "section_words": 71}
+{"chunks": [39], "coverage": 0.0, "dropped": 0, "item": 302, "numbers": ["10", "30"], "section_words": 176}
+{"chunks": [71], "coverage": 1.0, "dropped": 0, "item": 303, "numbers": ["5.4"], "section_words": 173}
+{"chunks": [275], "coverage": 1.0, "dropped": 0, "item": 304, "numbers": ["28", "29.0", "29.1"], "section_words": 86}
+{"chunks": [50], "coverage": 1.0, "dropped": 0, "item": 305, "numbers": ["11"], "section_words": 77}
+{"chunks": [10], "coverage": 0.5172413793103449, "dropped": 0, "item": 306, "numbers": ["1.1"], "section_words": 42}
+{"chunks": [159], "coverage": 0.0, "dropped": 0, "item": 307, "numbers": ["20", "30", "34"], "section_words": 200}
+{"chunks": [39], "coverage": 1.0, "dropped": 0, "item": 308, "numbers": ["36"], "section_words": 204}
+{"chunks": [56], "coverage": 1.0, "dropped": 0, "item": 309, "numbers": ["11", "11.1", "11.2", "11.3", "12", "201812130044", "30"], "section_words": 177}
+{"chunks": [33], "coverage": 0.0, "dropped": 0, "item": 310, "numbers": ["18", "1940", "2020", "21", "485", "8.3", "8.4", "8.5", "8.6"], "section_words": 177}
+{"chunks": [279], "coverage": 0.0, "dropped": 0, "item": 311, "numbers": ["34", "52", "7.8"], "section_words": 155}
+{"chunks": [262], "coverage": 1.0, "dropped": 0, "item": 312, "numbers": ["18", "6.4"], "section_words": 51}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 313, "numbers": [], "section_words": 160}
+{"chunks": [26], "coverage": 0.0, "dropped": 0, "item": 314, "numbers": ["4.1", "6.5", "9.13", "9.14", "9.3", "9.4", "9.6", "9.7", "9.8"], "section_words": 74}
+{"chunks": [57], "coverage": 0.7894736842105263, "dropped": 0, "item": 315, "numbers": [], "section_words": 56}
+{"chunks": [40], "coverage": 1.0, "dropped": 0, "item": 316, "numbers": ["3.2", "90"], "section_words": 64}
+{"chunks": [43], "coverage": 0.0, "dropped": 0, "item": 317, "numbers": ["14.4", "14.5", "15", "2019", "2020", "2021", "31"], "section_words": 205}
+{"chunks": [23], "coverage": 1.0, "dropped": 0, "item": 318, "numbers": ["9.10", "9.11", "9.9"], "section_words": 132}
+{"chunks": [179], "coverage": 0.0, "dropped": 0, "item": 319, "numbers": ["19", "3.2", "30"], "section_words": 290}
+{"chunks": [376], "coverage": 0.0, "dropped": 0, "item": 320, "numbers": ["13.3", "35", "90"], "section_words": 107}
+{"chunks": [283], "coverage": 1.0, "dropped": 0, "item": 321, "numbers": ["14", "14.5", "15", "15.1", "16", "180", "26"], "section_words": 176}
+{"chunks": [6], "coverage": 1.0, "dropped": 0, "item": 322, "numbers": ["14", "90"], "section_words": 198}
+{"chunks": [107], "coverage": 1.0, "dropped": 0, "item": 323, "numbers": ["11", "30", "5.1", "90"], "section_words": 110}
+{"chunks": [51], "coverage": 1.0, "dropped": 0, "item": 324, "numbers": ["5.1"], "section_words": 25}
+{"chunks": [39], "coverage": 1.0, "dropped": 0, "item": 325, "numbers": ["10", "13"], "section_words": 55}
+{"chunks": [230], "coverage": 0.0, "dropped": 0, "item": 326, "numbers": ["17", "8.7", "90"], "section_words": 127}
+{"chunks": [59], "coverage": 1.0, "dropped": 0, "item": 327, "numbers": ["11", "1400", "1601", "18", "1876", "2650", "312", "33401", "45202", "513", "561", "5947", "621", "697"], "section_words": 162}
+{"chunks": [147], "coverage": 1.0, "dropped": 0, "item": 328, "numbers": [], "section_words": 69}
+{"chunks": [262], "coverage": 0.0, "dropped": 0, "item": 329, "numbers": ["18"], "section_words": 121}
+{"chunks": [175], "coverage": 0.0, "dropped": 0, "item": 330, "numbers": ["11.1", "17"], "section_words": 165}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 331, "numbers": ["8.1"], "section_words": 48}
+{"chunks": [674], "coverage": 1.0, "dropped": 0, "item": 332, "numbers": ["14.1", "14.2", "14.5", "65"], "section_words": 126}
+{"chunks": [173], "coverage": 1.0, "dropped": 0, "item": 333, "numbers": ["14", "30"], "section_words": 118}
+{"chunks": [36], "coverage": 1.0, "dropped": 0, "item": 334, "numbers": ["10", "2014", "21", "30", "6.1", "6.2", "90"], "section_words": 177}
+{"chunks": [14], "coverage": 0.0, "dropped": 0, "item": 335, "numbers": ["20", "21"], "section_words": 196}
+{"chunks": [76], "coverage": 1.0, "dropped": 0, "item": 336, "numbers": [], "section_words": 187}
+{"chunks": [4], "coverage": 0.0, "dropped": 0, "item": 337, "numbers": [], "section_words": 64}
+{"chunks": [73], "coverage": 1.0, "dropped": 0, "item": 338, "numbers": ["10", "14", "8.6"], "section_words": 173}
+{"chunks": [31], "coverage": 1.0, "dropped": 0, "item": 339, "numbers": ["1500"], "section_words": 193}
+{"chunks": [113], "coverage": 0.0, "dropped": 0, "item": 340, "numbers": ["11", "7.1", "8.1", "8.2"], "section_words": 95}
+{"chunks": [243], "coverage": 1.0, "dropped": 0, "item": 341, "numbers": ["10", "10.2", "18"], "section_words": 53}
+{"chunks": [51], "coverage": 1.0, "dropped": 0, "item": 342, "numbers": ["9.6"], "section_words": 59}
+{"chunks": [47], "coverage": 0.0, "dropped": 0, "item": 343, "numbers": ["3.4"], "section_words": 51}
+{"chunks": [121], "coverage": 1.0, "dropped": 0, "item": 344, "numbers": ["12", "13"], "section_words": 106}
+{"chunks": [36], "coverage": 0.0, "dropped": 0, "item": 345, "numbers": ["2.9"], "section_words": 86}
+{"chunks": [30], "coverage": 0.6796116504854369, "dropped": 0, "item": 346, "numbers": ["10", "1000000", "13", "14"], "section_words": 157}
+{"chunks": [35], "coverage": 0.0, "dropped": 0, "item": 347, "numbers": [], "section_words": 163}
+{"chunks": [134], "coverage": 0.0, "dropped": 0, "item": 348, "numbers": ["12"], "section_words": 167}
+{"chunks": [81], "coverage": 1.0, "dropped": 0, "item": 349, "numbers": ["15", "17", "7.1"], "section_words": 31}
+{"chunks": [186], "coverage": 0.0, "dropped": 0, "item": 350, "numbers": ["14", "3.8"], "section_words": 104}
+{"chunks": [407], "coverage": 1.0, "dropped": 0, "item": 351, "numbers": ["26", "6.5"], "section_words": 133}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 352, "numbers": ["6.1", "9.2"], "section_words": 162}
+{"chunks": [68], "coverage": 0.0, "dropped": 0, "item": 353, "numbers": ["7.2"], "section_words": 55}
+{"chunks": [182], "coverage": 1.0, "dropped": 0, "item": 354, "numbers": ["13.1", "14", "15"], "section_words": 92}
+{"chunks": [1234], "coverage": 0.0, "dropped": 0, "item": 355, "numbers": ["59"], "section_words": 85}
+{"chunks": [826], "coverage": 0.0, "dropped": 0, "item": 356, "numbers": ["1.4", "11.1", "14.2", "150", "5.2", "6.2", "69"], "section_words": 170}
+{"chunks": [86], "coverage": 0.0, "dropped": 0, "item": 357, "numbers": ["12"], "section_words": 59}
+{"chunks": [9], "coverage": 0.0, "dropped": 0, "item": 358, "numbers": ["201812130044", "3.1", "4.1", "4.2", "4.3", "4.4"], "section_words": 156}
+{"chunks": [130], "coverage": 1.0, "dropped": 0, "item": 359, "numbers": ["13", "14"], "section_words": 88}
+{"chunks": [94], "coverage": 0.0, "dropped": 0, "item": 360, "numbers": ["5.6"], "section_words": 111}
+{"chunks": [39], "coverage": 0.4852941176470588, "dropped": 0, "item": 361, "numbers": ["7.1", "7.2", "90"], "section_words": 74}
+{"chunks": [211], "coverage": 0.0, "dropped": 0, "item": 362, "numbers": ["11.1", "11.2", "13.5", "16"], "section_words": 103}
+{"chunks": [121], "coverage": 1.0, "dropped": 0, "item": 363, "numbers": ["11", "11.0", "18.2", "19.0", "20.0", "9.0"], "section_words": 93}
+{"chunks": [125], "coverage": 0.0, "dropped": 0, "item": 364, "numbers": ["1.3", "1.4", "1.5", "14.4", "23", "24", "3600", "60"], "section_words": 205}
+{"chunks": [28], "coverage": 0.0, "dropped": 0, "item": 365, "numbers": ["10"], "section_words": 64}
+{"chunks": [25], "coverage": 0.5542168674698795, "dropped": 0, "item": 366, "numbers": [], "section_words": 159}
+{"chunks": [21], "coverage": 1.0, "dropped": 0, "item": 367, "numbers": ["2.1"], "section_words": 49}
+{"chunks": [3], "coverage": 1.0, "dropped": 0, "item": 368, "numbers": ["1.3", "10"], "section_words": 70}
+{"chunks": [37], "coverage": 0.0, "dropped": 0, "item": 369, "numbers": [], "section_words": 174}
+{"chunks": [41], "coverage": 0.0, "dropped": 0, "item": 370, "numbers": ["9.02"], "section_words": 184}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 371, "numbers": ["30", "60", "9.1"], "section_words": 137}
+{"chunks": [209], "coverage": 0.8571428571428571, "dropped": 0, "item": 372, "numbers": ["15.2", "22"], "section_words": 55}
+{"chunks": [12], "coverage": 1.0, "dropped": 0, "item": 373, "numbers": ["10", "13", "4.1"], "section_words": 194}
+{"chunks": [295], "coverage": 0.0, "dropped": 0, "item": 374, "numbers": ["13", "26"], "section_words": 35}
+{"chunks": [257], "coverage": 1.0, "dropped": 0, "item": 375, "numbers": ["16", "19", "19.2", "19.3", "45"], "section_words": 127}
+{"chunks": [49], "coverage": 1.0, "dropped": 0, "item": 376, "numbers": ["9.13", "9.14", "9.15", "9.16"], "section_words": 180}
+{"chunks": [56], "coverage": 0.0, "dropped": 0, "item": 377, "numbers": ["19", "20", "20.1"], "section_words": 154}
+{"chunks": [77], "coverage": 0.0, "dropped": 0, "item": 378, "numbers": ["12", "16.8"], "section_words": 148}
+{"chunks": [41], "coverage": 1.0, "dropped": 0, "item": 379, "numbers": ["12", "12.1"], "section_words": 107}
+{"chunks": [54], "coverage": 0.0, "dropped": 0, "item": 380, "numbers": ["18.3", "18.4", "2019", "29"], "section_words": 121}
+{"chunks": [191], "coverage": 1.0, "dropped": 0, "item": 381, "numbers": ["19", "19.4", "19.5"], "section_words": 141}
+{"chunks": [39], "coverage": 0.0, "dropped": 0, "item": 382, "numbers": ["11.2", "3.5", "7.2", "7.4", "7.5"], "section_words": 160}
+{"chunks": [17], "coverage": 0.0, "dropped": 0, "item": 383, "numbers": ["1.3"], "section_words": 78}
+{"chunks": [329], "coverage": 0.0, "dropped": 0, "item": 384, "numbers": ["24", "3.5"], "section_words": 96}
+{"chunks": [205], "coverage": 0.0, "dropped": 0, "item": 385, "numbers": ["20", "23.0"], "section_words": 33}
+{"chunks": [40], "coverage": 0.0, "dropped": 0, "item": 386, "numbers": ["13", "15", "78"], "section_words": 112}
+{"chunks": [132], "coverage": 0.0, "dropped": 0, "item": 387, "numbers": ["11", "18"], "section_words": 161}
+{"chunks": [45], "coverage": 0.2125984251968504, "dropped": 0, "item": 388, "numbers": ["9.2"], "section_words": 94}
+{"chunks": [33], "coverage": 0.0, "dropped": 0, "item": 389, "numbers": ["30"], "section_words": 155}
+{"chunks": [193], "coverage": 0.0, "dropped": 0, "item": 390, "numbers": ["12.9", "16"], "section_words": 52}
+{"chunks": [18], "coverage": 0.0, "dropped": 0, "item": 391, "numbers": [], "section_words": 33}
+{"chunks": [43], "coverage": 0.0, "dropped": 0, "item": 392, "numbers": [], "section_words": 26}
+{"chunks": [50], "coverage": 1.0, "dropped": 0, "item": 393, "numbers": ["14", "15", "2006"], "section_words": 111}
+{"chunks": [20], "coverage": 1.0, "dropped": 0, "item": 394, "numbers": ["14", "90"], "section_words": 165}
+{"chunks": [236], "coverage": 0.0, "dropped": 0, "item": 395, "numbers": ["1000000", "13", "15.3", "15.4", "15.5", "19"], "section_words": 167}
+{"chunks": [15], "coverage": 0.9090909090909091, "dropped": 0, "item": 396, "numbers": ["2.3", "3.1"], "section_words": 200}
+{"chunks": [9], "coverage": 0.6904761904761905, "dropped": 0, "item": 397, "numbers": ["10", "7.1", "8.1", "8.2"], "section_words": 191}
+{"chunks": [1], "coverage": 1.0, "dropped": 0, "item": 398, "numbers": ["10", "60"], "section_words": 186}
+{"chunks": [92], "coverage": 0.0, "dropped": 0, "item": 399, "numbers": ["26"], "section_words": 59}
+{"chunks": [1], "coverage": 1.0, "dropped": 0, "item": 400, "numbers": ["10", "60"], "section_words": 186}
+{"chunks": [41], "coverage": 1.0, "dropped": 0, "item": 401, "numbers": ["13", "2.9"], "section_words": 84}
+{"chunks": [101], "coverage": 0.8333333333333334, "dropped": 0, "item": 402, "numbers": ["10.3", "12", "65"], "section_words": 79}
+{"chunks": [39], "coverage": 1.0, "dropped": 0, "item": 403, "numbers": ["16", "5000000"], "section_words": 192}
+{"chunks": [32], "coverage": 1.0, "dropped": 0, "item": 404, "numbers": ["30"], "section_words": 168}
+{"chunks": [57], "coverage": 0.7894736842105263, "dropped": 0, "item": 405, "numbers": [], "section_words": 56}
+{"chunks": [56], "coverage": 0.6, "dropped": 0, "item": 406, "numbers": ["3.04"], "section_words": 60}
+{"chunks": [20], "coverage": 1.0, "dropped": 0, "item": 407, "numbers": ["12", "8.2", "8.3", "9.1"], "section_words": 192}
+{"chunks": [130], "coverage": 0.0, "dropped": 0, "item": 408, "numbers": ["13", "9.6"], "section_words": 94}
+{"chunks": [34], "coverage": 0.4166666666666667, "dropped": 0, "item": 409, "numbers": ["0.03"], "section_words": 34}
+{"chunks": [131], "coverage": 0.0, "dropped": 0, "item": 410, "numbers": ["19", "23"], "section_words": 31}
+{"chunks": [15], "coverage": 1.0, "dropped": 0, "item": 411, "numbers": ["15", "16"], "section_words": 203}
+{"chunks": [22], "coverage": 1.0, "dropped": 0, "item": 412, "numbers": ["12"], "section_words": 117}
+{"chunks": [37], "coverage": 0.0, "dropped": 0, "item": 413, "numbers": ["120"], "section_words": 68}
+{"chunks": [150], "coverage": 1.0, "dropped": 0, "item": 414, "numbers": ["15.10", "15.11", "19"], "section_words": 78}
+{"chunks": [2], "coverage": 0.4444444444444444, "dropped": 0, "item": 415, "numbers": ["100", "1000000", "30", "500000", "60"], "section_words": 89}
+{"chunks": [58], "coverage": 1.0, "dropped": 0, "item": 416, "numbers": [], "section_words": 63}
+{"chunks": [39], "coverage": 1.0, "dropped": 0, "item": 417, "numbers": ["12", "180", "4.3", "60", "8.1", "8.2", "8.3"], "section_words": 199}
+{"chunks": [306], "coverage": 0.0, "dropped": 0, "item": 418, "numbers": ["12.11", "29"], "section_words": 83}
+{"chunks": [46], "coverage": 0.0, "dropped": 0, "item": 419, "numbers": [], "section_words": 40}
+{"chunks": [151], "coverage": 0.0, "dropped": 0, "item": 420, "numbers": ["11", "90"], "section_words": 160}
+{"chunks": [215], "coverage": 1.0, "dropped": 0, "item": 421, "numbers": [], "section_words": 77}
+{"chunks": [3], "coverage": 1.0, "dropped": 0, "item": 422, "numbers": [], "section_words": 19}
+{"chunks": [23], "coverage": 0.0, "dropped": 0, "item": 423, "numbers": ["7.4"], "section_words": 180}
+{"chunks": [184], "coverage": 0.44, "dropped": 0, "item": 424, "numbers": ["16"], "section_words": 54}
+{"chunks": [209], "coverage": 0.8571428571428571, "dropped": 0, "item": 425, "numbers": ["15.2", "22"], "section_words": 55}
+{"chunks": [15], "coverage": 1.0, "dropped": 0, "item": 426, "numbers": ["12", "2020", "2021", "31"], "section_words": 78}
+{"chunks": [121], "coverage": 1.0, "dropped": 0, "item": 427, "numbers": ["12", "14", "14.1"], "section_words": 132}
+{"chunks": [626], "coverage": 0.0, "dropped": 0, "item": 428, "numbers": ["13.3", "13.4", "57"], "section_words": 63}
+{"chunks": [657], "coverage": 0.0, "dropped": 0, "item": 429, "numbers": ["1095", "54"], "section_words": 87}
+{"chunks": [53], "coverage": 1.0, "dropped": 0, "item": 430, "numbers": ["11", "12", "12.1", "12.2", "180"], "section_words": 191}
+{"chunks": [15], "coverage": 1.0, "dropped": 0, "item": 431, "numbers": ["12", "2020", "2021", "31"], "section_words": 78}
+{"chunks": [194], "coverage": 1.0, "dropped": 0, "item": 432, "numbers": ["17", "17.1"], "section_words": 19}
+{"chunks": [66], "coverage": 0.0, "dropped": 0, "item": 433, "numbers": ["1.46", "1.47"], "section_words": 59}
+{"chunks": [186], "coverage": 1.0, "dropped": 0, "item": 434, "numbers": ["12.1", "12.2", "12.4", "12.5", "27", "36"], "section_words": 181}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 435, "numbers": ["8.1"], "section_words": 48}
+{"chunks": [48], "coverage": 1.0, "dropped": 0, "item": 436, "numbers": ["6.1"], "section_words": 37}
+{"chunks": [21], "coverage": 0.0, "dropped": 0, "item": 437, "numbers": ["15", "19", "2020"], "section_words": 166}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 438, "numbers": ["5.02"], "section_words": 132}
+{"chunks": [0], "coverage": 1.0, "dropped": 0, "item": 439, "numbers": ["10.1", "19", "20", "2012", "2013"], "section_words": 123}
+{"chunks": [102], "coverage": 1.0, "dropped": 0, "item": 440, "numbers": ["1000000", "15", "2000000", "2015", "8.5"], "section_words": 139}
+{"chunks": [33], "coverage": 0.0, "dropped": 0, "item": 441, "numbers": ["10.2", "10.3", "60", "90"], "section_words": 187}
+{"chunks": [41], "coverage": 1.0, "dropped": 0, "item": 442, "numbers": ["9.7", "9.8"], "section_words": 174}
+{"chunks": [36], "coverage": 1.0, "dropped": 0, "item": 443, "numbers": ["10", "2014", "21", "30", "6.1", "6.2", "90"], "section_words": 177}
+{"chunks": [146], "coverage": 0.0, "dropped": 0, "item": 444, "numbers": ["10"], "section_words": 31}
+{"chunks": [56], "coverage": 0.0, "dropped": 0, "item": 445, "numbers": ["18"], "section_words": 32}
+{"chunks": [240], "coverage": 0.0, "dropped": 0, "item": 446, "numbers": ["15.1", "15.5", "16", "16.1", "39", "50"], "section_words": 186}
+{"chunks": [35], "coverage": 1.0, "dropped": 0, "item": 447, "numbers": ["5.6"], "section_words": 246}
+{"chunks": [165], "coverage": 0.0, "dropped": 0, "item": 448, "numbers": ["15", "8.2"], "section_words": 54}
+{"chunks": [151], "coverage": 0.0, "dropped": 0, "item": 449, "numbers": ["11.1"], "section_words": 80}
+{"chunks": [38], "coverage": 0.0, "dropped": 0, "item": 450, "numbers": ["14", "15", "16", "17", "18"], "section_words": 202}
+{"chunks": [328], "coverage": 0.0, "dropped": 0, "item": 451, "numbers": ["23"], "section_words": 75}
+{"chunks": [92], "coverage": 0.0, "dropped": 0, "item": 452, "numbers": ["11.3", "11.7", "11.8"], "section_words": 53}
+{"chunks": [303], "coverage": 0.0, "dropped": 0, "item": 453, "numbers": ["23", "3.8"], "section_words": 145}
+{"chunks": [164], "coverage": 0.0, "dropped": 0, "item": 454, "numbers": ["14.5", "24"], "section_words": 202}
+{"chunks": [31], "coverage": 1.0, "dropped": 0, "item": 455, "numbers": ["2019", "90"], "section_words": 82}
+{"chunks": [21], "coverage": 0.0, "dropped": 0, "item": 456, "numbers": ["11", "12", "13", "14", "15", "16", "17", "30"], "section_words": 165}
+{"chunks": [120], "coverage": 0.0, "dropped": 0, "item": 457, "numbers": ["10", "15", "16"], "section_words": 68}
+{"chunks": [37], "coverage": 1.0, "dropped": 0, "item": 458, "numbers": ["6.7"], "section_words": 195}
+{"chunks": [41], "coverage": 0.0, "dropped": 0, "item": 459, "numbers": [], "section_words": 31}
+{"chunks": [160], "coverage": 0.0, "dropped": 0, "item": 460, "numbers": ["14.3", "16", "1980"], "section_words": 181}
+{"chunks": [421], "coverage": 0.0, "dropped": 0, "item": 461, "numbers": ["14", "5.2"], "section_words": 166}
+{"chunks": [75], "coverage": 1.0, "dropped": 0, "item": 462, "numbers": [], "section_words": 100}
+{"chunks": [7], "coverage": 1.0, "dropped": 0, "item": 463, "numbers": ["1998", "1999", "2000", "24", "31"], "section_words": 177}
+{"chunks": [119], "coverage": 0.0, "dropped": 0, "item": 464, "numbers": ["10", "60"], "section_words": 67}
+{"chunks": [23], "coverage": 1.0, "dropped": 0, "item": 465, "numbers": [], "section_words": 33}
+{"chunks": [232], "coverage": 0.0, "dropped": 0, "item": 466, "numbers": ["18", "53"], "section_words": 100}
+{"chunks": [4], "coverage": 1.0, "dropped": 0, "item": 467, "numbers": ["30"], "section_words": 105}
+{"chunks": [51], "coverage": 1.0, "dropped": 0, "item": 468, "numbers": ["000", "30"], "section_words": 201}
+{"chunks": [13], "coverage": 1.0, "dropped": 0, "item": 469, "numbers": ["2.4", "2020", "3.1", "3.2", "3.3", "31", "90"], "section_words": 164}
+{"chunks": [53], "coverage": 1.0, "dropped": 0, "item": 470, "numbers": ["21"], "section_words": 78}
+{"chunks": [526], "coverage": 1.0, "dropped": 0, "item": 471, "numbers": ["14.5", "54"], "section_words": 35}
+{"chunks": [37], "coverage": 1.0, "dropped": 0, "item": 472, "numbers": ["10", "60"], "section_words": 122}
+{"chunks": [343], "coverage": 1.0, "dropped": 0, "item": 473, "numbers": ["11", "11.1", "11.2", "11.5", "12", "31"], "section_words": 193}
+{"chunks": [52], "coverage": 0.7350427350427351, "dropped": 0, "item": 474, "numbers": ["2000000"], "section_words": 86}
+{"chunks": [39], "coverage": 0.0, "dropped": 0, "item": 475, "numbers": ["2.16"], "section_words": 95}
+{"chunks": [23], "coverage": 0.0, "dropped": 0, "item": 476, "numbers": ["1934", "24", "28"], "section_words": 69}
+{"chunks": [52], "coverage": 0.0, "dropped": 0, "item": 477, "numbers": ["10", "10.3", "10.4", "10.5", "10.6", "15.2", "15.3", "16", "17", "201812130044", "8.2"], "section_words": 209}
+{"chunks": [55], "coverage": 0.0, "dropped": 0, "item": 478, "numbers": [], "section_words": 30}
+{"chunks": [32], "coverage": 0.8333333333333334, "dropped": 0, "item": 479, "numbers": [], "section_words": 35}
+{"chunks": [42], "coverage": 0.0, "dropped": 0, "item": 480, "numbers": ["18.3", "19", "19.1", "19.2"], "section_words": 108}
+{"chunks": [74], "coverage": 0.0, "dropped": 0, "item": 481, "numbers": ["1.13", "1.14"], "section_words": 82}
+{"chunks": [27], "coverage": 1.0, "dropped": 0, "item": 482, "numbers": ["20", "2019", "21", "28", "6.5", "7.1", "7.2", "803"], "section_words": 177}
+{"chunks": [83], "coverage": 1.0, "dropped": 0, "item": 483, "numbers": ["12.6"], "section_words": 83}
+{"chunks": [7], "coverage": 0.0, "dropped": 0, "item": 484, "numbers": [], "section_words": 73}
+{"chunks": [413], "coverage": 0.0, "dropped": 0, "item": 485, "numbers": ["10", "15.2", "2020", "27", "34", "60"], "section_words": 141}
+{"chunks": [199], "coverage": 0.0, "dropped": 0, "item": 486, "numbers": ["12", "39.0"], "section_words": 32}
+{"chunks": [82], "coverage": 1.0, "dropped": 0, "item": 487, "numbers": ["8.1", "8.2"], "section_words": 124}
+{"chunks": [47], "coverage": 0.0, "dropped": 0, "item": 488, "numbers": ["10", "11", "19", "2019", "7.2", "7.3"], "section_words": 161}
+{"chunks": [123], "coverage": 1.0, "dropped": 0, "item": 489, "numbers": ["10", "16"], "section_words": 134}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 490, "numbers": ["23"], "section_words": 186}
+{"chunks": [85], "coverage": 0.0, "dropped": 0, "item": 491, "numbers": ["2.4", "4.3"], "section_words": 52}
+{"chunks": [186], "coverage": 1.0, "dropped": 0, "item": 492, "numbers": ["10", "21", "9.5"], "section_words": 172}
+{"chunks": [203], "coverage": 0.0, "dropped": 0, "item": 493, "numbers": ["21", "25"], "section_words": 27}
+{"chunks": [5], "coverage": 0.0, "dropped": 0, "item": 494, "numbers": ["30", "60"], "section_words": 139}
+{"chunks": [30], "coverage": 0.0, "dropped": 0, "item": 495, "numbers": [], "section_words": 109}
+{"chunks": [93], "coverage": 0.0, "dropped": 0, "item": 496, "numbers": ["13"], "section_words": 33}
+{"chunks": [23], "coverage": 0.0, "dropped": 0, "item": 497, "numbers": ["1934", "24", "28"], "section_words": 69}
+{"chunks": [27], "coverage": 0.0, "dropped": 0, "item": 498, "numbers": [], "section_words": 181}
+{"chunks": [59], "coverage": 0.0, "dropped": 0, "item": 499, "numbers": [], "section_words": 33}
+{"chunks": [35], "coverage": 1.0, "dropped": 0, "item": 500, "numbers": ["1.3", "10.1", "10.2", "180"], "section_words": 102}
+{"chunks": [32], "coverage": 0.0, "dropped": 0, "item": 501, "numbers": ["10", "10.1", "20", "2019", "28", "9.3", "9.4"], "section_words": 170}
+{"chunks": [26], "coverage": 1.0, "dropped": 0, "item": 502, "numbers": ["4.1", "90"], "section_words": 100}
+{"chunks": [32], "coverage": 0.0, "dropped": 0, "item": 503, "numbers": [], "section_words": 45}
+{"chunks": [318], "coverage": 1.0, "dropped": 0, "item": 504, "numbers": ["24", "36", "9.2"], "section_words": 197}
+{"chunks": [51], "coverage": 1.0, "dropped": 0, "item": 505, "numbers": ["15.6", "15.7"], "section_words": 156}
+{"chunks": [68], "coverage": 1.0, "dropped": 0, "item": 506, "numbers": ["10", "1000000", "2000000", "30"], "section_words": 203}
+{"chunks": [87], "coverage": 1.0, "dropped": 0, "item": 507, "numbers": ["5.1", "90"], "section_words": 53}
+{"chunks": [27], "coverage": 0.0, "dropped": 0, "item": 508, "numbers": ["10", "11", "36"], "section_words": 57}
+{"chunks": [58], "coverage": 0.0, "dropped": 0, "item": 509, "numbers": ["10"], "section_words": 130}
+{"chunks": [64], "coverage": 1.0, "dropped": 0, "item": 510, "numbers": ["10", "11.2"], "section_words": 146}
+{"chunks": [26], "coverage": 1.0, "dropped": 0, "item": 511, "numbers": ["4.1", "90"], "section_words": 97}
+{"chunks": [26], "coverage": 1.0, "dropped": 0, "item": 512, "numbers": [], "section_words": 97}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 513, "numbers": ["16", "2016", "29", "31"], "section_words": 187}
+{"chunks": [20], "coverage": 1.0, "dropped": 0, "item": 514, "numbers": [], "section_words": 112}
+{"chunks": [25], "coverage": 0.0, "dropped": 0, "item": 515, "numbers": [], "section_words": 72}
+{"chunks": [67], "coverage": 0.0, "dropped": 0, "item": 516, "numbers": [], "section_words": 202}
+{"chunks": [8], "coverage": 0.375, "dropped": 0, "item": 517, "numbers": ["90"], "section_words": 32}
+{"chunks": [42], "coverage": 0.0, "dropped": 0, "item": 518, "numbers": ["60"], "section_words": 77}
+{"chunks": [143], "coverage": 0.3614457831325301, "dropped": 0, "item": 519, "numbers": ["10", "20"], "section_words": 179}
+{"chunks": [109], "coverage": 0.0, "dropped": 0, "item": 520, "numbers": ["12", "14", "18", "60"], "section_words": 140}
+{"chunks": [22], "coverage": 1.0, "dropped": 0, "item": 521, "numbers": [], "section_words": 37}
+{"chunks": [66], "coverage": 0.0, "dropped": 0, "item": 522, "numbers": ["11", "11.10", "11.11", "11.12", "11.9"], "section_words": 200}
+{"chunks": [72], "coverage": 1.0, "dropped": 0, "item": 523, "numbers": ["12.1", "50", "8.3"], "section_words": 138}
+{"chunks": [14], "coverage": 0.0, "dropped": 0, "item": 524, "numbers": ["2018", "31"], "section_words": 126}
+{"chunks": [40], "coverage": 0.9047619047619048, "dropped": 0, "item": 525, "numbers": ["30"], "section_words": 90}
+{"chunks": [253], "coverage": 1.0, "dropped": 0, "item": 526, "numbers": ["22", "24", "8.1"], "section_words": 77}
+{"chunks": [341], "coverage": 0.5263157894736842, "dropped": 0, "item": 527, "numbers": ["15.12", "30"], "section_words": 98}
+{"chunks": [71], "coverage": 0.0, "dropped": 0, "item": 528, "numbers": ["10.3"], "section_words": 73}
+{"chunks": [31], "coverage": 0.0, "dropped": 0, "item": 529, "numbers": [], "section_words": 31}
+{"chunks": [51], "coverage": 1.0, "dropped": 0, "item": 530, "numbers": ["12", "6.1"], "section_words": 66}
+{"chunks": [43], "coverage": 0.0, "dropped": 0, "item": 531, "numbers": ["100"], "section_words": 40}
+{"chunks": [55], "coverage": 0.0, "dropped": 0, "item": 532, "numbers": [], "section_words": 106}
+{"chunks": [5], "coverage": 0.0, "dropped": 0, "item": 533, "numbers": [], "section_words": 67}
+{"chunks": [40], "coverage": 0.0, "dropped": 0, "item": 534, "numbers": ["11"], "section_words": 70}
+{"chunks": [255], "coverage": 0.0, "dropped": 0, "item": 535, "numbers": ["2003", "42", "54"], "section_words": 125}
+{"chunks": [99], "coverage": 0.0, "dropped": 0, "item": 536, "numbers": ["14"], "section_words": 52}
+{"chunks": [143], "coverage": 0.0, "dropped": 0, "item": 537, "numbers": ["10", "10.3"], "section_words": 70}
+{"chunks": [547], "coverage": 0.0, "dropped": 0, "item": 538, "numbers": ["10.4", "40"], "section_words": 126}
+{"chunks": [80], "coverage": 0.0, "dropped": 0, "item": 539, "numbers": ["14", "22.1", "22.3", "23", "24", "24.1", "24.2"], "section_words": 183}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 540, "numbers": ["30"], "section_words": 167}
+{"chunks": [69], "coverage": 1.0, "dropped": 0, "item": 541, "numbers": ["11", "30", "60", "8.02", "8.03", "9.01", "90"], "section_words": 200}
+{"chunks": [49], "coverage": 1.0, "dropped": 0, "item": 542, "numbers": ["2.01", "20", "2014"], "section_words": 63}
+{"chunks": [60], "coverage": 1.0, "dropped": 0, "item": 543, "numbers": ["10", "2020", "6.4", "7.1"], "section_words": 155}
+{"chunks": [98], "coverage": 1.0, "dropped": 0, "item": 544, "numbers": ["5.6"], "section_words": 122}
+{"chunks": [300], "coverage": 0.0, "dropped": 0, "item": 545, "numbers": ["14.01", "26"], "section_words": 46}
+{"chunks": [95], "coverage": 0.0, "dropped": 0, "item": 546, "numbers": ["10.3"], "section_words": 38}
+{"chunks": [349], "coverage": 1.0, "dropped": 0, "item": 547, "numbers": ["21", "22", "22.1"], "section_words": 150}
+{"chunks": [39], "coverage": 1.0, "dropped": 0, "item": 548, "numbers": [], "section_words": 162}
+{"chunks": [18], "coverage": 1.0, "dropped": 0, "item": 549, "numbers": ["60"], "section_words": 81}
+{"chunks": [51], "coverage": 0.4393939393939394, "dropped": 0, "item": 550, "numbers": ["000", "30"], "section_words": 201}
+{"chunks": [133], "coverage": 0.0, "dropped": 0, "item": 551, "numbers": ["10", "12"], "section_words": 140}
+{"chunks": [71], "coverage": 0.0, "dropped": 0, "item": 552, "numbers": ["10.3"], "section_words": 73}
+{"chunks": [83], "coverage": 1.0, "dropped": 0, "item": 553, "numbers": ["10", "19", "30", "60"], "section_words": 219}
+{"chunks": [25], "coverage": 1.0, "dropped": 0, "item": 554, "numbers": ["30", "4.4", "4.5", "4.6"], "section_words": 199}
+{"chunks": [132], "coverage": 0.0, "dropped": 0, "item": 555, "numbers": ["10", "20"], "section_words": 49}
+{"chunks": [134], "coverage": 0.0, "dropped": 0, "item": 556, "numbers": ["10", "11.1", "11.2"], "section_words": 83}
+{"chunks": [267], "coverage": 0.0, "dropped": 0, "item": 557, "numbers": ["12", "15.8", "22"], "section_words": 81}
+{"chunks": [63], "coverage": 0.21052631578947367, "dropped": 0, "item": 558, "numbers": ["2.2", "2.3"], "section_words": 88}
+{"chunks": [6], "coverage": 0.0, "dropped": 0, "item": 559, "numbers": ["10"], "section_words": 120}
+{"chunks": [58], "coverage": 1.0, "dropped": 0, "item": 560, "numbers": ["50"], "section_words": 42}
+{"chunks": [29], "coverage": 0.0, "dropped": 0, "item": 561, "numbers": [], "section_words": 205}
+{"chunks": [120], "coverage": 0.0, "dropped": 0, "item": 562, "numbers": ["21"], "section_words": 121}
+{"chunks": [72], "coverage": 0.0, "dropped": 0, "item": 563, "numbers": ["10", "11", "13", "30", "90"], "section_words": 317}
+{"chunks": [16], "coverage": 1.0, "dropped": 0, "item": 564, "numbers": ["18"], "section_words": 59}
+{"chunks": [118], "coverage": 0.0, "dropped": 0, "item": 565, "numbers": ["10", "11", "12", "13", "14", "7.2", "7.3", "7.4", "9.4"], "section_words": 51}
+{"chunks": [165], "coverage": 0.7894736842105263, "dropped": 0, "item": 566, "numbers": ["12", "9.02", "9.03"], "section_words": 123}
+{"chunks": [47], "coverage": 1.0, "dropped": 0, "item": 567, "numbers": ["10.2", "11", "11.1", "90"], "section_words": 181}
+{"chunks": [65], "coverage": 0.0, "dropped": 0, "item": 568, "numbers": ["10"], "section_words": 202}
+{"chunks": [48], "coverage": 1.0, "dropped": 0, "item": 569, "numbers": ["10", "30", "8.1", "8.2", "9.1"], "section_words": 172}
+{"chunks": [520], "coverage": 0.0, "dropped": 0, "item": 570, "numbers": ["11.3", "11.4", "11.5", "48"], "section_words": 173}
+{"chunks": [20], "coverage": 0.0, "dropped": 0, "item": 571, "numbers": ["1.5", "3.3", "3.4"], "section_words": 194}
+{"chunks": [220], "coverage": 1.0, "dropped": 0, "item": 572, "numbers": ["18", "2018", "22", "29", "8.4"], "section_words": 179}
+{"chunks": [26], "coverage": 0.9090909090909091, "dropped": 0, "item": 573, "numbers": ["10", "30"], "section_words": 153}
+{"chunks": [685], "coverage": 0.0, "dropped": 0, "item": 574, "numbers": ["17.2", "42"], "section_words": 36}
+{"chunks": [43], "coverage": 0.0, "dropped": 0, "item": 575, "numbers": ["11", "30"], "section_words": 109}
+{"chunks": [5], "coverage": 0.0, "dropped": 0, "item": 576, "numbers": ["2006", "31"], "section_words": 19}
+{"chunks": [190], "coverage": 0.0, "dropped": 0, "item": 577, "numbers": [], "section_words": 32}
+{"chunks": [9], "coverage": 1.0, "dropped": 0, "item": 578, "numbers": ["1.3", "2014"], "section_words": 12}
+{"chunks": [18], "coverage": 1.0, "dropped": 0, "item": 579, "numbers": [], "section_words": 150}
+{"chunks": [3], "coverage": 1.0, "dropped": 0, "item": 580, "numbers": ["2005", "21"], "section_words": 31}
+{"chunks": [129], "coverage": 1.0, "dropped": 0, "item": 581, "numbers": ["10", "10.1", "12", "13"], "section_words": 67}
+{"chunks": [15], "coverage": 0.78, "dropped": 0, "item": 582, "numbers": ["2.1"], "section_words": 39}
+{"chunks": [79], "coverage": 0.0, "dropped": 0, "item": 583, "numbers": ["9.13"], "section_words": 51}
+{"chunks": [248], "coverage": 0.44776119402985076, "dropped": 0, "item": 584, "numbers": ["14.5", "27"], "section_words": 169}
+{"chunks": [134], "coverage": 0.0, "dropped": 0, "item": 585, "numbers": ["15", "17", "20", "2019"], "section_words": 171}
+{"chunks": [180], "coverage": 1.0, "dropped": 0, "item": 586, "numbers": ["15", "18", "60"], "section_words": 179}
+{"chunks": [216], "coverage": 0.3230769230769231, "dropped": 0, "item": 587, "numbers": [], "section_words": 78}
+{"chunks": [109], "coverage": 0.0, "dropped": 0, "item": 588, "numbers": ["10", "16", "2017", "25", "26", "27"], "section_words": 174}
+{"chunks": [300], "coverage": 0.0, "dropped": 0, "item": 589, "numbers": ["30", "7.1", "7.2", "7.3"], "section_words": 178}
+{"chunks": [27], "coverage": 1.0, "dropped": 0, "item": 590, "numbers": ["3.01", "30"], "section_words": 53}
+{"chunks": [759], "coverage": 0.0, "dropped": 0, "item": 591, "numbers": ["73", "80"], "section_words": 31}
+{"chunks": [386], "coverage": 0.0, "dropped": 0, "item": 592, "numbers": ["15", "26", "6.1", "6.3"], "section_words": 162}
+{"chunks": [36], "coverage": 0.38461538461538464, "dropped": 0, "item": 593, "numbers": [], "section_words": 65}
+{"chunks": [49], "coverage": 0.0, "dropped": 0, "item": 594, "numbers": [], "section_words": 123}
+{"chunks": [478], "coverage": 0.0, "dropped": 0, "item": 595, "numbers": ["15", "15.2", "26", "30"], "section_words": 111}
+{"chunks": [50], "coverage": 1.0, "dropped": 0, "item": 596, "numbers": [], "section_words": 138}
+{"chunks": [293], "coverage": 0.0, "dropped": 0, "item": 597, "numbers": ["13", "14", "16.01", "1934", "24", "50"], "section_words": 133}
+{"chunks": [29], "coverage": 1.0, "dropped": 0, "item": 598, "numbers": ["13", "48", "49", "50", "51", "52"], "section_words": 203}
+{"chunks": [207], "coverage": 0.0, "dropped": 0, "item": 599, "numbers": ["12.4", "24"], "section_words": 194}
+{"chunks": [29], "coverage": 1.0, "dropped": 0, "item": 600, "numbers": ["18", "1940", "2022", "7.1"], "section_words": 151}
+{"chunks": [47], "coverage": 0.8148148148148148, "dropped": 0, "item": 601, "numbers": ["1000000", "7.2"], "section_words": 142}
+{"chunks": [36], "coverage": 0.16, "dropped": 0, "item": 602, "numbers": ["180"], "section_words": 31}
+{"chunks": [106], "coverage": 0.0, "dropped": 0, "item": 603, "numbers": ["11"], "section_words": 48}
+{"chunks": [21], "coverage": 1.0, "dropped": 0, "item": 604, "numbers": ["15", "30"], "section_words": 203}
+{"chunks": [1447], "coverage": 0.0, "dropped": 0, "item": 605, "numbers": ["72"], "section_words": 142}
+{"chunks": [163], "coverage": 1.0, "dropped": 0, "item": 606, "numbers": ["17", "2.8", "6.1", "6.2", "60"], "section_words": 96}
+{"chunks": [43], "coverage": 1.0, "dropped": 0, "item": 607, "numbers": ["1998", "2000", "28", "3.1"], "section_words": 35}
+{"chunks": [175], "coverage": 0.0, "dropped": 0, "item": 608, "numbers": [], "section_words": 44}
+{"chunks": [17], "coverage": 0.0, "dropped": 0, "item": 609, "numbers": ["21", "7.3"], "section_words": 198}
+{"chunks": [68], "coverage": 0.0, "dropped": 0, "item": 610, "numbers": ["10.06", "2000000.00"], "section_words": 119}
+{"chunks": [55], "coverage": 0.16666666666666666, "dropped": 0, "item": 611, "numbers": ["0118", "0119", "120195", "120196", "151215", "2013", "2015", "3.1", "30"], "section_words": 80}
+{"chunks": [137], "coverage": 1.0, "dropped": 0, "item": 612, "numbers": ["11", "6.4", "90"], "section_words": 83}
+{"chunks": [36], "coverage": 1.0, "dropped": 0, "item": 613, "numbers": [], "section_words": 109}
+{"chunks": [78], "coverage": 1.0, "dropped": 0, "item": 614, "numbers": ["4.2"], "section_words": 86}
+{"chunks": [34], "coverage": 0.0, "dropped": 0, "item": 615, "numbers": [], "section_words": 19}
+{"chunks": [168], "coverage": 0.0, "dropped": 0, "item": 616, "numbers": ["10", "14", "2008"], "section_words": 35}
+{"chunks": [63], "coverage": 0.0, "dropped": 0, "item": 617, "numbers": ["30"], "section_words": 84}
+{"chunks": [212], "coverage": 0.0, "dropped": 0, "item": 618, "numbers": ["16.1", "25"], "section_words": 87}
+{"chunks": [266], "coverage": 1.0, "dropped": 0, "item": 619, "numbers": ["13", "36"], "section_words": 86}
+{"chunks": [6], "coverage": 0.0, "dropped": 0, "item": 620, "numbers": ["1.1", "1.2", "20"], "section_words": 186}
+{"chunks": [169], "coverage": 0.0, "dropped": 0, "item": 621, "numbers": ["13", "2.4", "2020"], "section_words": 169}
+{"chunks": [43], "coverage": 0.0, "dropped": 0, "item": 622, "numbers": ["180", "30", "5.01"], "section_words": 112}
+{"chunks": [321], "coverage": 0.0, "dropped": 0, "item": 623, "numbers": ["16.4", "29"], "section_words": 51}
+{"chunks": [50], "coverage": 0.0, "dropped": 0, "item": 624, "numbers": ["12.2", "30", "5.1", "5.2"], "section_words": 176}
+{"chunks": [17], "coverage": 0.0, "dropped": 0, "item": 625, "numbers": ["8.3", "9.1"], "section_words": 199}
+{"chunks": [23], "coverage": 0.0, "dropped": 0, "item": 626, "numbers": ["30", "5.2", "5.3", "5.4"], "section_words": 198}
+{"chunks": [80], "coverage": 0.625, "dropped": 0, "item": 627, "numbers": ["30", "60"], "section_words": 90}
+{"chunks": [129], "coverage": 1.0, "dropped": 0, "item": 628, "numbers": ["10.2"], "section_words": 22}
+{"chunks": [74], "coverage": 0.0, "dropped": 0, "item": 629, "numbers": ["4.2"], "section_words": 111}
+{"chunks": [61], "coverage": 1.0, "dropped": 0, "item": 630, "numbers": [], "section_words": 32}
+{"chunks": [93], "coverage": 1.0, "dropped": 0, "item": 631, "numbers": ["7.03"], "section_words": 112}
+{"chunks": [61], "coverage": 0.0, "dropped": 0, "item": 632, "numbers": [], "section_words": 165}
+{"chunks": [34], "coverage": 0.0, "dropped": 0, "item": 633, "numbers": [], "section_words": 84}
+{"chunks": [56], "coverage": 1.0, "dropped": 0, "item": 634, "numbers": ["2.14", "3.1", "3.2", "3.3"], "section_words": 174}
+{"chunks": [6], "coverage": 0.0, "dropped": 0, "item": 635, "numbers": ["115", "13", "30", "60"], "section_words": 178}
+{"chunks": [128], "coverage": 0.0, "dropped": 0, "item": 636, "numbers": ["12", "19", "20"], "section_words": 127}
+{"chunks": [251], "coverage": 1.0, "dropped": 0, "item": 637, "numbers": ["22", "23", "26", "7.1", "7.2", "7.7", "9012190"], "section_words": 101}
+{"chunks": [74], "coverage": 1.0, "dropped": 0, "item": 638, "numbers": ["6.3", "7.4"], "section_words": 100}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 639, "numbers": ["30", "8.1"], "section_words": 112}
+{"chunks": [29], "coverage": 0.0, "dropped": 0, "item": 640, "numbers": ["10", "30", "60"], "section_words": 137}
+{"chunks": [135], "coverage": 0.0, "dropped": 0, "item": 641, "numbers": ["10.8", "1000000", "19", "3000000"], "section_words": 242}
+{"chunks": [0], "coverage": 1.0, "dropped": 0, "item": 642, "numbers": ["10.5", "10014", "12", "2018", "28", "52242"], "section_words": 118}
+{"chunks": [227], "coverage": 0.0, "dropped": 0, "item": 643, "numbers": ["12", "18", "3.2"], "section_words": 69}
+{"chunks": [74], "coverage": 0.0, "dropped": 0, "item": 644, "numbers": ["30", "5.2", "5.3", "5.4", "5.5", "50"], "section_words": 102}
+{"chunks": [39], "coverage": 1.0, "dropped": 0, "item": 645, "numbers": ["90"], "section_words": 110}
+{"chunks": [209], "coverage": 1.0, "dropped": 0, "item": 646, "numbers": ["11.2", "18", "30"], "section_words": 150}
+{"chunks": [45], "coverage": 0.0, "dropped": 0, "item": 647, "numbers": [], "section_words": 159}
+{"chunks": [103], "coverage": 1.0, "dropped": 0, "item": 648, "numbers": ["30", "8.1"], "section_words": 110}
+{"chunks": [11], "coverage": 1.0, "dropped": 0, "item": 649, "numbers": ["60", "90"], "section_words": 182}
+{"chunks": [26], "coverage": 0.0, "dropped": 0, "item": 650, "numbers": ["14.1", "14.2", "2004", "31", "60"], "section_words": 119}
+{"chunks": [26], "coverage": 0.0, "dropped": 0, "item": 651, "numbers": ["10", "11"], "section_words": 171}
+{"chunks": [27], "coverage": 0.0, "dropped": 0, "item": 652, "numbers": ["16"], "section_words": 78}
+{"chunks": [121], "coverage": 0.0, "dropped": 0, "item": 653, "numbers": ["11", "12", "13", "14", "2.6"], "section_words": 144}
+{"chunks": [62], "coverage": 1.0, "dropped": 0, "item": 654, "numbers": [], "section_words": 24}
+{"chunks": [12], "coverage": 1.0, "dropped": 0, "item": 655, "numbers": ["14", "2.1", "2.2"], "section_words": 196}
+{"chunks": [495], "coverage": 0.0, "dropped": 0, "item": 656, "numbers": ["16.6", "27", "3.6", "36", "49"], "section_words": 79}
+{"chunks": [369], "coverage": 0.0, "dropped": 0, "item": 657, "numbers": ["17", "17.1", "45", "71"], "section_words": 129}
+{"chunks": [82], "coverage": 1.0, "dropped": 0, "item": 658, "numbers": ["10.2", "30"], "section_words": 36}
+{"chunks": [228], "coverage": 1.0, "dropped": 0, "item": 659, "numbers": ["14", "32.2"], "section_words": 66}
+{"chunks": [31], "coverage": 0.24561403508771928, "dropped": 0, "item": 660, "numbers": ["30"], "section_words": 33}
+{"chunks": [20], "coverage": 0.625, "dropped": 0, "item": 661, "numbers": [], "section_words": 31}
+{"chunks": [69], "coverage": 1.0, "dropped": 0, "item": 662, "numbers": ["11.2"], "section_words": 83}
+{"chunks": [165], "coverage": 0.0, "dropped": 0, "item": 663, "numbers": ["12.3", "28"], "section_words": 198}
+{"chunks": [24], "coverage": 1.0, "dropped": 0, "item": 664, "numbers": ["12", "2000", "2019", "21", "22", "23"], "section_words": 134}
+{"chunks": [273], "coverage": 0.0, "dropped": 0, "item": 665, "numbers": ["27"], "section_words": 63}
+{"chunks": [251], "coverage": 0.5714285714285714, "dropped": 0, "item": 666, "numbers": ["17"], "section_words": 48}
+{"chunks": [83], "coverage": 0.0, "dropped": 0, "item": 667, "numbers": ["13", "21"], "section_words": 23}
+{"chunks": [46], "coverage": 0.0, "dropped": 0, "item": 668, "numbers": ["90"], "section_words": 135}
+{"chunks": [263], "coverage": 1.0, "dropped": 0, "item": 669, "numbers": ["12", "31", "49", "7.1", "7.3", "7.4", "7.5", "7.6", "7.7"], "section_words": 189}
+{"chunks": [169], "coverage": 0.9375, "dropped": 0, "item": 670, "numbers": ["14"], "section_words": 33}
+{"chunks": [100], "coverage": 1.0, "dropped": 0, "item": 671, "numbers": ["10", "10100", "15", "150", "2017", "21", "2200", "310", "3110", "90067", "90212", "90405"], "section_words": 167}
+{"chunks": [163], "coverage": 1.0, "dropped": 0, "item": 672, "numbers": ["17", "2.8", "6.1", "6.2", "60"], "section_words": 96}
+{"chunks": [41], "coverage": 0.0, "dropped": 0, "item": 673, "numbers": ["8.1"], "section_words": 200}
+{"chunks": [11], "coverage": 0.0, "dropped": 0, "item": 674, "numbers": ["9.1", "9.2"], "section_words": 178}
+{"chunks": [293], "coverage": 1.0, "dropped": 0, "item": 675, "numbers": ["24.2", "25", "28"], "section_words": 90}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 676, "numbers": ["9.3"], "section_words": 83}
+{"chunks": [5], "coverage": 1.0, "dropped": 0, "item": 677, "numbers": ["115", "60"], "section_words": 161}
+{"chunks": [29], "coverage": 0.0, "dropped": 0, "item": 678, "numbers": ["100", "2016", "60", "7.1", "8.1"], "section_words": 173}
+{"chunks": [50], "coverage": 0.0, "dropped": 0, "item": 679, "numbers": [], "section_words": 81}
+{"chunks": [176], "coverage": 0.0, "dropped": 0, "item": 680, "numbers": ["10.3", "13", "24"], "section_words": 133}
+{"chunks": [9], "coverage": 0.0, "dropped": 0, "item": 681, "numbers": ["1.3"], "section_words": 120}
+{"chunks": [21], "coverage": 0.3125, "dropped": 0, "item": 682, "numbers": ["30", "45", "6.2", "90"], "section_words": 169}
+{"chunks": [649], "coverage": 0.0, "dropped": 0, "item": 683, "numbers": ["56"], "section_words": 94}
+{"chunks": [145], "coverage": 0.0, "dropped": 0, "item": 684, "numbers": ["12"], "section_words": 62}
+{"chunks": [364], "coverage": 0.0, "dropped": 0, "item": 685, "numbers": ["17", "17.1", "37"], "section_words": 111}
+{"chunks": [368], "coverage": 1.0, "dropped": 0, "item": 686, "numbers": ["120", "2011", "27", "30", "8.1"], "section_words": 94}
+{"chunks": [25], "coverage": 1.0, "dropped": 0, "item": 687, "numbers": ["17200", "27", "75069"], "section_words": 121}
+{"chunks": [216], "coverage": 0.0, "dropped": 0, "item": 688, "numbers": ["10", "13", "29"], "section_words": 69}
+{"chunks": [249], "coverage": 0.0, "dropped": 0, "item": 689, "numbers": ["10.4", "21"], "section_words": 57}
+{"chunks": [803], "coverage": 0.0, "dropped": 0, "item": 690, "numbers": ["4.3", "58"], "section_words": 56}
+{"chunks": [23], "coverage": 0.0, "dropped": 0, "item": 691, "numbers": ["10", "10.2", "10.3", "10.4", "11", "11.1"], "section_words": 197}
+{"chunks": [20], "coverage": 1.0, "dropped": 0, "item": 692, "numbers": ["20", "2009", "30", "60"], "section_words": 173}
+{"chunks": [145], "coverage": 0.0, "dropped": 0, "item": 693, "numbers": ["11"], "section_words": 188}
+{"chunks": [97], "coverage": 0.0, "dropped": 0, "item": 694, "numbers": ["12"], "section_words": 49}
+{"chunks": [41], "coverage": 0.0, "dropped": 0, "item": 695, "numbers": ["13.8", "13.9"], "section_words": 116}
+{"chunks": [80], "coverage": 1.0, "dropped": 0, "item": 696, "numbers": ["5.8", "8.75"], "section_words": 86}
+{"chunks": [27], "coverage": 1.0, "dropped": 0, "item": 697, "numbers": [], "section_words": 165}
+{"chunks": [225], "coverage": 0.0, "dropped": 0, "item": 698, "numbers": ["31"], "section_words": 62}
+{"chunks": [32], "coverage": 1.0, "dropped": 0, "item": 699, "numbers": ["10"], "section_words": 118}
+{"chunks": [251], "coverage": 1.0, "dropped": 0, "item": 700, "numbers": ["23"], "section_words": 165}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 701, "numbers": ["30"], "section_words": 56}
+{"chunks": [22], "coverage": 0.0, "dropped": 0, "item": 702, "numbers": ["4.14"], "section_words": 110}
+{"chunks": [74], "coverage": 0.8108108108108109, "dropped": 0, "item": 703, "numbers": ["30", "4.3"], "section_words": 105}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 704, "numbers": ["9.1", "9.2"], "section_words": 231}
+{"chunks": [78], "coverage": 0.0, "dropped": 0, "item": 705, "numbers": ["15"], "section_words": 99}
+{"chunks": [84], "coverage": 1.0, "dropped": 0, "item": 706, "numbers": ["13", "180"], "section_words": 205}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 707, "numbers": ["30", "60", "9.1"], "section_words": 137}
+{"chunks": [70], "coverage": 0.0, "dropped": 0, "item": 708, "numbers": ["01", "076", "14", "15", "36"], "section_words": 195}
+{"chunks": [731], "coverage": 0.0, "dropped": 0, "item": 709, "numbers": ["17.1", "17.2", "69"], "section_words": 35}
+{"chunks": [5], "coverage": 0.8333333333333334, "dropped": 0, "item": 710, "numbers": ["10"], "section_words": 79}
+{"chunks": [97], "coverage": 0.21311475409836064, "dropped": 0, "item": 711, "numbers": ["18.2"], "section_words": 46}
+{"chunks": [7], "coverage": 0.0, "dropped": 0, "item": 712, "numbers": ["20"], "section_words": 76}
+{"chunks": [116], "coverage": 1.0, "dropped": 0, "item": 713, "numbers": ["8.2"], "section_words": 148}
+{"chunks": [100], "coverage": 0.0, "dropped": 0, "item": 714, "numbers": ["16", "2017", "26", "31"], "section_words": 67}
+{"chunks": [73], "coverage": 0.0, "dropped": 0, "item": 715, "numbers": ["24"], "section_words": 95}
+{"chunks": [254], "coverage": 1.0, "dropped": 0, "item": 716, "numbers": ["10", "12", "15", "22", "24"], "section_words": 138}
+{"chunks": [119], "coverage": 0.0, "dropped": 0, "item": 717, "numbers": ["10", "13", "2.2", "6.8"], "section_words": 52}
+{"chunks": [681], "coverage": 1.0, "dropped": 0, "item": 718, "numbers": ["11.12", "51"], "section_words": 68}
+{"chunks": [275], "coverage": 0.0, "dropped": 0, "item": 719, "numbers": ["23", "25", "26"], "section_words": 26}
+{"chunks": [145], "coverage": 0.0, "dropped": 0, "item": 720, "numbers": [], "section_words": 93}
+{"chunks": [120], "coverage": 0.0, "dropped": 0, "item": 721, "numbers": ["10", "11", "12", "14", "15"], "section_words": 34}
+{"chunks": [45], "coverage": 1.0, "dropped": 0, "item": 722, "numbers": ["11.2", "12.4", "2012", "8.4", "90"], "section_words": 279}
+{"chunks": [82], "coverage": 0.5384615384615384, "dropped": 0, "item": 723, "numbers": ["10", "12"], "section_words": 31}
+{"chunks": [42], "coverage": 0.0, "dropped": 0, "item": 724, "numbers": ["12", "30"], "section_words": 173}
+{"chunks": [170], "coverage": 0.27522935779816515, "dropped": 0, "item": 725, "numbers": ["11.4", "20", "24"], "section_words": 170}
+{"chunks": [171], "coverage": 0.0, "dropped": 0, "item": 726, "numbers": ["4.7"], "section_words": 80}
+{"chunks": [88], "coverage": 0.0, "dropped": 0, "item": 727, "numbers": ["16.2"], "section_words": 131}
+{"chunks": [49], "coverage": 1.0, "dropped": 0, "item": 728, "numbers": ["8.4", "8.5"], "section_words": 190}
+{"chunks": [121], "coverage": 1.0, "dropped": 0, "item": 729, "numbers": ["10", "10.1"], "section_words": 95}
+{"chunks": [97], "coverage": 0.5769230769230769, "dropped": 0, "item": 730, "numbers": ["11.2", "30"], "section_words": 142}
+{"chunks": [64], "coverage": 1.0, "dropped": 0, "item": 731, "numbers": ["10"], "section_words": 108}
+{"chunks": [79], "coverage": 0.0, "dropped": 0, "item": 732, "numbers": ["11", "15"], "section_words": 197}
+{"chunks": [8], "coverage": 1.0, "dropped": 0, "item": 733, "numbers": ["1.2", "1998", "1999", "24", "31"], "section_words": 125}
+{"chunks": [117], "coverage": 1.0, "dropped": 0, "item": 734, "numbers": ["30", "9.2", "9.3", "90"], "section_words": 79}
+{"chunks": [11], "coverage": 0.0, "dropped": 0, "item": 735, "numbers": [], "section_words": 17}
+{"chunks": [34], "coverage": 1.0, "dropped": 0, "item": 736, "numbers": ["306", "5.2", "5.3", "6.1"], "section_words": 199}
+{"chunks": [114], "coverage": 1.0, "dropped": 0, "item": 737, "numbers": ["14.4"], "section_words": 60}
+{"chunks": [25], "coverage": 0.0, "dropped": 0, "item": 738, "numbers": [], "section_words": 137}
+{"chunks": [95], "coverage": 1.0, "dropped": 0, "item": 739, "numbers": ["11", "6.2"], "section_words": 87}
+{"chunks": [113], "coverage": 0.0, "dropped": 0, "item": 740, "numbers": ["8.4"], "section_words": 86}
+{"chunks": [283], "coverage": 1.0, "dropped": 0, "item": 741, "numbers": ["14", "14.5", "15", "15.1", "16", "180", "26"], "section_words": 176}
+{"chunks": [154], "coverage": 0.0, "dropped": 0, "item": 742, "numbers": ["12", "13.2", "30"], "section_words": 101}
+{"chunks": [38], "coverage": 1.0, "dropped": 0, "item": 743, "numbers": ["2016", "60"], "section_words": 114}
+{"chunks": [116], "coverage": 0.0, "dropped": 0, "item": 744, "numbers": ["10"], "section_words": 242}
+{"chunks": [5], "coverage": 0.0, "dropped": 0, "item": 745, "numbers": ["12", "13"], "section_words": 157}
+{"chunks": [54], "coverage": 0.0, "dropped": 0, "item": 746, "numbers": ["18.3", "18.4", "2019", "29"], "section_words": 121}
+{"chunks": [35], "coverage": 0.0, "dropped": 0, "item": 747, "numbers": ["23"], "section_words": 121}
+{"chunks": [39], "coverage": 1.0, "dropped": 0, "item": 748, "numbers": ["90"], "section_words": 202}
+{"chunks": [174], "coverage": 1.0, "dropped": 0, "item": 749, "numbers": ["12", "14.7", "20", "2011", "24"], "section_words": 130}
+{"chunks": [25], "coverage": 1.0, "dropped": 0, "item": 750, "numbers": ["90"], "section_words": 200}
+{"chunks": [81], "coverage": 1.0, "dropped": 0, "item": 751, "numbers": ["15"], "section_words": 153}
+{"chunks": [284], "coverage": 0.0, "dropped": 0, "item": 752, "numbers": ["20"], "section_words": 24}
+{"chunks": [15], "coverage": 0.7222222222222222, "dropped": 0, "item": 753, "numbers": ["120", "4.2", "4.3"], "section_words": 201}
+{"chunks": [43], "coverage": 1.0, "dropped": 0, "item": 754, "numbers": ["30", "4.1"], "section_words": 105}
+{"chunks": [86], "coverage": 1.0, "dropped": 0, "item": 755, "numbers": ["10", "20", "7.1", "7.2"], "section_words": 66}
+{"chunks": [72], "coverage": 0.0, "dropped": 0, "item": 756, "numbers": ["2019"], "section_words": 26}
+{"chunks": [267], "coverage": 0.0, "dropped": 0, "item": 757, "numbers": ["15.1", "17", "2.2", "2.4"], "section_words": 134}
+{"chunks": [500], "coverage": 0.0, "dropped": 0, "item": 758, "numbers": ["38", "9.4"], "section_words": 154}
+{"chunks": [23], "coverage": 0.0, "dropped": 0, "item": 759, "numbers": ["1000000.00", "11", "2000000.00"], "section_words": 204}
+{"chunks": [89], "coverage": 0.0, "dropped": 0, "item": 760, "numbers": ["5.4", "9.2"], "section_words": 83}
+{"chunks": [364], "coverage": 0.0, "dropped": 0, "item": 761, "numbers": ["11", "13.4", "29"], "section_words": 154}
+{"chunks": [43], "coverage": 0.0, "dropped": 0, "item": 762, "numbers": ["12"], "section_words": 24}
+{"chunks": [5], "coverage": 0.8823529411764706, "dropped": 0, "item": 763, "numbers": ["30", "60"], "section_words": 71}
+{"chunks": [286], "coverage": 0.0, "dropped": 0, "item": 764, "numbers": ["27"], "section_words": 126}
+{"chunks": [350], "coverage": 0.0, "dropped": 0, "item": 765, "numbers": ["28"], "section_words": 23}
+{"chunks": [30], "coverage": 1.0, "dropped": 0, "item": 766, "numbers": ["12", "2.1"], "section_words": 142}
+{"chunks": [33], "coverage": 0.7073170731707317, "dropped": 0, "item": 767, "numbers": ["10", "120", "30", "5.2", "5.3", "5.4", "5.5"], "section_words": 205}
+{"chunks": [20], "coverage": 0.0, "dropped": 0, "item": 768, "numbers": [], "section_words": 83}
+{"chunks": [144], "coverage": 1.0, "dropped": 0, "item": 769, "numbers": ["15", "26"], "section_words": 82}
+{"chunks": [33], "coverage": 1.0, "dropped": 0, "item": 770, "numbers": ["12", "30"], "section_words": 43}
+{"chunks": [51], "coverage": 1.0, "dropped": 0, "item": 771, "numbers": ["11", "11.1", "12", "12.1", "12.2", "15.1", "2.3"], "section_words": 154}
+{"chunks": [45], "coverage": 0.37142857142857144, "dropped": 0, "item": 772, "numbers": ["10", "8.1", "8.2"], "section_words": 93}
+{"chunks": [42], "coverage": 0.0, "dropped": 0, "item": 773, "numbers": ["10"], "section_words": 52}
+{"chunks": [52], "coverage": 0.4918032786885246, "dropped": 0, "item": 774, "numbers": ["12", "6.2"], "section_words": 82}
+{"chunks": [89], "coverage": 0.0, "dropped": 0, "item": 775, "numbers": ["11.5"], "section_words": 127}
+{"chunks": [59], "coverage": 1.0, "dropped": 0, "item": 776, "numbers": ["30", "4.1", "5.2", "5.3", "5.4"], "section_words": 141}
+{"chunks": [21], "coverage": 1.0, "dropped": 0, "item": 777, "numbers": ["30"], "section_words": 72}
+{"chunks": [112], "coverage": 0.0, "dropped": 0, "item": 778, "numbers": ["10", "11", "9.8", "9.9"], "section_words": 171}
+{"chunks": [25], "coverage": 0.0, "dropped": 0, "item": 779, "numbers": ["1.10", "50"], "section_words": 264}
+{"chunks": [86], "coverage": 1.0, "dropped": 0, "item": 780, "numbers": ["11", "14", "15", "2019"], "section_words": 153}
+{"chunks": [159], "coverage": 0.0, "dropped": 0, "item": 781, "numbers": ["11", "12.1", "12.2", "12.4", "12.5", "12.6", "13", "15"], "section_words": 172}
+{"chunks": [105], "coverage": 0.0, "dropped": 0, "item": 782, "numbers": ["10", "11", "90"], "section_words": 38}
+{"chunks": [318], "coverage": 0.0, "dropped": 0, "item": 783, "numbers": ["16.1", "16.2", "16.3", "29", "45"], "section_words": 104}
+{"chunks": [18], "coverage": 1.0, "dropped": 0, "item": 784, "numbers": ["18"], "section_words": 93}
+{"chunks": [27], "coverage": 1.0, "dropped": 0, "item": 785, "numbers": ["10", "11", "36"], "section_words": 57}
+{"chunks": [86], "coverage": 0.0, "dropped": 0, "item": 786, "numbers": ["5.1", "5.6", "6.5"], "section_words": 122}
+{"chunks": [189], "coverage": 0.0, "dropped": 0, "item": 787, "numbers": ["12", "33.0", "33.1"], "section_words": 118}
+{"chunks": [13], "coverage": 0.0, "dropped": 0, "item": 788, "numbers": [], "section_words": 177}
+{"chunks": [112], "coverage": 0.0, "dropped": 0, "item": 789, "numbers": ["1.1", "10", "11.1", "11.2", "11.3", "11.4", "12"], "section_words": 101}
+{"chunks": [150], "coverage": 0.0, "dropped": 0, "item": 790, "numbers": ["14.3", "14.8", "26", "60"], "section_words": 198}
+{"chunks": [45], "coverage": 0.0, "dropped": 0, "item": 791, "numbers": ["18.3", "19", "19.1"], "section_words": 147}
+{"chunks": [75], "coverage": 0.0, "dropped": 0, "item": 792, "numbers": ["10", "15.10"], "section_words": 196}
+{"chunks": [283], "coverage": 0.0, "dropped": 0, "item": 793, "numbers": ["15"], "section_words": 82}
+{"chunks": [71], "coverage": 0.0, "dropped": 0, "item": 794, "numbers": [], "section_words": 102}
+{"chunks": [73], "coverage": 1.0, "dropped": 0, "item": 795, "numbers": ["11.11", "11.12"], "section_words": 205}
+{"chunks": [68], "coverage": 0.29545454545454547, "dropped": 0, "item": 796, "numbers": ["10.2", "30", "60"], "section_words": 113}
+{"chunks": [258], "coverage": 0.38461538461538464, "dropped": 0, "item": 797, "numbers": ["22", "8.5"], "section_words": 113}
+{"chunks": [211], "coverage": 0.0, "dropped": 0, "item": 798, "numbers": ["10.5", "18"], "section_words": 73}
+{"chunks": [374], "coverage": 0.0, "dropped": 0, "item": 799, "numbers": ["14", "18.2", "37", "39"], "section_words": 82}
+{"chunks": [24], "coverage": 0.0, "dropped": 0, "item": 800, "numbers": ["2025", "31"], "section_words": 48}
+{"chunks": [315], "coverage": 0.0, "dropped": 0, "item": 801, "numbers": ["30"], "section_words": 121}
+{"chunks": [42], "coverage": 1.0, "dropped": 0, "item": 802, "numbers": ["2034", "31", "4.1"], "section_words": 177}
+{"chunks": [105], "coverage": 1.0, "dropped": 0, "item": 803, "numbers": ["10", "16", "2016", "679"], "section_words": 94}
+{"chunks": [197], "coverage": 0.0, "dropped": 0, "item": 804, "numbers": ["24", "30"], "section_words": 31}
+{"chunks": [139], "coverage": 0.17796610169491525, "dropped": 0, "item": 805, "numbers": ["11", "7.1"], "section_words": 25}
+{"chunks": [47], "coverage": 1.0, "dropped": 0, "item": 806, "numbers": [], "section_words": 35}
+{"chunks": [343], "coverage": 1.0, "dropped": 0, "item": 807, "numbers": ["10", "12", "13", "13.5", "30", "38"], "section_words": 183}
+{"chunks": [41], "coverage": 1.0, "dropped": 0, "item": 808, "numbers": ["30", "7.1"], "section_words": 114}
+{"chunks": [357], "coverage": 1.0, "dropped": 0, "item": 809, "numbers": ["25"], "section_words": 116}
+{"chunks": [252], "coverage": 0.0, "dropped": 0, "item": 810, "numbers": ["19", "5.2", "5.3", "8.1", "8.2"], "section_words": 58}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 811, "numbers": [], "section_words": 35}
+{"chunks": [41], "coverage": 0.0, "dropped": 0, "item": 812, "numbers": ["9.02"], "section_words": 184}
+{"chunks": [26], "coverage": 0.6595744680851063, "dropped": 0, "item": 813, "numbers": ["60"], "section_words": 59}
+{"chunks": [111], "coverage": 0.0, "dropped": 0, "item": 814, "numbers": ["19", "8.4"], "section_words": 192}
+{"chunks": [441], "coverage": 0.0, "dropped": 0, "item": 815, "numbers": ["32", "90"], "section_words": 25}
+{"chunks": [174], "coverage": 1.0, "dropped": 0, "item": 816, "numbers": ["14", "1980", "29"], "section_words": 160}
+{"chunks": [76], "coverage": 1.0, "dropped": 0, "item": 817, "numbers": [], "section_words": 92}
+{"chunks": [243], "coverage": 1.0, "dropped": 0, "item": 818, "numbers": ["10", "10.2", "18"], "section_words": 53}
+{"chunks": [262], "coverage": 0.0, "dropped": 0, "item": 819, "numbers": ["24"], "section_words": 136}
+{"chunks": [22], "coverage": 0.8285714285714286, "dropped": 0, "item": 820, "numbers": ["10", "30", "3000000"], "section_words": 201}
+{"chunks": [186], "coverage": 0.0, "dropped": 0, "item": 821, "numbers": ["10.2", "15"], "section_words": 34}
+{"chunks": [401], "coverage": 1.0, "dropped": 0, "item": 822, "numbers": ["13", "13.3", "13.4", "40"], "section_words": 188}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 823, "numbers": ["30", "5000000"], "section_words": 144}
+{"chunks": [51], "coverage": 0.5283018867924528, "dropped": 0, "item": 824, "numbers": ["10.2", "120"], "section_words": 131}
+{"chunks": [110], "coverage": 1.0, "dropped": 0, "item": 825, "numbers": ["14", "51", "60"], "section_words": 143}
+{"chunks": [60], "coverage": 1.0, "dropped": 0, "item": 826, "numbers": ["11"], "section_words": 179}
+{"chunks": [71], "coverage": 0.0, "dropped": 0, "item": 827, "numbers": [], "section_words": 134}
+{"chunks": [52], "coverage": 1.0, "dropped": 0, "item": 828, "numbers": ["30", "8.1"], "section_words": 201}
+{"chunks": [55], "coverage": 0.6666666666666666, "dropped": 0, "item": 829, "numbers": ["6.4"], "section_words": 74}
+{"chunks": [126], "coverage": 0.0, "dropped": 0, "item": 830, "numbers": ["11", "19"], "section_words": 35}
+{"chunks": [30], "coverage": 1.0, "dropped": 0, "item": 831, "numbers": ["16", "17", "18", "19"], "section_words": 165}
+{"chunks": [19], "coverage": 0.0, "dropped": 0, "item": 832, "numbers": ["90"], "section_words": 47}
+{"chunks": [39], "coverage": 0.4852941176470588, "dropped": 0, "item": 833, "numbers": ["7.1", "7.2", "90"], "section_words": 74}
+{"chunks": [20], "coverage": 1.0, "dropped": 0, "item": 834, "numbers": ["12", "8.2", "8.3", "9.1"], "section_words": 192}
+{"chunks": [9], "coverage": 1.0, "dropped": 0, "item": 835, "numbers": ["60"], "section_words": 133}
+{"chunks": [145], "coverage": 0.0, "dropped": 0, "item": 836, "numbers": ["20.2", "20.4"], "section_words": 66}
+{"chunks": [47], "coverage": 0.0, "dropped": 0, "item": 837, "numbers": ["3.6", "30", "5.2", "5.3", "60"], "section_words": 242}
+{"chunks": [169], "coverage": 0.0, "dropped": 0, "item": 838, "numbers": ["14", "2009", "30", "31"], "section_words": 136}
+{"chunks": [372], "coverage": 0.0, "dropped": 0, "item": 839, "numbers": ["27"], "section_words": 62}
+{"chunks": [58], "coverage": 1.0, "dropped": 0, "item": 840, "numbers": [], "section_words": 193}
+{"chunks": [43], "coverage": 0.0, "dropped": 0, "item": 841, "numbers": ["15"], "section_words": 51}
+{"chunks": [225], "coverage": 0.0, "dropped": 0, "item": 842, "numbers": ["15", "16.03", "25"], "section_words": 168}
+{"chunks": [62], "coverage": 0.0, "dropped": 0, "item": 843, "numbers": [], "section_words": 100}
+{"chunks": [37], "coverage": 0.5, "dropped": 0, "item": 844, "numbers": ["120"], "section_words": 68}
+{"chunks": [421], "coverage": 0.0, "dropped": 0, "item": 845, "numbers": ["1.3", "1.4", "35"], "section_words": 168}
+{"chunks": [81], "coverage": 1.0, "dropped": 0, "item": 846, "numbers": ["10", "13"], "section_words": 108}
+{"chunks": [189], "coverage": 0.0, "dropped": 0, "item": 847, "numbers": ["10.3", "10.4", "10.5", "11", "12", "2.14", "2.15", "2.17", "2.2", "22", "3.3", "3.4", "6.2", "6.3", "6.4", "6.5", "7.3", "7.4"], "section_words": 149}
+{"chunks": [43], "coverage": 0.6976744186046512, "dropped": 0, "item": 848, "numbers": ["60"], "section_words": 34}
+{"chunks": [35], "coverage": 0.0, "dropped": 0, "item": 849, "numbers": ["1.1", "1.2", "10", "10.5", "11", "14.6", "2.1", "2.2"], "section_words": 171}
+{"chunks": [341], "coverage": 1.0, "dropped": 0, "item": 850, "numbers": ["10", "13", "13.4", "2020", "38"], "section_words": 138}
+{"chunks": [86], "coverage": 0.0, "dropped": 0, "item": 851, "numbers": ["9.07"], "section_words": 81}
+{"chunks": [361], "coverage": 0.0, "dropped": 0, "item": 852, "numbers": ["2.6", "39"], "section_words": 102}
+{"chunks": [43], "coverage": 0.8823529411764706, "dropped": 0, "item": 853, "numbers": ["15.3", "16", "16.1", "16.2"], "section_words": 193}
+{"chunks": [143], "coverage": 1.0, "dropped": 0, "item": 854, "numbers": ["19.2", "20.0"], "section_words": 29}
+{"chunks": [16], "coverage": 1.0, "dropped": 0, "item": 855, "numbers": ["2.1"], "section_words": 78}
+{"chunks": [647], "coverage": 0.45454545454545453, "dropped": 0, "item": 856, "numbers": ["23", "56"], "section_words": 35}
+{"chunks": [107], "coverage": 0.0, "dropped": 0, "item": 857, "numbers": ["12", "13.2", "22"], "section_words": 155}
+{"chunks": [39], "coverage": 0.0, "dropped": 0, "item": 858, "numbers": ["780000"], "section_words": 120}
+{"chunks": [35], "coverage": 0.0, "dropped": 0, "item": 859, "numbers": [], "section_words": 129}
+{"chunks": [43], "coverage": 1.0, "dropped": 0, "item": 860, "numbers": ["10", "30"], "section_words": 53}
+{"chunks": [167], "coverage": 1.0, "dropped": 0, "item": 861, "numbers": ["13", "14"], "section_words": 87}
+{"chunks": [25], "coverage": 0.0, "dropped": 0, "item": 862, "numbers": ["9.3", "9.4"], "section_words": 99}
+{"chunks": [126], "coverage": 1.0, "dropped": 0, "item": 863, "numbers": ["12", "50"], "section_words": 114}
+{"chunks": [60], "coverage": 0.0, "dropped": 0, "item": 864, "numbers": ["1.38", "12"], "section_words": 186}
+{"chunks": [12], "coverage": 1.0, "dropped": 0, "item": 865, "numbers": ["1000000", "11", "11.1", "11.2", "5000000"], "section_words": 182}
+{"chunks": [73], "coverage": 1.0, "dropped": 0, "item": 866, "numbers": ["11"], "section_words": 197}
+{"chunks": [464], "coverage": 0.0, "dropped": 0, "item": 867, "numbers": ["10", "11.7", "12", "46"], "section_words": 157}
+{"chunks": [95], "coverage": 1.0, "dropped": 0, "item": 868, "numbers": ["14", "9.7", "9.8"], "section_words": 205}
+{"chunks": [143], "coverage": 1.0, "dropped": 0, "item": 869, "numbers": ["1.5", "10", "24"], "section_words": 201}
+{"chunks": [191], "coverage": 0.0, "dropped": 0, "item": 870, "numbers": ["11.1", "11.2", "13.4", "15"], "section_words": 123}
+{"chunks": [168], "coverage": 0.410958904109589, "dropped": 0, "item": 871, "numbers": ["15"], "section_words": 56}
+{"chunks": [11], "coverage": 1.0, "dropped": 0, "item": 872, "numbers": ["1.3", "10"], "section_words": 123}
+{"chunks": [92], "coverage": 1.0, "dropped": 0, "item": 873, "numbers": ["13", "15.8", "15.9"], "section_words": 168}
+{"chunks": [808], "coverage": 1.0, "dropped": 0, "item": 874, "numbers": ["13.6", "64", "7.1"], "section_words": 145}
+{"chunks": [18], "coverage": 1.0, "dropped": 0, "item": 875, "numbers": ["60"], "section_words": 98}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 876, "numbers": ["12", "4.2", "800000"], "section_words": 58}
+{"chunks": [461], "coverage": 0.0, "dropped": 0, "item": 877, "numbers": ["16"], "section_words": 29}
+{"chunks": [103], "coverage": 0.0, "dropped": 0, "item": 878, "numbers": ["4.03", "8.02"], "section_words": 82}
+{"chunks": [49], "coverage": 1.0, "dropped": 0, "item": 879, "numbers": ["10", "10.1", "10.2", "10.3", "12", "2018", "60", "9.3"], "section_words": 158}
+{"chunks": [69], "coverage": 1.0, "dropped": 0, "item": 880, "numbers": ["15", "2.1", "30"], "section_words": 78}
+{"chunks": [25], "coverage": 1.0, "dropped": 0, "item": 881, "numbers": ["60"], "section_words": 172}
+{"chunks": [117], "coverage": 0.0, "dropped": 0, "item": 882, "numbers": ["13.4", "150", "17", "23"], "section_words": 170}
+{"chunks": [54], "coverage": 0.0, "dropped": 0, "item": 883, "numbers": ["10", "90"], "section_words": 31}
+{"chunks": [96], "coverage": 0.7894736842105263, "dropped": 0, "item": 884, "numbers": ["8.1", "8.2", "8.3"], "section_words": 134}
+{"chunks": [46], "coverage": 0.0, "dropped": 0, "item": 885, "numbers": ["9.1"], "section_words": 51}
+{"chunks": [31], "coverage": 1.0, "dropped": 0, "item": 886, "numbers": ["13", "13.1", "60"], "section_words": 148}
+{"chunks": [8], "coverage": 0.0, "dropped": 0, "item": 887, "numbers": [], "section_words": 100}
+{"chunks": [64], "coverage": 1.0, "dropped": 0, "item": 888, "numbers": ["10", "13", "5000"], "section_words": 111}
+{"chunks": [46], "coverage": 0.0, "dropped": 0, "item": 889, "numbers": ["4.6", "5.1"], "section_words": 158}
+{"chunks": [151], "coverage": 1.0, "dropped": 0, "item": 890, "numbers": ["10", "13", "14"], "section_words": 90}
+{"chunks": [249], "coverage": 0.0, "dropped": 0, "item": 891, "numbers": ["15", "1933", "1934", "20", "28", "34"], "section_words": 478}
+{"chunks": [178], "coverage": 0.0, "dropped": 0, "item": 892, "numbers": ["13", "14", "26", "3.4", "9012190"], "section_words": 54}
+{"chunks": [151], "coverage": 0.0, "dropped": 0, "item": 893, "numbers": ["11", "90"], "section_words": 160}
+{"chunks": [83], "coverage": 0.0, "dropped": 0, "item": 894, "numbers": ["15", "8.1"], "section_words": 307}
+{"chunks": [193], "coverage": 0.0, "dropped": 0, "item": 895, "numbers": ["10", "11", "11.2", "12", "13", "14", "15", "20", "27"], "section_words": 568}
+{"chunks": [143], "coverage": 0.0, "dropped": 0, "item": 896, "numbers": ["10"], "section_words": 78}
+{"chunks": [42], "coverage": 0.0, "dropped": 0, "item": 897, "numbers": ["7.4", "7.5"], "section_words": 161}
+{"chunks": [7], "coverage": 0.0, "dropped": 0, "item": 898, "numbers": [], "section_words": 33}
+{"chunks": [176], "coverage": 0.0, "dropped": 0, "item": 899, "numbers": ["11.10"], "section_words": 27}
+{"chunks": [82], "coverage": 1.0, "dropped": 0, "item": 900, "numbers": ["10.9"], "section_words": 104}
+{"chunks": [18], "coverage": 0.9090909090909091, "dropped": 0, "item": 901, "numbers": ["60"], "section_words": 98}
+{"chunks": [20], "coverage": 1.0, "dropped": 0, "item": 902, "numbers": ["12", "13"], "section_words": 176}
+{"chunks": [416], "coverage": 1.0, "dropped": 0, "item": 903, "numbers": ["14.14", "38"], "section_words": 72}
+{"chunks": [562], "coverage": 0.0, "dropped": 0, "item": 904, "numbers": ["32"], "section_words": 60}
+{"chunks": [47], "coverage": 1.0, "dropped": 0, "item": 905, "numbers": [], "section_words": 74}
+{"chunks": [42], "coverage": 1.0, "dropped": 0, "item": 906, "numbers": ["13", "15000", "30"], "section_words": 181}
+{"chunks": [140], "coverage": 1.0, "dropped": 0, "item": 907, "numbers": ["10", "10.1", "10.2", "20", "2009", "2013", "21", "28"], "section_words": 155}
+{"chunks": [77], "coverage": 1.0, "dropped": 0, "item": 908, "numbers": ["1999", "31", "60", "7.3"], "section_words": 202}
+{"chunks": [27], "coverage": 1.0, "dropped": 0, "item": 909, "numbers": ["10", "12", "2018", "9.1"], "section_words": 178}
+{"chunks": [560], "coverage": 0.0, "dropped": 0, "item": 910, "numbers": ["14", "180", "74", "80"], "section_words": 51}
+{"chunks": [150], "coverage": 0.0, "dropped": 0, "item": 911, "numbers": ["1000000", "16", "5000000", "9.5"], "section_words": 157}
+{"chunks": [79], "coverage": 1.0, "dropped": 0, "item": 912, "numbers": ["12", "13", "30"], "section_words": 190}
+{"chunks": [334], "coverage": 1.0, "dropped": 0, "item": 913, "numbers": ["1051", "15", "1946", "33"], "section_words": 87}
+{"chunks": [88], "coverage": 0.30927835051546393, "dropped": 0, "item": 914, "numbers": ["10", "10000000", "30", "5000000"], "section_words": 117}
+{"chunks": [65], "coverage": 1.0, "dropped": 0, "item": 915, "numbers": ["2019", "22.10", "22.11", "22.9", "29"], "section_words": 179}
+{"chunks": [52], "coverage": 0.0, "dropped": 0, "item": 916, "numbers": ["6.1", "6.4", "7.2"], "section_words": 292}
+{"chunks": [77], "coverage": 1.0, "dropped": 0, "item": 917, "numbers": ["10.6"], "section_words": 105}
+{"chunks": [16], "coverage": 1.0, "dropped": 0, "item": 918, "numbers": ["2018", "31", "401", "6.1", "6.2", "90"], "section_words": 169}
+{"chunks": [61], "coverage": 0.0, "dropped": 0, "item": 919, "numbers": [], "section_words": 128}
+{"chunks": [53], "coverage": 0.0, "dropped": 0, "item": 920, "numbers": [], "section_words": 60}
+{"chunks": [99], "coverage": 0.7435897435897436, "dropped": 0, "item": 921, "numbers": [], "section_words": 41}
+{"chunks": [13], "coverage": 1.0, "dropped": 0, "item": 922, "numbers": ["9.2"], "section_words": 179}
+{"chunks": [27], "coverage": 0.9574468085106383, "dropped": 0, "item": 923, "numbers": ["180", "60"], "section_words": 45}
+{"chunks": [9], "coverage": 1.0, "dropped": 0, "item": 924, "numbers": ["60"], "section_words": 133}
+{"chunks": [163], "coverage": 1.0, "dropped": 0, "item": 925, "numbers": ["10.9", "11.9", "17"], "section_words": 120}
+{"chunks": [12], "coverage": 0.0, "dropped": 0, "item": 926, "numbers": ["12"], "section_words": 31}
+{"chunks": [214], "coverage": 0.3076923076923077, "dropped": 0, "item": 927, "numbers": ["000", "1200166", "13.2", "19", "21", "29"], "section_words": 72}
+{"chunks": [25], "coverage": 1.0, "dropped": 0, "item": 928, "numbers": ["60"], "section_words": 172}
+{"chunks": [182], "coverage": 1.0, "dropped": 0, "item": 929, "numbers": ["12.4", "13", "20"], "section_words": 98}
+{"chunks": [130], "coverage": 0.0, "dropped": 0, "item": 930, "numbers": ["14", "60"], "section_words": 75}
+{"chunks": [7], "coverage": 1.0, "dropped": 0, "item": 931, "numbers": [], "section_words": 33}
+{"chunks": [443], "coverage": 1.0, "dropped": 0, "item": 932, "numbers": ["29", "5.8"], "section_words": 85}
+{"chunks": [30], "coverage": 0.0, "dropped": 0, "item": 933, "numbers": [], "section_words": 73}
+{"chunks": [69], "coverage": 0.0, "dropped": 0, "item": 934, "numbers": ["10", "11", "12", "13", "15", "19", "23", "24"], "section_words": 127}
+{"chunks": [88], "coverage": 0.0, "dropped": 0, "item": 935, "numbers": ["12", "30"], "section_words": 34}
+{"chunks": [157], "coverage": 1.0, "dropped": 0, "item": 936, "numbers": ["13", "5.8", "7.2", "7.4", "8.2", "8.3"], "section_words": 458}
+{"chunks": [50], "coverage": 0.0, "dropped": 0, "item": 937, "numbers": ["12", "4.1", "4.5", "5.0"], "section_words": 277}
+{"chunks": [174], "coverage": 0.0, "dropped": 0, "item": 938, "numbers": ["3.1", "3.2", "3.3"], "section_words": 90}
+{"chunks": [12], "coverage": 1.0, "dropped": 0, "item": 939, "numbers": ["4.1"], "section_words": 198}
+{"chunks": [70], "coverage": 0.0, "dropped": 0, "item": 940, "numbers": ["5.4"], "section_words": 55}
+{"chunks": [163], "coverage": 1.0, "dropped": 0, "item": 941, "numbers": ["11", "21"], "section_words": 37}
+{"chunks": [134], "coverage": 0.0, "dropped": 0, "item": 942, "numbers": ["7.1", "7.2", "7.3", "8.1", "8.2"], "section_words": 117}
+{"chunks": [106], "coverage": 0.0, "dropped": 0, "item": 943, "numbers": ["12"], "section_words": 86}
+{"chunks": [685], "coverage": 0.0, "dropped": 0, "item": 944, "numbers": ["25", "59"], "section_words": 79}
+{"chunks": [459], "coverage": 0.0, "dropped": 0, "item": 945, "numbers": ["41", "9.8", "9.9"], "section_words": 149}
+{"chunks": [8], "coverage": 1.0, "dropped": 0, "item": 946, "numbers": ["2000", "2003", "31"], "section_words": 40}
+{"chunks": [11], "coverage": 1.0, "dropped": 0, "item": 947, "numbers": [], "section_words": 192}
+{"chunks": [86], "coverage": 0.0, "dropped": 0, "item": 948, "numbers": ["5.1", "5.6", "6.5"], "section_words": 122}
+{"chunks": [18], "coverage": 0.0, "dropped": 0, "item": 949, "numbers": [], "section_words": 150}
+{"chunks": [102], "coverage": 0.0, "dropped": 0, "item": 950, "numbers": ["14"], "section_words": 318}
+{"chunks": [56], "coverage": 0.0, "dropped": 0, "item": 951, "numbers": ["5.2", "6.4"], "section_words": 86}
+{"chunks": [54], "coverage": 0.0, "dropped": 0, "item": 952, "numbers": ["10", "10.4", "11", "11.1"], "section_words": 200}
+{"chunks": [633], "coverage": 0.0, "dropped": 0, "item": 953, "numbers": ["57"], "section_words": 105}
+{"chunks": [39], "coverage": 0.0, "dropped": 0, "item": 954, "numbers": ["12"], "section_words": 176}
+{"chunks": [201], "coverage": 0.0, "dropped": 0, "item": 955, "numbers": ["13.2", "18"], "section_words": 127}
+{"chunks": [158], "coverage": 0.0, "dropped": 0, "item": 956, "numbers": ["17.13", "17.14", "17.15", "17.16", "17.17", "18", "29"], "section_words": 192}
+{"chunks": [25], "coverage": 0.0, "dropped": 0, "item": 957, "numbers": ["4.4", "8.4"], "section_words": 157}
+{"chunks": [14], "coverage": 1.0, "dropped": 0, "item": 958, "numbers": ["3.7", "36"], "section_words": 154}
+{"chunks": [70], "coverage": 0.0, "dropped": 0, "item": 959, "numbers": ["10", "11.3", "13", "18"], "section_words": 205}
+{"chunks": [177], "coverage": 0.0, "dropped": 0, "item": 960, "numbers": ["14", "16", "90"], "section_words": 34}
+{"chunks": [102], "coverage": 1.0, "dropped": 0, "item": 961, "numbers": ["15"], "section_words": 36}
+{"chunks": [26], "coverage": 0.0, "dropped": 0, "item": 962, "numbers": ["60"], "section_words": 59}
+{"chunks": [22], "coverage": 1.0, "dropped": 0, "item": 963, "numbers": [], "section_words": 80}
+{"chunks": [533], "coverage": 0.0, "dropped": 0, "item": 964, "numbers": ["17.2", "18"], "section_words": 24}
+{"chunks": [67], "coverage": 0.0, "dropped": 0, "item": 965, "numbers": ["10014", "12", "9.3"], "section_words": 126}
+{"chunks": [79], "coverage": 0.0, "dropped": 0, "item": 966, "numbers": ["3.5"], "section_words": 218}
+{"chunks": [461], "coverage": 1.0, "dropped": 0, "item": 967, "numbers": ["19", "19.1", "46"], "section_words": 97}
+{"chunks": [38], "coverage": 0.0, "dropped": 0, "item": 968, "numbers": ["10", "3.14", "3.15", "3.16"], "section_words": 203}
+{"chunks": [58], "coverage": 0.0, "dropped": 0, "item": 969, "numbers": ["14"], "section_words": 27}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 970, "numbers": ["10", "6.3", "6.4", "6.5"], "section_words": 198}
+{"chunks": [34], "coverage": 0.0, "dropped": 0, "item": 971, "numbers": [], "section_words": 193}
+{"chunks": [238], "coverage": 0.0, "dropped": 0, "item": 972, "numbers": ["22", "8.11", "8.12"], "section_words": 131}
+{"chunks": [148], "coverage": 0.0, "dropped": 0, "item": 973, "numbers": ["14", "30"], "section_words": 69}
+{"chunks": [165], "coverage": 0.0, "dropped": 0, "item": 974, "numbers": ["13.2", "23"], "section_words": 151}
+{"chunks": [117], "coverage": 1.0, "dropped": 0, "item": 975, "numbers": ["2000000", "30", "4.12"], "section_words": 168}
+{"chunks": [20], "coverage": 0.0, "dropped": 0, "item": 976, "numbers": ["18", "19", "20"], "section_words": 160}
+{"chunks": [20], "coverage": 0.0, "dropped": 0, "item": 977, "numbers": ["20"], "section_words": 93}
+{"chunks": [85], "coverage": 1.0, "dropped": 0, "item": 978, "numbers": ["130", "18", "1993", "22", "23"], "section_words": 192}
+{"chunks": [152], "coverage": 0.0, "dropped": 0, "item": 979, "numbers": ["10"], "section_words": 57}
+{"chunks": [56], "coverage": 0.0, "dropped": 0, "item": 980, "numbers": ["10", "8.4", "8.5"], "section_words": 188}
+{"chunks": [317], "coverage": 0.0, "dropped": 0, "item": 981, "numbers": ["14", "6.6"], "section_words": 32}
+{"chunks": [31], "coverage": 1.0, "dropped": 0, "item": 982, "numbers": ["10", "12", "18", "19", "2013", "23"], "section_words": 135}
+{"chunks": [136], "coverage": 0.0, "dropped": 0, "item": 983, "numbers": ["10.2", "10.3", "11"], "section_words": 127}
+{"chunks": [209], "coverage": 0.45454545454545453, "dropped": 0, "item": 984, "numbers": ["11", "11.2", "23", "60", "8.4", "90"], "section_words": 406}
+{"chunks": [26], "coverage": 1.0, "dropped": 0, "item": 985, "numbers": ["14.1", "14.2", "2004", "31", "60"], "section_words": 119}
+{"chunks": [55], "coverage": 0.0, "dropped": 0, "item": 986, "numbers": ["12.4", "2.2", "2.4", "30", "60", "8.3"], "section_words": 122}
+{"chunks": [17], "coverage": 0.0, "dropped": 0, "item": 987, "numbers": ["2.1", "2.4", "2.5"], "section_words": 147}
+{"chunks": [27], "coverage": 0.0, "dropped": 0, "item": 988, "numbers": ["10", "10.1", "10.2", "10.3", "11", "11.1", "2018", "25"], "section_words": 122}
+{"chunks": [122], "coverage": 0.0, "dropped": 0, "item": 989, "numbers": ["18", "4.6"], "section_words": 199}
+{"chunks": [294], "coverage": 0.0, "dropped": 0, "item": 990, "numbers": ["30", "33.2", "70"], "section_words": 184}
+{"chunks": [6], "coverage": 0.0, "dropped": 0, "item": 991, "numbers": ["115", "13", "30", "60"], "section_words": 178}
+{"chunks": [133], "coverage": 0.0, "dropped": 0, "item": 992, "numbers": ["10", "10000000", "11.04", "5000000"], "section_words": 79}
+{"chunks": [15], "coverage": 1.0, "dropped": 0, "item": 993, "numbers": ["10", "12", "2019", "21", "6.1", "6.2", "7.1", "7.2"], "section_words": 170}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 994, "numbers": ["5.02"], "section_words": 132}
+{"chunks": [17], "coverage": 0.0, "dropped": 0, "item": 995, "numbers": ["30"], "section_words": 60}
+{"chunks": [114], "coverage": 1.0, "dropped": 0, "item": 996, "numbers": ["12", "16"], "section_words": 104}
+{"chunks": [495], "coverage": 0.0, "dropped": 0, "item": 997, "numbers": ["17"], "section_words": 32}
+{"chunks": [51], "coverage": 0.5660377358490566, "dropped": 0, "item": 998, "numbers": ["60"], "section_words": 76}
+{"chunks": [18], "coverage": 1.0, "dropped": 0, "item": 999, "numbers": ["2020", "30", "90"], "section_words": 127}
+{"chunks": [30], "coverage": 1.0, "dropped": 0, "item": 1000, "numbers": ["10.4"], "section_words": 147}
+{"chunks": [61], "coverage": 0.0, "dropped": 0, "item": 1001, "numbers": ["11", "19"], "section_words": 114}
+{"chunks": [228], "coverage": 0.0, "dropped": 0, "item": 1002, "numbers": ["18", "35"], "section_words": 141}
+{"chunks": [50], "coverage": 0.6382978723404256, "dropped": 0, "item": 1003, "numbers": [], "section_words": 31}
+{"chunks": [127], "coverage": 0.0, "dropped": 0, "item": 1004, "numbers": ["13", "22"], "section_words": 55}
+{"chunks": [47], "coverage": 1.0, "dropped": 0, "item": 1005, "numbers": ["10", "3.1", "30"], "section_words": 83}
+{"chunks": [350], "coverage": 0.0, "dropped": 0, "item": 1006, "numbers": ["12", "12.1", "26"], "section_words": 77}
+{"chunks": [101], "coverage": 0.0, "dropped": 0, "item": 1007, "numbers": ["30", "8.1", "8.2"], "section_words": 78}
+{"chunks": [560], "coverage": 0.0, "dropped": 0, "item": 1008, "numbers": ["44", "53"], "section_words": 17}
+{"chunks": [104], "coverage": 1.0, "dropped": 0, "item": 1009, "numbers": ["10", "16", "16.1"], "section_words": 32}
+{"chunks": [92], "coverage": 0.0, "dropped": 0, "item": 1010, "numbers": ["9.1", "9.6"], "section_words": 57}
+{"chunks": [362], "coverage": 1.0, "dropped": 0, "item": 1011, "numbers": ["17.11", "33", "8.2"], "section_words": 60}
+{"chunks": [47], "coverage": 0.0, "dropped": 0, "item": 1012, "numbers": ["00", "01", "10", "20"], "section_words": 119}
+{"chunks": [336], "coverage": 0.0, "dropped": 0, "item": 1013, "numbers": ["28", "9.1"], "section_words": 70}
+{"chunks": [306], "coverage": 1.0, "dropped": 0, "item": 1014, "numbers": ["16.03", "16.04", "24", "25"], "section_words": 96}
+{"chunks": [12], "coverage": 1.0, "dropped": 0, "item": 1015, "numbers": ["2010", "30", "60"], "section_words": 173}
+{"chunks": [99], "coverage": 0.0, "dropped": 0, "item": 1016, "numbers": ["30"], "section_words": 31}
+{"chunks": [81], "coverage": 0.0, "dropped": 0, "item": 1017, "numbers": ["11"], "section_words": 226}
+{"chunks": [26], "coverage": 1.0, "dropped": 0, "item": 1018, "numbers": ["4.1", "90"], "section_words": 100}
+{"chunks": [56], "coverage": 1.0, "dropped": 0, "item": 1019, "numbers": ["16"], "section_words": 103}
+{"chunks": [207], "coverage": 0.0, "dropped": 0, "item": 1020, "numbers": ["12.4", "24"], "section_words": 194}
+{"chunks": [23], "coverage": 0.0, "dropped": 0, "item": 1021, "numbers": ["4.6"], "section_words": 183}
+{"chunks": [34], "coverage": 0.0, "dropped": 0, "item": 1022, "numbers": ["1933", "406"], "section_words": 63}
+{"chunks": [72], "coverage": 1.0, "dropped": 0, "item": 1023, "numbers": ["12", "12.1"], "section_words": 61}
+{"chunks": [67], "coverage": 0.0, "dropped": 0, "item": 1024, "numbers": ["10", "13", "18.03", "18.04", "19", "2017", "60"], "section_words": 175}
+{"chunks": [80], "coverage": 1.0, "dropped": 0, "item": 1025, "numbers": ["101", "1401", "5.1"], "section_words": 117}
+{"chunks": [72], "coverage": 0.0, "dropped": 0, "item": 1026, "numbers": ["10.4"], "section_words": 141}
+{"chunks": [96], "coverage": 1.0, "dropped": 0, "item": 1027, "numbers": ["45", "5.0", "5.1"], "section_words": 64}
+{"chunks": [8], "coverage": 1.0, "dropped": 0, "item": 1028, "numbers": ["11"], "section_words": 93}
+{"chunks": [134], "coverage": 0.0, "dropped": 0, "item": 1029, "numbers": ["12"], "section_words": 28}
+{"chunks": [34], "coverage": 1.0, "dropped": 0, "item": 1030, "numbers": ["12.1", "12.2", "13", "13.1"], "section_words": 200}
+{"chunks": [173], "coverage": 0.0, "dropped": 0, "item": 1031, "numbers": ["10.0", "15.0", "17", "17.0", "18", "18.0", "19.0", "20.0", "22.0", "23.0", "27.0", "27.10", "6.0"], "section_words": 99}
+{"chunks": [44], "coverage": 0.8823529411764706, "dropped": 0, "item": 1032, "numbers": ["15"], "section_words": 53}
+{"chunks": [174], "coverage": 1.0, "dropped": 0, "item": 1033, "numbers": ["30"], "section_words": 125}
+{"chunks": [25], "coverage": 0.0, "dropped": 0, "item": 1034, "numbers": ["14", "14.1", "14.2", "14.3"], "section_words": 197}
+{"chunks": [44], "coverage": 1.0, "dropped": 0, "item": 1035, "numbers": ["50"], "section_words": 198}
+{"chunks": [37], "coverage": 0.0, "dropped": 0, "item": 1036, "numbers": [], "section_words": 72}
+{"chunks": [56], "coverage": 0.0, "dropped": 0, "item": 1037, "numbers": ["10", "12", "13", "13.1", "17", "18", "19", "20"], "section_words": 136}
+{"chunks": [360], "coverage": 0.0, "dropped": 0, "item": 1038, "numbers": ["12.1", "12.2", "32", "9.1"], "section_words": 153}
+{"chunks": [168], "coverage": 0.0, "dropped": 0, "item": 1039, "numbers": ["10", "12", "9.9"], "section_words": 33}
+{"chunks": [87], "coverage": 0.0, "dropped": 0, "item": 1040, "numbers": ["1999", "7.6"], "section_words": 61}
+{"chunks": [58], "coverage": 0.0, "dropped": 0, "item": 1041, "numbers": ["19"], "section_words": 31}
+{"chunks": [10], "coverage": 0.6666666666666666, "dropped": 0, "item": 1042, "numbers": ["11999", "2000", "3000"], "section_words": 36}
+{"chunks": [35], "coverage": 0.0, "dropped": 0, "item": 1043, "numbers": [], "section_words": 43}
+{"chunks": [70], "coverage": 1.0, "dropped": 0, "item": 1044, "numbers": [], "section_words": 48}
+{"chunks": [37], "coverage": 0.0, "dropped": 0, "item": 1045, "numbers": ["10"], "section_words": 87}
+{"chunks": [59], "coverage": 0.0, "dropped": 0, "item": 1046, "numbers": [], "section_words": 29}
+{"chunks": [6], "coverage": 0.0, "dropped": 0, "item": 1047, "numbers": ["2007", "2014", "30"], "section_words": 45}
+{"chunks": [130], "coverage": 1.0, "dropped": 0, "item": 1048, "numbers": ["11"], "section_words": 65}
+{"chunks": [163], "coverage": 0.0, "dropped": 0, "item": 1049, "numbers": ["11.03", "11.04", "15"], "section_words": 147}
+{"chunks": [42], "coverage": 1.0, "dropped": 0, "item": 1050, "numbers": ["2034", "31", "4.1"], "section_words": 177}
+{"chunks": [146], "coverage": 1.0, "dropped": 0, "item": 1051, "numbers": ["10.11", "12"], "section_words": 88}
+{"chunks": [36], "coverage": 1.0, "dropped": 0, "item": 1052, "numbers": ["16"], "section_words": 55}
+{"chunks": [369], "coverage": 0.0, "dropped": 0, "item": 1053, "numbers": ["34"], "section_words": 47}
+{"chunks": [803], "coverage": 0.0, "dropped": 0, "item": 1054, "numbers": ["14.1", "14.2", "66"], "section_words": 57}
+{"chunks": [90], "coverage": 0.0, "dropped": 0, "item": 1055, "numbers": ["1000000", "16", "30", "6.19"], "section_words": 202}
+{"chunks": [133], "coverage": 0.0, "dropped": 0, "item": 1056, "numbers": ["10", "20"], "section_words": 34}
+{"chunks": [477], "coverage": 0.0, "dropped": 0, "item": 1057, "numbers": ["1.87", "16", "16.1", "38", "8.5"], "section_words": 55}
+{"chunks": [147], "coverage": 0.0, "dropped": 0, "item": 1058, "numbers": ["12", "25"], "section_words": 61}
+{"chunks": [1], "coverage": 1.0, "dropped": 0, "item": 1059, "numbers": ["30"], "section_words": 176}
+{"chunks": [33], "coverage": 1.0, "dropped": 0, "item": 1060, "numbers": ["4.1", "60"], "section_words": 27}
+{"chunks": [10], "coverage": 1.0, "dropped": 0, "item": 1061, "numbers": ["30", "60"], "section_words": 116}
+{"chunks": [83], "coverage": 1.0, "dropped": 0, "item": 1062, "numbers": ["13", "15.2", "180", "30"], "section_words": 222}
+{"chunks": [15], "coverage": 0.0, "dropped": 0, "item": 1063, "numbers": [], "section_words": 95}
+{"chunks": [203], "coverage": 1.0, "dropped": 0, "item": 1064, "numbers": ["27", "5000000", "6.2"], "section_words": 193}
+{"chunks": [56], "coverage": 0.0, "dropped": 0, "item": 1065, "numbers": ["10", "18", "30"], "section_words": 177}
+{"chunks": [391], "coverage": 0.0, "dropped": 0, "item": 1066, "numbers": ["15", "36", "7.6"], "section_words": 192}
+{"chunks": [362], "coverage": 0.0, "dropped": 0, "item": 1067, "numbers": ["33"], "section_words": 109}
+{"chunks": [24], "coverage": 0.0, "dropped": 0, "item": 1068, "numbers": [], "section_words": 189}
+{"chunks": [100], "coverage": 0.0, "dropped": 0, "item": 1069, "numbers": ["10"], "section_words": 42}
+{"chunks": [54], "coverage": 0.0, "dropped": 0, "item": 1070, "numbers": ["10", "10.2", "11", "2019", "22", "8.2"], "section_words": 229}
+{"chunks": [4], "coverage": 1.0, "dropped": 0, "item": 1071, "numbers": ["11", "30"], "section_words": 179}
+{"chunks": [90], "coverage": 0.0, "dropped": 0, "item": 1072, "numbers": ["8.2"], "section_words": 26}
+{"chunks": [495], "coverage": 1.0, "dropped": 0, "item": 1073, "numbers": ["15.1", "2006", "31", "41"], "section_words": 175}
+{"chunks": [50], "coverage": 0.8571428571428571, "dropped": 0, "item": 1074, "numbers": ["2.02"], "section_words": 69}
+{"chunks": [19], "coverage": 0.0, "dropped": 0, "item": 1075, "numbers": [], "section_words": 68}
+{"chunks": [180], "coverage": 1.0, "dropped": 0, "item": 1076, "numbers": ["14", "24"], "section_words": 32}
+{"chunks": [4], "coverage": 1.0, "dropped": 0, "item": 1077, "numbers": ["12", "180", "2.1", "2020"], "section_words": 111}
+{"chunks": [7], "coverage": 0.0, "dropped": 0, "item": 1078, "numbers": ["11", "1996", "2022", "23", "31", "395"], "section_words": 140}
+{"chunks": [130], "coverage": 0.0, "dropped": 0, "item": 1079, "numbers": ["11"], "section_words": 56}
+{"chunks": [515], "coverage": 0.0, "dropped": 0, "item": 1080, "numbers": ["18.1", "2.1", "28"], "section_words": 67}
+{"chunks": [3], "coverage": 0.14285714285714285, "dropped": 0, "item": 1081, "numbers": ["2.2", "30"], "section_words": 199}
+{"chunks": [172], "coverage": 0.0, "dropped": 0, "item": 1082, "numbers": ["11", "12.03", "15.01", "16", "2019"], "section_words": 151}
+{"chunks": [84], "coverage": 0.0, "dropped": 0, "item": 1083, "numbers": ["11", "11.1"], "section_words": 142}
+{"chunks": [215], "coverage": 0.2537313432835821, "dropped": 0, "item": 1084, "numbers": ["17"], "section_words": 35}
+{"chunks": [179], "coverage": 1.0, "dropped": 0, "item": 1085, "numbers": ["12", "14.8", "14.9", "20", "2011", "25"], "section_words": 130}
+{"chunks": [138], "coverage": 0.0, "dropped": 0, "item": 1086, "numbers": ["13", "14"], "section_words": 121}
+{"chunks": [21], "coverage": 1.0, "dropped": 0, "item": 1087, "numbers": ["15", "19", "2020"], "section_words": 166}
+{"chunks": [6], "coverage": 0.0, "dropped": 0, "item": 1088, "numbers": ["10"], "section_words": 120}
+{"chunks": [393], "coverage": 0.0, "dropped": 0, "item": 1089, "numbers": ["38"], "section_words": 132}
+{"chunks": [331], "coverage": 0.0, "dropped": 0, "item": 1090, "numbers": ["100", "104", "16.7", "3.8", "30"], "section_words": 209}
+{"chunks": [2], "coverage": 0.0, "dropped": 0, "item": 1091, "numbers": ["12", "16", "2005"], "section_words": 94}
+{"chunks": [121], "coverage": 0.0, "dropped": 0, "item": 1092, "numbers": ["11.1", "11.4", "13", "14.4", "15", "18", "4.6", "5.5", "8.1", "8.2", "90"], "section_words": 108}
+{"chunks": [61], "coverage": 0.0, "dropped": 0, "item": 1093, "numbers": ["24", "3.4"], "section_words": 169}
+{"chunks": [76], "coverage": 1.0, "dropped": 0, "item": 1094, "numbers": ["18", "18.1"], "section_words": 59}
+{"chunks": [61], "coverage": 1.0, "dropped": 0, "item": 1095, "numbers": [], "section_words": 32}
+{"chunks": [30], "coverage": 1.0, "dropped": 0, "item": 1096, "numbers": ["12", "2.1"], "section_words": 142}
+{"chunks": [11], "coverage": 1.0, "dropped": 0, "item": 1097, "numbers": ["17", "18"], "section_words": 175}
+{"chunks": [4], "coverage": 1.0, "dropped": 0, "item": 1098, "numbers": ["10", "2013", "2014", "2015", "2016", "2017", "22", "23"], "section_words": 83}
+{"chunks": [493], "coverage": 0.0, "dropped": 0, "item": 1099, "numbers": ["13.3", "51"], "section_words": 141}
+{"chunks": [514], "coverage": 0.0, "dropped": 0, "item": 1100, "numbers": ["13.2", "40"], "section_words": 169}
+{"chunks": [129], "coverage": 0.0, "dropped": 0, "item": 1101, "numbers": ["17", "21"], "section_words": 488}
+{"chunks": [261], "coverage": 0.0, "dropped": 0, "item": 1102, "numbers": ["22", "24"], "section_words": 25}
+{"chunks": [48], "coverage": 0.1111111111111111, "dropped": 0, "item": 1103, "numbers": ["10000000", "9.1"], "section_words": 131}
+{"chunks": [49], "coverage": 0.5769230769230769, "dropped": 0, "item": 1104, "numbers": ["7.3", "7.4"], "section_words": 51}
+{"chunks": [39], "coverage": 0.0, "dropped": 0, "item": 1105, "numbers": ["90"], "section_words": 202}
+{"chunks": [114], "coverage": 1.0, "dropped": 0, "item": 1106, "numbers": ["10", "10.2", "15"], "section_words": 143}
+{"chunks": [762], "coverage": 0.0, "dropped": 0, "item": 1107, "numbers": ["12.3", "63"], "section_words": 107}
+{"chunks": [7], "coverage": 0.8064516129032258, "dropped": 0, "item": 1108, "numbers": ["15", "201", "4.3", "4.4"], "section_words": 197}
+{"chunks": [106], "coverage": 0.0, "dropped": 0, "item": 1109, "numbers": ["11", "15", "15.1"], "section_words": 246}
+{"chunks": [318], "coverage": 0.6666666666666666, "dropped": 0, "item": 1110, "numbers": ["16.1", "16.2", "16.3", "29", "45"], "section_words": 104}
+{"chunks": [17], "coverage": 0.0, "dropped": 0, "item": 1111, "numbers": [], "section_words": 197}
+{"chunks": [65], "coverage": 0.0, "dropped": 0, "item": 1112, "numbers": ["10", "11", "2017"], "section_words": 141}
+{"chunks": [24], "coverage": 1.0, "dropped": 0, "item": 1113, "numbers": ["6.3", "6.4"], "section_words": 166}
+{"chunks": [174], "coverage": 1.0, "dropped": 0, "item": 1114, "numbers": ["3.1", "3.2", "3.3"], "section_words": 90}
+{"chunks": [7], "coverage": 0.0, "dropped": 0, "item": 1115, "numbers": ["2.3", "2.4"], "section_words": 61}
+{"chunks": [477], "coverage": 0.0, "dropped": 0, "item": 1116, "numbers": ["10.6", "44"], "section_words": 120}
+{"chunks": [33], "coverage": 1.0, "dropped": 0, "item": 1117, "numbers": ["10", "10.1", "60"], "section_words": 94}
+{"chunks": [28], "coverage": 0.0, "dropped": 0, "item": 1118, "numbers": ["1.18", "2019", "31"], "section_words": 86}
+{"chunks": [246], "coverage": 0.0, "dropped": 0, "item": 1119, "numbers": ["32", "9.13", "9.14"], "section_words": 152}
+{"chunks": [1], "coverage": 1.0, "dropped": 0, "item": 1120, "numbers": ["2014", "2016", "31"], "section_words": 194}
+{"chunks": [168], "coverage": 1.0, "dropped": 0, "item": 1121, "numbers": ["13.1", "13.2", "2009"], "section_words": 55}
+{"chunks": [159], "coverage": 0.0, "dropped": 0, "item": 1122, "numbers": ["10.19", "26"], "section_words": 175}
+{"chunks": [208], "coverage": 1.0, "dropped": 0, "item": 1123, "numbers": ["11", "11.1", "23", "90"], "section_words": 106}
+{"chunks": [471], "coverage": 0.0, "dropped": 0, "item": 1124, "numbers": ["37"], "section_words": 74}
+{"chunks": [71], "coverage": 0.0, "dropped": 0, "item": 1125, "numbers": ["10"], "section_words": 28}
+{"chunks": [37], "coverage": 0.0, "dropped": 0, "item": 1126, "numbers": ["10"], "section_words": 180}
+{"chunks": [3], "coverage": 1.0, "dropped": 0, "item": 1127, "numbers": ["30"], "section_words": 186}
+{"chunks": [1], "coverage": 0.0, "dropped": 0, "item": 1128, "numbers": ["1.1", "1.2", "2003", "30"], "section_words": 202}
+{"chunks": [103], "coverage": 0.0, "dropped": 0, "item": 1129, "numbers": ["11"], "section_words": 15}
+{"chunks": [22], "coverage": 1.0, "dropped": 0, "item": 1130, "numbers": ["10"], "section_words": 196}
+{"chunks": [243], "coverage": 1.0, "dropped": 0, "item": 1131, "numbers": ["10", "11", "15", "600", "72"], "section_words": 88}
+{"chunks": [25], "coverage": 1.0, "dropped": 0, "item": 1132, "numbers": ["1.00", "10", "100000.00", "2000"], "section_words": 164}
+{"chunks": [186], "coverage": 0.012048192771084338, "dropped": 0, "item": 1133, "numbers": ["16.4", "16.5", "32"], "section_words": 191}
+{"chunks": [61], "coverage": 0.0, "dropped": 0, "item": 1134, "numbers": ["11.3"], "section_words": 164}
+{"chunks": [303], "coverage": 0.5172413793103449, "dropped": 0, "item": 1135, "numbers": ["1.4", "26"], "section_words": 179}
+{"chunks": [48], "coverage": 1.0, "dropped": 0, "item": 1136, "numbers": [], "section_words": 32}
+{"chunks": [124], "coverage": 0.0, "dropped": 0, "item": 1137, "numbers": ["11"], "section_words": 21}
+{"chunks": [707], "coverage": 1.0, "dropped": 0, "item": 1138, "numbers": ["11", "11.5", "5.8", "57"], "section_words": 180}
+{"chunks": [463], "coverage": 0.0, "dropped": 0, "item": 1139, "numbers": ["39", "41"], "section_words": 168}
+{"chunks": [99], "coverage": 0.0, "dropped": 0, "item": 1140, "numbers": ["15", "19", "90"], "section_words": 145}
+{"chunks": [227], "coverage": 1.0, "dropped": 0, "item": 1141, "numbers": ["10.12", "19"], "section_words": 37}
+{"chunks": [22], "coverage": 1.0, "dropped": 0, "item": 1142, "numbers": ["2.0", "2.1"], "section_words": 31}
+{"chunks": [25], "coverage": 1.0, "dropped": 0, "item": 1143, "numbers": ["5.2", "6.1", "6.2", "6.3", "6.4", "60", "8.1"], "section_words": 195}
+{"chunks": [66], "coverage": 0.0, "dropped": 0, "item": 1144, "numbers": ["10", "30"], "section_words": 213}
+{"chunks": [6], "coverage": 0.0, "dropped": 0, "item": 1145, "numbers": ["30"], "section_words": 185}
+{"chunks": [2], "coverage": 1.0, "dropped": 0, "item": 1146, "numbers": ["12", "2.01", "2019", "30", "31"], "section_words": 180}
+{"chunks": [278], "coverage": 0.0, "dropped": 0, "item": 1147, "numbers": ["20"], "section_words": 55}
+{"chunks": [47], "coverage": 1.0, "dropped": 0, "item": 1148, "numbers": ["1.7"], "section_words": 21}
+{"chunks": [59], "coverage": 1.0, "dropped": 0, "item": 1149, "numbers": ["30", "4.1", "5.2", "5.3", "5.4"], "section_words": 141}
+{"chunks": [17], "coverage": 1.0, "dropped": 0, "item": 1150, "numbers": [], "section_words": 195}
+{"chunks": [49], "coverage": 0.0, "dropped": 0, "item": 1151, "numbers": ["7.1", "7.3"], "section_words": 85}
+{"chunks": [110], "coverage": 0.0, "dropped": 0, "item": 1152, "numbers": ["10", "10.1", "10.4"], "section_words": 48}
+{"chunks": [705], "coverage": 1.0, "dropped": 0, "item": 1153, "numbers": ["15.6", "68"], "section_words": 33}
+{"chunks": [29], "coverage": 1.0, "dropped": 0, "item": 1154, "numbers": ["12.2", "12.3", "12.4", "30", "90"], "section_words": 192}
+{"chunks": [72], "coverage": 0.0, "dropped": 0, "item": 1155, "numbers": ["17", "30"], "section_words": 88}
+{"chunks": [85], "coverage": 1.0, "dropped": 0, "item": 1156, "numbers": ["11", "7.1"], "section_words": 119}
+{"chunks": [340], "coverage": 1.0, "dropped": 0, "item": 1157, "numbers": ["28", "31", "9.22"], "section_words": 72}
+{"chunks": [10], "coverage": 0.0, "dropped": 0, "item": 1158, "numbers": ["100", "14", "15", "16", "90"], "section_words": 190}
+{"chunks": [81], "coverage": 1.0, "dropped": 0, "item": 1159, "numbers": ["11", "11.1", "11.2", "12", "15", "59"], "section_words": 140}
+{"chunks": [306], "coverage": 1.0, "dropped": 0, "item": 1160, "numbers": ["2010", "27", "32", "35.0", "35.1"], "section_words": 80}
+{"chunks": [11], "coverage": 1.0, "dropped": 0, "item": 1161, "numbers": ["17", "18"], "section_words": 175}
+{"chunks": [132], "coverage": 0.0, "dropped": 0, "item": 1162, "numbers": ["11"], "section_words": 104}
+{"chunks": [28], "coverage": 1.0, "dropped": 0, "item": 1163, "numbers": ["7.3", "9.1"], "section_words": 199}
+{"chunks": [442], "coverage": 0.0, "dropped": 0, "item": 1164, "numbers": ["42"], "section_words": 36}
+{"chunks": [32], "coverage": 0.0, "dropped": 0, "item": 1165, "numbers": [], "section_words": 177}
+{"chunks": [10], "coverage": 0.0, "dropped": 0, "item": 1166, "numbers": [], "section_words": 80}
+{"chunks": [318], "coverage": 0.0, "dropped": 0, "item": 1167, "numbers": ["26", "28", "31", "9012190"], "section_words": 22}
+{"chunks": [197], "coverage": 0.47619047619047616, "dropped": 0, "item": 1168, "numbers": ["12", "15", "1999", "30"], "section_words": 35}
+{"chunks": [110], "coverage": 0.0, "dropped": 0, "item": 1169, "numbers": ["12", "16", "20", "2011", "7.4"], "section_words": 152}
+{"chunks": [192], "coverage": 1.0, "dropped": 0, "item": 1170, "numbers": ["15", "19.2", "19.3"], "section_words": 81}
+{"chunks": [53], "coverage": 0.0, "dropped": 0, "item": 1171, "numbers": ["12", "2002"], "section_words": 31}
+{"chunks": [30], "coverage": 0.0, "dropped": 0, "item": 1172, "numbers": ["30"], "section_words": 33}
+{"chunks": [125], "coverage": 0.0, "dropped": 0, "item": 1173, "numbers": ["12", "7.1", "7.2"], "section_words": 38}
+{"chunks": [204], "coverage": 0.0, "dropped": 0, "item": 1174, "numbers": ["10.7", "10.8", "23"], "section_words": 119}
+{"chunks": [156], "coverage": 1.0, "dropped": 0, "item": 1175, "numbers": ["11"], "section_words": 198}
+{"chunks": [28], "coverage": 0.0, "dropped": 0, "item": 1176, "numbers": [], "section_words": 74}
+{"chunks": [5], "coverage": 1.0, "dropped": 0, "item": 1177, "numbers": ["1.5", "12000000", "15", "2018", "2019", "2020", "30", "3000000"], "section_words": 150}
+{"chunks": [48], "coverage": 0.9375, "dropped": 0, "item": 1178, "numbers": ["11.2", "30", "60", "90"], "section_words": 122}
+{"chunks": [172], "coverage": 0.0, "dropped": 0, "item": 1179, "numbers": ["10", "20", "2009", "25"], "section_words": 37}
+{"chunks": [266], "coverage": 0.0, "dropped": 0, "item": 1180, "numbers": ["10", "37"], "section_words": 60}
+{"chunks": [29], "coverage": 0.0, "dropped": 0, "item": 1181, "numbers": ["30", "9.2", "90"], "section_words": 174}
+{"chunks": [103], "coverage": 1.0, "dropped": 0, "item": 1182, "numbers": ["30", "90"], "section_words": 159}
+{"chunks": [60], "coverage": 0.7058823529411765, "dropped": 0, "item": 1183, "numbers": ["10.2"], "section_words": 73}
+{"chunks": [77], "coverage": 1.0, "dropped": 0, "item": 1184, "numbers": ["10", "90"], "section_words": 151}
+{"chunks": [29], "coverage": 0.0, "dropped": 0, "item": 1185, "numbers": ["11"], "section_words": 52}
+{"chunks": [97], "coverage": 0.0, "dropped": 0, "item": 1186, "numbers": ["10", "18"], "section_words": 31}
+{"chunks": [17], "coverage": 0.0, "dropped": 0, "item": 1187, "numbers": ["8.3", "9.1"], "section_words": 199}
+{"chunks": [155], "coverage": 0.5, "dropped": 0, "item": 1188, "numbers": ["12", "180", "30", "45", "8.2"], "section_words": 151}
+{"chunks": [78], "coverage": 1.0, "dropped": 0, "item": 1189, "numbers": ["11.2"], "section_words": 193}
+{"chunks": [111], "coverage": 0.967741935483871, "dropped": 0, "item": 1190, "numbers": ["18.2", "2006", "30", "31", "60"], "section_words": 124}
+{"chunks": [61], "coverage": 0.0, "dropped": 0, "item": 1191, "numbers": ["8.14", "8.15", "8.16", "8.17"], "section_words": 127}
+{"chunks": [37], "coverage": 0.0, "dropped": 0, "item": 1192, "numbers": ["10", "8.2", "8.3", "8.4"], "section_words": 128}
+{"chunks": [273], "coverage": 1.0, "dropped": 0, "item": 1193, "numbers": ["32", "6.6"], "section_words": 51}
+{"chunks": [72], "coverage": 0.0, "dropped": 0, "item": 1194, "numbers": ["7.1", "9.1", "9.2"], "section_words": 98}
+{"chunks": [147], "coverage": 0.0, "dropped": 0, "item": 1195, "numbers": ["11"], "section_words": 97}
+{"chunks": [78], "coverage": 0.0, "dropped": 0, "item": 1196, "numbers": ["13", "15", "16.08", "30"], "section_words": 196}
+{"chunks": [23], "coverage": 0.0, "dropped": 0, "item": 1197, "numbers": ["5.1", "9.2"], "section_words": 154}
+{"chunks": [30], "coverage": 0.0, "dropped": 0, "item": 1198, "numbers": [], "section_words": 193}
+{"chunks": [404], "coverage": 0.0, "dropped": 0, "item": 1199, "numbers": ["20", "20.1", "43"], "section_words": 68}
+{"chunks": [222], "coverage": 1.0, "dropped": 0, "item": 1200, "numbers": ["22", "26.0", "26.1", "26.2"], "section_words": 137}
+{"chunks": [45], "coverage": 1.0, "dropped": 0, "item": 1201, "numbers": ["10", "12"], "section_words": 170}
+{"chunks": [29], "coverage": 1.0, "dropped": 0, "item": 1202, "numbers": ["3.1", "60"], "section_words": 182}
+{"chunks": [164], "coverage": 0.0, "dropped": 0, "item": 1203, "numbers": ["15", "20", "22"], "section_words": 391}
+{"chunks": [131], "coverage": 1.0, "dropped": 0, "item": 1204, "numbers": ["11", "5.2"], "section_words": 137}
+{"chunks": [98], "coverage": 1.0, "dropped": 0, "item": 1205, "numbers": ["16", "18.11", "18.12", "18.13", "25"], "section_words": 105}
+{"chunks": [36], "coverage": 1.0, "dropped": 0, "item": 1206, "numbers": ["6.5", "6.6", "6.7", "9.02", "90"], "section_words": 181}
+{"chunks": [22], "coverage": 0.0, "dropped": 0, "item": 1207, "numbers": ["9.3"], "section_words": 174}
+{"chunks": [481], "coverage": 0.0, "dropped": 0, "item": 1208, "numbers": ["12", "12.2", "2045", "36"], "section_words": 32}
+{"chunks": [65], "coverage": 0.0, "dropped": 0, "item": 1209, "numbers": ["30", "7.7"], "section_words": 61}
+{"chunks": [189], "coverage": 1.0, "dropped": 0, "item": 1210, "numbers": ["13", "13.1"], "section_words": 20}
+{"chunks": [85], "coverage": 0.0, "dropped": 0, "item": 1211, "numbers": ["11", "7.1"], "section_words": 119}
+{"chunks": [8], "coverage": 0.5172413793103449, "dropped": 0, "item": 1212, "numbers": ["24"], "section_words": 31}
+{"chunks": [59], "coverage": 0.0, "dropped": 0, "item": 1213, "numbers": [], "section_words": 82}
+{"chunks": [77], "coverage": 0.0, "dropped": 0, "item": 1214, "numbers": ["12.4", "60"], "section_words": 154}
+{"chunks": [412], "coverage": 0.0, "dropped": 0, "item": 1215, "numbers": ["13"], "section_words": 202}
+{"chunks": [36], "coverage": 1.0, "dropped": 0, "item": 1216, "numbers": ["10", "2014", "21", "30", "6.1", "6.2", "90"], "section_words": 177}
+{"chunks": [76], "coverage": 0.0, "dropped": 0, "item": 1217, "numbers": [], "section_words": 124}
+{"chunks": [39], "coverage": 1.0, "dropped": 0, "item": 1218, "numbers": ["36"], "section_words": 204}
+{"chunks": [29], "coverage": 0.0, "dropped": 0, "item": 1219, "numbers": ["2.2"], "section_words": 23}
+{"chunks": [18], "coverage": 0.0, "dropped": 0, "item": 1220, "numbers": ["00", "11", "2.3", "2020", "90"], "section_words": 234}
+{"chunks": [19], "coverage": 0.45454545454545453, "dropped": 0, "item": 1221, "numbers": [], "section_words": 34}
+{"chunks": [363], "coverage": 0.0, "dropped": 0, "item": 1222, "numbers": ["22", "25.1", "25.4", "25.5"], "section_words": 79}
+{"chunks": [10], "coverage": 0.0, "dropped": 0, "item": 1223, "numbers": ["4.4", "5.1", "5.2"], "section_words": 179}
+{"chunks": [426], "coverage": 1.0, "dropped": 0, "item": 1224, "numbers": ["16", "36"], "section_words": 157}
+{"chunks": [1069], "coverage": 0.0, "dropped": 0, "item": 1225, "numbers": ["50"], "section_words": 67}
+{"chunks": [145], "coverage": 0.5619047619047619, "dropped": 0, "item": 1226, "numbers": ["10", "14", "15", "16", "20", "2000"], "section_words": 63}
+{"chunks": [14], "coverage": 0.7317073170731707, "dropped": 0, "item": 1227, "numbers": ["30"], "section_words": 43}
+{"chunks": [347], "coverage": 0.35964912280701755, "dropped": 0, "item": 1228, "numbers": ["32"], "section_words": 41}
+{"chunks": [97], "coverage": 0.0, "dropped": 0, "item": 1229, "numbers": [], "section_words": 108}
+{"chunks": [152], "coverage": 1.0, "dropped": 0, "item": 1230, "numbers": ["11", "30"], "section_words": 163}
+{"chunks": [68], "coverage": 1.0, "dropped": 0, "item": 1231, "numbers": ["23", "24"], "section_words": 25}
+{"chunks": [63], "coverage": 1.0, "dropped": 0, "item": 1232, "numbers": ["20", "60"], "section_words": 130}
+{"chunks": [223], "coverage": 0.0, "dropped": 0, "item": 1233, "numbers": ["19", "2.13", "2.9", "6.3"], "section_words": 92}
+{"chunks": [197], "coverage": 0.0, "dropped": 0, "item": 1234, "numbers": ["100", "1000", "1000.00", "28"], "section_words": 201}
+{"chunks": [5], "coverage": 0.8333333333333334, "dropped": 0, "item": 1235, "numbers": ["10"], "section_words": 79}
+{"chunks": [155], "coverage": 1.0, "dropped": 0, "item": 1236, "numbers": ["90"], "section_words": 101}
+{"chunks": [72], "coverage": 0.0, "dropped": 0, "item": 1237, "numbers": ["12", "20"], "section_words": 177}
+{"chunks": [55], "coverage": 1.0, "dropped": 0, "item": 1238, "numbers": ["2000", "31", "4.1", "4.2", "60"], "section_words": 100}
+{"chunks": [19], "coverage": 0.6122448979591837, "dropped": 0, "item": 1239, "numbers": ["30", "60"], "section_words": 117}
+{"chunks": [2], "coverage": 1.0, "dropped": 0, "item": 1240, "numbers": ["1.1", "1.2", "90"], "section_words": 179}
+{"chunks": [14], "coverage": 0.0, "dropped": 0, "item": 1241, "numbers": [], "section_words": 17}
+{"chunks": [44], "coverage": 0.0, "dropped": 0, "item": 1242, "numbers": ["26", "27", "28", "29"], "section_words": 202}
+{"chunks": [153], "coverage": 1.0, "dropped": 0, "item": 1243, "numbers": ["16", "1980"], "section_words": 85}
+{"chunks": [30], "coverage": 1.0, "dropped": 0, "item": 1244, "numbers": ["10", "10.1", "30"], "section_words": 81}
+{"chunks": [545], "coverage": 1.0, "dropped": 0, "item": 1245, "numbers": ["18", "18.3"], "section_words": 60}
+{"chunks": [373], "coverage": 1.0, "dropped": 0, "item": 1246, "numbers": ["18", "18.1", "18.2", "39"], "section_words": 35}
+{"chunks": [72], "coverage": 0.0, "dropped": 0, "item": 1247, "numbers": [], "section_words": 50}
+{"chunks": [62], "coverage": 1.0, "dropped": 0, "item": 1248, "numbers": ["120", "14", "15", "15.1", "15.2", "17521", "2018", "256", "32708", "69", "75703"], "section_words": 174}
+{"chunks": [38], "coverage": 0.0, "dropped": 0, "item": 1249, "numbers": ["120"], "section_words": 42}
+{"chunks": [117], "coverage": 0.0, "dropped": 0, "item": 1250, "numbers": [], "section_words": 178}
+{"chunks": [186], "coverage": 1.0, "dropped": 0, "item": 1251, "numbers": ["10.2", "15"], "section_words": 34}
+{"chunks": [9], "coverage": 0.0, "dropped": 0, "item": 1252, "numbers": ["1000", "2014", "2018", "2045", "26", "3.3", "5.2"], "section_words": 168}
+{"chunks": [87], "coverage": 1.0, "dropped": 0, "item": 1253, "numbers": ["6.2"], "section_words": 157}
+{"chunks": [13], "coverage": 0.0, "dropped": 0, "item": 1254, "numbers": [], "section_words": 127}
+{"chunks": [9], "coverage": 1.0, "dropped": 0, "item": 1255, "numbers": ["6.1", "6.2", "6.3", "7.1", "8.1", "8.2"], "section_words": 201}
+{"chunks": [93], "coverage": 1.0, "dropped": 0, "item": 1256, "numbers": ["11", "8.1", "8.2"], "section_words": 175}
+{"chunks": [87], "coverage": 0.0, "dropped": 0, "item": 1257, "numbers": ["23", "30"], "section_words": 100}
+{"chunks": [48], "coverage": 0.0, "dropped": 0, "item": 1258, "numbers": ["8.5"], "section_words": 51}
+{"chunks": [47], "coverage": 1.0, "dropped": 0, "item": 1259, "numbers": [], "section_words": 72}
+{"chunks": [90], "coverage": 0.0, "dropped": 0, "item": 1260, "numbers": ["14", "19"], "section_words": 31}
+{"chunks": [41], "coverage": 0.7837837837837838, "dropped": 0, "item": 1261, "numbers": ["14", "9.3", "9.4", "9.5"], "section_words": 180}
+{"chunks": [70], "coverage": 0.0, "dropped": 0, "item": 1262, "numbers": ["8.1"], "section_words": 27}
+{"chunks": [143], "coverage": 0.0, "dropped": 0, "item": 1263, "numbers": ["10.11", "11", "25"], "section_words": 186}
+{"chunks": [18], "coverage": 0.0, "dropped": 0, "item": 1264, "numbers": ["10"], "section_words": 204}
+{"chunks": [347], "coverage": 0.0, "dropped": 0, "item": 1265, "numbers": ["27"], "section_words": 59}
+{"chunks": [91], "coverage": 1.0, "dropped": 0, "item": 1266, "numbers": ["13.1"], "section_words": 14}
+{"chunks": [11], "coverage": 0.0, "dropped": 0, "item": 1267, "numbers": ["14", "2010", "350000.00", "40000.00", "750000.00"], "section_words": 126}
+{"chunks": [20], "coverage": 0.0, "dropped": 0, "item": 1268, "numbers": ["2020", "26", "7.1"], "section_words": 277}
+{"chunks": [180], "coverage": 0.0, "dropped": 0, "item": 1269, "numbers": ["12", "12.1", "12.2", "12.3", "19"], "section_words": 72}
+{"chunks": [501], "coverage": 1.0, "dropped": 0, "item": 1270, "numbers": ["38"], "section_words": 105}
+{"chunks": [140], "coverage": 1.0, "dropped": 0, "item": 1271, "numbers": ["10", "10.1", "10.2", "20", "2009", "2013", "21", "28"], "section_words": 155}
+{"chunks": [153], "coverage": 0.0, "dropped": 0, "item": 1272, "numbers": ["11", "16", "1980", "20.6", "20.7", "21"], "section_words": 173}
+{"chunks": [121], "coverage": 0.0, "dropped": 0, "item": 1273, "numbers": ["10", "9.2"], "section_words": 40}
+{"chunks": [75], "coverage": 0.0, "dropped": 0, "item": 1274, "numbers": ["30"], "section_words": 95}
+{"chunks": [53], "coverage": 1.0, "dropped": 0, "item": 1275, "numbers": ["11", "12", "12.1", "12.2", "180"], "section_words": 191}
+{"chunks": [218], "coverage": 0.0, "dropped": 0, "item": 1276, "numbers": ["14", "9.2"], "section_words": 79}
+{"chunks": [47], "coverage": 0.0, "dropped": 0, "item": 1277, "numbers": ["9.7"], "section_words": 236}
+{"chunks": [206], "coverage": 0.0, "dropped": 0, "item": 1278, "numbers": ["10", "10.1", "17"], "section_words": 129}
+{"chunks": [51], "coverage": 0.0, "dropped": 0, "item": 1279, "numbers": ["10", "15.9"], "section_words": 205}
+{"chunks": [4], "coverage": 0.0, "dropped": 0, "item": 1280, "numbers": [], "section_words": 19}
+{"chunks": [167], "coverage": 1.0, "dropped": 0, "item": 1281, "numbers": ["15", "30"], "section_words": 106}
+{"chunks": [172], "coverage": 0.0, "dropped": 0, "item": 1282, "numbers": ["14", "27"], "section_words": 68}
+{"chunks": [55], "coverage": 0.5660377358490566, "dropped": 0, "item": 1283, "numbers": ["30"], "section_words": 94}
+{"chunks": [303], "coverage": 1.0, "dropped": 0, "item": 1284, "numbers": ["1.4", "26"], "section_words": 179}
+{"chunks": [74], "coverage": 0.0, "dropped": 0, "item": 1285, "numbers": ["10", "11", "11.1", "11.2"], "section_words": 139}
+{"chunks": [26], "coverage": 0.0, "dropped": 0, "item": 1286, "numbers": [], "section_words": 199}
+{"chunks": [55], "coverage": 1.0, "dropped": 0, "item": 1287, "numbers": ["12.4", "2.2", "2.4", "30", "60", "8.3"], "section_words": 122}
+{"chunks": [19], "coverage": 1.0, "dropped": 0, "item": 1288, "numbers": ["1.03", "5.01", "60", "90"], "section_words": 171}
+{"chunks": [29], "coverage": 0.0, "dropped": 0, "item": 1289, "numbers": ["15", "1933", "1934", "20"], "section_words": 461}
+{"chunks": [133], "coverage": 0.0, "dropped": 0, "item": 1290, "numbers": ["13", "17"], "section_words": 157}
+{"chunks": [67], "coverage": 0.0, "dropped": 0, "item": 1291, "numbers": [], "section_words": 116}
+{"chunks": [60], "coverage": 0.0, "dropped": 0, "item": 1292, "numbers": ["11", "11.1", "11.2", "12", "12.1", "12.2", "15"], "section_words": 203}
+{"chunks": [18], "coverage": 0.0, "dropped": 0, "item": 1293, "numbers": ["750000"], "section_words": 88}
+{"chunks": [99], "coverage": 0.0, "dropped": 0, "item": 1294, "numbers": ["12.3", "13", "14", "14.1", "15"], "section_words": 198}
+{"chunks": [111], "coverage": 0.0, "dropped": 0, "item": 1295, "numbers": ["15.4", "15.5", "15.6", "20", "31"], "section_words": 194}
+{"chunks": [75], "coverage": 1.0, "dropped": 0, "item": 1296, "numbers": [], "section_words": 93}
+{"chunks": [41], "coverage": 0.0, "dropped": 0, "item": 1297, "numbers": ["11.5"], "section_words": 191}
+{"chunks": [154], "coverage": 1.0, "dropped": 0, "item": 1298, "numbers": ["12.3", "13"], "section_words": 66}
+{"chunks": [46], "coverage": 0.8108108108108109, "dropped": 0, "item": 1299, "numbers": ["90"], "section_words": 135}
+{"chunks": [66], "coverage": 0.0, "dropped": 0, "item": 1300, "numbers": ["12.7", "2.4", "4.2"], "section_words": 63}
+{"chunks": [337], "coverage": 0.0, "dropped": 0, "item": 1301, "numbers": ["14", "19", "19.1", "19.2", "19.4"], "section_words": 114}
+{"chunks": [45], "coverage": 0.0, "dropped": 0, "item": 1302, "numbers": [], "section_words": 36}
+{"chunks": [15], "coverage": 1.0, "dropped": 0, "item": 1303, "numbers": ["120", "2.1"], "section_words": 94}
+{"chunks": [57], "coverage": 0.0, "dropped": 0, "item": 1304, "numbers": ["5.5"], "section_words": 99}
+{"chunks": [26], "coverage": 1.0, "dropped": 0, "item": 1305, "numbers": ["2.1"], "section_words": 33}
+{"chunks": [150], "coverage": 1.0, "dropped": 0, "item": 1306, "numbers": ["13", "14"], "section_words": 36}
+{"chunks": [34], "coverage": 0.0, "dropped": 0, "item": 1307, "numbers": ["30"], "section_words": 33}
+{"chunks": [46], "coverage": 0.0, "dropped": 0, "item": 1308, "numbers": ["10", "10.1", "9.3"], "section_words": 134}
+{"chunks": [16], "coverage": 1.0, "dropped": 0, "item": 1309, "numbers": ["12", "60"], "section_words": 109}
+{"chunks": [60], "coverage": 1.0, "dropped": 0, "item": 1310, "numbers": ["12", "6.3"], "section_words": 163}
+{"chunks": [16], "coverage": 0.0, "dropped": 0, "item": 1311, "numbers": ["2.6", "2.7", "2.8", "40", "60"], "section_words": 189}
+{"chunks": [27], "coverage": 0.0, "dropped": 0, "item": 1312, "numbers": ["101015", "11", "1345", "400013"], "section_words": 175}
+{"chunks": [43], "coverage": 0.6976744186046512, "dropped": 0, "item": 1313, "numbers": ["60"], "section_words": 34}
+{"chunks": [79], "coverage": 0.0, "dropped": 0, "item": 1314, "numbers": ["10", "30"], "section_words": 196}
+{"chunks": [118], "coverage": 0.0, "dropped": 0, "item": 1315, "numbers": ["17"], "section_words": 45}
+{"chunks": [269], "coverage": 0.0, "dropped": 0, "item": 1316, "numbers": ["31", "6.4"], "section_words": 175}
+{"chunks": [37], "coverage": 1.0, "dropped": 0, "item": 1317, "numbers": ["120"], "section_words": 68}
+{"chunks": [221], "coverage": 1.0, "dropped": 0, "item": 1318, "numbers": ["12.2", "13", "24"], "section_words": 152}
+{"chunks": [11], "coverage": 0.0, "dropped": 0, "item": 1319, "numbers": ["17", "18"], "section_words": 175}
+{"chunks": [12], "coverage": 0.0, "dropped": 0, "item": 1320, "numbers": [], "section_words": 121}
+{"chunks": [51], "coverage": 0.0, "dropped": 0, "item": 1321, "numbers": ["11", "180", "30", "5.2"], "section_words": 71}
+{"chunks": [855], "coverage": 0.0, "dropped": 0, "item": 1322, "numbers": ["14.2", "14.4", "73"], "section_words": 112}
+{"chunks": [22], "coverage": 1.0, "dropped": 0, "item": 1323, "numbers": ["10", "2.1", "2.2", "8.10", "8.9"], "section_words": 178}
+{"chunks": [529], "coverage": 0.0, "dropped": 0, "item": 1324, "numbers": ["12.4", "12.6", "41"], "section_words": 112}
