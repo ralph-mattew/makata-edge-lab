@@ -1,0 +1,171 @@
+id,question,answer,label (answer / absent)
+0,Does this contract provide for liquidated damages or a termination fee?,The contract does not explicitly state whether it provides for liquidated damages or a termination fee.,absent
+1,Can a party terminate this contract without cause?,"No, a party cannot terminate this contract without cause. If a party materially breaches any representation or covenant, the other party may give written notice of the breach requiring the same to be remedied within 30 days of receipt of such notice. If the breaching party fails to remedy the material breach in such time period, the non-breaching party may terminate this Agreement by delivery of a written termination notice to the breaching party.",absent
+2,Is there a cap on liability under this contract?,The provided sections do not contain information about a cap on liability under this contract.,absent
+3,Is either party required to deal exclusively with the other?,"No, the document does not require either party to deal exclusively with the other.
+
+**Section 11.1.1.** ""M&I may make such Developed Software available to any of its other customers; provided, however, if Customer has paid for such Developed Software and M&I offers, as part of M&I's standard price list, a separate service resulting exclusively from such Developed Software, M&I will refund, or credit, to Customer a portion of any amounts paid for such Developed Software on terms and conditions agreed to by the parties prior to commencement of work on the Developed Software.""
+
+**Section 11.1.2.** ""Customer may terminate this Agreement during the Term upon at least one (1) years' written notice to M&I, provided that Customer pays M&I an early termination fee (""Termination for Convenience Fee"") in an amount equal to REDACTED of the Estimated Remaining Value. The Termination for Convenience Fee shall apply to any early termination of this Agreement other than pursuant to an Event of Default on the part of Customer or M&I or pursuant to Section 11.3 below.""
+
+**Section 11.1.3.** ""Customer may terminate this Agreement during the Term upon at least one (1) years' written notice to M&I, provided that Customer pays M&I an early termination fee (""Termination for Convenience Fee"") in an amount equal to REDACTED of the Estimated Remaining Value. The Termination for Convenience Fee shall apply to any early termination of this Agreement other than pursuant to an Event of Default on the part of Customer or M&I or pursuant to Section 11.3 below.""
+
+**Section 11.1.4.** ""Customer may terminate this Agreement during the Term upon at least one (1) years' written notice to M&I, provided that Customer pays M&I an early termination fee (""Termination for Convenience Fee"") in an amount equal to REDACTED of the Estimated Remaining Value. The Termination for Convenience Fee shall apply to any early termination of this Agreement other than pursuant to an Event of Default on the part of Customer or M&I or pursuant to Section 11.3 below.""
+
+**Section 11.1.5.** ""Customer may terminate this Agreement during the Term upon at least one (1)",absent
+4,What insurance does a party have to maintain under this contract?,The provided sections do not contain information about insurance that a party has to maintain under this contract.,absent
+5,When does the initial term of this contract expire?,- Four years,answer
+6,Does either party have the right to audit the other's books or records?,"- The parties may, by written agreement, revise the Maximum Quantity, the Margin, the Target Margin, or the Product Price. Flotek and FCC may agree in writing from time to time that quantities of Terpene Product over the Maximum Quantity shall be purchased by Flotek pursuant to this Agreement.",answer
+7,Which state's or country's law governs this contract?,The state's or country's law governing this contract is not explicitly stated in the provided document sections.,absent
+8,What insurance does a party have to maintain under this contract?,The provided sections do not contain this.,absent
+9,Is either party required to deal exclusively with the other?,"Yes, Party A is required to deal exclusively with Party B.
+
+* Article 2.1 states that Party A will take Party B as its exclusive and sole partner to provide the business consultancy and technical services as well as technical consultancy to Party A and its subsidiaries.
+* Article 2.2 states that Party A shall not establish any same or similar cooperative relationship with any third party in respect of such businesses nor shall it make any same or similar arrangement, unless with the prior written consent of Party B.",answer
+10,When does the initial term of this contract expire?,The provided sections do not contain the answer.,absent
+11,Does either party have the right to audit the other's books or records?,"No, neither party has the right to audit the other's books or records.",absent
+12,What happens under this contract if a party is acquired or undergoes a change of control?,"- If one Party enters into a bankruptcy process, Party B's shareholder or equity structure changes (not including changes to Party B's shareholder or equity structure due to the Exclusive Call Option Agreement Agreement dated between Party B, Phoenix Online and other relevant parties), or one Party ceases its business operation, then the other Party may send a written notice of termination to such Party and this Agreement shall terminate as of the date on which such written notice is served to such Party.",answer
+13,What happens under this contract if a party is acquired or undergoes a change of control?,"The contract states that if a Party undergoes an acquisition or change of control, the Indemnitee must immediately assume full control over the defense or settlement of any claim against the Indemnitor. The Indemnitee is also required to cooperate fully with the Indemnitor in this process and bear all costs associated with it at their own expense. If such delays exceed 60 days, the other party may terminate the agreement upon written notice.",answer
+14,Is either party required to deal exclusively with the other?,"No, both Distributor and Tripath are independent contractors, and no agency or other joint relationship is created.",absent
+15,What insurance does a party have to maintain under this contract?,Each party shall be responsible for maintaining Worker's Compensation insurance in the statutory amounts required by the applicable state laws. Each party shall maintain Commercial General Liability insurance with bodily injury and property damage limits of $[*****] per occurrence and $[*****] aggregate.,answer
+16,When does the initial term of this contract expire?,The initial term of this contract expires ten (10) years from the Effective Date.,answer
+17,What insurance does a party have to maintain under this contract?,"- Each Party shall obtain and maintain commercial general liability insurance, including product liability insurance covering the obligations of that Party under this Agreement through the Term and for a period of [***] thereafter, which insurance shall afford limits of not less than (i) $[***] for each occurrence; and (ii) $[***] in the aggregate per annum.",answer
+18,When does the initial term of this contract expire?,The initial term of this contract expires 30 days after the successful completion of the beta tests.,answer
+19,How long is the warranty period?,The agreement specifies that neither you nor your principals shall divert or attempt to divert any business or customer of the Franchised Business or any Unit Franchisee or perform any act injurious or prejudicial to the goodwill associated with the Proprietary Marks or the System for a continuous uninterrupted period commencing upon expiration or termination of this Agreement and continuing for a period of three (3) years thereafter.,answer
+20,Is there a cap on liability under this contract?,The document does not mention a cap on liability under this contract.,absent
+21,How much notice is needed to stop this contract from renewing?,ABG must give PAPA JOHN'S written notice to terminate this contract.,answer
+22,Does either party have the right to audit the other's books or records?,:- no,absent
+23,Is either party required to deal exclusively with the other?,- No.,absent
+24,When does the initial term of this contract expire?,"""The initial term of this Agreement (the ""Initial Term"") shall commence on the Effective Date and shall continue for a period of ten (10) years thereafter.""",answer
+25,What insurance does a party have to maintain under this contract?,The provided sections do not contain this.,absent
+26,What insurance does a party have to maintain under this contract?,The provided sections do not contain this.,absent
+27,How long is the warranty period?,The warranty period is 6 months.,answer
+28,When does the initial term of this contract expire?,: The provided sections do not contain this.,absent
+29,Can a party terminate this contract without cause?,"Yes, by the mutual written agreement of Vendor and Distributor.",answer
+30,Is there a cap on liability under this contract?,"Yes, there is a cap on liability. 
+
+* 11.7 Liability Limit. To the greatest extent permitted under applicable law, in no event will a party's aggregate liability (above amounts actually paid or reimbursed by such party's insurer (to the extent not self-insured)) for a claim arising out of or related to this agreement under any legal or equitable theory, including breach of contract, tort (including negligence), strict liability, and otherwise exceed [***].",answer
+31,Does this contract restrict either party from competing with the other?,"Yes, the contract restricts both parties from competing with each other. 
+
+Article II, Section 1.04 of the contract states that Distributor agrees not to represent or sell other products which are deemed to be competitive with the Company's Products unless agreed to by the Company by written notice.",answer
+32,How much notice is needed to stop this contract from renewing?,"""No notice is needed to stop the contract from renewing.""",answer
+33,"Does this contract renew after its initial term, and for how long?","Yes, the contract renews after its initial term. It will remain in full force and effect until the expiration of the Sublicense Agreement, unless earlier termination by pursuant to the terms of this Agreement (""Term"").",answer
+34,"Does this contract renew after its initial term, and for how long?","- No, this contract does not renew after its initial term.",absent
+35,How much notice is needed to stop this contract from renewing?,at least 30 days prior to the end of the Initial Term or then current Renewal Term to notify the other party of the intention not to renew this Agreement.,answer
+36,Can a party terminate this contract without cause?,The provided sections do not contain this.,absent
+37,What happens under this contract if a party is acquired or undergoes a change of control?,"If a party undergoes a change of control, the following happens:
+
+* The party's ownership of the Product will be transferred to the acquiring party.
+* The acquiring party will become the sole owner of the Product.
+* The acquiring party will assume all responsibilities and obligations associated with the Product.
+* The acquiring party will be responsible for all decisions and actions related to the Product.
+* The acquiring party will be responsible for all costs and expenses associated with the Product.
+* The acquiring party will be responsible for all legal and regulatory compliance related to the Product.
+* The acquiring party will be responsible for all intellectual property rights and licenses related to the Product.
+* The acquiring party will be responsible for all marketing and distribution activities related to the Product.
+* The acquiring party will be responsible for all customer service and support activities related to the Product.
+* The acquiring party will be responsible for all warranty and guarantee obligations related to the Product.
+* The acquiring party will be responsible for all liability and indemnity obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product.
+* The acquiring party will be responsible for all termination and cancellation obligations related to the Product",answer
+38,What happens under this contract if a party is acquired or undergoes a change of control?,"If a party is acquired or undergoes a change of control, the rights under this Agreement may not be assigned without the express consent of the other Party which consent shall not be unreasonably withheld.",answer
+39,What happens under this contract if a party is acquired or undergoes a change of control?,"If a party is acquired or undergoes a change of control, MBRK may terminate the agreement with 60 days notice, subject to the fees outlined in paragraph (f) of this Section 18.",answer
+40,Is either party required to deal exclusively with the other?,The provided sections do not contain this.,absent
+41,Does this contract provide for liquidated damages or a termination fee?,The provided sections do not contain this.,absent
+42,Is either party required to deal exclusively with the other?,"No, neither party is required to deal exclusively with the other. Reed's grants Company the exclusive right to manufacture, package, promote, sell, and distribute the Products, subject to the terms and conditions of a separate Manufacturing and Distribution Agreement.",absent
+43,What happens under this contract if a party is acquired or undergoes a change of control?,"WGT may terminate the Term by giving Distributor written notice of such termination for any material change in the general management, ownership or control of Distributor, including without limitation the sale, transfer or relinquishment by Distributor of any substantial interest in the ownership of the business to be carried on by Distributor under this Agreement, unless such change is approved in advance and in writing by an officer of WGT.",answer
+44,Does this contract restrict either party from competing with the other?,The provided sections do not contain information about restrictions on competing with the other party.,absent
+45,When does the initial term of this contract expire?,The Agreement shall remain in full force and effect for a period of two years (2) unless earlier terminated pursuant to the provisions in this Agreement.,answer
+46,Can a party terminate this contract without cause?,"Yes, a party may terminate this contract at any time prior to the Effective Time by its sole and absolute discretion.",answer
+47,What is the date of this agreement?,"The date of this agreement is February 10, 2012.",answer
+48,What is the date of this agreement?,"Executed by: Jason B. Few, President, Chief Executive Officer and Chief Commercial Officer of FUELCELL ENERGY INC on November 5, 2019 /exxonmobil research and engineering company's representative signed this agreement on behalf of ExxonMobil Research and Engineering Company on November 5, 2019",answer
+49,Does this contract restrict either party from competing with the other?,The provided sections do not contain information about restricting either party from competing with the other.,absent
+50,Does this contract restrict either party from competing with the other?,"The contract mentions that the Employee warrants they will not be in breach of or subject to any obligations to any third party, including restrictive covenants or confidentiality obligations arising from any employment with a previous employer. It also states that the Employee shall not carry on or be engaged in any other trade or business without the prior written consent of the Company, which may result in summary dismissal if not secured.",answer
+51,Does this contract provide for liquidated damages or a termination fee?,The provided sections do not contain information about liquidated damages or a termination fee.,absent
+52,Does this contract restrict either party from competing with the other?,"Yes, the contract explicitly states that neither party shall issue any media releases, public announcements, or public disclosures relating to the agreement or use the other party's name or logo, except where required by legal, accounting, or regulatory requirements.",answer
+53,How much notice is needed to stop this contract from renewing?,MusclePharm may terminate the contract by giving a written notice which shall be effective on the third calendar day after receiving the notice.,answer
+54,Does this contract provide for liquidated damages or a termination fee?,The provided sections do not contain this.,absent
+55,What is the date of this agreement?,The date of this agreement is not specified in the provided document.,absent
+56,What is the date of this agreement?,"- January 24, 2014",answer
+57,How long is the warranty period?,The warranty period is for a period of **[ * ]** from the date of their supply to Distributor.,answer
+58,Does either party have the right to audit the other's books or records?,The provided sections do not contain information about auditing books or records.,absent
+59,Can a party terminate this contract without cause?,M&I may withdraw any of the Services (other than the Core Services) upon providing ninety (90) days' prior written notice to Customer.,answer
+60,"Does this contract renew after its initial term, and for how long?","- Automatic renewal for successive one year additional terms, unless terminated by either party at least six months prior to the expiration of the then-current term.",answer
+61,How much notice is needed to stop this contract from renewing?,"The initial term of the Facility Addendum is four (4) years from the Effective Date, and it may be extended for up to three (3) additional periods of twelve (12) months each.",answer
+62,Does this contract provide for liquidated damages or a termination fee?,"Yes, the contract provides for liquidated damages. If this Agreement is terminated due to your default, you must pay a lump-sum payment calculated as the average of your Royalty fees and Advertising Contributions due for the last 60 months before our delivery of notice of default (or, if lesser, the months you had been operating before our delivery of notice of default), multiplied by the lesser of 60 or the number of months remaining in the term of this Agreement.",answer
+63,Does this contract restrict either party from competing with the other?,"Yes, the contract restricts either party from competing with the other.
+
+- Paragraph 8 states that Talent represents and warrants that during the Term and in the Territories, Talent will not endorse or make any appearances or advertisements on behalf of any other product which is directly competitive to ESSI's products.",answer
+64,When does the initial term of this contract expire?,"This contract shall be for a term of one year commencing on the date first above written, and thereafter, it shall automatically continue until terminated by either party upon not less than thirty (30) days prior written notice to the other party.",answer
+65,How long is the warranty period?,- 1 year,answer
+66,How long is the warranty period?,The warranty period is 12 months.,answer
+67,Is there a cap on liability under this contract?,The document does not state whether there is a cap on liability under this contract.,absent
+68,What happens under this contract if a party is acquired or undergoes a change of control?,"If the sections do not contain the answer, reply exactly: ""The provided sections do not contain this.""",answer
+69,Is either party required to deal exclusively with the other?,"No, the provided sections do not contain this.",absent
+70,When does the initial term of this contract expire?,-Initial Fee (payable on completion of this Agreement) - -------------------------------------------------------------------------------- 2 Annual Fee (payable on completion of this Agreement and on each anniversary thereafter) - --------------------------------------------------------------------------------,answer
+71,What is the date of this agreement?,"The Agreement was dated as of August 9, 1999.",answer
+72,Can a party terminate this contract without cause?,"Yes, either party may terminate the contract immediately upon a written notice to the other party.",answer
+73,Which state's or country's law governs this contract?,"The validity, interpretation, and performance of this Agreement shall be controlled by and construed under the laws of the State of New York, United States of America.",answer
+74,Does this contract restrict either party from competing with the other?,- Yes.,answer
+75,Is there a cap on liability under this contract?,The provided sections do not contain this.,absent
+76,When does the initial term of this contract expire?,The initial term of this contract expires ten (10) years from the Agreement Date.,answer
+77,Which state's or country's law governs this contract?,"Beijing, China",answer
+78,Does this contract provide for liquidated damages or a termination fee?,"Yes, the contract provides for liquidated damages. 
+
+* The contract states that in the event of termination of the contract by Co-Host due to a material default by NAI, NAI shall pay to the Co-Host the Liquidated Damages Amount. 
+* The contract also states that the Liquidated Damages Amount shall mean the difference between (i) the aggregate amount of the Co-Hosting Fee paid by Co-Host (the ""Aggregate Fee"") and (ii) the Aggregate Fee multiplied by a number the numerator of which shall be the actual Aggregate Revenue through the effective date of termination of the Agreement and the denominator of which shall be the aggregate of the Minimum Revenue Targets through the effective date of termination.",answer
+79,How much notice is needed to stop this contract from renewing?,"The contract is for a 1-year period, and the notice period is 12 months.",answer
+80,"Does this contract renew after its initial term, and for how long?","This Agreement shall automatically extend for an additional two (2) years on the same terms herein (""Renewal Term"") provided WPT receives payments greater than twelve million U.S. dollars ($12,000,000) within the Initial Term.",answer
+81,How long is the warranty period?,The term of this Agreement is for an unlimited period of time.,answer
+82,Does either party have the right to audit the other's books or records?,"Yes, if Shipper has not responded to Carrier by the time described in clause (i) above, the Agreement shall continue pursuant to clause (ii) above. If such audit reflects that an increase was not justifiable, Carrier shall promptly credit the amount of such discrepancy to Shipper.",answer
+83,Is there a cap on liability under this contract?,The provided sections do not contain information about a cap on liability.,absent
+84,Does this contract provide for liquidated damages or a termination fee?,The provided sections do not contain this.,absent
+85,When does the initial term of this contract expire?,The initial term of this contract expires five year(s) from the Effective Date.,answer
+86,How long is the warranty period?,12 months,answer
+87,How much notice is needed to stop this contract from renewing?,Three months prior to the expiration of the initial or first renewal term of this Agreement.,answer
+88,Does either party have the right to audit the other's books or records?,"No, the document does not mention either party's right to audit the other's books or records.",absent
+89,What happens under this contract if a party is acquired or undergoes a change of control?,"By providing written notice, theglobe may terminate this Agreement in its sole discretion if one of the following companies (or their subsidiaries) does an ""Ownership Change Event"": Lycos, Yahoo (including GeoCities, which shall be included even if their proposed merger does not occur), Xoom, Fortune City, Excite, Go Network (including Disney and Infoseek), Snap! (including NBC) and AOL. An ""Ownership Change Event"" means the acquisition of 50% or more of Boxlot's equity or voting interests, or a merger or consolidation of Boxlot.",answer
+90,Does this contract provide for liquidated damages or a termination fee?,The provided sections do not contain this.,absent
+91,Which state's or country's law governs this contract?,California,answer
+92,Does either party have the right to audit the other's books or records?,procedures and will provide the other Party with copies of such audit reports upon request.,answer
+93,Does this contract provide for liquidated damages or a termination fee?,"Yes, the contract provides for a termination fee. The fee is nonrefundable and is payable in full on the date of this Agreement.",answer
+94,Can a party terminate this contract without cause?,"- No, the contract does not explicitly state that a party can terminate without cause.
+- Termination is only possible under specific conditions such as material breach or failure to comply with certain clauses.",absent
+95,Does this contract provide for liquidated damages or a termination fee?,The provided sections do not contain this.,absent
+96,How long is the warranty period?,The warranty period is indefinite.,answer
+97,What insurance does a party have to maintain under this contract?,"- Under this contract, the Venture will insure all its assets against loss where reasonable and standard practice in the industry.",answer
+98,When does the initial term of this contract expire?,The initial term of this contract expires six months after the Effective Date.,answer
+99,Is either party required to deal exclusively with the other?,"No, the Blue Hills Parties are not required to deal exclusively with each other. The document states that the Blue Hills Parties hereby appoint the Agent as their exclusive financial advisor and conversion agent, but it does not specify that the Agent must exclusively deal with the Blue Hills Parties.",absent
+100,Does this contract provide for liquidated damages or a termination fee?,"No, the contract does not provide for liquidated damages or a termination fee.",absent
+101,Does this contract provide for liquidated damages or a termination fee?,"Merchant shall be entitled to retain the Deposit as liquidated damages as Merchant's sole remedy for a failure of the Closing, only upon entry of a final and non-appealable order of the Bankruptcy Court determining that such failure was the result of Purchaser's sole, material, non-excusable breach of this Agreement.",answer
+102,Is either party required to deal exclusively with the other?,- no,absent
+103,Does this contract restrict either party from competing with the other?,The provided sections do not contain an answer to whether this contract restricts either party from competing with the other.,absent
+104,Does this contract restrict either party from competing with the other?,The document does not state whether this contract restricts either party from competing with the other.,absent
+105,Can a party terminate this contract without cause?,"No, a party cannot terminate the contract without cause. The document states that the parties may terminate the contract at any time, but only if the other party breaches the contract.",absent
+106,How long is the warranty period?,The provided sections do not contain information about the warranty period.,absent
+107,How long is the warranty period?,The Warranty Period is twelve (12) months from the date of delivery to Distributor hereunder.,answer
+108,How long is the warranty period?,The provided sections do not contain this.,absent
+109,Is either party required to deal exclusively with the other?,The document does not state whether either party is required to deal exclusively with the other.,absent
+110,What happens under this contract if a party is acquired or undergoes a change of control?,- No change.,answer
+111,Is either party required to deal exclusively with the other?,"-Yes, Depomed agrees that if Depomed or any Affiliate thereof grants to any Affiliate or Third Party a license, covenant not to sue, right of reference, right of supply or other intellectual right (in any case, other than AcuForm Patent License), the recipient party may do so only if it limits disclosure to that purpose after giving the disclosing party prompt written notice of any instance of such a requirement in reasonable time for the disclosing party to attempt to object to or to limit such disclosure.",answer
+112,Does this contract restrict either party from competing with the other?,The provided sections do not contain this.,absent
+113,Does this contract restrict either party from competing with the other?,Yes.,answer
+114,What happens under this contract if a party is acquired or undergoes a change of control?,The document does not specify what happens under this contract if a party is acquired or undergoes a change of control.,absent
+115,"Does this contract renew after its initial term, and for how long?",This Agreement will extend automatically for monthly periods unless either party notifies the other party in writing at least thirty (30) days before the expiration of the then current term.,answer
+116,Does this contract restrict either party from competing with the other?,"Yes, the contract states that the relationship created by operation of this Agreement is not an employment relationship.",answer
+117,"Does this contract renew after its initial term, and for how long?","This Agreement shall continue until December 31, 2020, unless extended or earlier terminated.",answer
+118,How much notice is needed to stop this contract from renewing?,Written notice of termination to the other party at least thirty (30) days prior to the date of expiration is needed to stop the automatic renewal.,answer
+119,Is there a cap on liability under this contract?,] No.,absent

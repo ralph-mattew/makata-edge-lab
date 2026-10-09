@@ -1,0 +1,12 @@
+Makata AI Edge Lab
+Copyright 2026 Ralph Mattew Palomaria
+
+This product includes software developed as part of the Makata AI Edge Lab,
+including contributions from the people listed in the git history.
+
+Code is licensed under the Apache License 2.0 (LICENSE). Write-ups and result
+data are licensed under Creative Commons Attribution 4.0 International
+(LICENSE-CC-BY-4.0); see README.md for which files are which.
+
+Default values in Sources/EdgeRuntime were taken from the Xylo and Unawain iOS
+apps by the same author, at the commits noted in the source files.

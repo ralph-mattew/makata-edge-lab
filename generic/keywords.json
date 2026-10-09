@@ -1,0 +1,4 @@
+{
+  "stopwords": ["a", "an", "the", "and", "or", "but", "if", "of", "to", "in", "on", "at", "by", "for", "with", "from", "as", "is", "are", "was", "were", "be", "been", "it", "its", "this", "that", "these", "those", "what", "which", "who", "how", "when", "where", "why", "do", "does", "did", "not", "no", "any", "all"],
+  "suffixes": ["ing", "ed", "es", "ly", "s"]
+}

@@ -1,0 +1,428 @@
+{
+  "items": 986,
+  "contracts": 392,
+  "arms": {
+    "fm": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.8551587301587301,
+      "absent_rate": 0.38589211618257263,
+      "balanced": 0.6205254231706514,
+      "gap_filled": 0.6141078838174274,
+      "absent_on_answerable": 0.14484126984126985,
+      "key_fact_n": 181,
+      "key_fact": 0.850828729281768,
+      "any_unsupported": 0.04462474645030426,
+      "any_unsupported_unanswerable": 0.05186721991701245,
+      "cap": 0.005070993914807302,
+      "errors": {},
+      "empty": 0,
+      "median_words": 17.0,
+      "median_ms": 802.5999999999999
+    },
+    "gemma-e2b": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.8809523809523809,
+      "absent_rate": 0.6493775933609959,
+      "balanced": 0.7651649871566883,
+      "gap_filled": 0.3506224066390041,
+      "absent_on_answerable": 0.11904761904761904,
+      "key_fact_n": 181,
+      "key_fact": 0.9005524861878453,
+      "any_unsupported": 0.002028397565922921,
+      "any_unsupported_unanswerable": 0.002074688796680498,
+      "cap": 0.0010141987829614604,
+      "errors": {},
+      "empty": 0,
+      "median_words": 19.0,
+      "median_ms": 1142.75
+    },
+    "qwen-1.5b": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.8214285714285714,
+      "absent_rate": 0.3257261410788382,
+      "balanced": 0.5735773562537048,
+      "gap_filled": 0.6742738589211619,
+      "absent_on_answerable": 0.17857142857142858,
+      "key_fact_n": 181,
+      "key_fact": 0.7734806629834254,
+      "any_unsupported": 0.030425963488843813,
+      "any_unsupported_unanswerable": 0.04771784232365145,
+      "cap": 0.005070993914807302,
+      "errors": {},
+      "empty": 0,
+      "median_words": 6.0,
+      "median_ms": 694.25
+    }
+  },
+  "bootstrap": {
+    "balanced_gemma_minus_fm": {
+      "diff": 0.14463956398603695,
+      "ci95": [
+        0.1130049347133063,
+        0.17620906931102154
+      ]
+    },
+    "key_fact_gemma_minus_fm": {
+      "diff": 0.04972375690607733,
+      "ci95": [
+        0.005208333333333259,
+        0.09836065573770492
+      ]
+    },
+    "unsupported_gemma_minus_fm": {
+      "diff": -0.04259634888438134,
+      "ci95": [
+        -0.055327868852459015,
+        -0.030693069306930693
+      ]
+    },
+    "absent_rate_qwen_minus_fm": {
+      "diff": -0.06016597510373445,
+      "ci95": [
+        -0.11482254697286015,
+        -0.006342494714587754
+      ]
+    },
+    "absent_rate_qwen_minus_gemma": {
+      "diff": -0.3236514522821577,
+      "ci95": [
+        -0.37449392712550605,
+        -0.27272727272727276
+      ]
+    },
+    "unsupported_qwen_minus_fm": {
+      "diff": -0.014198782961460446,
+      "ci95": [
+        -0.030632411067193676,
+        0.001968503937007874
+      ]
+    },
+    "unsupported_qwen_minus_gemma": {
+      "diff": 0.028397565922920892,
+      "ci95": [
+        0.017874875868917575,
+        0.03962460896767466
+      ]
+    }
+  },
+  "rerun_agreement": {
+    "fm": {
+      "items": 986,
+      "same_call": 0.936105476673428
+    },
+    "gemma-e2b": {
+      "items": 986,
+      "same_call": 0.9482758620689655
+    },
+    "qwen-1.5b": {
+      "items": 986,
+      "same_call": 0.7352941176470589
+    }
+  },
+  "audit": {
+    "labelled": 120,
+    "agreement": 0.9583333333333334,
+    "by_arm": {
+      "fm": 1.0,
+      "gemma-e2b": 0.975,
+      "qwen-1.5b": 0.9
+    },
+    "disagreements": [
+      {
+        "id": 10,
+        "arm": "qwen-1.5b",
+        "item": 891,
+        "detector": "answer",
+        "label": "absent"
+      },
+      {
+        "id": 35,
+        "arm": "qwen-1.5b",
+        "item": 341,
+        "detector": "answer",
+        "label": "absent"
+      },
+      {
+        "id": 50,
+        "arm": "qwen-1.5b",
+        "item": 145,
+        "detector": "answer",
+        "label": "absent"
+      },
+      {
+        "id": 90,
+        "arm": "qwen-1.5b",
+        "item": 227,
+        "detector": "answer",
+        "label": "absent"
+      },
+      {
+        "id": 115,
+        "arm": "gemma-e2b",
+        "item": 920,
+        "detector": "absent",
+        "label": "answer"
+      }
+    ]
+  },
+  "hypotheses": {
+    "H1_qwen_absent_rate_15_below_fm_and_gemma": false,
+    "H2_qwen_unsupported_5_above_fm_and_gemma": false,
+    "H3_fm_gemma_balanced_within_10": false
+  },
+  "decision": {
+    "criteria": {
+      "c0_detector_agreement_at_least_90": true,
+      "c1_balanced_gain_at_least_10_ci_above_0": true,
+      "c2_key_fact_not_worse_than_minus_5": true,
+      "c3_unsupported_not_worse_than_plus_5": true
+    },
+    "verdict": "adopt (host stage)"
+  },
+  "per_category": {
+    "Agreement Date": {
+      "fm": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.1724137931034483,
+        "key_fact": 1.0
+      },
+      "gemma-e2b": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.5517241379310345,
+        "key_fact": 1.0
+      },
+      "qwen-1.5b": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.034482758620689655,
+        "key_fact": 0.9354838709677419
+      }
+    },
+    "Audit Rights": {
+      "fm": {
+        "answer_rate": 0.8333333333333334,
+        "absent_rate": 1.0,
+        "key_fact": NaN
+      },
+      "gemma-e2b": {
+        "answer_rate": 0.9166666666666666,
+        "absent_rate": 0.8888888888888888,
+        "key_fact": NaN
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.6666666666666666,
+        "absent_rate": 0.3888888888888889,
+        "key_fact": NaN
+      }
+    },
+    "Cap On Liability": {
+      "fm": {
+        "answer_rate": 0.8055555555555556,
+        "absent_rate": 0.5,
+        "key_fact": NaN
+      },
+      "gemma-e2b": {
+        "answer_rate": 0.6388888888888888,
+        "absent_rate": 0.75,
+        "key_fact": NaN
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.6388888888888888,
+        "absent_rate": 0.5277777777777778,
+        "key_fact": NaN
+      }
+    },
+    "Change Of Control": {
+      "fm": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.027777777777777776,
+        "key_fact": NaN
+      },
+      "gemma-e2b": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.6666666666666666,
+        "key_fact": NaN
+      },
+      "qwen-1.5b": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.1111111111111111,
+        "key_fact": NaN
+      }
+    },
+    "Exclusivity": {
+      "fm": {
+        "answer_rate": 0.1111111111111111,
+        "absent_rate": 1.0,
+        "key_fact": NaN
+      },
+      "gemma-e2b": {
+        "answer_rate": 0.7222222222222222,
+        "absent_rate": 0.8333333333333334,
+        "key_fact": NaN
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.5833333333333334,
+        "absent_rate": 0.5,
+        "key_fact": NaN
+      }
+    },
+    "Expiration Date": {
+      "fm": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.0,
+        "key_fact": 0.7037037037037037
+      },
+      "gemma-e2b": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.5555555555555556,
+        "key_fact": 0.9259259259259259
+      },
+      "qwen-1.5b": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.05555555555555555,
+        "key_fact": 0.8148148148148148
+      }
+    },
+    "Governing Law": {
+      "fm": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.047619047619047616,
+        "key_fact": 1.0
+      },
+      "gemma-e2b": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.6190476190476191,
+        "key_fact": 1.0
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.5238095238095238,
+        "key_fact": 0.8571428571428571
+      }
+    },
+    "Insurance": {
+      "fm": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.2777777777777778,
+        "key_fact": NaN
+      },
+      "gemma-e2b": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.8055555555555556,
+        "key_fact": NaN
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.5,
+        "key_fact": NaN
+      }
+    },
+    "Liquidated Damages": {
+      "fm": {
+        "answer_rate": 0.7777777777777778,
+        "absent_rate": 0.8611111111111112,
+        "key_fact": NaN
+      },
+      "gemma-e2b": {
+        "answer_rate": 0.75,
+        "absent_rate": 0.8611111111111112,
+        "key_fact": NaN
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.6111111111111112,
+        "absent_rate": 0.8055555555555556,
+        "key_fact": NaN
+      }
+    },
+    "Non-Compete": {
+      "fm": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.1388888888888889,
+        "key_fact": NaN
+      },
+      "gemma-e2b": {
+        "answer_rate": 0.8055555555555556,
+        "absent_rate": 0.9166666666666666,
+        "key_fact": NaN
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.6388888888888888,
+        "absent_rate": 0.3611111111111111,
+        "key_fact": NaN
+      }
+    },
+    "Notice Period To Terminate Renewal": {
+      "fm": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.027777777777777776,
+        "key_fact": 0.7941176470588235
+      },
+      "gemma-e2b": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.3333333333333333,
+        "key_fact": 0.9117647058823529
+      },
+      "qwen-1.5b": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.08333333333333333,
+        "key_fact": 0.6764705882352942
+      }
+    },
+    "Renewal Term": {
+      "fm": {
+        "answer_rate": 0.9166666666666666,
+        "absent_rate": 0.19444444444444445,
+        "key_fact": 0.90625
+      },
+      "gemma-e2b": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.4444444444444444,
+        "key_fact": 0.96875
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.3055555555555556,
+        "key_fact": 0.6875
+      }
+    },
+    "Termination For Convenience": {
+      "fm": {
+        "answer_rate": 0.5555555555555556,
+        "absent_rate": 0.75,
+        "key_fact": NaN
+      },
+      "gemma-e2b": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.3055555555555556,
+        "key_fact": NaN
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.5833333333333334,
+        "absent_rate": 0.3055555555555556,
+        "key_fact": NaN
+      }
+    },
+    "Warranty Duration": {
+      "fm": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.2222222222222222,
+        "key_fact": 0.5909090909090909
+      },
+      "gemma-e2b": {
+        "answer_rate": 0.6111111111111112,
+        "absent_rate": 0.5277777777777778,
+        "key_fact": 0.45454545454545453
+      },
+      "qwen-1.5b": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.08333333333333333,
+        "key_fact": 0.6363636363636364
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+0.00.795.345 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.00.798.751 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.00.807.860 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.01.059.867 W llama_kv_cache: the V embeddings have different sizes across layers and FA is not enabled - padding V cache to 512
+0.01.061.135 W llama_kv_cache: the V embeddings have different sizes across layers and FA is not enabled - padding V cache to 512
+0.01.074.938 I cmn          init: llama threadpool init, n_threads = 2
+0.01.107.415 I 
+0.01.107.443 I system_info: n_threads = 2 (n_threads_batch = 2) / 12 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.01.107.529 I perplexity: saving all logits to tmp/base-4096.kld
+0.01.107.536 I perplexity: tokenizing the input ..
+0.01.420.161 I perplexity: tokenization took 312.624 ms
+0.01.420.276 I perplexity: calculating perplexity over 4 chunks, n_ctx=4096, batch_size=2048, n_seq=1
+0.07.339.038 I perplexity: 5.82 seconds per pass - ETA 0.38 minutes
+[1]298.9079,[2]388.2637,[3]368.0912,[4]339.5607,
+0.28.209.807 I Final estimate: PPL = 339.5607 +/- 20.10500
+

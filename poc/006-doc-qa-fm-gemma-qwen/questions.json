@@ -1,0 +1,16 @@
+[
+  {"category": "Agreement Date", "question": "What is the date of this agreement?", "key_fact": "date"},
+  {"category": "Expiration Date", "question": "When does the initial term of this contract expire?", "key_fact": "date_or_duration"},
+  {"category": "Governing Law", "question": "Which state's or country's law governs this contract?", "key_fact": "jurisdiction"},
+  {"category": "Renewal Term", "question": "Does this contract renew after its initial term, and for how long?", "key_fact": "duration"},
+  {"category": "Notice Period To Terminate Renewal", "question": "How much notice is needed to stop this contract from renewing?", "key_fact": "duration"},
+  {"category": "Warranty Duration", "question": "How long is the warranty period?", "key_fact": "duration"},
+  {"category": "Termination For Convenience", "question": "Can a party terminate this contract without cause?", "key_fact": null},
+  {"category": "Non-Compete", "question": "Does this contract restrict either party from competing with the other?", "key_fact": null},
+  {"category": "Exclusivity", "question": "Is either party required to deal exclusively with the other?", "key_fact": null},
+  {"category": "Change Of Control", "question": "What happens under this contract if a party is acquired or undergoes a change of control?", "key_fact": null},
+  {"category": "Audit Rights", "question": "Does either party have the right to audit the other's books or records?", "key_fact": null},
+  {"category": "Insurance", "question": "What insurance does a party have to maintain under this contract?", "key_fact": null},
+  {"category": "Cap On Liability", "question": "Is there a cap on liability under this contract?", "key_fact": null},
+  {"category": "Liquidated Damages", "question": "Does this contract provide for liquidated damages or a termination fee?", "key_fact": null}
+]

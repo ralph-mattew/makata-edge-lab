@@ -1,0 +1,51 @@
+name: Replication
+description: Say which PoC you plan to replicate and on what hardware, before you run it.
+title: "Replication: PoC NNN on <device>"
+labels: [replication]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for replicating. Opening this first means two people don't run the same thing without knowing.
+        The steps and the evidence standard are in [CONTRIBUTING.md](https://github.com/ralph-mattew/makata-edge-lab/blob/main/CONTRIBUTING.md).
+  - type: input
+    id: poc
+    attributes:
+      label: PoC
+      description: Number and title, for example "001 KV cache quantization".
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Model, chip and memory, for example "MacBook Air, M2, 8 GB". No serial numbers.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS version and build
+    validations:
+      required: true
+  - type: input
+    id: tools
+    attributes:
+      label: Tool versions
+      description: For example the output of `llama-cli --version`.
+  - type: textarea
+    id: deviations
+    attributes:
+      label: Expected deviations from the PoC's method
+      description: Anything you already know you will have to change, and why. "None" is a fine answer.
+  - type: checkboxes
+    id: agree
+    attributes:
+      label: Before you start
+      options:
+        - label: I've read CONTRIBUTING.md, including the evidence standard.
+          required: true
+        - label: I'll sign off every commit (DCO).
+          required: true
+        - label: I'll check my logs for personal data before committing them.
+          required: true

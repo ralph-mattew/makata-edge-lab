@@ -1,0 +1,34 @@
+.DS_Store
+.build/
+.swiftpm/
+*.xcodeproj/xcuserdata/
+DerivedData/
+
+# Weights and datasets are never committed.
+*.gguf
+*.mlpackage/
+*.mlmodelc/
+*.safetensors
+*.bin
+models/
+data/raw/
+poc/*/data/
+
+# Python
+.venv/
+__pycache__/
+
+# Scratch output; final results go in poc/*/results/.
+tmp/
+*.log
+!poc/*/results/raw/*.log
+
+# Private overlay: confidential Xylo text used to rebuild registered inputs. Never commit.
+private/
+
+# Inputs that embed the private prompt; rebuilt by prepare.py from the overlay.
+poc/003-*/results/raw/inputs.jsonl
+poc/004-*/results/raw/inputs-xylo.jsonl
+poc/004-*/results/raw/inputs-no-end-line.jsonl
+poc/005-*/results/raw/inputs.jsonl
+poc/008-*/results/raw/inputs-*.jsonl

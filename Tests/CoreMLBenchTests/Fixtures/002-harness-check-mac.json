@@ -1,0 +1,475 @@
+{
+  "host_after" : {
+    "chip" : "Apple M4 Pro",
+    "device_model" : "Mac16,8",
+    "low_power_mode" : false,
+    "memory_gb" : 24,
+    "os" : "macOS 26.5.1",
+    "os_build" : "25F80",
+    "platform" : "macOS",
+    "power_source" : "AC",
+    "thermal_state" : "nominal",
+    "timestamp_utc" : "2026-09-23T04:37:11Z"
+  },
+  "host_before" : {
+    "chip" : "Apple M4 Pro",
+    "device_model" : "Mac16,8",
+    "low_power_mode" : false,
+    "memory_gb" : 24,
+    "os" : "macOS 26.5.1",
+    "os_build" : "25F80",
+    "platform" : "macOS",
+    "power_source" : "AC",
+    "thermal_state" : "nominal",
+    "timestamp_utc" : "2026-09-23T04:35:09Z"
+  },
+  "method" : {
+    "active_len" : 64,
+    "harness" : "swift (MLModel.prediction)",
+    "inputs" : "synthetic, from declared input spec",
+    "iters" : 100,
+    "load" : "load_s/first_call_ms on a fresh instance; reload_s + warmup + timed iters on a second instance; compile_s is .mlpackage -> .mlmodelc, measured once per model",
+    "memory" : "phys_footprint of the benchmark process; after_load is taken after warmup with one instance resident",
+    "seed" : 0,
+    "warmup" : 10
+  },
+  "models" : [
+    {
+      "artifact" : "NllbEncoder.mlpackage",
+      "compile_s" : 0.06,
+      "compute_plan" : {
+        "compute_units" : "ALL",
+        "operations" : 440,
+        "operations_without_usage" : 569,
+        "preferred_cpu" : 0,
+        "preferred_gpu" : 440,
+        "preferred_neural_engine" : 0,
+        "supported_gpu" : 440,
+        "supported_neural_engine" : 0
+      },
+      "io" : {
+        "inputs" : [
+          {
+            "dtype" : "INT32",
+            "name" : "src_ids",
+            "shape" : [
+              1,
+              256
+            ]
+          },
+          {
+            "dtype" : "FLOAT32",
+            "name" : "src_mask",
+            "shape" : [
+              1,
+              256
+            ]
+          }
+        ],
+        "outputs" : [
+          {
+            "dtype" : "FLOAT32",
+            "name" : "native_layer_norm_24",
+            "shape" : [
+              1,
+              256,
+              1024
+            ]
+          }
+        ]
+      },
+      "package_sha256" : "2159c784b41e7380741e843325e6a5a4a8a1988708cf4229dde2113ca5dd1ce7",
+      "package_size_mb" : 416.4,
+      "runs" : [
+        {
+          "compute_units" : "ALL",
+          "error" : "process terminated (signal 6): /AppleInternal/Library/BuildRoots/4~CNqQugA4wWgXhDI3BNEvlckr_SRKSjcWvh2y3e0/Library/Caches/com.apple.xbs/TemporaryDirectory.LbyYqJ/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:5070: failed assertion `Error: MLIR pass manager failed'",
+          "failed" : true
+        },
+        {
+          "compute_units" : "CPU_ONLY",
+          "first_call_ms" : 87.42,
+          "footprint_after_load_mb" : 67.8,
+          "footprint_after_run_mb" : 68.2,
+          "footprint_before_load_mb" : 2.9,
+          "iters" : 100,
+          "load_s" : 1.06,
+          "max_ms" : 39.37,
+          "mean_ms" : 37.67,
+          "min_ms" : 35.98,
+          "p50_ms" : 37.64,
+          "p95_ms" : 38.51,
+          "reload_s" : 0.02,
+          "stdev_ms" : 0.6,
+          "thermal_after" : "nominal",
+          "thermal_before" : "nominal",
+          "warmup" : 10
+        },
+        {
+          "compute_units" : "CPU_AND_GPU",
+          "error" : "process terminated (signal 6): /AppleInternal/Library/BuildRoots/4~CNqQugA4wWgXhDI3BNEvlckr_SRKSjcWvh2y3e0/Library/Caches/com.apple.xbs/TemporaryDirectory.LbyYqJ/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:5070: failed assertion `Error: MLIR pass manager failed'",
+          "failed" : true
+        },
+        {
+          "compute_units" : "CPU_AND_NE",
+          "first_call_ms" : 88.53,
+          "footprint_after_load_mb" : 3218.9,
+          "footprint_after_run_mb" : 3219.3,
+          "footprint_before_load_mb" : 3,
+          "iters" : 100,
+          "load_s" : 7.57,
+          "max_ms" : 40.65,
+          "mean_ms" : 38.17,
+          "min_ms" : 36.16,
+          "p50_ms" : 38.06,
+          "p95_ms" : 39.73,
+          "reload_s" : 0.02,
+          "stdev_ms" : 0.89,
+          "thermal_after" : "nominal",
+          "thermal_before" : "nominal",
+          "warmup" : 10
+        }
+      ]
+    },
+    {
+      "artifact" : "NllbEncoder_pruned.mlpackage",
+      "compile_s" : 0.06,
+      "compute_plan" : {
+        "compute_units" : "ALL",
+        "operations" : 440,
+        "operations_without_usage" : 569,
+        "preferred_cpu" : 0,
+        "preferred_gpu" : 440,
+        "preferred_neural_engine" : 0,
+        "supported_gpu" : 440,
+        "supported_neural_engine" : 0
+      },
+      "io" : {
+        "inputs" : [
+          {
+            "dtype" : "INT32",
+            "name" : "src_ids",
+            "shape" : [
+              1,
+              256
+            ]
+          },
+          {
+            "dtype" : "FLOAT32",
+            "name" : "src_mask",
+            "shape" : [
+              1,
+              256
+            ]
+          }
+        ],
+        "outputs" : [
+          {
+            "dtype" : "FLOAT32",
+            "name" : "native_layer_norm_24",
+            "shape" : [
+              1,
+              256,
+              1024
+            ]
+          }
+        ]
+      },
+      "package_sha256" : "d1f0a9de73b841b04e11e4c50f3e3f846891e5bfc877be6cd9317927f9b7e3ea",
+      "package_size_mb" : 293,
+      "runs" : [
+        {
+          "compute_units" : "ALL",
+          "error" : "process terminated (signal 6): /AppleInternal/Library/BuildRoots/4~CNqQugA4wWgXhDI3BNEvlckr_SRKSjcWvh2y3e0/Library/Caches/com.apple.xbs/TemporaryDirectory.LbyYqJ/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:5070: failed assertion `Error: MLIR pass manager failed'",
+          "failed" : true
+        },
+        {
+          "compute_units" : "CPU_ONLY",
+          "first_call_ms" : 86.87,
+          "footprint_after_load_mb" : 66.9,
+          "footprint_after_run_mb" : 67.3,
+          "footprint_before_load_mb" : 3.2,
+          "iters" : 100,
+          "load_s" : 0.65,
+          "max_ms" : 40.13,
+          "mean_ms" : 37.31,
+          "min_ms" : 35.32,
+          "p50_ms" : 37.26,
+          "p95_ms" : 38.48,
+          "reload_s" : 0.02,
+          "stdev_ms" : 0.78,
+          "thermal_after" : "nominal",
+          "thermal_before" : "nominal",
+          "warmup" : 10
+        },
+        {
+          "compute_units" : "CPU_AND_GPU",
+          "error" : "process terminated (signal 6): /AppleInternal/Library/BuildRoots/4~CNqQugA4wWgXhDI3BNEvlckr_SRKSjcWvh2y3e0/Library/Caches/com.apple.xbs/TemporaryDirectory.LbyYqJ/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:5070: failed assertion `Error: MLIR pass manager failed'",
+          "failed" : true
+        },
+        {
+          "compute_units" : "CPU_AND_NE",
+          "first_call_ms" : 86.11,
+          "footprint_after_load_mb" : 1743.8,
+          "footprint_after_run_mb" : 1744.2,
+          "footprint_before_load_mb" : 3.2,
+          "iters" : 100,
+          "load_s" : 3.93,
+          "max_ms" : 40.85,
+          "mean_ms" : 37.51,
+          "min_ms" : 36.15,
+          "p50_ms" : 37.41,
+          "p95_ms" : 38.89,
+          "reload_s" : 0.02,
+          "stdev_ms" : 0.81,
+          "thermal_after" : "nominal",
+          "thermal_before" : "nominal",
+          "warmup" : 10
+        }
+      ]
+    },
+    {
+      "artifact" : "NllbDecoderStep.mlpackage",
+      "compile_s" : 0.1,
+      "compute_plan" : {
+        "compute_units" : "ALL",
+        "operations" : 774,
+        "operations_without_usage" : 991,
+        "preferred_cpu" : 0,
+        "preferred_gpu" : 774,
+        "preferred_neural_engine" : 0,
+        "supported_gpu" : 774,
+        "supported_neural_engine" : 0
+      },
+      "io" : {
+        "inputs" : [
+          {
+            "dtype" : "INT32",
+            "name" : "dec_ids",
+            "shape" : [
+              1,
+              128
+            ]
+          },
+          {
+            "dtype" : "FLOAT32",
+            "name" : "dec_mask",
+            "shape" : [
+              1,
+              128
+            ]
+          },
+          {
+            "dtype" : "FLOAT32",
+            "name" : "enc_mask",
+            "shape" : [
+              1,
+              256
+            ]
+          },
+          {
+            "dtype" : "FLOAT32",
+            "name" : "enc_out",
+            "shape" : [
+              1,
+              256,
+              1024
+            ]
+          },
+          {
+            "dtype" : "INT32",
+            "name" : "last_pos",
+            "shape" : [
+              1,
+              1
+            ]
+          }
+        ],
+        "outputs" : [
+          {
+            "dtype" : "FLOAT32",
+            "name" : "mm",
+            "shape" : [
+              1,
+              256206
+            ]
+          }
+        ]
+      },
+      "package_sha256" : "775f6465d0530bf889642dd1cd1ba817ea4d6737fd4a4f239efbc36cea2f135e",
+      "package_size_mb" : 468.3,
+      "runs" : [
+        {
+          "compute_units" : "ALL",
+          "error" : "process terminated (signal 6): /AppleInternal/Library/BuildRoots/4~CNqQugA4wWgXhDI3BNEvlckr_SRKSjcWvh2y3e0/Library/Caches/com.apple.xbs/TemporaryDirectory.LbyYqJ/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:5070: failed assertion `Error: MLIR pass manager failed'",
+          "failed" : true
+        },
+        {
+          "compute_units" : "CPU_ONLY",
+          "first_call_ms" : 111.4,
+          "footprint_after_load_mb" : 31.7,
+          "footprint_after_run_mb" : 32,
+          "footprint_before_load_mb" : 3.2,
+          "iters" : 100,
+          "load_s" : 2.48,
+          "max_ms" : 43.23,
+          "mean_ms" : 41.53,
+          "min_ms" : 39.79,
+          "p50_ms" : 41.53,
+          "p95_ms" : 42.79,
+          "reload_s" : 0.03,
+          "stdev_ms" : 0.78,
+          "thermal_after" : "nominal",
+          "thermal_before" : "nominal",
+          "warmup" : 10
+        },
+        {
+          "compute_units" : "CPU_AND_GPU",
+          "error" : "process terminated (signal 6): /AppleInternal/Library/BuildRoots/4~CNqQugA4wWgXhDI3BNEvlckr_SRKSjcWvh2y3e0/Library/Caches/com.apple.xbs/TemporaryDirectory.LbyYqJ/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:5070: failed assertion `Error: MLIR pass manager failed'",
+          "failed" : true
+        },
+        {
+          "compute_units" : "CPU_AND_NE",
+          "first_call_ms" : 111.47,
+          "footprint_after_load_mb" : 2603.7,
+          "footprint_after_run_mb" : 2603.9,
+          "footprint_before_load_mb" : 3.2,
+          "iters" : 100,
+          "load_s" : 8.5,
+          "max_ms" : 44.28,
+          "mean_ms" : 41.76,
+          "min_ms" : 40.08,
+          "p50_ms" : 41.73,
+          "p95_ms" : 42.97,
+          "reload_s" : 0.06,
+          "stdev_ms" : 0.85,
+          "thermal_after" : "nominal",
+          "thermal_before" : "nominal",
+          "warmup" : 10
+        }
+      ]
+    },
+    {
+      "artifact" : "NllbDecoderStep_pruned.mlpackage",
+      "compile_s" : 0.1,
+      "compute_plan" : {
+        "compute_units" : "ALL",
+        "operations" : 774,
+        "operations_without_usage" : 991,
+        "preferred_cpu" : 0,
+        "preferred_gpu" : 774,
+        "preferred_neural_engine" : 0,
+        "supported_gpu" : 774,
+        "supported_neural_engine" : 0
+      },
+      "io" : {
+        "inputs" : [
+          {
+            "dtype" : "INT32",
+            "name" : "dec_ids",
+            "shape" : [
+              1,
+              128
+            ]
+          },
+          {
+            "dtype" : "FLOAT32",
+            "name" : "dec_mask",
+            "shape" : [
+              1,
+              128
+            ]
+          },
+          {
+            "dtype" : "FLOAT32",
+            "name" : "enc_mask",
+            "shape" : [
+              1,
+              256
+            ]
+          },
+          {
+            "dtype" : "FLOAT32",
+            "name" : "enc_out",
+            "shape" : [
+              1,
+              256,
+              1024
+            ]
+          },
+          {
+            "dtype" : "INT32",
+            "name" : "last_pos",
+            "shape" : [
+              1,
+              1
+            ]
+          }
+        ],
+        "outputs" : [
+          {
+            "dtype" : "FLOAT32",
+            "name" : "mm",
+            "shape" : [
+              1,
+              136312
+            ]
+          }
+        ]
+      },
+      "package_sha256" : "3e1e4face0c13d3a64cc0753c05fc9e5bc77b7112101f18520c2696194dc2cb4",
+      "package_size_mb" : 344.4,
+      "runs" : [
+        {
+          "compute_units" : "ALL",
+          "error" : "process terminated (signal 6): /AppleInternal/Library/BuildRoots/4~CNqQugA4wWgXhDI3BNEvlckr_SRKSjcWvh2y3e0/Library/Caches/com.apple.xbs/TemporaryDirectory.LbyYqJ/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:5070: failed assertion `Error: MLIR pass manager failed'",
+          "failed" : true
+        },
+        {
+          "compute_units" : "CPU_ONLY",
+          "first_call_ms" : 104.01,
+          "footprint_after_load_mb" : 1297.2,
+          "footprint_after_run_mb" : 1297.5,
+          "footprint_before_load_mb" : 3.3,
+          "iters" : 100,
+          "load_s" : 1.26,
+          "max_ms" : 68.66,
+          "mean_ms" : 39.35,
+          "min_ms" : 37.06,
+          "p50_ms" : 39.05,
+          "p95_ms" : 40.44,
+          "reload_s" : 0.03,
+          "stdev_ms" : 3.08,
+          "thermal_after" : "nominal",
+          "thermal_before" : "nominal",
+          "warmup" : 10
+        },
+        {
+          "compute_units" : "CPU_AND_GPU",
+          "error" : "process terminated (signal 6): /AppleInternal/Library/BuildRoots/4~CNqQugA4wWgXhDI3BNEvlckr_SRKSjcWvh2y3e0/Library/Caches/com.apple.xbs/TemporaryDirectory.LbyYqJ/Sources/MetalPerformanceShadersGraph/mpsgraph/MetalPerformanceShadersGraph/Core/Files/MPSGraphExecutable.mm:5070: failed assertion `Error: MLIR pass manager failed'",
+          "failed" : true
+        },
+        {
+          "compute_units" : "CPU_AND_NE",
+          "first_call_ms" : 102.62,
+          "footprint_after_load_mb" : 2678.6,
+          "footprint_after_run_mb" : 2678.8,
+          "footprint_before_load_mb" : 3.3,
+          "iters" : 100,
+          "load_s" : 5.09,
+          "max_ms" : 41.5,
+          "mean_ms" : 39.15,
+          "min_ms" : 37.57,
+          "p50_ms" : 39.12,
+          "p95_ms" : 40.42,
+          "reload_s" : 0.03,
+          "stdev_ms" : 0.76,
+          "thermal_after" : "nominal",
+          "thermal_before" : "nominal",
+          "warmup" : 10
+        }
+      ]
+    }
+  ],
+  "release" : "v0.1.0"
+}

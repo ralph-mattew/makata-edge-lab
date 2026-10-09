@@ -1,0 +1,1082 @@
+[
+ {
+  "id": 0,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 57,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 1,
+  "backend": "fm",
+  "variant": "base",
+  "item": 837,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 2,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 163,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 3,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 916,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 4,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 346,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 5,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 590,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 6,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 836,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 7,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 375,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 8,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 79,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 9,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 560,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 10,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 764,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 11,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 142,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 12,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 241,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 13,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 616,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 14,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 373,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 15,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 848,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 16,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 591,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 17,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 937,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 18,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 808,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 19,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 446,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 20,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 257,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 21,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 966,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 22,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 964,
+  "call": "absent",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 23,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 775,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 24,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 242,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 25,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 176,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 26,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 5,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 27,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 291,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 28,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 165,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 29,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 329,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 30,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 309,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 31,
+  "backend": "fm",
+  "variant": "base",
+  "item": 570,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 32,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 892,
+  "call": "absent",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 33,
+  "backend": "fm",
+  "variant": "base",
+  "item": 412,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 34,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 533,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 35,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 534,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 36,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 470,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 37,
+  "backend": "fm",
+  "variant": "base",
+  "item": 302,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 38,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 811,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 39,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 967,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 40,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 916,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 41,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 320,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 42,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 792,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 43,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 352,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 44,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 248,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 45,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 13,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 46,
+  "backend": "fm",
+  "variant": "base",
+  "item": 601,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 47,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 209,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 48,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 328,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 49,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 252,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 50,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 32,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 51,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 108,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 52,
+  "backend": "fm",
+  "variant": "base",
+  "item": 388,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 53,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 672,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 54,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 827,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 55,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 366,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 56,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 135,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 57,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 736,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 58,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 275,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 59,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 782,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 60,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 158,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 61,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 4,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 62,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 975,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 63,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 829,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 64,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 908,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 65,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 881,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 66,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 284,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 67,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 511,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 68,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 717,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 69,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 122,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 70,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 764,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 71,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 203,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 72,
+  "backend": "fm",
+  "variant": "base",
+  "item": 894,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 73,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 589,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 74,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 367,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 75,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 434,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 76,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 965,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 77,
+  "backend": "fm",
+  "variant": "base",
+  "item": 572,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 78,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 74,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 79,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 480,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 80,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 270,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 81,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 324,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 82,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 498,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 83,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 285,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 84,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 18,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 85,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 537,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 86,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 40,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 87,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 95,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 88,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 256,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 89,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 378,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 90,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 827,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 91,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 493,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 92,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 647,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 93,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 947,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 94,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 385,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 95,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 443,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 96,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 530,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 97,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 753,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 98,
+  "backend": "fm",
+  "variant": "base",
+  "item": 165,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 99,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 463,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 100,
+  "backend": "fm",
+  "variant": "base",
+  "item": 404,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 101,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 255,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 102,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 832,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 103,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 922,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 104,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 977,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 105,
+  "backend": "fm",
+  "variant": "rule",
+  "item": 168,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 106,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 376,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 107,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 80,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 108,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 417,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 109,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 382,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 110,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 282,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 111,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 312,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 112,
+  "backend": "qwen-1.5b",
+  "variant": "rule-q",
+  "item": 269,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": true
+ },
+ {
+  "id": 113,
+  "backend": "qwen-1.5b",
+  "variant": "rule",
+  "item": 192,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 114,
+  "backend": "gemma-e2b",
+  "variant": "base",
+  "item": 583,
+  "call": "absent",
+  "call_v1": "absent",
+  "fixed": false
+ },
+ {
+  "id": 115,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 910,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 116,
+  "backend": "fm",
+  "variant": "rule-q",
+  "item": 651,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 117,
+  "backend": "gemma-e2b",
+  "variant": "rule",
+  "item": 206,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 118,
+  "backend": "gemma-e2b",
+  "variant": "rule-q",
+  "item": 49,
+  "call": "answer",
+  "call_v1": "answer",
+  "fixed": false
+ },
+ {
+  "id": 119,
+  "backend": "qwen-1.5b",
+  "variant": "base",
+  "item": 612,
+  "call": "absent",
+  "call_v1": "answer",
+  "fixed": false
+ }
+]

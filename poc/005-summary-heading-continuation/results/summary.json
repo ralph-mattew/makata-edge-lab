@@ -1,0 +1,174 @@
+{
+  "generations": 300,
+  "documents": 20,
+  "arms": {
+    "b-shipped": {
+      "n": 100,
+      "clean": 0.98,
+      "cap": 0.02,
+      "four": 0.39,
+      "complete": 0.39,
+      "any_unsupported": 0.03,
+      "leak": 0.0,
+      "loop": 0.01,
+      "end_marker": 0.04,
+      "thin": 0.01,
+      "any_inserted": 0.0,
+      "inserted_headings": {
+        "0": 100
+      },
+      "sections_found": {
+        "2": 39,
+        "3": 22,
+        "4": 39
+      },
+      "median_tokens": 131.5,
+      "median_decode_tok_s": 92.7003687760778
+    },
+    "b-insert-heading": {
+      "n": 100,
+      "clean": 0.94,
+      "cap": 0.06,
+      "four": 0.96,
+      "complete": 0.93,
+      "any_unsupported": 0.05,
+      "leak": 0.0,
+      "loop": 0.01,
+      "end_marker": 0.07,
+      "thin": 0.03,
+      "any_inserted": 0.59,
+      "inserted_headings": {
+        "0": 41,
+        "1": 52,
+        "2": 7
+      },
+      "sections_found": {
+        "2": 2,
+        "3": 2,
+        "4": 96
+      },
+      "median_tokens": 166.5,
+      "median_decode_tok_s": 93.84416317799912
+    },
+    "b-suppress-end": {
+      "n": 100,
+      "clean": 0.78,
+      "cap": 0.22,
+      "four": 0.76,
+      "complete": 0.76,
+      "any_unsupported": 0.04,
+      "leak": 0.01,
+      "loop": 0.02,
+      "end_marker": 0.15,
+      "thin": 0.01,
+      "any_inserted": 0.0,
+      "inserted_headings": {
+        "0": 100
+      },
+      "sections_found": {
+        "2": 17,
+        "3": 7,
+        "4": 76
+      },
+      "median_tokens": 179.5,
+      "median_decode_tok_s": 90.02499930859796
+    }
+  },
+  "stops": {
+    "b-shipped": {
+      "eos": 98,
+      "cap": 2
+    },
+    "b-insert-heading": {
+      "eos": 94,
+      "cap": 6
+    },
+    "b-suppress-end": {
+      "eos": 78,
+      "cap": 22
+    }
+  },
+  "bootstrap": {
+    "complete_insert_minus_shipped": {
+      "diff": 0.54,
+      "ci95": [
+        0.43999999999999995,
+        0.64
+      ]
+    },
+    "complete_suppress_minus_shipped": {
+      "diff": 0.37,
+      "ci95": [
+        0.27,
+        0.4600000000000001
+      ]
+    },
+    "unsupported_insert_minus_shipped": {
+      "diff": 0.02,
+      "ci95": [
+        0.0,
+        0.05
+      ]
+    },
+    "unsupported_suppress_minus_shipped": {
+      "diff": 0.01,
+      "ci95": [
+        0.0,
+        0.030000000000000006
+      ]
+    }
+  },
+  "hypotheses": {
+    "H1_insert_complete_80": true,
+    "H2_suppress_complete_80": false,
+    "H3_unsupported_within_5pts": true
+  },
+  "decision": {
+    "complete_gain_insert_minus_shipped": 0.54,
+    "criteria": {
+      "c1_complete_gain_30": true,
+      "c2_clean_at_least_90pct": true,
+      "c3_unsupported_within_5pts": true,
+      "c4_thin_at_most_10pct": true,
+      "c5_leak_at_most_5pct": true
+    },
+    "verdict": "adopt"
+  },
+  "reproduces_poc003_b_tokens": {
+    "identical": 100,
+    "of": 100
+  },
+  "exploratory_not_registered": {
+    "docs_b-insert-heading_vs_shipped": {
+      "higher": 19,
+      "equal": 1
+    },
+    "docs_b-suppress-end_vs_shipped": {
+      "higher": 17,
+      "equal": 3
+    },
+    "docs_with_no_complete_output": {
+      "b-shipped": 2,
+      "b-insert-heading": 0,
+      "b-suppress-end": 1
+    },
+    "inserted_by_heading": {
+      "Action Items": 30,
+      "Key Points": 36
+    },
+    "suppress_cap_sections_found": {
+      "2": 17,
+      "3": 5
+    },
+    "action_items_generic_verb": {
+      "inserted_heading": {
+        "lines": 75,
+        "generic_verb": 48
+      },
+      "model_written_heading": {
+        "lines": 238,
+        "generic_verb": 149
+      }
+    }
+  }
+}

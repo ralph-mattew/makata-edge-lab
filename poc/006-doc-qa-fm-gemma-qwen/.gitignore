@@ -1,0 +1,3 @@
+# inputs.jsonl is 13 MB of prompts that prepare.py rebuilds byte for byte from the CUAD zip;
+# conditions.txt records its SHA-256. items.jsonl carries the same sections and is committed.
+**/raw/inputs.jsonl

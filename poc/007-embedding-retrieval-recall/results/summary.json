@@ -1,0 +1,287 @@
+{
+  "arms": {
+    "bm25": {
+      "any_overlap@3": 0.48377358490566036,
+      "full@3": 0.4490566037735849,
+      "mean_coverage@3": 0.46525359623708823,
+      "median_words_read@3": 263,
+      "recall@1": 0.32528301886792454,
+      "recall@3": 0.4641509433962264,
+      "recall@5": 0.5464150943396227
+    },
+    "eg-hybrid": {
+      "any_overlap@3": 0.6279245283018868,
+      "full@3": 0.600754716981132,
+      "mean_coverage@3": 0.6140490395036485,
+      "median_words_read@3": 331,
+      "recall@1": 0.44528301886792454,
+      "recall@3": 0.6143396226415094,
+      "recall@5": 0.6747169811320755
+    },
+    "eg-only": {
+      "any_overlap@3": 0.6218867924528302,
+      "full@3": 0.5826415094339623,
+      "mean_coverage@3": 0.6038695663397,
+      "median_words_read@3": 292,
+      "recall@1": 0.41962264150943396,
+      "recall@3": 0.6060377358490566,
+      "recall@5": 0.6913207547169812
+    },
+    "kw-only": {
+      "any_overlap@3": 0.47773584905660377,
+      "full@3": 0.4490566037735849,
+      "mean_coverage@3": 0.4624153622910773,
+      "median_words_read@3": 358,
+      "recall@1": 0.3222641509433962,
+      "recall@3": 0.4656603773584906,
+      "recall@5": 0.5290566037735849
+    },
+    "nl-hybrid": {
+      "any_overlap@3": 0.37886792452830187,
+      "full@3": 0.33433962264150946,
+      "mean_coverage@3": 0.35413662512324845,
+      "median_words_read@3": 279,
+      "recall@1": 0.21660377358490565,
+      "recall@3": 0.35245283018867923,
+      "recall@5": 0.4241509433962264
+    },
+    "nl-only": {
+      "any_overlap@3": 0.11018867924528301,
+      "full@3": 0.08528301886792453,
+      "mean_coverage@3": 0.09769175919823334,
+      "median_words_read@3": 156,
+      "recall@1": 0.03924528301886793,
+      "recall@3": 0.09735849056603774,
+      "recall@5": 0.15320754716981133
+    },
+    "oracle": {
+      "full@3": 0.9977358490566037,
+      "recall@3": 1.0
+    }
+  },
+  "c1": true,
+  "c2": true,
+  "chunks": 79037,
+  "contracts": 397,
+  "embedding": {
+    "eg": {
+      "chunks": 79037,
+      "mean_ms": 10.612518820299353,
+      "median_contract_s": 1.40941,
+      "median_ms": 8.88,
+      "p95_ms": 19.14,
+      "tokens": 7998925,
+      "truncated_chunks": 3
+    },
+    "nl": {
+      "chunks": 79037,
+      "mean_ms": 20.19750218252211,
+      "median_contract_s": 2.69935,
+      "median_ms": 14.49,
+      "nil_chunks": 0,
+      "p95_ms": 51.77
+    }
+  },
+  "exploratory_weight_sweep_not_registered": {
+    "eg semantic weight 0.5": 0.5720754716981132,
+    "eg semantic weight 0.7": 0.6143396226415094,
+    "eg semantic weight 0.9": 0.6249056603773585,
+    "eg semantic weight 1.0": 0.6060377358490566,
+    "nl semantic weight 0.5": 0.42566037735849055,
+    "nl semantic weight 0.7": 0.35245283018867923,
+    "nl semantic weight 0.9": 0.18566037735849056,
+    "nl semantic weight 1.0": 0.09735849056603774
+  },
+  "hypotheses": {
+    "H1": {
+      "ci95": [
+        0.23787528868360278,
+        0.28537360890302066
+      ],
+      "claim": "eg-hybrid recall@3 >= nl-hybrid + 5 points",
+      "gain": 0.2618867924528302,
+      "holds": true
+    },
+    "H2": {
+      "ci95": [
+        0.4834680382072006,
+        0.5351894818252126
+      ],
+      "claim": "eg-only recall@3 >= nl-only + 10 points",
+      "gain": 0.5086792452830189,
+      "holds": true
+    },
+    "H3": {
+      "ci95": [
+        -0.1365399534522886,
+        -0.0891812865497076
+      ],
+      "claim": "nl-hybrid recall@3 no more than 5 points above kw-only",
+      "gain": -0.11320754716981132,
+      "holds": true
+    }
+  },
+  "items": 1325,
+  "languages_nl": {
+    "doc=ca query=en": 8,
+    "doc=de query=en": 3,
+    "doc=en query=en": 1298,
+    "doc=id query=en": 11,
+    "doc=nl query=en": 3,
+    "doc=ro query=en": 2
+  },
+  "macro_recall@3": {
+    "bm25": 0.46507526641329455,
+    "eg-hybrid": 0.6110358446978166,
+    "eg-only": 0.5983609061778076,
+    "kw-only": 0.4634864744019674,
+    "nl-hybrid": 0.34916685296966987,
+    "nl-only": 0.09579365079365079
+  },
+  "per_category": {
+    "Agreement Date": {
+      "bm25": 0.12,
+      "eg-hybrid": 0.28,
+      "eg-only": 0.22,
+      "kw-only": 0.37,
+      "n": 100,
+      "nl-hybrid": 0.06,
+      "nl-only": 0.03
+    },
+    "Audit Rights": {
+      "bm25": 0.7,
+      "eg-hybrid": 0.62,
+      "eg-only": 0.62,
+      "kw-only": 0.46,
+      "n": 100,
+      "nl-hybrid": 0.27,
+      "nl-only": 0.05
+    },
+    "Cap On Liability": {
+      "bm25": 0.29,
+      "eg-hybrid": 0.55,
+      "eg-only": 0.48,
+      "kw-only": 0.4,
+      "n": 100,
+      "nl-hybrid": 0.35,
+      "nl-only": 0.04
+    },
+    "Change Of Control": {
+      "bm25": 0.46,
+      "eg-hybrid": 0.54,
+      "eg-only": 0.56,
+      "kw-only": 0.45,
+      "n": 100,
+      "nl-hybrid": 0.3,
+      "nl-only": 0.07
+    },
+    "Exclusivity": {
+      "bm25": 0.11,
+      "eg-hybrid": 0.05,
+      "eg-only": 0.06,
+      "kw-only": 0.05,
+      "n": 100,
+      "nl-hybrid": 0.01,
+      "nl-only": 0.0
+    },
+    "Expiration Date": {
+      "bm25": 0.66,
+      "eg-hybrid": 0.86,
+      "eg-only": 0.87,
+      "kw-only": 0.41,
+      "n": 100,
+      "nl-hybrid": 0.54,
+      "nl-only": 0.24
+    },
+    "Governing Law": {
+      "bm25": 0.69,
+      "eg-hybrid": 0.96,
+      "eg-only": 0.96,
+      "kw-only": 0.79,
+      "n": 100,
+      "nl-hybrid": 0.81,
+      "nl-only": 0.18
+    },
+    "Insurance": {
+      "bm25": 0.82,
+      "eg-hybrid": 0.81,
+      "eg-only": 0.83,
+      "kw-only": 0.65,
+      "n": 100,
+      "nl-hybrid": 0.45,
+      "nl-only": 0.08
+    },
+    "Liquidated Damages": {
+      "bm25": 0.5185185185185185,
+      "eg-hybrid": 0.5370370370370371,
+      "eg-only": 0.42592592592592593,
+      "kw-only": 0.4444444444444444,
+      "n": 54,
+      "nl-hybrid": 0.3148148148148148,
+      "nl-only": 0.1111111111111111
+    },
+    "Non-Compete": {
+      "bm25": 0.16,
+      "eg-hybrid": 0.25,
+      "eg-only": 0.38,
+      "kw-only": 0.06,
+      "n": 100,
+      "nl-hybrid": 0.0,
+      "nl-only": 0.03
+    },
+    "Notice Period To Terminate Renewal": {
+      "bm25": 0.24,
+      "eg-hybrid": 0.89,
+      "eg-only": 0.84,
+      "kw-only": 0.72,
+      "n": 100,
+      "nl-hybrid": 0.3,
+      "nl-only": 0.04
+    },
+    "Renewal Term": {
+      "bm25": 0.76,
+      "eg-hybrid": 0.92,
+      "eg-only": 0.95,
+      "kw-only": 0.79,
+      "n": 100,
+      "nl-hybrid": 0.77,
+      "nl-only": 0.26
+    },
+    "Termination For Convenience": {
+      "bm25": 0.56,
+      "eg-hybrid": 0.71,
+      "eg-only": 0.66,
+      "kw-only": 0.5,
+      "n": 100,
+      "nl-hybrid": 0.46,
+      "nl-only": 0.21
+    },
+    "Warranty Duration": {
+      "bm25": 0.4225352112676056,
+      "eg-hybrid": 0.5774647887323944,
+      "eg-only": 0.5211267605633803,
+      "kw-only": 0.39436619718309857,
+      "n": 71,
+      "nl-hybrid": 0.2535211267605634,
+      "nl-only": 0.0
+    }
+  },
+  "primary": {
+    "ci95": [
+      0.23787528868360278,
+      0.28537360890302066
+    ],
+    "gain": 0.2618867924528302
+  },
+  "score_spread": {
+    "eg": {
+      "median_range": 0.446226,
+      "median_top_minus_median": 0.23579999999999995
+    },
+    "nl": {
+      "median_range": 0.507416,
+      "median_top_minus_median": 0.23035
+    }
+  },
+  "verdict": "adopt (host stage)"
+}

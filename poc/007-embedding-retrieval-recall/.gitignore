@@ -1,0 +1,5 @@
+# contracts.jsonl (26 MB) and chunks.jsonl (37 MB) hold the contract text; prepare.py and Chunker rebuild them
+# from the CUAD zip, and conditions.txt records their SHA-256. chunks-index.jsonl carries every chunk's word
+# range and page, which is all summarize.py needs.
+**/raw/contracts.jsonl
+**/raw/chunks.jsonl

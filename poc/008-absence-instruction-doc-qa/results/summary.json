@@ -1,0 +1,1116 @@
+{
+  "items": 986,
+  "contracts": 392,
+  "arms": {
+    "fm:base": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.8630952380952381,
+      "absent_rate": 0.3921161825726141,
+      "balanced": 0.6276057103339261,
+      "gap_filled": 0.607883817427386,
+      "absent_on_answerable": 0.13690476190476192,
+      "key_fact_n": 181,
+      "key_fact": 0.8232044198895028,
+      "any_unsupported": 0.0436105476673428,
+      "any_unsupported_unanswerable": 0.04771784232365145,
+      "cap": 0.005070993914807302,
+      "errors": {},
+      "empty": 0,
+      "median_words": 18.0,
+      "median_ms": 814.75,
+      "fixed_phrase": 0.0,
+      "fixed_phrase_answerable": 0.0
+    },
+    "fm:rule": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.9067460317460317,
+      "absent_rate": 0.38589211618257263,
+      "balanced": 0.6463190739643022,
+      "gap_filled": 0.6141078838174274,
+      "absent_on_answerable": 0.09325396825396826,
+      "key_fact_n": 181,
+      "key_fact": 0.8674033149171271,
+      "any_unsupported": 0.030425963488843813,
+      "any_unsupported_unanswerable": 0.035269709543568464,
+      "cap": 0.010141987829614604,
+      "errors": {},
+      "empty": 0,
+      "median_words": 21.0,
+      "median_ms": 888.7,
+      "fixed_phrase": 0.02028397565922921,
+      "fixed_phrase_answerable": 0.0
+    },
+    "fm:rule-q": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.8333333333333334,
+      "absent_rate": 0.5746887966804979,
+      "balanced": 0.7040110650069156,
+      "gap_filled": 0.4253112033195021,
+      "absent_on_answerable": 0.16666666666666666,
+      "key_fact_n": 181,
+      "key_fact": 0.7513812154696132,
+      "any_unsupported": 0.02129817444219067,
+      "any_unsupported_unanswerable": 0.022821576763485476,
+      "cap": 0.010141987829614604,
+      "errors": {},
+      "empty": 0,
+      "median_words": 12.0,
+      "median_ms": 746.9,
+      "fixed_phrase": 0.2434077079107505,
+      "fixed_phrase_answerable": 0.09126984126984126
+    },
+    "gemma-e2b:base": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.8849206349206349,
+      "absent_rate": 0.6493775933609959,
+      "balanced": 0.7671491141408153,
+      "gap_filled": 0.3506224066390041,
+      "absent_on_answerable": 0.11507936507936507,
+      "key_fact_n": 181,
+      "key_fact": 0.9005524861878453,
+      "any_unsupported": 0.002028397565922921,
+      "any_unsupported_unanswerable": 0.002074688796680498,
+      "cap": 0.0010141987829614604,
+      "errors": {},
+      "empty": 0,
+      "median_words": 19.0,
+      "median_ms": 1370.75,
+      "fixed_phrase": 0.0,
+      "fixed_phrase_answerable": 0.0
+    },
+    "gemma-e2b:rule": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.8492063492063492,
+      "absent_rate": 0.8008298755186722,
+      "balanced": 0.8250181123625107,
+      "gap_filled": 0.19917012448132776,
+      "absent_on_answerable": 0.15079365079365079,
+      "key_fact_n": 181,
+      "key_fact": 0.8784530386740331,
+      "any_unsupported": 0.0010141987829614604,
+      "any_unsupported_unanswerable": 0.002074688796680498,
+      "cap": 0.005070993914807302,
+      "errors": {},
+      "empty": 0,
+      "median_words": 19.0,
+      "median_ms": 1375.9,
+      "fixed_phrase": 0.0030425963488843813,
+      "fixed_phrase_answerable": 0.0
+    },
+    "gemma-e2b:rule-q": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.8194444444444444,
+      "absent_rate": 0.8278008298755186,
+      "balanced": 0.8236226371599815,
+      "gap_filled": 0.17219917012448138,
+      "absent_on_answerable": 0.18055555555555555,
+      "key_fact_n": 181,
+      "key_fact": 0.8839779005524862,
+      "any_unsupported": 0.0010141987829614604,
+      "any_unsupported_unanswerable": 0.0,
+      "cap": 0.0030425963488843813,
+      "errors": {},
+      "empty": 0,
+      "median_words": 19.0,
+      "median_ms": 1447.1,
+      "fixed_phrase": 0.058823529411764705,
+      "fixed_phrase_answerable": 0.013888888888888888
+    },
+    "qwen-1.5b:base": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.7857142857142857,
+      "absent_rate": 0.45020746887966806,
+      "balanced": 0.6179608772969769,
+      "gap_filled": 0.549792531120332,
+      "absent_on_answerable": 0.21428571428571427,
+      "key_fact_n": 181,
+      "key_fact": 0.7734806629834254,
+      "any_unsupported": 0.030425963488843813,
+      "any_unsupported_unanswerable": 0.04771784232365145,
+      "cap": 0.005070993914807302,
+      "errors": {},
+      "empty": 0,
+      "median_words": 6.0,
+      "median_ms": 856.35,
+      "fixed_phrase": 0.0,
+      "fixed_phrase_answerable": 0.0
+    },
+    "qwen-1.5b:rule": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.75,
+      "absent_rate": 0.5954356846473029,
+      "balanced": 0.6727178423236515,
+      "gap_filled": 0.4045643153526971,
+      "absent_on_answerable": 0.25,
+      "key_fact_n": 181,
+      "key_fact": 0.7182320441988951,
+      "any_unsupported": 0.012170385395537525,
+      "any_unsupported_unanswerable": 0.016597510373443983,
+      "cap": 0.0030425963488843813,
+      "errors": {},
+      "empty": 0,
+      "median_words": 8.0,
+      "median_ms": 910.1,
+      "fixed_phrase": 0.16227180527383367,
+      "fixed_phrase_answerable": 0.07936507936507936
+    },
+    "qwen-1.5b:rule-q": {
+      "n": 986,
+      "answerable": 504,
+      "unanswerable": 482,
+      "answer_rate": 0.30952380952380953,
+      "absent_rate": 0.8962655601659751,
+      "balanced": 0.6028946848448924,
+      "gap_filled": 0.10373443983402486,
+      "absent_on_answerable": 0.6904761904761905,
+      "key_fact_n": 181,
+      "key_fact": 0.27071823204419887,
+      "any_unsupported": 0.0010141987829614604,
+      "any_unsupported_unanswerable": 0.0,
+      "cap": 0.0010141987829614604,
+      "errors": {},
+      "empty": 0,
+      "median_words": 7.0,
+      "median_ms": 878.3,
+      "fixed_phrase": 0.5344827586206896,
+      "fixed_phrase_answerable": 0.4880952380952381
+    }
+  },
+  "arms_detector_v1": {
+    "fm:base": {
+      "answer_rate": 0.8630952380952381,
+      "absent_rate": 0.3921161825726141,
+      "balanced": 0.6276057103339261
+    },
+    "fm:rule": {
+      "answer_rate": 0.9067460317460317,
+      "absent_rate": 0.38589211618257263,
+      "balanced": 0.6463190739643022
+    },
+    "fm:rule-q": {
+      "answer_rate": 0.8313492063492064,
+      "absent_rate": 0.5746887966804979,
+      "balanced": 0.7030190015148521
+    },
+    "gemma-e2b:base": {
+      "answer_rate": 0.8809523809523809,
+      "absent_rate": 0.6493775933609959,
+      "balanced": 0.7651649871566883
+    },
+    "gemma-e2b:rule": {
+      "answer_rate": 0.8452380952380952,
+      "absent_rate": 0.8008298755186722,
+      "balanced": 0.8230339853783837
+    },
+    "gemma-e2b:rule-q": {
+      "answer_rate": 0.8154761904761905,
+      "absent_rate": 0.8278008298755186,
+      "balanced": 0.8216385101758545
+    },
+    "qwen-1.5b:base": {
+      "answer_rate": 0.8214285714285714,
+      "absent_rate": 0.3257261410788382,
+      "balanced": 0.5735773562537048
+    },
+    "qwen-1.5b:rule": {
+      "answer_rate": 0.7638888888888888,
+      "absent_rate": 0.5871369294605809,
+      "balanced": 0.6755129091747349
+    },
+    "qwen-1.5b:rule-q": {
+      "answer_rate": 0.31547619047619047,
+      "absent_rate": 0.8817427385892116,
+      "balanced": 0.598609464532701
+    }
+  },
+  "bootstrap": {
+    "fm:rule:balanced": {
+      "diff": 0.018713363630376123,
+      "ci95": [
+        -0.0020604239667607605,
+        0.039571005917159785
+      ]
+    },
+    "fm:rule:answer_rate": {
+      "diff": 0.04365079365079361,
+      "ci95": [
+        0.022587268993839782,
+        0.06613226452905818
+      ]
+    },
+    "fm:rule:absent_rate": {
+      "diff": -0.006224066390041472,
+      "ci95": [
+        -0.04073319755600813,
+        0.028199566160520606
+      ]
+    },
+    "fm:rule:key_fact": {
+      "diff": 0.04419889502762431,
+      "ci95": [
+        0.005555555555555536,
+        0.08522727272727271
+      ]
+    },
+    "fm:rule:any_unsupported": {
+      "diff": -0.013184584178498986,
+      "ci95": [
+        -0.025303643724696352,
+        -0.0010482180293501092
+      ]
+    },
+    "fm:rule-q:balanced": {
+      "diff": 0.07640535467298948,
+      "ci95": [
+        0.0488952268554943,
+        0.1036180481326725
+      ]
+    },
+    "fm:rule-q:answer_rate": {
+      "diff": -0.029761904761904767,
+      "ci95": [
+        -0.0625,
+        0.0036832412523021274
+      ]
+    },
+    "fm:rule-q:absent_rate": {
+      "diff": 0.18257261410788378,
+      "ci95": [
+        0.13793103448275856,
+        0.22567287784679085
+      ]
+    },
+    "fm:rule-q:key_fact": {
+      "diff": -0.07182320441988954,
+      "ci95": [
+        -0.13095238095238093,
+        -0.015706806282722474
+      ]
+    },
+    "fm:rule-q:any_unsupported": {
+      "diff": -0.02231237322515213,
+      "ci95": [
+        -0.035246727089627394,
+        -0.009765625
+      ]
+    },
+    "gemma-e2b:rule:balanced": {
+      "diff": 0.057868998221695334,
+      "ci95": [
+        0.03720895606473984,
+        0.07964463397299215
+      ]
+    },
+    "gemma-e2b:rule:answer_rate": {
+      "diff": -0.0357142857142857,
+      "ci95": [
+        -0.0610236220472441,
+        -0.009980039920159722
+      ]
+    },
+    "gemma-e2b:rule:absent_rate": {
+      "diff": 0.15145228215767637,
+      "ci95": [
+        0.11990950226244346,
+        0.185483870967742
+      ]
+    },
+    "gemma-e2b:rule:key_fact": {
+      "diff": -0.02209944751381221,
+      "ci95": [
+        -0.0444444444444444,
+        -0.00520833333333337
+      ]
+    },
+    "gemma-e2b:rule:any_unsupported": {
+      "diff": -0.0010141987829614604,
+      "ci95": [
+        -0.0048828125,
+        0.0020855057351407717
+      ]
+    },
+    "gemma-e2b:rule-q:balanced": {
+      "diff": 0.056473523019166194,
+      "ci95": [
+        0.03473288257145202,
+        0.07816705526240442
+      ]
+    },
+    "gemma-e2b:rule-q:answer_rate": {
+      "diff": -0.06547619047619047,
+      "ci95": [
+        -0.09251968503937014,
+        -0.03898635477582846
+      ]
+    },
+    "gemma-e2b:rule-q:absent_rate": {
+      "diff": 0.17842323651452274,
+      "ci95": [
+        0.145610278372591,
+        0.21353065539112048
+      ]
+    },
+    "gemma-e2b:rule-q:key_fact": {
+      "diff": -0.016574585635359185,
+      "ci95": [
+        -0.045685279187817174,
+        0.011428571428571455
+      ]
+    },
+    "gemma-e2b:rule-q:any_unsupported": {
+      "diff": -0.0010141987829614604,
+      "ci95": [
+        -0.003115264797507788,
+        0.0
+      ]
+    },
+    "qwen-1.5b:rule:balanced": {
+      "diff": 0.0547569650266746,
+      "ci95": [
+        0.02539590174155204,
+        0.08418997464722133
+      ]
+    },
+    "qwen-1.5b:rule:answer_rate": {
+      "diff": -0.0357142857142857,
+      "ci95": [
+        -0.07604562737642584,
+        0.004073319755600768
+      ]
+    },
+    "qwen-1.5b:rule:absent_rate": {
+      "diff": 0.14522821576763484,
+      "ci95": [
+        0.10062893081761004,
+        0.19004524886877827
+      ]
+    },
+    "qwen-1.5b:rule:key_fact": {
+      "diff": -0.05524861878453036,
+      "ci95": [
+        -0.13043478260869568,
+        0.02259887005649719
+      ]
+    },
+    "qwen-1.5b:rule:any_unsupported": {
+      "diff": -0.018255578093306288,
+      "ci95": [
+        -0.03015075376884422,
+        -0.006862745098039216
+      ]
+    },
+    "qwen-1.5b:rule-q:balanced": {
+      "diff": -0.015066192452084515,
+      "ci95": [
+        -0.047110567771840084,
+        0.016920731707317005
+      ]
+    },
+    "qwen-1.5b:rule-q:answer_rate": {
+      "diff": -0.47619047619047616,
+      "ci95": [
+        -0.5210727969348659,
+        -0.4300411522633744
+      ]
+    },
+    "qwen-1.5b:rule-q:absent_rate": {
+      "diff": 0.4460580912863071,
+      "ci95": [
+        0.40292275574112735,
+        0.48883928571428575
+      ]
+    },
+    "qwen-1.5b:rule-q:key_fact": {
+      "diff": -0.5027624309392266,
+      "ci95": [
+        -0.5813953488372093,
+        -0.4251497005988024
+      ]
+    },
+    "qwen-1.5b:rule-q:any_unsupported": {
+      "diff": -0.029411764705882353,
+      "ci95": [
+        -0.040624999999999994,
+        -0.01886792452830189
+      ]
+    },
+    "fm:rule-q_minus_rule:absent_rate": {
+      "diff": 0.18879668049792525,
+      "ci95": [
+        0.14371257485029942,
+        0.23225806451612907
+      ]
+    },
+    "qwen-1.5b:rule-q_minus_rule:absent_rate": {
+      "diff": 0.30082987551867224,
+      "ci95": [
+        0.25878003696857677,
+        0.34249471458773784
+      ]
+    },
+    "qwen_gain_minus_fm_gain:rule:absent_rate": {
+      "diff": 0.1514522821576763,
+      "ci95": [
+        0.09467455621301774,
+        0.208421052631579
+      ]
+    }
+  },
+  "base_vs_poc006_run1_same_call": {
+    "fm": 0.9239350912778904,
+    "gemma-e2b": 1.0,
+    "qwen-1.5b": 1.0
+  },
+  "audit": {
+    "labelled": 120,
+    "agreement": 0.975,
+    "agreement_v1": 0.9666666666666667,
+    "fixed_phrase_outputs": 13,
+    "agreement_not_fixed_phrase": 0.9719626168224299,
+    "by_backend": {
+      "fm": 1.0,
+      "gemma-e2b": 1.0,
+      "qwen-1.5b": 0.925
+    },
+    "disagreements": [
+      {
+        "id": 32,
+        "backend": "qwen-1.5b",
+        "variant": "rule-q",
+        "item": 892,
+        "detector": "absent",
+        "label": "answer"
+      },
+      {
+        "id": 68,
+        "backend": "qwen-1.5b",
+        "variant": "rule-q",
+        "item": 717,
+        "detector": "absent",
+        "label": "answer"
+      },
+      {
+        "id": 110,
+        "backend": "qwen-1.5b",
+        "variant": "base",
+        "item": 282,
+        "detector": "absent",
+        "label": "answer"
+      }
+    ]
+  },
+  "hypotheses": {
+    "H1_fm_rule_absent_up_15_answer_down_at_most_5": false,
+    "H2_qwen_absent_gain_10_below_fm_gain": false,
+    "H3_reminder_adds_5_absent_for_fm_and_qwen": true
+  },
+  "decision": {
+    "fm": {
+      "rule": {
+        "criteria": {
+          "c1_balanced_gain_at_least_5_ci_above_0": false,
+          "c2_answer_rate_not_worse_than_minus_5": true,
+          "c3_key_fact_not_worse_than_minus_5": true
+        },
+        "verdict": "reject: no gain"
+      },
+      "rule-q": {
+        "criteria": {
+          "c1_balanced_gain_at_least_5_ci_above_0": true,
+          "c2_answer_rate_not_worse_than_minus_5": true,
+          "c3_key_fact_not_worse_than_minus_5": false
+        },
+        "verdict": "reject: trade-off"
+      },
+      "verdict": "reject: no gain"
+    },
+    "gemma-e2b": {
+      "rule": {
+        "criteria": {
+          "c1_balanced_gain_at_least_5_ci_above_0": true,
+          "c2_answer_rate_not_worse_than_minus_5": true,
+          "c3_key_fact_not_worse_than_minus_5": true
+        },
+        "verdict": "adopt (host stage)"
+      },
+      "rule-q": {
+        "criteria": {
+          "c1_balanced_gain_at_least_5_ci_above_0": true,
+          "c2_answer_rate_not_worse_than_minus_5": false,
+          "c3_key_fact_not_worse_than_minus_5": true
+        },
+        "verdict": "reject: trade-off"
+      },
+      "verdict": "adopt (host stage): rule"
+    },
+    "qwen-1.5b": {
+      "rule": {
+        "criteria": {
+          "c1_balanced_gain_at_least_5_ci_above_0": true,
+          "c2_answer_rate_not_worse_than_minus_5": true,
+          "c3_key_fact_not_worse_than_minus_5": false
+        },
+        "verdict": "reject: trade-off"
+      },
+      "rule-q": {
+        "criteria": {
+          "c1_balanced_gain_at_least_5_ci_above_0": false,
+          "c2_answer_rate_not_worse_than_minus_5": false,
+          "c3_key_fact_not_worse_than_minus_5": false
+        },
+        "verdict": "reject: no gain"
+      },
+      "verdict": "reject: trade-off"
+    }
+  },
+  "per_category": {
+    "Agreement Date": {
+      "fm:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.20689655172413793
+      },
+      "fm:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.27586206896551724
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.75,
+        "absent_rate": 0.7586206896551724
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.5517241379310345
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.6206896551724138
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.7586206896551724
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.034482758620689655
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.8611111111111112,
+        "absent_rate": 0.27586206896551724
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.2222222222222222,
+        "absent_rate": 0.9310344827586207
+      }
+    },
+    "Audit Rights": {
+      "fm:base": {
+        "answer_rate": 0.8611111111111112,
+        "absent_rate": 0.9722222222222222
+      },
+      "fm:rule": {
+        "answer_rate": 0.8888888888888888,
+        "absent_rate": 0.9444444444444444
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.8888888888888888
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.8888888888888888
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.9166666666666666,
+        "absent_rate": 0.9722222222222222
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.8888888888888888,
+        "absent_rate": 0.9444444444444444
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.6111111111111112,
+        "absent_rate": 0.8055555555555556
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.75,
+        "absent_rate": 0.8611111111111112
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.4722222222222222,
+        "absent_rate": 0.9722222222222222
+      }
+    },
+    "Cap On Liability": {
+      "fm:base": {
+        "answer_rate": 0.8888888888888888,
+        "absent_rate": 0.5277777777777778
+      },
+      "fm:rule": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.3888888888888889
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.8333333333333334,
+        "absent_rate": 0.6388888888888888
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 0.6388888888888888,
+        "absent_rate": 0.75
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.5555555555555556,
+        "absent_rate": 0.9166666666666666
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.5833333333333334,
+        "absent_rate": 0.9166666666666666
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.6111111111111112,
+        "absent_rate": 0.6111111111111112
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.5277777777777778,
+        "absent_rate": 0.8055555555555556
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.2222222222222222,
+        "absent_rate": 0.9722222222222222
+      }
+    },
+    "Change Of Control": {
+      "fm:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.05555555555555555
+      },
+      "fm:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.16666666666666666
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.5277777777777778
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.6666666666666666
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.8888888888888888
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.8888888888888888
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.1111111111111111
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.9166666666666666,
+        "absent_rate": 0.2777777777777778
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.3888888888888889,
+        "absent_rate": 0.8888888888888888
+      }
+    },
+    "Exclusivity": {
+      "fm:base": {
+        "answer_rate": 0.05555555555555555,
+        "absent_rate": 1.0
+      },
+      "fm:rule": {
+        "answer_rate": 0.2222222222222222,
+        "absent_rate": 0.9722222222222222
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.3055555555555556,
+        "absent_rate": 0.9166666666666666
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 0.7222222222222222,
+        "absent_rate": 0.8333333333333334
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.5833333333333334,
+        "absent_rate": 0.9166666666666666
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.4444444444444444,
+        "absent_rate": 0.9444444444444444
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.4444444444444444,
+        "absent_rate": 0.8055555555555556
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.3333333333333333,
+        "absent_rate": 0.8611111111111112
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.08333333333333333,
+        "absent_rate": 1.0
+      }
+    },
+    "Expiration Date": {
+      "fm:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.0
+      },
+      "fm:rule": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.0
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.2222222222222222
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.5555555555555556
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.7222222222222222
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.8055555555555556
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.05555555555555555
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.25
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.3333333333333333,
+        "absent_rate": 0.8333333333333334
+      }
+    },
+    "Governing Law": {
+      "fm:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.09523809523809523
+      },
+      "fm:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.19047619047619047
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.8888888888888888,
+        "absent_rate": 0.5714285714285714
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.6190476190476191
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.8095238095238095
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.8095238095238095
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.5238095238095238
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.6944444444444444,
+        "absent_rate": 0.8095238095238095
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.08333333333333333,
+        "absent_rate": 1.0
+      }
+    },
+    "Insurance": {
+      "fm:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.3055555555555556
+      },
+      "fm:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.6666666666666666
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.6944444444444444
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.8055555555555556
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.8333333333333334
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.8333333333333334
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.6111111111111112
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.6666666666666666
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.5833333333333334,
+        "absent_rate": 0.9722222222222222
+      }
+    },
+    "Liquidated Damages": {
+      "fm:base": {
+        "answer_rate": 0.8333333333333334,
+        "absent_rate": 0.8611111111111112
+      },
+      "fm:rule": {
+        "answer_rate": 0.8888888888888888,
+        "absent_rate": 0.6666666666666666
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.7777777777777778,
+        "absent_rate": 0.8611111111111112
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 0.75,
+        "absent_rate": 0.8611111111111112
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.6666666666666666,
+        "absent_rate": 0.9166666666666666
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.6666666666666666,
+        "absent_rate": 0.9722222222222222
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.5555555555555556,
+        "absent_rate": 0.8611111111111112
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.4166666666666667,
+        "absent_rate": 0.9444444444444444
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.08333333333333333,
+        "absent_rate": 1.0
+      }
+    },
+    "Non-Compete": {
+      "fm:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.16666666666666666
+      },
+      "fm:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.027777777777777776
+      },
+      "fm:rule-q": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.25
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 0.8055555555555556,
+        "absent_rate": 0.9166666666666666
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.7777777777777778,
+        "absent_rate": 0.9722222222222222
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.5833333333333334,
+        "absent_rate": 1.0
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.4722222222222222,
+        "absent_rate": 0.8055555555555556
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.6111111111111112,
+        "absent_rate": 0.8333333333333334
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.1111111111111111,
+        "absent_rate": 0.8888888888888888
+      }
+    },
+    "Notice Period To Terminate Renewal": {
+      "fm:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.08333333333333333
+      },
+      "fm:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.1111111111111111
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.8333333333333334,
+        "absent_rate": 0.5277777777777778
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.3333333333333333
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.6666666666666666
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.9166666666666666,
+        "absent_rate": 0.75
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.1111111111111111
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.9166666666666666,
+        "absent_rate": 0.3333333333333333
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.5555555555555556,
+        "absent_rate": 0.75
+      }
+    },
+    "Renewal Term": {
+      "fm:base": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.25
+      },
+      "fm:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.027777777777777776
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.1111111111111111
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.4444444444444444
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.5277777777777778
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.5277777777777778
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.3888888888888889
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.8888888888888888,
+        "absent_rate": 0.6111111111111112
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.3611111111111111,
+        "absent_rate": 0.9444444444444444
+      }
+    },
+    "Termination For Convenience": {
+      "fm:base": {
+        "answer_rate": 0.5277777777777778,
+        "absent_rate": 0.6111111111111112
+      },
+      "fm:rule": {
+        "answer_rate": 0.75,
+        "absent_rate": 0.7222222222222222
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.75,
+        "absent_rate": 0.6388888888888888
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.3055555555555556
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.8888888888888888,
+        "absent_rate": 0.6388888888888888
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.8888888888888888,
+        "absent_rate": 0.5277777777777778
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.5277777777777778,
+        "absent_rate": 0.4166666666666667
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.75,
+        "absent_rate": 0.5
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.3611111111111111,
+        "absent_rate": 0.8888888888888888
+      }
+    },
+    "Warranty Duration": {
+      "fm:base": {
+        "answer_rate": 0.9722222222222222,
+        "absent_rate": 0.19444444444444445
+      },
+      "fm:rule": {
+        "answer_rate": 1.0,
+        "absent_rate": 0.1388888888888889
+      },
+      "fm:rule-q": {
+        "answer_rate": 0.75,
+        "absent_rate": 0.4722222222222222
+      },
+      "gemma-e2b:base": {
+        "answer_rate": 0.6111111111111112,
+        "absent_rate": 0.5277777777777778
+      },
+      "gemma-e2b:rule": {
+        "answer_rate": 0.6388888888888888,
+        "absent_rate": 0.7777777777777778
+      },
+      "gemma-e2b:rule-q": {
+        "answer_rate": 0.6388888888888888,
+        "absent_rate": 0.8888888888888888
+      },
+      "qwen-1.5b:base": {
+        "answer_rate": 0.9444444444444444,
+        "absent_rate": 0.1111111111111111
+      },
+      "qwen-1.5b:rule": {
+        "answer_rate": 0.8333333333333334,
+        "absent_rate": 0.3333333333333333
+      },
+      "qwen-1.5b:rule-q": {
+        "answer_rate": 0.4722222222222222,
+        "absent_rate": 0.5555555555555556
+      }
+    }
+  }
+}

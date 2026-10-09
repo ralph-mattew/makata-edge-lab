@@ -1,0 +1,55 @@
+0.01.019.046 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.022.165 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.030.572 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.01.275.687 I cmn          init: llama threadpool init, n_threads = 2
+0.01.335.523 I 
+0.01.335.545 I system_info: n_threads = 2 (n_threads_batch = 2) / 12 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.01.386.827 I kl_divergence: computing over 4 chunks, n_ctx=4096, batch_size=2048, n_seq=1
+0.07.260.478 I kl_divergence: 5.87 seconds per pass - ETA 0.38 minutes
+
+chunk             PPL               ln(PPL(Q)/PPL(base))          KL Divergence              Δp RMS            Same top p
+   1     282.2177 ±   31.9470       0.02543 ±    0.01915       0.07732 ±    0.00406     6.238 ±  0.474 %    86.077 ±  0.765 %
+   2     365.6578 ±   29.6243       0.02688 ±    0.01341       0.08192 ±    0.00339     6.543 ±  0.315 %    86.321 ±  0.537 %
+   3     347.1988 ±   23.3383       0.03042 ±    0.01115       0.08737 ±    0.00312     6.954 ±  0.285 %    86.615 ±  0.435 %
+   4     326.0019 ±   19.1755       0.05046 ±    0.01002       0.08881 ±    0.00286     7.214 ±  0.262 %    86.920 ±  0.373 %
+
+====== Perplexity statistics ======
+Mean PPL(Q)                   : 326.001884 ±  19.175465
+Mean PPL(base)                : 309.959461 ±  17.602418
+Cor(ln(PPL(Q)), ln(PPL(base))):  98.56%
+Mean ln(PPL(Q)/PPL(base))     :   0.050462 ±   0.010016
+Mean PPL(Q)/PPL(base)         :   1.051757 ±   0.010534
+Mean PPL(Q)-PPL(base)         :  16.042423 ±   3.492017
+
+====== KL divergence statistics ======
+Mean    KLD:   0.088810 ±   0.002857
+Maximum KLD:   6.572551
+99.9%   KLD:   3.526018
+99.0%   KLD:   1.039245
+95.0%   KLD:   0.323710
+90.0%   KLD:   0.186034
+Median  KLD:   0.028504
+10.0%   KLD:   0.000229
+ 5.0%   KLD:   0.000028
+ 1.0%   KLD:   0.000000
+ 0.1%   KLD:  -0.000002
+Minimum KLD:  -0.000035
+
+====== Token probability statistics ======
+Mean    Δp:  0.022 ± 0.080 %
+Maximum Δp: 96.780%
+99.9%   Δp: 60.384%
+99.0%   Δp: 25.273%
+95.0%   Δp:  6.471%
+90.0%   Δp:  1.763%
+75.0%   Δp:  0.050%
+Median  Δp: -0.000%
+25.0%   Δp: -0.048%
+10.0%   Δp: -1.905%
+ 5.0%   Δp: -6.180%
+ 1.0%   Δp: -23.385%
+ 0.1%   Δp: -64.153%
+Minimum Δp: -91.305%
+RMS Δp    :  7.214 ± 0.262 %
+Same top p: 86.920 ± 0.373 %
+

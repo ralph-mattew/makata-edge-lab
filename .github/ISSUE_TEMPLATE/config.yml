@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions, PoC ideas and papers worth testing
+    url: https://github.com/ralph-mattew/makata-edge-lab/discussions
+    about: Use Discussions for anything that isn't a replication, a bug or a possible error.
+  - name: Security vulnerability or personal data in a file
+    url: https://github.com/ralph-mattew/makata-edge-lab/security/advisories/new
+    about: Report privately. See SECURITY.md.

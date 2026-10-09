@@ -1,0 +1,38 @@
+[
+  {
+    "name": "b-shipped",
+    "prompt": "xylo",
+    "intervention": "none",
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repeat_penalty": 1.05,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 1.5,
+    "penalty_last_n": 256
+  },
+  {
+    "name": "b-insert-heading",
+    "prompt": "xylo",
+    "intervention": "insert_heading",
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repeat_penalty": 1.05,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 1.5,
+    "penalty_last_n": 256
+  },
+  {
+    "name": "b-suppress-end",
+    "prompt": "xylo",
+    "intervention": "suppress_end",
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repeat_penalty": 1.05,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 1.5,
+    "penalty_last_n": 256
+  }
+]

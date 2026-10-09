@@ -1,0 +1,4 @@
+{
+  "rule": "Before you answer, check whether the sections contain the answer. If they do not, reply exactly: \"The provided sections do not contain this.\" Do not guess, and do not answer with related information instead.",
+  "reminder": "If the sections do not contain the answer, reply exactly: \"The provided sections do not contain this.\""
+}

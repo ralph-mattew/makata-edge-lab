@@ -1,0 +1,28 @@
+name: Possible error in a result
+description: A number, claim or verdict in a published PoC or replication that looks wrong.
+title: "Possible error: PoC NNN, <short description>"
+labels: [correction]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are handled as described in [GOVERNANCE.md](https://github.com/ralph-mattew/makata-edge-lab/blob/main/GOVERNANCE.md#corrections). Substantive fixes get a dated errata entry, and the original text stays visible.
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: File and line, or a link to it.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What looks wrong, and why
+      description: Point to the raw file, the calculation or the source that disagrees.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Your evidence
+      description: Commands, logs or references. Leave out personal data.

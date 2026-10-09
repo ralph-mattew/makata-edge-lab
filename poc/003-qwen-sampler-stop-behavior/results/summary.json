@@ -1,0 +1,138 @@
+{
+  "generations": 400,
+  "documents": 20,
+  "arms": {
+    "a-near-greedy": {
+      "n": 100,
+      "clean": 0.95,
+      "cap": 0.05,
+      "four": 0.03,
+      "complete": 0.03,
+      "any_unsupported": 0.12,
+      "leak": 0.01,
+      "loop": 0.0,
+      "median_tokens": 101.0,
+      "median_decode_tok_s": 99.18362701741432
+    },
+    "b-qwen-recipe": {
+      "n": 100,
+      "clean": 0.98,
+      "cap": 0.02,
+      "four": 0.39,
+      "complete": 0.39,
+      "any_unsupported": 0.03,
+      "leak": 0.0,
+      "loop": 0.01,
+      "median_tokens": 131.5,
+      "median_decode_tok_s": 109.26463228417606
+    },
+    "c-near-greedy-presence": {
+      "n": 100,
+      "clean": 0.91,
+      "cap": 0.09,
+      "four": 0.0,
+      "complete": 0.0,
+      "any_unsupported": 0.26,
+      "leak": 0.01,
+      "loop": 0.0,
+      "median_tokens": 128.5,
+      "median_decode_tok_s": 100.54269184608016
+    },
+    "d-qwen-recipe-no-presence": {
+      "n": 100,
+      "clean": 1.0,
+      "cap": 0.0,
+      "four": 0.41,
+      "complete": 0.41,
+      "any_unsupported": 0.0,
+      "leak": 0.0,
+      "loop": 0.02,
+      "median_tokens": 126.5,
+      "median_decode_tok_s": 108.26826708591054
+    }
+  },
+  "stops": {
+    "a-near-greedy": {
+      "eos": 95,
+      "cap": 5
+    },
+    "b-qwen-recipe": {
+      "eos": 98,
+      "cap": 2
+    },
+    "c-near-greedy-presence": {
+      "eos": 91,
+      "cap": 9
+    },
+    "d-qwen-recipe-no-presence": {
+      "eos": 100
+    }
+  },
+  "bootstrap_b_minus_a": {
+    "clean": {
+      "diff": 0.029999999999999992,
+      "ci95": [
+        -0.010000000000000014,
+        0.08
+      ]
+    },
+    "complete": {
+      "diff": 0.36,
+      "ci95": [
+        0.26,
+        0.47000000000000003
+      ]
+    }
+  },
+  "hypotheses": {
+    "H1_a_hits_cap_at_least_50pct": false,
+    "H2_b_clean_90_and_four_80": false,
+    "H3_presence_carries_effect": false,
+    "H4_b_unsupported_within_10pts_of_a": true,
+    "H5_b_median_tokens_at_most_220": true
+  },
+  "decision": {
+    "clean_gain_b_minus_a": 0.030000000000000027,
+    "criteria": {
+      "c1_clean_gain": false,
+      "c2_complete_not_worse": true,
+      "c3_unsupported_within_10pts": true,
+      "c4_leak_at_most_5pct": true
+    },
+    "verdict": "reject: does not reproduce"
+  },
+  "exploratory_not_registered": {
+    "sections_found": {
+      "a-near-greedy": {
+        "2": 86,
+        "3": 11,
+        "4": 3
+      },
+      "b-qwen-recipe": {
+        "2": 39,
+        "3": 22,
+        "4": 39
+      },
+      "c-near-greedy-presence": {
+        "1": 4,
+        "2": 84,
+        "3": 12
+      },
+      "d-qwen-recipe-no-presence": {
+        "2": 36,
+        "3": 23,
+        "4": 41
+      }
+    },
+    "end_marker": {
+      "a-near-greedy": 0.45,
+      "b-qwen-recipe": 0.04,
+      "c-near-greedy-presence": 0.15,
+      "d-qwen-recipe-no-presence": 0.0
+    },
+    "docs_complete_b_vs_a": {
+      "b_higher": 17,
+      "equal": 3
+    }
+  }
+}

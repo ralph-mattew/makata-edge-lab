@@ -1,0 +1,52 @@
+[
+  {
+    "name": "fm",
+    "backend": "fm",
+    "tier": "8 GB (Apple Intelligence iPhones), FoundationModels backend, Xylo's default",
+    "temperature": 0.3,
+    "maximum_response_tokens": 500,
+    "guardrails": "permissiveContentTransformations"
+  },
+  {
+    "name": "gemma-e2b",
+    "backend": "gguf",
+    "tier": "8 GB, Gemma backend (user-selected, or the default without Apple Intelligence)",
+    "prompt_form": "gemma",
+    "model": "models/google_gemma-4-E2B-it-Q4_K_M.gguf",
+    "context": 2500,
+    "ubatch": 256,
+    "threads": 2,
+    "gpu_layers": 99,
+    "max_new_tokens": 200,
+    "stop_string": "<turn|>",
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 64,
+    "repeat_penalty": 1.0,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 0.0,
+    "penalty_last_n": 64,
+    "seed": 1
+  },
+  {
+    "name": "qwen-1.5b",
+    "backend": "gguf",
+    "tier": "6 GB, Qwen backend (the only chat model on this tier)",
+    "prompt_form": "qwen",
+    "model": "models/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf",
+    "context": 2048,
+    "ubatch": 128,
+    "threads": 2,
+    "gpu_layers": 99,
+    "max_new_tokens": 200,
+    "stop_string": "<|im_end|>",
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repeat_penalty": 1.05,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 1.5,
+    "penalty_last_n": 256,
+    "seed": 1
+  }
+]

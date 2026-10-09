@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, results or write-ups, please cite them as below. For a single PoC, cite this repository and name the PoC and its authors."
+type: software
+title: "Makata AI Edge Lab"
+abstract: "Reusable Swift components and pre-registered proof-of-concept experiments for running AI models on phones and laptops under memory and thermal limits, with raw results."
+authors:
+  - family-names: Palomaria
+    given-names: Ralph Mattew
+    email: ralphmattew@gmail.com
+repository-code: "https://github.com/ralph-mattew/makata-edge-lab"
+url: "https://makata.ai"
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+keywords:
+  - edge AI
+  - on-device inference
+  - llama.cpp
+  - Core ML
+  - iOS
+  - reproducibility
