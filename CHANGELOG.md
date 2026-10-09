@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- PoC 009 registered (retrieval depth for Qwen2.5-1.5B): does 5 retrieved chunks instead of 3 raise how often
+  Qwen's answer holds the right key fact on answerable contract questions, at an acceptable prefill cost?
+  Reuses PoC 006's harness and PoC 007's retrieval over five conditions (EmbeddingGemma at 1, 3 and 5 chunks;
+  NLEmbedding at 3 and 5), scored on 464 key-fact items. Thresholds set from PoC 007's recall headroom
+  (at most 5.4 points). Not run yet.
 - Public repository started from a snapshot of the earlier repository (after PoC 008 was written up);
   its history is not published, and commit hashes in earlier entries and PoC write-ups refer to it. The
   generic stand-ins in `generic/` are reworded so they share no five-word run with the private text, and

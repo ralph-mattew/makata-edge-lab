@@ -32,3 +32,4 @@ poc/004-*/results/raw/inputs-xylo.jsonl
 poc/004-*/results/raw/inputs-no-end-line.jsonl
 poc/005-*/results/raw/inputs.jsonl
 poc/008-*/results/raw/inputs-*.jsonl
+poc/009-*/results/raw/inputs-*.jsonl
