@@ -2,12 +2,12 @@
 
 | | |
 |---|---|
-| Status | Planned |
-| Verdict | None yet |
+| Status | Written up (host stage) |
+| Verdict | Reject (host stage): no gain. 5 chunks instead of 3 move the key-fact rate by +0.4 points (95% CI -3.7 to +4.4) with EmbeddingGemma retrieval, at 1.44 times the prefill time. With NLEmbedding retrieval the same rule gives adopt (host stage): +4.5 points (CI +0.5 to +8.4) at 1.59 times |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | None yet (founding reviewers being invited) |
 | Source idea | Two statements in Xylo's engineering notes (private app, v1.2.0): cutting the chat retrieval depth from 5 chunks to 3 lost little grounding and roughly halved prefill time, and for the quantized 1.5B model a focused context beats a maximal one. |
-| Registered | 2026-10-09, in the commit that adds this file, before the first run |
+| Registered | 2026-10-09, commit c71875e (this file, before the first run) |
 
 ## Question
 
@@ -172,19 +172,151 @@ holding or not, and do not change the verdict.
 
 ## Results
 
-Not run yet.
+Run on 2026-10-09, 18:52 to 21:30 (UTC+8), on the host and settings under Method. 1,325 items
+in each of the five conditions in run 1, and 1,325 in each of the two repeats in run 2. Every
+output ended on its own or at the answer budget; no output is empty or an error, and no prompt
+needed a budget below 200 tokens. All numbers are MEASURED on the host. Raw outputs, the prompts'
+hashes and the logs are in [`results/raw`](results/raw), the numbers in
+[`results/summary.json`](results/summary.json) and [`results/summary.md`](results/summary.md).
+
+**Run 1, by condition** (percent of items unless a unit is given; key fact right is over the 464
+items that have one):
+
+| Condition | Recall | Key fact right | Answers | Says absent | Any unsupported number | Hit budget | Median prompt tokens | p95 | Max | Median prefill ms | Median total ms |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| eg-k1 | 44.5 | 55.4 | 73.5 | 26.5 | 4.1 | 0.1 | 335 | 467 | 886 | 286 | 593 |
+| eg-k3 (control) | 61.4 | 67.9 | 78.6 | 21.4 | 1.4 | 0.3 | 625 | 965 | 1,503 | 583 | 979 |
+| eg-k5 | 67.2 | 68.3 | 79.5 | 20.5 | 1.9 | 0.8 | 925 | 1,415 | 1,604 | 840 | 1,204 |
+| nl-k3 | 35.2 | 45.9 | 70.3 | 29.7 | 3.1 | 0.5 | 555 | 928 | 1,296 | 422 | 731 |
+| nl-k5 | 42.3 | 50.4 | 73.9 | 26.1 | 2.6 | 0.6 | 812 | 1,367 | 1,570 | 672 | 1,021 |
+
+The word cap dropped chunks on 1 item of `eg-k3`, 32 of `eg-k5` and 25 of `nl-k5`, as the dry run
+before registration showed.
+
+**Key fact right, split by whether the chunks cover the answer** (percent; "covered" is each
+condition's own coverage):
+
+| Condition | Covered | Not covered |
+|---|---|---|
+| eg-k1 | 81.9 | 14.8 |
+| eg-k3 | 83.3 | 14.4 |
+| eg-k5 | 79.0 | 16.5 |
+| nl-k3 | 81.4 | 12.2 |
+| nl-k5 | 80.1 | 13.9 |
+
+**Comparisons** (points, 95% CI from the contract-level bootstrap):
+
+| Comparison | Difference | 95% CI |
+|---|---|---|
+| `eg-k5` minus `eg-k3`, key fact right (the verdict) | +0.4 | -3.7 to +4.4 |
+| `eg-k5` minus `eg-k3`, any unsupported number | +0.5 | -0.4 to +1.4 |
+| `eg-k5` minus `eg-k3`, key fact right, items where `eg-k3`'s chunks cover the answer (H2) | -5.0 | -9.3 to -0.8 |
+| `eg-k3` minus `eg-k1`, key fact right (H3) | +12.5 | +7.7 to +17.4 |
+| `nl-k5` minus `nl-k3`, key fact right | +4.5 | +0.5 to +8.4 |
+| `nl-k5` minus `nl-k3`, any unsupported number | -0.5 | -1.7 to +0.7 |
+| `eg-k5` minus `eg-k3`, answers (descriptive) | +0.8 | -1.2 to +2.9 |
+| `nl-k5` minus `nl-k3`, answers (descriptive) | +3.5 | +1.3 to +5.8 |
+
+**Decision rule**
+
+| | `eg-k5` against `eg-k3` (headline) | `nl-k5` against `nl-k3` (fallback) |
+|---|---|---|
+| Key-fact gain | +0.4 points | +4.5 points |
+| Step 1, gain under 1.5 points | Yes: reject, no gain | No |
+| c1, gain at least 3 points with the CI above 0 | No | Yes (CI lower bound +0.5) |
+| c2, unsupported numbers up by at most 3 points | Yes (+0.5) | Yes (-0.5) |
+| c3, median prefill at most 2.0 times | Yes (1.44) | Yes (1.59) |
+| Verdict | Reject: no gain | Adopt (host stage) |
+
+**Hypotheses.** H1 held: `eg-k5` is +0.4 points above `eg-k3`, below the 1.5 required to count as
+a gain. H2 held: on the items where 3 chunks cover the answer, `eg-k5` is 5.0 points lower (CI -9.3
+to -0.8). H3 held: a single chunk is 12.5 points below 3 (CI +7.7 to +17.4 for 3 over 1).
+
+**Run 2** (seed 2, not used in the verdict). `eg-k3` 65.9% and `eg-k5` 69.6% key fact right, a
+difference of +3.7 points; run 1's was +0.4. The same condition moves 2.0 points (`eg-k3`) and 1.3
+points (`eg-k5`) between seeds, and its answer-or-absent call changes on 18.6% and 17.7% of items.
+
+**Per category, key fact right** (percent, run 1; exploratory, no correction for multiple
+comparisons):
+
+| Category | n | eg-k3 | eg-k5 |
+|---|---|---|---|
+| Agreement Date | 84 | 32.1 | 45.2 |
+| Expiration Date | 61 | 80.3 | 78.7 |
+| Governing Law | 93 | 91.4 | 91.4 |
+| Notice Period To Terminate Renewal | 95 | 74.7 | 68.4 |
+| Renewal Term | 91 | 69.2 | 67.0 |
+| Warranty Duration | 40 | 50.0 | 50.0 |
+
+**Observations.**
+
+- Going from 3 chunks to 5 raised recall on the 1,325 items by 5.8 points with EmbeddingGemma
+  (61.4 to 67.2), and the key-fact rate went up by 0.4. The answer was in front of the model more
+  often and it did not use it more often: where the chunks cover the answer, the key-fact rate fell
+  from 83.3% to 79.0%, and where they do not, it rose from 14.4% to 16.5% (the two splits are of
+  different item sets, so these are descriptive).
+- Retrieval matters more than depth. `eg-k3` (67.9%) is 22.0 points above `nl-k3` and 17.5 points
+  above `nl-k5`, so no depth of NLEmbedding retrieval reaches the EmbeddingGemma control. The
+  NLEmbedding fallback does gain from 5 chunks, by 4.5 points.
+- Xylo's statement that 3 chunks roughly halve prefill is not reproduced here. 3 chunks cut median
+  prompt tokens by 32% (925 to 625), median prefill time by 31% (840 to 583 ms) and median total
+  time by 19% (1,204 to 979 ms) with EmbeddingGemma retrieval. Chunks are PoC 007's, not the app's,
+  and the host is a Mac, so the app's number may be larger.
+- Even where the 3 chunks cover the answer, Qwen gets the key fact right on 83.3% of items. That
+  16.7% is a ceiling that no retrieval depth moves.
+- By category, the picture is mixed: Agreement Date gains 13.1 points (n = 84) and Notice Period
+  loses 6.3 (n = 95). Neither is registered, and with six categories some such spread is expected.
+- Single chunks are cheap and poor: 1 chunk nearly halves the prompt again (335 tokens, 286 ms prefill) and
+  loses 12.5 points. Its answer rate is 5.1 points lower than 3 chunks' (CI +2.8 to +7.5).
 
 ## Verdict
 
-Not run yet.
+**Reject (host stage): no gain.** Applying the rule in order: the key-fact rate of `eg-k5` is 0.4
+points above `eg-k3`'s, under the 1.5 points that step 1 requires, so the verdict is reject, no
+gain, and Xylo keeps 3 chunks for the EmbeddingGemma path. The other criteria were not needed:
+c2 and c3 would have held (+0.5 points, 1.44 times), c1 did not.
+
+What this does and does not show. The interval of the difference, -3.7 to +4.4 points, does not
+rule out a gain as large as the 3 points of c1, and run 2's repeat gives +3.7. The mean of the two
+runs' gains is +2.0 points (INFERRED; not registered, not used). Step 1 tests a point estimate, and
+the verdict says that one run found no gain of 1.5 points; it does not say 5 chunks cannot help.
+What the data supports is narrower: on this model and these items, 5 chunks cost 44% more prefill
+time and gain, at best, a few points that one run cannot separate from zero, and on the items that
+already had the answer the extra chunks cost 5.0 points (H2, CI -9.3 to -0.8). Xylo's "focused beats
+maximal" holds on the items that were already answerable.
+
+**Second verdict, the NLEmbedding fallback: adopt (host stage).** The same rule applied to `nl-k5`
+against `nl-k3` passes c1 (+4.5 points, CI +0.5 to +8.4), c2 and c3 (1.59 times). Where Xylo runs
+retrieval with NLEmbedding, 5 chunks raise the key-fact rate; the lower bound of the interval is
+close to zero, so the evidence is weaker than the point estimate. Xylo would change its chat depth
+only after an iPhone run measuring prefill time, memory and heat, and PoC 007's adopt already makes
+EmbeddingGemma retrieval the default, so this path is the less common one. That is the lab's
+reading (INFERRED); the change is Xylo's decision.
+
+H1, H2 and H3 held. They do not change the verdict.
 
 ## Deviations
 
-None yet.
+- **A 54-second battery interval fell inside the `nl-k3` stage.** The system log (`pmset -g log`)
+  shows the host on battery from 20:16:04 to 20:16:58 (UTC+8) and on AC power otherwise from
+  18:40:37 to the end of the run at 21:29:58; `power.log` records the source only at the start of
+  each stage, so it did not show this. The battery charge was 3 to 7% at the two switches in the
+  evening, so the host ran on AC power with an almost empty battery. The interval covers roughly items
+  807 to 984 of `nl-k3` (estimated from the cumulative per-item time; the stage's items sum to 1,090
+  s against 1,092 s of wall time). The protocol says AC power. Outputs are seeded and do not depend
+  on the power source; for timing, `nl-k3`'s median prefill time is 422 ms with all items and 432 ms
+  without those items, and the ratio for `nl-k5` is 1.59 and 1.56. No criterion changes. The
+  summary script was not re-run on a subset.
+- **The host was not idle.** The protocol says nothing else runs on the host during the stages. Xcode
+  and VS Code were open throughout (Xcode used about a third of one core when the run started),
+  and the assistant that ran this PoC made short status checks during it. The conditions ran one
+  after the other, so a change in background activity between stages would appear as a change in
+  timing between conditions. Prefill ratios are therefore less exact than they look; c3 passed with
+  room for both retrievers (limit 2.0, measured 1.44 and 1.59).
 
 ## Limits
 
-Written before the run.
+Written before the run:
 
 - **Answerable items only.** The PoC says how much more of the right answer 5 chunks bring, not what
   they do to gap filling. More text means more material for a related but wrong answer when the
@@ -207,6 +339,19 @@ Written before the run.
 - **One sampler seed in the verdict.** Run 2 repeats two conditions; it does not enter the rule.
 - **The prompt may differ in a replication.** Without the private overlay, the system instruction is
   a generic stand-in with the same structure.
+
+Added after the run:
+
+- **The headline is a point-estimate test on a wide interval.** The CI of the 5-chunk gain is -3.7
+  to +4.4 points and run 2 repeats it as +3.7. One run of 464 key-fact items cannot separate a gain
+  of about 2 points from zero; a verdict of reject, no gain, means no gain was found.
+- **The two verdicts depend on the path.** The headline is for EmbeddingGemma retrieval; the
+  fallback's adopt is for NLEmbedding retrieval, whose chunks hold the answer far less often
+  (recall 35.2% at 3 chunks), so more chunks help it where they do not help the better retriever.
+- **Prefill ratios come from medians on a Mac.** The conditions ran in sequence, not interleaved,
+  with other applications open (see Deviations).
+- **Key-fact correctness only.** Whether 5 chunks help the other eight categories, or answers that
+  are right without containing a parsable fact, is not measured.
 
 ## Reproduce
 
