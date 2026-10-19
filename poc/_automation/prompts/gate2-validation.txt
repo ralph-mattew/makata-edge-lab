@@ -1,0 +1,59 @@
+You are evaluating a PoC idea for GATE 2: SOLUTION UNDERSTANDING.
+
+IDEA:
+Question: {question}
+Setup: {setup}
+Source paper: {source_url}
+
+GATE 2 CRITERIA (score each 0-10):
+
+1. **Core mechanism explained** (not black box)
+   - Do we understand HOW this method works internally?
+   - Can we explain it to a colleague in 2-3 sentences?
+   - Score 0: Black box, no explanation
+   - Score 5: High-level understanding only
+   - Score 10: Deep understanding of mechanism
+
+2. **Implementation details identified**
+   - Do we know what libraries/models to use?
+   - Are there open-source implementations?
+   - Do we know the hyperparameters?
+   - Score 0: No implementation path
+   - Score 5: General approach but missing details
+   - Score 10: Clear implementation plan with specific tools
+
+3. **Theoretical prediction documented**
+   - Can we predict the outcome BEFORE running the experiment?
+   - Do we understand the theory well enough to estimate impact?
+   - Score 0: No prediction possible
+   - Score 5: Vague expectation
+   - Score 10: Specific predicted outcome with reasoning
+
+4. **Failure modes understood**
+   - When does this method NOT work?
+   - What are the edge cases or limitations?
+   - Score 0: No awareness of limitations
+   - Score 5: Some limitations mentioned
+   - Score 10: Clear failure mode analysis
+
+TASK:
+Evaluate this idea against Gate 2 criteria.
+
+OUTPUT FORMAT (JSON):
+{{
+  "gate2": {{
+    "criteria_scores": {{
+      "mechanism": <0-10>,
+      "implementation": <0-10>,
+      "prediction": <0-10>,
+      "failure_modes": <0-10>
+    }},
+    "overall_score": <average of 4 criteria>,
+    "verdict": "<PASS if ≥6.0, else FAIL>",
+    "reason": "<2-3 sentences explaining verdict>",
+    "predicted_outcome": "<what do you predict will happen? adopt/reject/inconclusive>",
+    "prediction_confidence": <0.0-1.0>
+  }}
+}}
+
+Be strict: PoC 011 (contextual embeddings) should have FAILED Gate 2 because we didn't research HOW Anthropic implemented it (they fine-tuned the model, we just prepended text naively).

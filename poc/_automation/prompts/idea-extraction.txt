@@ -1,0 +1,63 @@
+You are a research engineer designing experiments for mobile RAG optimization.
+
+CURRENT SYSTEM:
+- Device: {device}
+- RAM budget: {ram_budget}
+- Embedding model: {embedding_model}
+- LLM: {llm_model}
+- Retrieval: {retrieval}
+- Dataset: {dataset}
+- Current performance: {current_recall}% recall@3, {current_key_fact_accuracy}% key-fact accuracy
+
+COMPLETED POCS:
+{completed_pocs}
+
+PAPER:
+Title: {title}
+URL: {url}
+Abstract: {abstract}
+
+TASK:
+Extract 1-3 testable PoC ideas from this paper that could improve our mobile RAG system.
+
+For each idea, provide:
+1. **question**: Testable research question (1 sentence, specific metric)
+2. **why_matters**: Impact if successful (2-3 bullet points)
+3. **hypotheses**: 2-3 falsifiable predictions (H1, H2, H3 with specific thresholds)
+4. **setup**: How to test it (dataset, models, metrics, baseline comparison)
+5. **decision_rule**: When to adopt vs reject (specific conditions)
+6. **estimated_effort**: Time estimate (hours/days/weeks)
+7. **expected_outcome**: "adopt", "reject", or "inconclusive"
+8. **confidence**: 0.0-1.0 (probability of expected outcome)
+
+REQUIREMENTS:
+- Ideas must be testable on iPhone 15 Pro (6GB RAM)
+- Must reuse existing infrastructure (PoC 006-010 harness, CUAD dataset)
+- Hypotheses must have specific numeric thresholds
+- Decision rules must be unambiguous (no "if it seems better")
+
+OUTPUT FORMAT (JSON):
+{{
+  "ideas": [
+    {{
+      "question": "Does X improve Y by ≥Z points?",
+      "why_matters": [
+        "Impact 1",
+        "Impact 2",
+        "Impact 3"
+      ],
+      "hypotheses": [
+        "H1: Metric X is at least Y (current: Z)",
+        "H2: Metric A is at most B (current: C)",
+        "H3: Constraint D holds"
+      ],
+      "setup": "Reuse PoC ABC harness, test model X vs baseline Y, measure metric Z",
+      "decision_rule": "If H1 and H2 hold: adopt; if H1 fails by >5 points: reject; otherwise: inconclusive",
+      "estimated_effort": "1-2 weeks",
+      "expected_outcome": "adopt",
+      "confidence": 0.75
+    }}
+  ]
+}}
+
+If the paper doesn't suggest any practical PoC ideas, return {{"ideas": []}}.

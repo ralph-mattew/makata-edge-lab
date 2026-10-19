@@ -1,0 +1,727 @@
+{
+  "baseline_weight": 0.7,
+  "weights_tested": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "results": [
+    {
+      "semantic_weight": 0.1,
+      "bm25_weight": 0.9,
+      "overall_recall": 49.1,
+      "items_correct": 651,
+      "items_total": 1325,
+      "category_recall": {
+        "Renewal Term": {
+          "recall": 76.0,
+          "correct": 76,
+          "total": 100
+        },
+        "Expiration Date": {
+          "recall": 68.0,
+          "correct": 68,
+          "total": 100
+        },
+        "Exclusivity": {
+          "recall": 11.0,
+          "correct": 11,
+          "total": 100
+        },
+        "Non-Compete": {
+          "recall": 43.0,
+          "correct": 43,
+          "total": 100
+        },
+        "Cap On Liability": {
+          "recall": 29.0,
+          "correct": 29,
+          "total": 100
+        },
+        "Governing Law": {
+          "recall": 69.0,
+          "correct": 69,
+          "total": 100
+        },
+        "Change Of Control": {
+          "recall": 49.0,
+          "correct": 49,
+          "total": 100
+        },
+        "Termination For Convenience": {
+          "recall": 57.0,
+          "correct": 57,
+          "total": 100
+        },
+        "Insurance": {
+          "recall": 82.0,
+          "correct": 82,
+          "total": 100
+        },
+        "Liquidated Damages": {
+          "recall": 51.9,
+          "correct": 28,
+          "total": 54
+        },
+        "Audit Rights": {
+          "recall": 70.0,
+          "correct": 70,
+          "total": 100
+        },
+        "Notice Period To Terminate Renewal": {
+          "recall": 26.0,
+          "correct": 26,
+          "total": 100
+        },
+        "Agreement Date": {
+          "recall": 12.0,
+          "correct": 12,
+          "total": 100
+        },
+        "Warranty Duration": {
+          "recall": 43.7,
+          "correct": 31,
+          "total": 71
+        }
+      }
+    },
+    {
+      "semantic_weight": 0.2,
+      "bm25_weight": 0.8,
+      "overall_recall": 49.5,
+      "items_correct": 656,
+      "items_total": 1325,
+      "category_recall": {
+        "Renewal Term": {
+          "recall": 77.0,
+          "correct": 77,
+          "total": 100
+        },
+        "Expiration Date": {
+          "recall": 69.0,
+          "correct": 69,
+          "total": 100
+        },
+        "Exclusivity": {
+          "recall": 11.0,
+          "correct": 11,
+          "total": 100
+        },
+        "Non-Compete": {
+          "recall": 43.0,
+          "correct": 43,
+          "total": 100
+        },
+        "Cap On Liability": {
+          "recall": 29.0,
+          "correct": 29,
+          "total": 100
+        },
+        "Governing Law": {
+          "recall": 69.0,
+          "correct": 69,
+          "total": 100
+        },
+        "Change Of Control": {
+          "recall": 49.0,
+          "correct": 49,
+          "total": 100
+        },
+        "Termination For Convenience": {
+          "recall": 59.0,
+          "correct": 59,
+          "total": 100
+        },
+        "Insurance": {
+          "recall": 82.0,
+          "correct": 82,
+          "total": 100
+        },
+        "Liquidated Damages": {
+          "recall": 51.9,
+          "correct": 28,
+          "total": 54
+        },
+        "Audit Rights": {
+          "recall": 70.0,
+          "correct": 70,
+          "total": 100
+        },
+        "Notice Period To Terminate Renewal": {
+          "recall": 26.0,
+          "correct": 26,
+          "total": 100
+        },
+        "Agreement Date": {
+          "recall": 13.0,
+          "correct": 13,
+          "total": 100
+        },
+        "Warranty Duration": {
+          "recall": 43.7,
+          "correct": 31,
+          "total": 71
+        }
+      }
+    },
+    {
+      "semantic_weight": 0.3,
+      "bm25_weight": 0.7,
+      "overall_recall": 49.8,
+      "items_correct": 660,
+      "items_total": 1325,
+      "category_recall": {
+        "Renewal Term": {
+          "recall": 77.0,
+          "correct": 77,
+          "total": 100
+        },
+        "Expiration Date": {
+          "recall": 69.0,
+          "correct": 69,
+          "total": 100
+        },
+        "Exclusivity": {
+          "recall": 11.0,
+          "correct": 11,
+          "total": 100
+        },
+        "Non-Compete": {
+          "recall": 43.0,
+          "correct": 43,
+          "total": 100
+        },
+        "Cap On Liability": {
+          "recall": 29.0,
+          "correct": 29,
+          "total": 100
+        },
+        "Governing Law": {
+          "recall": 69.0,
+          "correct": 69,
+          "total": 100
+        },
+        "Change Of Control": {
+          "recall": 49.0,
+          "correct": 49,
+          "total": 100
+        },
+        "Termination For Convenience": {
+          "recall": 61.0,
+          "correct": 61,
+          "total": 100
+        },
+        "Insurance": {
+          "recall": 82.0,
+          "correct": 82,
+          "total": 100
+        },
+        "Liquidated Damages": {
+          "recall": 51.9,
+          "correct": 28,
+          "total": 54
+        },
+        "Audit Rights": {
+          "recall": 70.0,
+          "correct": 70,
+          "total": 100
+        },
+        "Notice Period To Terminate Renewal": {
+          "recall": 28.0,
+          "correct": 28,
+          "total": 100
+        },
+        "Agreement Date": {
+          "recall": 13.0,
+          "correct": 13,
+          "total": 100
+        },
+        "Warranty Duration": {
+          "recall": 43.7,
+          "correct": 31,
+          "total": 71
+        }
+      }
+    },
+    {
+      "semantic_weight": 0.4,
+      "bm25_weight": 0.6,
+      "overall_recall": 50.1,
+      "items_correct": 664,
+      "items_total": 1325,
+      "category_recall": {
+        "Renewal Term": {
+          "recall": 77.0,
+          "correct": 77,
+          "total": 100
+        },
+        "Expiration Date": {
+          "recall": 69.0,
+          "correct": 69,
+          "total": 100
+        },
+        "Exclusivity": {
+          "recall": 11.0,
+          "correct": 11,
+          "total": 100
+        },
+        "Non-Compete": {
+          "recall": 43.0,
+          "correct": 43,
+          "total": 100
+        },
+        "Cap On Liability": {
+          "recall": 30.0,
+          "correct": 30,
+          "total": 100
+        },
+        "Governing Law": {
+          "recall": 71.0,
+          "correct": 71,
+          "total": 100
+        },
+        "Change Of Control": {
+          "recall": 49.0,
+          "correct": 49,
+          "total": 100
+        },
+        "Termination For Convenience": {
+          "recall": 61.0,
+          "correct": 61,
+          "total": 100
+        },
+        "Insurance": {
+          "recall": 82.0,
+          "correct": 82,
+          "total": 100
+        },
+        "Liquidated Damages": {
+          "recall": 51.9,
+          "correct": 28,
+          "total": 54
+        },
+        "Audit Rights": {
+          "recall": 70.0,
+          "correct": 70,
+          "total": 100
+        },
+        "Notice Period To Terminate Renewal": {
+          "recall": 28.0,
+          "correct": 28,
+          "total": 100
+        },
+        "Agreement Date": {
+          "recall": 14.0,
+          "correct": 14,
+          "total": 100
+        },
+        "Warranty Duration": {
+          "recall": 43.7,
+          "correct": 31,
+          "total": 71
+        }
+      }
+    },
+    {
+      "semantic_weight": 0.5,
+      "bm25_weight": 0.5,
+      "overall_recall": 50.3,
+      "items_correct": 666,
+      "items_total": 1325,
+      "category_recall": {
+        "Renewal Term": {
+          "recall": 77.0,
+          "correct": 77,
+          "total": 100
+        },
+        "Expiration Date": {
+          "recall": 69.0,
+          "correct": 69,
+          "total": 100
+        },
+        "Exclusivity": {
+          "recall": 11.0,
+          "correct": 11,
+          "total": 100
+        },
+        "Non-Compete": {
+          "recall": 43.0,
+          "correct": 43,
+          "total": 100
+        },
+        "Cap On Liability": {
+          "recall": 30.0,
+          "correct": 30,
+          "total": 100
+        },
+        "Governing Law": {
+          "recall": 71.0,
+          "correct": 71,
+          "total": 100
+        },
+        "Change Of Control": {
+          "recall": 49.0,
+          "correct": 49,
+          "total": 100
+        },
+        "Termination For Convenience": {
+          "recall": 61.0,
+          "correct": 61,
+          "total": 100
+        },
+        "Insurance": {
+          "recall": 82.0,
+          "correct": 82,
+          "total": 100
+        },
+        "Liquidated Damages": {
+          "recall": 53.7,
+          "correct": 29,
+          "total": 54
+        },
+        "Audit Rights": {
+          "recall": 70.0,
+          "correct": 70,
+          "total": 100
+        },
+        "Notice Period To Terminate Renewal": {
+          "recall": 29.0,
+          "correct": 29,
+          "total": 100
+        },
+        "Agreement Date": {
+          "recall": 14.0,
+          "correct": 14,
+          "total": 100
+        },
+        "Warranty Duration": {
+          "recall": 43.7,
+          "correct": 31,
+          "total": 71
+        }
+      }
+    },
+    {
+      "semantic_weight": 0.6,
+      "bm25_weight": 0.4,
+      "overall_recall": 51.0,
+      "items_correct": 676,
+      "items_total": 1325,
+      "category_recall": {
+        "Renewal Term": {
+          "recall": 80.0,
+          "correct": 80,
+          "total": 100
+        },
+        "Expiration Date": {
+          "recall": 70.0,
+          "correct": 70,
+          "total": 100
+        },
+        "Exclusivity": {
+          "recall": 11.0,
+          "correct": 11,
+          "total": 100
+        },
+        "Non-Compete": {
+          "recall": 43.0,
+          "correct": 43,
+          "total": 100
+        },
+        "Cap On Liability": {
+          "recall": 32.0,
+          "correct": 32,
+          "total": 100
+        },
+        "Governing Law": {
+          "recall": 71.0,
+          "correct": 71,
+          "total": 100
+        },
+        "Change Of Control": {
+          "recall": 49.0,
+          "correct": 49,
+          "total": 100
+        },
+        "Termination For Convenience": {
+          "recall": 62.0,
+          "correct": 62,
+          "total": 100
+        },
+        "Insurance": {
+          "recall": 82.0,
+          "correct": 82,
+          "total": 100
+        },
+        "Liquidated Damages": {
+          "recall": 53.7,
+          "correct": 29,
+          "total": 54
+        },
+        "Audit Rights": {
+          "recall": 70.0,
+          "correct": 70,
+          "total": 100
+        },
+        "Notice Period To Terminate Renewal": {
+          "recall": 31.0,
+          "correct": 31,
+          "total": 100
+        },
+        "Agreement Date": {
+          "recall": 14.0,
+          "correct": 14,
+          "total": 100
+        },
+        "Warranty Duration": {
+          "recall": 45.1,
+          "correct": 32,
+          "total": 71
+        }
+      }
+    },
+    {
+      "semantic_weight": 0.7,
+      "bm25_weight": 0.30000000000000004,
+      "overall_recall": 51.8,
+      "items_correct": 687,
+      "items_total": 1325,
+      "category_recall": {
+        "Renewal Term": {
+          "recall": 82.0,
+          "correct": 82,
+          "total": 100
+        },
+        "Expiration Date": {
+          "recall": 73.0,
+          "correct": 73,
+          "total": 100
+        },
+        "Exclusivity": {
+          "recall": 11.0,
+          "correct": 11,
+          "total": 100
+        },
+        "Non-Compete": {
+          "recall": 43.0,
+          "correct": 43,
+          "total": 100
+        },
+        "Cap On Liability": {
+          "recall": 34.0,
+          "correct": 34,
+          "total": 100
+        },
+        "Governing Law": {
+          "recall": 72.0,
+          "correct": 72,
+          "total": 100
+        },
+        "Change Of Control": {
+          "recall": 49.0,
+          "correct": 49,
+          "total": 100
+        },
+        "Termination For Convenience": {
+          "recall": 63.0,
+          "correct": 63,
+          "total": 100
+        },
+        "Insurance": {
+          "recall": 83.0,
+          "correct": 83,
+          "total": 100
+        },
+        "Liquidated Damages": {
+          "recall": 55.6,
+          "correct": 30,
+          "total": 54
+        },
+        "Audit Rights": {
+          "recall": 70.0,
+          "correct": 70,
+          "total": 100
+        },
+        "Notice Period To Terminate Renewal": {
+          "recall": 31.0,
+          "correct": 31,
+          "total": 100
+        },
+        "Agreement Date": {
+          "recall": 14.0,
+          "correct": 14,
+          "total": 100
+        },
+        "Warranty Duration": {
+          "recall": 45.1,
+          "correct": 32,
+          "total": 71
+        }
+      }
+    },
+    {
+      "semantic_weight": 0.8,
+      "bm25_weight": 0.19999999999999996,
+      "overall_recall": 54.0,
+      "items_correct": 716,
+      "items_total": 1325,
+      "category_recall": {
+        "Renewal Term": {
+          "recall": 83.0,
+          "correct": 83,
+          "total": 100
+        },
+        "Expiration Date": {
+          "recall": 77.0,
+          "correct": 77,
+          "total": 100
+        },
+        "Exclusivity": {
+          "recall": 11.0,
+          "correct": 11,
+          "total": 100
+        },
+        "Non-Compete": {
+          "recall": 42.0,
+          "correct": 42,
+          "total": 100
+        },
+        "Cap On Liability": {
+          "recall": 39.0,
+          "correct": 39,
+          "total": 100
+        },
+        "Governing Law": {
+          "recall": 75.0,
+          "correct": 75,
+          "total": 100
+        },
+        "Change Of Control": {
+          "recall": 48.0,
+          "correct": 48,
+          "total": 100
+        },
+        "Termination For Convenience": {
+          "recall": 65.0,
+          "correct": 65,
+          "total": 100
+        },
+        "Insurance": {
+          "recall": 84.0,
+          "correct": 84,
+          "total": 100
+        },
+        "Liquidated Damages": {
+          "recall": 55.6,
+          "correct": 30,
+          "total": 54
+        },
+        "Audit Rights": {
+          "recall": 70.0,
+          "correct": 70,
+          "total": 100
+        },
+        "Notice Period To Terminate Renewal": {
+          "recall": 37.0,
+          "correct": 37,
+          "total": 100
+        },
+        "Agreement Date": {
+          "recall": 21.0,
+          "correct": 21,
+          "total": 100
+        },
+        "Warranty Duration": {
+          "recall": 47.9,
+          "correct": 34,
+          "total": 71
+        }
+      }
+    },
+    {
+      "semantic_weight": 0.9,
+      "bm25_weight": 0.09999999999999998,
+      "overall_recall": 58.1,
+      "items_correct": 770,
+      "items_total": 1325,
+      "category_recall": {
+        "Renewal Term": {
+          "recall": 89.0,
+          "correct": 89,
+          "total": 100
+        },
+        "Expiration Date": {
+          "recall": 77.0,
+          "correct": 77,
+          "total": 100
+        },
+        "Exclusivity": {
+          "recall": 11.0,
+          "correct": 11,
+          "total": 100
+        },
+        "Non-Compete": {
+          "recall": 43.0,
+          "correct": 43,
+          "total": 100
+        },
+        "Cap On Liability": {
+          "recall": 47.0,
+          "correct": 47,
+          "total": 100
+        },
+        "Governing Law": {
+          "recall": 85.0,
+          "correct": 85,
+          "total": 100
+        },
+        "Change Of Control": {
+          "recall": 49.0,
+          "correct": 49,
+          "total": 100
+        },
+        "Termination For Convenience": {
+          "recall": 67.0,
+          "correct": 67,
+          "total": 100
+        },
+        "Insurance": {
+          "recall": 84.0,
+          "correct": 84,
+          "total": 100
+        },
+        "Liquidated Damages": {
+          "recall": 55.6,
+          "correct": 30,
+          "total": 54
+        },
+        "Audit Rights": {
+          "recall": 73.0,
+          "correct": 73,
+          "total": 100
+        },
+        "Notice Period To Terminate Renewal": {
+          "recall": 55.0,
+          "correct": 55,
+          "total": 100
+        },
+        "Agreement Date": {
+          "recall": 23.0,
+          "correct": 23,
+          "total": 100
+        },
+        "Warranty Duration": {
+          "recall": 52.1,
+          "correct": 37,
+          "total": 71
+        }
+      }
+    }
+  ]
+}

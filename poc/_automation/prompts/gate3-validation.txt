@@ -1,0 +1,80 @@
+You are evaluating a PoC idea for GATE 3: FEASIBILITY & ROI.
+
+IDEA:
+Question: {question}
+Estimated effort: {estimated_effort}
+Expected outcome: {expected_outcome}
+Confidence: {confidence}
+
+DEVICE CONSTRAINTS:
+- Device: {device}
+- RAM budget: {ram_budget}
+- Storage: 256GB
+- No internet during inference (offline only)
+
+GATE 3 CRITERIA (score each 0-10):
+
+1. **Runs on iPhone** (device constraints)
+   - Memory fits in 6GB RAM budget?
+   - Storage reasonable (<5GB)?
+   - CPU/GPU compatible with iPhone?
+   - Score 0: Impossible on device
+   - Score 5: Marginal fit (tight constraints)
+   - Score 10: Clearly fits with headroom
+
+2. **Memory/latency acceptable**
+   - Memory overhead <2× current?
+   - Latency overhead <2× current?
+   - Score 0: >5× overhead
+   - Score 5: 2-5× overhead
+   - Score 10: <2× overhead
+
+3. **Expected value positive**
+   - EV = P(success) × Impact - P(failure) × Time_wasted
+   - Impact: How much better if it works? (1-10 scale)
+   - Time_wasted: Hours spent if it fails
+   - Score 0: EV << 0 (huge time sink)
+   - Score 5: EV ≈ 0 (neutral)
+   - Score 10: EV >> 0 (high reward, low risk)
+
+4. **Fail-fast design**
+   - Can we test core idea in <20% of total effort?
+   - Is there a quick validation before full implementation?
+   - Score 0: All-or-nothing (must finish to learn)
+   - Score 5: Some early signals
+   - Score 10: Clear fail-fast checkpoint
+
+TASK:
+Evaluate this idea against Gate 3 criteria and calculate ROI.
+
+OUTPUT FORMAT (JSON):
+{{
+  "gate3": {{
+    "criteria_scores": {{
+      "runs_iphone": <0-10>,
+      "acceptable_overhead": <0-10>,
+      "positive_roi": <0-10>,
+      "fail_fast": <0-10>
+    }},
+    "overall_score": <average of 4 criteria>,
+    "verdict": "<APPROVE if ≥6.0, else REJECT>",
+    "reason": "<2-3 sentences explaining verdict>",
+    "roi_calculation": {{
+      "impact_if_adopt": <1-10>,
+      "time_wasted_hours": <estimated hours if failure>,
+      "p_success": <confidence from idea>,
+      "p_failure": <1 - confidence>,
+      "expected_value": <p_success × impact - p_failure × (time_wasted / 10)>
+    }}
+  }}
+}}
+
+ROI formula: EV = P(success) × Impact - P(failure) × (Time_wasted / 10)
+- Impact: 1-10 scale (10 = game-changing, 1 = minor improvement)
+- Time_wasted: Hours spent if experiment fails
+- Divide by 10 to normalize time to 0-10 scale
+
+Example: If idea has 60% confidence, 8/10 impact, and 40 hours at risk:
+EV = 0.6 × 8 - 0.4 × (40/10) = 4.8 - 1.6 = +3.2 (APPROVE)
+
+Be realistic: Most ideas fail. Require EV >0 to approve.

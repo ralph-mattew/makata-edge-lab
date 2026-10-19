@@ -1,0 +1,97 @@
+# Automated Research-to-PoC Pipeline Configuration
+
+# Research sources
+sources:
+  arxiv:
+    enabled: true
+    categories: ["cs.CL", "cs.LG", "cs.AI", "cs.IR"]
+    keywords:
+      - "mobile AI"
+      - "edge AI"
+      - "on-device"
+      - "quantization"
+      - "RAG"
+      - "retrieval"
+      - "embedding"
+      - "efficient transformer"
+      - "model compression"
+      - "ternary"
+      - "binary"
+      - "low-bit"
+
+  huggingface:
+    enabled: true
+    blog_url: "https://huggingface.co/blog"
+    papers_url: "https://huggingface.co/papers"
+    keywords:
+      - "mobile"
+      - "edge"
+      - "quantization"
+      - "ternary"
+      - "1-bit"
+      - "RAG"
+      - "retrieval"
+
+  papers_with_code:
+    enabled: false  # Requires API key
+    keywords:
+      - "mobile NLP"
+      - "edge inference"
+      - "efficient transformers"
+
+  blogs:
+    enabled: true
+    sources:
+      - "https://huggingface.co/blog"
+      - "https://anthropic.com/research"
+
+# LLM settings
+llm:
+  provider: "anthropic"  # anthropic or openai
+  model: "claude-sonnet-4-5-20250929"
+  temperature: 0.1
+  max_tokens: 4096
+  api_key_env: "ANTHROPIC_API_KEY"  # Environment variable name
+
+# Relevance filtering (Stage 2)
+relevance:
+  min_score: 7.0  # Out of 10
+  criteria:
+    - "Applicable to mobile/edge devices (not cloud-only)"
+    - "Relevant to RAG, embeddings, retrieval, or document Q&A"
+    - "Practical implementation (not purely theoretical)"
+    - "Novel contribution (not incremental improvement)"
+
+# Quality gate thresholds (Stage 4)
+quality_gate:
+  gate1_min_score: 7.0  # Problem validation
+  gate2_min_score: 7.0  # Solution understanding
+  gate3_min_score: 6.0  # Feasibility (lower threshold)
+
+# Prioritization weights (Stage 5)
+prioritization:
+  impact_weight: 0.5
+  effort_weight: 0.3
+  confidence_weight: 0.2
+
+# Duplicate detection (Stage 6)
+duplicates:
+  similarity_threshold: 0.8  # Cosine similarity for idea comparison
+  check_against_existing: true
+
+# System context (current baseline)
+system_context:
+  device: "iPhone 15 Pro"
+  ram_budget: "6GB"
+  embedding_model: "EmbeddingGemma 300M (600 MB)"
+  llm_model: "Qwen2.5-1.5B Q4 (1.0 GB)"
+  retrieval: "Hybrid: 0.7 semantic + 0.3 BM25"
+  dataset: "CUAD contracts (397 documents, 1,325 Q&A items)"
+  current_recall: 61.4
+  current_key_fact_accuracy: 67.9
+  completed_pocs:
+    - "PoC 006: Dataset baseline established"
+    - "PoC 007: Hybrid retrieval baseline (61.4% recall)"
+    - "PoC 008: Tested 3 embedding models (EmbeddingGemma best)"
+    - "PoC 009: Tested retrieval depth (3 chunks optimal)"
+    - "PoC 010: Tested BM25-only (reject: -15 points)"
