@@ -2,11 +2,16 @@
 
 **Purpose**: Tracking potential experiments for the Makata AI Edge Lab. Ideas are organized by theme and marked with feasibility estimates. This is a working document—ideas may be merged, split, or dropped as research progresses.
 
+**Quality Gate**: All PoCs must pass the 3-gate review process (see [POC-QUALITY-GATE.md](POC-QUALITY-GATE.md)) before registration.
+
 **Status Legend**:
-- 🟢 High feasibility (can start within 1-2 weeks)
-- 🟡 Medium feasibility (needs 2-4 weeks preparation)
-- 🟠 Low feasibility (requires significant infrastructure)
-- ⏸️ Blocked (waiting on external factors)
+- 🟢 **Feasible** (not vetted) - Initial entry, needs quality gate review
+- ✅ **Approved** (passed quality gate) - Ready for registration and execution
+- 🟡 **Under Review** (in quality gate) - Currently being vetted by reviewers
+- ⏸️ **Paused** (needs more research) - Failed Gate 2, need better understanding
+- ❌ **Rejected** (fundamentally flawed) - Failed Gate 1 or 3, documented reason below
+- 🟠 **Low Priority** (feasible but low ROI) - Passed gates but deferred for higher-impact work
+- ⚫ **Completed** (experiment done) - Results published in lab repository
 
 **Last updated**: 2026-10-19
 
@@ -141,34 +146,28 @@
 ## Theme 2: Memory-Efficient RAG
 
 ### PoC-R1: BM25-Only vs Hybrid Retrieval
-**Status**: 🟢 Very high feasibility
-**Estimated effort**: 1-2 days
+**Status**: ⚫ **Completed** (PoC 010 - reject)
+**Estimated effort**: 1-2 days (actual: 30 minutes)
 
 **Question**: Can BM25-only retrieval on CUAD contracts match EmbeddingGemma hybrid recall while eliminating embedding compute?
 
-**Why it matters**:
-- CUAD contracts have structured, keyword-rich queries (dates, jurisdictions, terms)
-- BM25 requires no embedding model (saves ~600 MB RAM for EmbeddingGemma)
-- Your PoC 007 showed hybrid is better, but by how much for this specific dataset?
-- BM25 has zero training dependency, runs offline from document content
+**Verdict**: **REJECT** - BM25-only recall 15 points below hybrid; semantic embeddings necessary
 
-**Hypotheses**:
-- H1: BM25-only recall is within 5 points of hybrid (baseline: 61.4% EmbeddingGemma)
-- H2: For keyword-heavy categories (Governing Law, dates), BM25 matches or exceeds hybrid
-- H3: BM25 eliminates all embedding compute (measure: 0 ms embedding time)
+**Results**:
+- BM25-only: 46.4% recall@3 (615/1,325 items)
+- Hybrid baseline: 61.4% recall@3 (814/1,325 items)
+- Difference: -15.0 points (-199 items)
 
-**Setup**:
-- Reuse PoC 007 chunked CUAD contracts
-- Run BM25 retrieval only (already have BM25 component in hybrid)
-- Same top-k (3 chunks), same scoring (key-fact, recall)
-- Compare per-category: Agreement Date, Governing Law, etc.
+**Key findings**:
+- Even "keyword-rich" queries need semantic understanding
+- Agreement Date (expected keyword-heavy) performed WORST: 12% vs 72%
+- Paraphrase handling critical: "30 days" vs "one month", "Delaware" vs "State of Delaware"
+- Validates EmbeddingGemma's 600 MB footprint is necessary
 
-**Decision rule**:
-- If H1 holds and H2 holds for ≥3 categories: adopt BM25-only for keyword-heavy documents
-- If H1 fails but H2 holds: hybrid remains, but BM25 weight could increase
-- Otherwise: hybrid is necessary
+**Impact**: Definitively rules out BM25-only optimization; semantic embeddings cannot be eliminated
 
-**Follow-up**: If BM25 is close, test BM25 weight tuning (current: 0.3 keyword, 0.7 semantic)
+**Full write-up**: [PoC 010](https://github.com/ralph-mattew/makata-edge-lab/tree/main/poc/010-bm25-only-retrieval)
+**Website**: [Makata AI Lab](https://makata.ai/lab/experiments/010-bm25-only-retrieval/)
 
 ---
 
@@ -681,34 +680,32 @@
 ---
 
 ### PoC-A3: Contextual Embeddings (Anthropic-Style)
-**Status**: 🟢 High feasibility
-**Estimated effort**: 1 week
+**Status**: ❌ **Rejected** (PoC 011 - naive approach failed)
+**Estimated effort**: 1 week (actual: 5 hours spot-check)
 
 **Question**: Does adding document context to chunks before embedding (à la Anthropic's contextual embeddings) improve retrieval recall?
 
-**Why it matters**:
-- Anthropic reported 35% reduction in retrieval failure rate (5.7% → 3.7%)
-- Method: prepend chunk with document summary or section header
-- Your chunks are small (25 words); may lack context
+**Why it was rejected**:
+- **Tested as PoC 011** (2026-10-19): Spot-check on 10 items showed 80% degradation
+- **Root cause**: Naive text prepending dilutes embedding signal by ~30%
+- **Key finding**: Standard embedding models treat metadata and content equally
+- **Result**: -10 to -15% similarity score decrease vs. baseline
+- **Lesson**: Anthropic likely fine-tuned their model; prepending doesn't work with standard models
 
-**Hypotheses**:
-- H1: Contextual embeddings improve recall by ≥3 points (baseline: 61.4%)
-- H2: Improvement is largest for small chunks (<50 words)
-- H3: Embedding time increases by ≤20% (longer text to embed)
+**Quality gate failures**:
+- ❌ Gate 1: Problem not validated (assumed small chunks = bad without data)
+- ❌ Gate 2: Didn't research Anthropic's actual implementation (likely fine-tuned)
+- ⚠️ Gate 3: Negative ROI (better alternatives exist: PoC 012 cross-encoder)
 
-**Setup**:
-- For each chunk, prepend: "Document: [contract title]. Section: [section header]. Chunk: [text]"
-- Re-embed all chunks with context
-- Rerun retrieval on CUAD
-- Compare: plain vs contextual embeddings
+**Alternative approaches** (if revisiting):
+- Fine-tune embedding model on CUAD with contextual prefixes (2-4 weeks effort)
+- Use cross-encoder reranking with context (PoC 012 - proven approach)
+- Inject context at query time instead of chunk time
 
-**Decision rule**:
-- If H1 holds: adopt contextual embeddings
-- If H1 fails but H2 holds: use selectively for small chunks
-
-**Prerequisites**: Extract section headers from CUAD contracts (or use doc title only)
-
-**References**: Anthropic contextual embeddings (2026), multiple reports
+**References**:
+- Anthropic contextual embeddings (2026)
+- PoC 011 write-up: [011-contextual-embeddings/](011-contextual-embeddings/)
+- Quality gate review: [011-contextual-embeddings/QUALITY-GATE-REVIEW.md](011-contextual-embeddings/QUALITY-GATE-REVIEW.md)
 
 ---
 

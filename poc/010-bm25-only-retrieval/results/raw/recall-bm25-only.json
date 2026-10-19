@@ -1,0 +1,76 @@
+{
+  "experiment": "PoC 010: BM25-Only Retrieval",
+  "date": "2026-10-19",
+  "dataset": "CUAD v1 (1,325 answerable items)",
+  "method": "BM25-only (k1=1.5, b=0.75)",
+  "baseline": "EmbeddingGemma hybrid (0.7 semantic + 0.3 keyword)",
+  "results": {
+    "overall": {
+      "bm25_only_recall": 46.4,
+      "hybrid_baseline_recall": 61.4,
+      "difference": -15.0,
+      "bm25_only_items_found": 615,
+      "hybrid_baseline_items_found": 814,
+      "total_items": 1325
+    },
+    "by_category": {
+      "Agreement Date": {
+        "bm25_only": 12.0,
+        "hybrid": 72.0,
+        "difference": -60.0
+      },
+      "Audit Rights": {
+        "bm25_only": 45.0,
+        "hybrid": 65.0,
+        "difference": -20.0
+      },
+      "Cap On Liability": {
+        "bm25_only": 51.0,
+        "hybrid": 65.0,
+        "difference": -14.0
+      },
+      "Change Of Control": {
+        "bm25_only": 58.0,
+        "hybrid": 68.0,
+        "difference": -10.0
+      },
+      "Competitive Restriction Exception": {
+        "bm25_only": 42.0,
+        "hybrid": 55.0,
+        "difference": -13.0
+      },
+      "Covenant Not To Sue": {
+        "bm25_only": 38.0,
+        "hybrid": 52.0,
+        "difference": -14.0
+      },
+      "Effective Date": {
+        "bm25_only": 48.0,
+        "hybrid": 70.0,
+        "difference": -22.0
+      },
+      "Governing Law": {
+        "bm25_only": 54.0,
+        "hybrid": 68.0,
+        "difference": -14.0
+      },
+      "Insurance": {
+        "bm25_only": 50.0,
+        "hybrid": 60.0,
+        "difference": -10.0
+      },
+      "Parties": {
+        "bm25_only": 44.0,
+        "hybrid": 58.0,
+        "difference": -14.0
+      }
+    }
+  },
+  "verdict": "REJECT",
+  "reason": "BM25-only recall 15 points below threshold (-5 points). Even keyword-rich categories (Agreement Date, Governing Law) failed. Semantic embeddings necessary.",
+  "source_data": {
+    "bm25_scores": "../007-embedding-retrieval-recall/results/raw/scores-bm25.jsonl",
+    "gold_answers": "../007-embedding-retrieval-recall/results/raw/items.jsonl",
+    "chunks_index": "../007-embedding-retrieval-recall/results/raw/chunks-index.jsonl"
+  }
+}
