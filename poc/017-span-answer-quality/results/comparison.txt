@@ -1,0 +1,15 @@
+== PoC 017: span-level answer quality (span-F1, raw vs keywords) ==
+NOTE: absolute F1 is a low proxy for long clause answers; the DELTA is what's interpreted.
+
+category                   raw  keywords       Δ
+Exclusivity                2.8       5.9   +3.1
+Non-Compete               18.3      17.3   -1.0
+Change Of Control         27.8      25.3   -2.6
+
+hard-category mean span-F1: raw 16.3 -> keywords 16.1 (-0.2)
+
+DECISION RULE:
+  H1 hard-mean F1 +>=2:          no (-0.2)
+  H2 Exclusivity delta positive: PASS (+3.1)
+  H3 Change-of-Control no regress >2: no (-2.6)
+  -> GAP REMAINS: recall gain did not produce better answers on the hard categories.
