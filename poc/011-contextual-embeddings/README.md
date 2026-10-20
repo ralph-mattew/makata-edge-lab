@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | Planned (registration draft) |
-| Verdict | TBD |
+| Status | Concluded — bounded run (25 contracts, 67 items); host-generator upper bound not run |
+| Verdict | **Reject for the on-device target** — Qwen2.5-1.5B-generated context reduced recall@3 below baseline (−10.5 pts point estimate). Bounded-run, suggestive not conclusive; see Verdict. |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | None yet |
 | Source idea | Anthropic, "Introducing Contextual Retrieval" (2024/2026) — a model *generates* a short per-chunk context from the whole document, prepended before embedding (contextual embeddings) and BM25 (contextual BM25); reported ~35% fewer retrieval failures (49% with reranking). |
@@ -168,20 +168,87 @@ draft would have failed for the right reason.
 
 ## Results
 
-To be filled after run. Link raw files in `results/`.
+**Scope (read first).** This is a **bounded run**: the first 25 of 397 contracts
+(67 answerable items), on-device generator only. The full 79,037-chunk corpus run was
+not performed — generating per-chunk context over the whole corpus with Qwen2.5-1.5B
+is ~16 h and was not justified once the bounded direction came back clearly negative
+(see Verdict). Three conditions were measured: `standard`, `naive-prepend`,
+`generated-device` (Qwen). The `generated-host` upper bound (H1) and the reranking arm
+were **not run**. Key-fact accuracy, per-chunk-size, and per-category breakdowns were
+not computed for this bounded run.
 
-Expected files: `standard-recall.jsonl`, `naive-prepend-recall.jsonl`,
-`generated-host-recall.jsonl`, `generated-device-recall.jsonl`,
-`generated-device-rerank-recall.jsonl`, `generated-contexts.jsonl` (chunk → generated
-context, for reproducibility and inspection), `gen-timings.txt`, `comparison.txt`.
-All numbers tagged MEASURED, OBSERVED, or INFERRED.
+**Recall@3 (MEASURED, 67 items, hybrid 0.9/0.1, top-3).** Raw in
+`results/bounded-run-25contracts.txt`; embeddings + generated contexts in `results/raw/`.
+
+| Condition | What is embedded + BM25-indexed | recall@3 | 95% CI | Δ vs `standard` |
+|---|---|---|---|---|
+| `standard` (baseline) | plain chunk text | **62.7%** | 52.1–73.0 | — |
+| `naive-prepend` (ablation) | static template + heuristic section + chunk | 64.2% | 52.9–74.6 | +1.5 (noise) |
+| `generated-device` (primary) | Qwen2.5-1.5B context + chunk | **52.2%** | 40.3–63.8 | **−10.5** |
+
+**Harness validation (MEASURED).** `standard` = 62.7%, with PoC 007's 61.4% baseline
+inside the CI → the embedding + hybrid + scorer pipeline reproduces the established
+baseline on this subset, so the deltas are trustworthy *as deltas* (CIs are wide at
+n=67).
+
+**Observations.**
+- **OBSERVED:** On-device Qwen-generated context **reduced** retrieval quality by
+  ~10 points vs plain chunks. The generated preamble (often a generic *"This chunk
+  refers to…"* restatement, noted in the pre-run spot-check
+  `results/generated-context-spotcheck.md`) appears to dilute the embedding rather
+  than situate it.
+- **OBSERVED:** The static `naive-prepend` ablation was indistinguishable from baseline
+  (+1.5, CIs overlap heavily) — adding boilerplate context, generated or templated,
+  did not help here.
+- **INFERRED:** Since the *primary on-device condition underperforms the baseline it
+  must beat*, the on-device instantiation fails regardless of where the (un-run) host
+  upper bound lands.
 
 ## Verdict
 
-To be determined after run, against the decision rule above.
+**Reject for the on-device target** (bounded run, n=67).
+
+Against the decision rule:
+- **Step 1 (H1, host generator):** *not evaluable* — the `generated-host` upper bound
+  was not run. We therefore make **no claim about whether the method works with a
+  strong generator**; it may well transfer with Claude-class context, as Anthropic
+  report.
+- **Step 2 (H2, on-device generator):** **fails decisively.** The primary condition
+  `generated-device` must at minimum beat the baseline it replaces; instead it scored
+  **52.2% vs 62.7%** (−10.5 pts point estimate). A ratio-to-host (H2's ≥60%) is moot
+  when the on-device gain is negative. The shippable 6GB instantiation of contextual
+  retrieval **does not transfer to CUAD**.
+- **H3 (ablation):** the static `naive-prepend` sat at baseline (+1.5, CIs overlap) —
+  so neither generated nor templated prepend helped here; the original static-prepend
+  draft would also have failed, for the right reason.
+
+**What this does and does not say.** It says: *do not ship Qwen2.5-1.5B-generated
+per-chunk context as a retrieval enhancement* — it is a net regression at 6GB. It does
+**not** say Anthropic's method is wrong in general; the host upper bound is untested,
+and the signal is from 67 items with wide, overlapping CIs (suggestive, not airtight).
+
+**Caveat / confirmation path.** The full-corpus run (all 1,325 items, + the
+`generated-host` condition) would tighten the CIs and settle H1. Given a clearly
+negative on-device direction, that compute is **deferred as optional** rather than run
+now. If someone wants the airtight number, the harness is ready (`run.sh` with
+`LIMIT=0` plus a host generator on port 8098).
+
+**Where the effort goes instead.** The two levers [PoC 013](../013-weight-tuning)
+named for the hard categories are now covered by dedicated PoCs:
+[PoC 014](../014-clause-aware-chunking) (chunk boundaries) and
+[PoC 015](../015-query-formulation) (query formulation) — both more promising than
+decorating chunks with 1.5B-generated text.
 
 ## Deviations
 
+- **2026-10-20 (the run):** Ran a **bounded** version rather than the full corpus —
+  first 25 of 397 contracts (67 items), on-device Qwen generator only. Measured
+  `standard`, `naive-prepend`, `generated-device`; **did not run** `generated-host`
+  (H1 upper bound), the reranking arm, key-fact accuracy, or per-chunk-size/per-category
+  breakdowns. Rationale: full per-chunk context generation over 79,037 chunks is ~16 h;
+  the bounded result was clearly negative for the on-device target, so the full run was
+  deferred as optional confirmation. Verdict is scoped accordingly (on-device reject,
+  method-in-general not claimed).
 - **2026-10-20 (before first run):** Rewrote the registration to test the actual Anthropic
   Contextual Retrieval mechanism — a *model-generated* per-chunk context prepended before
   both embedding and BM25 — instead of the original draft's *static* template prepend

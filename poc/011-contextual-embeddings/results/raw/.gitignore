@@ -1,0 +1,3 @@
+# Large embedding vector dumps (55M+ each) — regenerate via pipeline/run.sh, do not commit
+emb-*.jsonl
+contextual-chunks.jsonl
