@@ -39,7 +39,8 @@ GATE 1 CRITERIA (score each 0-10):
    - Score 0: no decision rule; Score 10: specific measurable threshold.
 
 4. **Addresses a real tradeoff** (quality vs memory, latency vs accuracy — not just
-   "make the number bigger"; reject single-metric optimization like PoC 013)
+   "make the number bigger"; reject single-metric optimization that ignores the
+   cost it buys, e.g. chasing recall while ignoring the memory/latency added)
    - Score 0: ignores tradeoffs; Score 10: explicitly tests a tradeoff.
 
 TASK:
@@ -67,7 +68,7 @@ OUTPUT FORMAT (JSON):
 EXAMPLES:
 - PASS: "Does BM25-only (0MB) maintain ≥55% recall vs 61.4% hybrid?" (clear tradeoff, testable)
 - PASS: "Does binary embedding reduce memory by ≥60% with <10% recall loss?" (resource optimization with quality threshold)
-- FAIL: "Does max semantic weight improve recall?" (no tradeoff, just optimization like PoC 013)
+- FAIL: "Does a larger embedding model improve recall?" (ignores the memory cost, which is the whole on-device constraint)
 - FAIL: "Does adding voice input improve UX?" (untestable, no baseline)
 ===USER===
 PRIOR LAB RESULTS most related to this idea (from completed PoCs — if the idea

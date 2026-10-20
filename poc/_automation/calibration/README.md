@@ -24,8 +24,8 @@ in real lab history:
 |---|---|---|
 | `cal-int8-embed` | APPROVED | Novel, clear memory/quality tradeoff, source-supported mechanism, cheap — passes all 3 gates. |
 | `cal-010-bm25-dup` | REJECTED | Already answered by PoC 010 (in `completed_pocs`); re-running a concluded experiment should be refused. |
-| `cal-011-contextual` | REJECTED @ G2 | Idea's mechanism (static prepend) ≠ source's (model-generated per-chunk context) — the real PoC 011 failure. |
-| `cal-013-maxweight` | REJECTED @ G1 | Single-metric optimization, no tradeoff (the PoC 013 lesson). |
+| `cal-011-contextual` | REJECTED @ G2 | Idea's mechanism (static prepend) ≠ source's (model-generated per-chunk context) — the pre-registration concern on PoC 011 (registered, not yet run). |
+| `cal-013-maxweight-dup` | REJECTED @ G1 | Duplicate of concluded PoC 013, which swept 0.1–0.9 and adopted 0.9 (+6.3 recall); a plain re-sweep is already answered. |
 | `cal-voice-junk` | REJECTED @ G1 | Untestable, no baseline, no threshold. |
 
 ## Current baseline
