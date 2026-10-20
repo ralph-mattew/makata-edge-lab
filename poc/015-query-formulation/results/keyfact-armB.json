@@ -1,0 +1,60 @@
+{
+  "raw": {
+    "accuracy": 69.82758620689656,
+    "per_category": {
+      "Renewal Term": {
+        "acc": 85.71428571428571,
+        "n": 91
+      },
+      "Expiration Date": {
+        "acc": 62.295081967213115,
+        "n": 61
+      },
+      "Governing Law": {
+        "acc": 92.47311827956989,
+        "n": 93
+      },
+      "Notice Period To Terminate Renewal": {
+        "acc": 78.94736842105263,
+        "n": 95
+      },
+      "Agreement Date": {
+        "acc": 35.714285714285715,
+        "n": 84
+      },
+      "Warranty Duration": {
+        "acc": 42.5,
+        "n": 40
+      }
+    }
+  },
+  "keywords": {
+    "accuracy": 73.0603448275862,
+    "per_category": {
+      "Renewal Term": {
+        "acc": 83.51648351648352,
+        "n": 91
+      },
+      "Expiration Date": {
+        "acc": 62.295081967213115,
+        "n": 61
+      },
+      "Governing Law": {
+        "acc": 96.7741935483871,
+        "n": 93
+      },
+      "Notice Period To Terminate Renewal": {
+        "acc": 81.05263157894737,
+        "n": 95
+      },
+      "Agreement Date": {
+        "acc": 46.42857142857143,
+        "n": 84
+      },
+      "Warranty Duration": {
+        "acc": 47.5,
+        "n": 40
+      }
+    }
+  }
+}
