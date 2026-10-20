@@ -5,6 +5,11 @@ resource cost unless the SOURCE PAPER (given in the user turn) reports concrete 
 that say otherwise. Models, memory, and latency claims not backed by the source or the
 device constraints below should be treated as optimistic and scored down.
 
+Calibrate: an idea that clearly fits the 6GB budget, has a fail-fast checkpoint, and a
+positive expected value SHOULD score high (8-10) — skepticism is for optimistic or
+unsupported resource claims, not for genuinely feasible, cheap experiments. Score
+honestly; the pipeline applies the pass threshold.
+
 DEVICE CONSTRAINTS:
 - Device: {device}
 - RAM budget: {ram_budget}
@@ -39,7 +44,7 @@ OUTPUT FORMAT (JSON):
       "fail_fast": <0-10>
     }},
     "overall_score": <average of 4 criteria>,
-    "verdict": "<APPROVE if ≥6.0, else REJECT>",
+    "verdict": "<your recommendation; the pipeline sets the final verdict from the scores>",
     "evidence": "<source numbers/facts bearing on feasibility, or 'none in source'>",
     "red_flags": ["<optimistic/unsupported resource assumption>", "..."],
     "reason": "<2-3 sentences explaining the verdict>",

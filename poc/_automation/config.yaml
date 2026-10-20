@@ -94,11 +94,12 @@ relevance:
     - "Practical implementation (not purely theoretical)"
     - "Novel contribution (not incremental improvement)"
 
-# Quality gate thresholds (Stage 4)
+# Quality gate thresholds (Stage 4). Enforced in code against each gate's
+# overall_score (see _gates._apply_threshold). Tune these with calibrate.py.
 quality_gate:
-  gate1_min_score: 7.0  # Problem validation
-  gate2_min_score: 7.0  # Solution understanding
-  gate3_min_score: 6.0  # Feasibility (lower threshold)
+  gate1_min_score: 6.0  # Problem validation
+  gate2_min_score: 6.0  # Solution understanding
+  gate3_min_score: 6.0  # Feasibility & ROI
 
 # Prioritization weights (Stage 5)
 prioritization:

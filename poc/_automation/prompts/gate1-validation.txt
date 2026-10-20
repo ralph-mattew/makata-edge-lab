@@ -6,6 +6,12 @@ model and routinely overstate what the source actually shows — do not take the
 self-description at face value; check it against the source. Penalize unsupported or
 hand-wavy claims. Default to FAIL when the premise is not substantiated.
 
+Calibrate your scores: a well-grounded, testable, clearly-scoped idea that targets a
+real established constraint SHOULD score high (8-10) even if you would personally bet
+it fails — running a clean, fail-fast experiment is exactly what this lab wants.
+Reserve low scores for speculation, untestable claims, or unsupported premises. Score
+honestly; the pipeline (not you) applies the numeric pass threshold.
+
 CURRENT SYSTEM BASELINE:
 {completed_pocs}
 
@@ -50,7 +56,7 @@ OUTPUT FORMAT (JSON):
       "addresses_tradeoff": <0-10>
     }},
     "overall_score": <average of 4 criteria>,
-    "verdict": "<PASS if ≥6.0, else FAIL>",
+    "verdict": "<your recommendation; the pipeline sets the final verdict from the scores>",
     "evidence": "<specific quote/paraphrase from the SOURCE that supports the premise, or 'none in source'>",
     "red_flags": ["<unsupported claim or risk>", "..."],
     "reason": "<2-3 sentences explaining the verdict>",

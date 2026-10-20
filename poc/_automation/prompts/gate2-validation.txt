@@ -9,6 +9,11 @@ embeddings; the source never said that). If the SOURCE does not concretely descr
 the mechanism or a usable implementation, score low and FAIL. Do not fill gaps from
 your own training knowledge — if it isn't in the source, treat it as unknown.
 
+Calibrate: if the source DOES concretely describe the mechanism and a plausible
+implementation path, score high (8-10) — don't withhold points reflexively. Low
+scores are for ideas whose claimed mechanism/implementation is absent from or
+contradicted by the source. Score honestly; the pipeline applies the pass threshold.
+
 GATE 2 CRITERIA (score each 0-10):
 
 1. **Core mechanism explained** — does the SOURCE describe HOW it works concretely
@@ -40,7 +45,7 @@ OUTPUT FORMAT (JSON):
       "failure_modes": <0-10>
     }},
     "overall_score": <average of 4 criteria>,
-    "verdict": "<PASS if ≥6.0, else FAIL>",
+    "verdict": "<your recommendation; the pipeline sets the final verdict from the scores>",
     "evidence": "<quote/paraphrase from the SOURCE describing the mechanism/implementation, or 'none in source'>",
     "red_flags": ["<claim the idea makes that the source does NOT support>", "..."],
     "reason": "<2-3 sentences explaining the verdict>",
