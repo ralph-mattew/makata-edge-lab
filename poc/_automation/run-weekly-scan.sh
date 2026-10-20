@@ -86,6 +86,11 @@ python3 "$AUTOMATION_DIR/6-update-idea-bank.py" \
   --summary "$SCAN_DIR/weekly-summary.md"
 echo ""
 
+# Commit the last-scan date only now that every stage has succeeded. Stage 1 no
+# longer self-commits, so an earlier failure re-scans the same window next time.
+python3 "$AUTOMATION_DIR/1-discover-research.py" --commit-date-only
+echo ""
+
 # Final summary
 echo "==============================================="
 echo "Weekly Scan Complete!"

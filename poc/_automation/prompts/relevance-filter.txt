@@ -9,12 +9,6 @@ CURRENT SYSTEM:
 - Dataset: {dataset}
 - Current performance: {current_recall}% recall@3, {current_key_fact_accuracy}% key-fact accuracy
 
-PAPER:
-Title: {title}
-Authors: {authors}
-Date: {date}
-Abstract: {abstract}
-
 EVALUATION CRITERIA:
 1. Applicable to mobile/edge devices (not cloud-only)
 2. Relevant to RAG, embeddings, retrieval, or document Q&A
@@ -22,7 +16,7 @@ EVALUATION CRITERIA:
 4. Novel contribution (not incremental improvement)
 
 TASK:
-Rate this paper's relevance to improving our mobile RAG system.
+Rate the paper's relevance to improving our mobile RAG system.
 
 OUTPUT FORMAT (JSON):
 {{
@@ -33,3 +27,9 @@ OUTPUT FORMAT (JSON):
 }}
 
 Be strict: only score ≥7 if this could meaningfully improve our system.
+===USER===
+PAPER:
+Title: {title}
+Authors: {authors}
+Date: {date}
+Abstract: {abstract}

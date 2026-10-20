@@ -12,13 +12,8 @@ CURRENT SYSTEM:
 COMPLETED POCS:
 {completed_pocs}
 
-PAPER:
-Title: {title}
-URL: {url}
-Abstract: {abstract}
-
 TASK:
-Extract 1-3 testable PoC ideas from this paper that could improve our mobile RAG system.
+Extract 1-3 testable PoC ideas from the paper below that could improve our mobile RAG system.
 
 For each idea, provide:
 1. **question**: Testable research question (1 sentence, specific metric)
@@ -61,3 +56,9 @@ OUTPUT FORMAT (JSON):
 }}
 
 If the paper doesn't suggest any practical PoC ideas, return {{"ideas": []}}.
+===USER===
+PAPER:
+Title: {title}
+URL: {url}
+Abstract: {abstract}
+{fulltext}
