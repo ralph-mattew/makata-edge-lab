@@ -1,0 +1,23 @@
+== PoC 015: query formulation (chunks fixed = PoC 014 page) ==
+baseline raw: overall 61.8% | weak-cat mean 35.0%
+
+cond        overall   Δover  weak-mean   Δweak
+raw           61.8%   +0.0      35.0%   +0.0
+gloss         59.8%   -2.0      32.9%   -2.0
+keywords      66.6%   +4.8      43.7%   +8.8
+decomp        62.9%   +1.1      37.9%   +2.9
+
+Per-category recall@3 (weak categories):
+  category                            raw    gloss keywords   decomp   best
+  Exclusivity                        7.0%    14.0%    32.0%    24.0%   keywords
+  Non-Compete                       25.0%    31.0%    32.0%    30.0%   keywords
+  Agreement Date                    29.0%    20.0%    40.0%    34.0%   keywords
+  Warranty Duration                 47.9%    49.3%    62.0%    46.5%   keywords
+  Liquidated Damages                50.0%    33.3%    44.4%    37.0%   raw
+  Cap On Liability                  51.0%    50.0%    52.0%    56.0%   decomp
+
+DECISION RULE (Arm A — recall@3):
+  H1 decomp generalizes (>=10 on >=half weak AND weak-mean +>=6): no (1/6 cats >=+10, weak-mean +2.9)
+  H3 no overall regression >1pt: no
+  H2 (cheapest within top CI per category): see 'best' column
+  H4 (end-to-end key-fact conversion): Arm B — pending (recall@3 is a proxy)

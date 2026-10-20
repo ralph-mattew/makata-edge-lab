@@ -1,176 +1,230 @@
-# PoC 015: Query formulation vs raw question for contract retrieval
+# PoC 015: Query formulation for the hard/weak categories (decomposition vs rewrites)
 
 | | |
 |---|---|
-| Status | Planned (registration draft) |
-| Verdict | TBD |
+| Status | Concluded (Arm A, recall@3) — full corpus; Arm B (end-to-end key-fact) pending |
+| Verdict | **Keyword expansion is the winner** (+4.8 overall, +8.8 weak-cat mean, Exclusivity 7%→32%) — beating and cheaper than decomposition; the natural-language gloss *hurts*. Adopt-candidate pending Arm B (key-fact conversion). See Verdict. |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | None yet |
-| Source idea | The lab's own results: [PoC 013](../013-weight-tuning) found the hard categories invariant to retrieval *scoring*, and named two untested levers — "chunking **or question formulation**". [PoC 014](../014-clause-aware-chunking) attacks chunking; this PoC attacks the **query** side. HyDE / query2doc (generate a hypothetical answer, embed that) is established practice; the open question here is whether a **6GB on-device 1.5B** can do it well enough to matter. |
-| Registered | 2026-10-20 (this draft, before the first run) |
+| Source idea | The lab's own chain of eliminations. [PoC 013](../013-weight-tuning)/[009](../009-retrieval-depth-qwen)/[014](../014-clause-aware-chunking)/[016](../016-crossref-decomposition) ruled out scoring, depth, chunk boundaries, generated context, and cross-references for the hard categories. [PoC 016](../016-crossref-decomposition) found the one thing that moved them: **template question decomposition (Exclusivity 7%→24%)**. This PoC generalizes that finding across the query side. |
+| Registered | 2026-10-20 (refreshed before the first run) |
 
 ## Question
 
-Does **reformulating the retrieval query** — instead of embedding the raw CUAD
-category question verbatim — raise recall@3, and does the gain land on the
-**weight-invariant hard categories** (Exclusivity ~11%, Non-Compete, Change Of
-Control) that [PoC 013](../013-weight-tuning) showed retrieval scoring cannot move?
-And can the **on-device Qwen2.5-1.5B** generate a good-enough reformulation, or does
-a cheap deterministic transform capture the same gain?
+The hard-category bottleneck is now localized to **query formulation** (PoC 016). Two open
+questions remain:
+1. **Does template decomposition generalize** beyond the 3 hard categories to the other weak
+   ones (Agreement Date 29%, Warranty Duration 48%, Liquidated Damages 50%, Cap On Liability
+   51%), or is it Exclusivity-specific?
+2. **Is decomposition the best deterministic query transform**, or do simpler rewrites (a
+   category gloss, keyword expansion) capture the same gain more cheaply? And does the recall@3
+   gain actually **convert to better answers** (key-fact accuracy), or is it a retrieval-only
+   artifact?
+
+All transforms must be **deployable at 6 GB**, which — given PoC 011 and PoC 016 both showed
+on-device generation *hurts* retrieval — means **no on-device generation**: every transform
+here is deterministic / template-based.
 
 ## Why it matters here
 
-PoC 013 moved overall recall with the semantic/BM25 weight but left Exclusivity at
-~11% at *every* weight, and concluded the remaining bottleneck "is chunking or
-**question formulation**, not retrieval scoring." PoC 014 tests the chunk-boundary
-half. This PoC tests the other named half: the **query**.
+PoC 016 proved that for Exclusivity, a single averaged query vector misses evidence that 2–3
+focused sub-queries recover (+17 pts recall@3), with zero generation. But 016 tested only 3
+categories, only recall@3, and its hard-category *mean* gain (+6) fell short of its own +10 bar.
+Before investing further, the lab needs to know whether query reformulation is a **general**
+lever (worth building into the product's retrieval path) or a narrow one, and whether the
+retrieval gain is **real end-to-end** (better Qwen answers) or just a recall@3 proxy.
 
-The CUAD category questions are embedded as-is today. They are long, templated, and
-legalistic (e.g. *"Highlight the parts (if any) of this contract related to
-'Exclusivity' that should be reviewed…"*) — the embedded vector is dominated by
-boilerplate ("highlight the parts of this contract") shared across all 41
-categories, not by the clause the category is actually about. If that boilerplate is
-washing out the category signal, reformulating the query should lift exactly the
-categories where the raw question retrieves the wrong clause — the hard ones.
-
-The deployment-relevant twist: the only generator we can ship at 6GB is
-Qwen2.5-1.5B Q4. So the useful question isn't "does HyDE help on a server" (known) —
-it's **"can a 1.5B on-device model reformulate its own query well enough to beat the
-raw question, and does it beat a zero-cost deterministic rewrite?"** That mirrors
-[PoC 011](../011-contextual-embeddings)'s on-device-generation question, on the query
-side instead of the chunk side.
+The CUAD category questions are long, templated boilerplate ("Highlight the parts of this
+contract related to…") shared across all categories — so the embedded query vector is dominated
+by shared boilerplate, not the category's distinguishing facets. That is exactly what a
+category-specific rewrite or decomposition should fix.
 
 ## Hypotheses
 
-All HYPOTHESIS until measured. A point is a percentage point of items. Baseline is
-the raw-question hybrid recall@3 at the 0.9/0.1 weight adopted in PoC 013
-(PoC 007 = 61.4%).
+HYPOTHESIS until measured. A point is a percentage point of items. Baselines are the PoC 014/016
+`page/raw` per-category recall@3 (overall 61.8%; the weak categories listed above).
 
-1. **H1 (overall).** At least one reformulation raises overall recall@3 by
-   **≥3 points** over the raw CUAD question.
+1. **H1 (decomposition generalizes).** Template decomposition lifts recall@3 by **≥10 points**
+   on at least **half** of the targeted weak categories (not just Exclusivity), with the
+   weak-category mean up **≥6 points**.
+2. **H2 (cheapest winner).** Among deterministic transforms (category gloss, keyword expansion,
+   decomposition), **decomposition is the best**, or a cheaper rewrite is within its CI — the
+   decision adopts the **cheapest transform within the top CI** per category.
+3. **H3 (no collateral damage).** Overall recall@3 does not regress >1 point; easy categories
+   (Governing Law, Insurance) move <2 points.
+4. **H4 (end-to-end conversion — the decisive arm, see Scope).** On the key-fact items, the
+   recall@3 gain from the best transform **converts** to a key-fact-accuracy gain of **≥½** the
+   recall gain (i.e. retrieving the right clause actually makes Qwen answer better). If recall
+   rises but key-fact does not, the retrieval win is largely cosmetic.
 
-2. **H2 (the hard categories — the real test).** The gain concentrates on the
-   weight-invariant categories: **Exclusivity, Non-Compete, Change Of Control each
-   improve ≥5 points**, while already-easy categories (Insurance, Governing Law)
-   move <2 points.
-
-3. **H3 (on-device generation viability).** The HyDE/query2doc condition generated by
-   the **on-device Qwen2.5-1.5B** is the best condition, or within the CI of the best.
-   If instead the zero-cost deterministic rewrite matches it, that is a *stronger,
-   cheaper* result and is reported as such — the point is to find the cheapest
-   transform that captures the gain.
-
-4. **H4 (cost/feasibility on-device).** The deterministic rewrite adds negligible
-   latency; the HyDE condition adds **one bounded Qwen generation per query**
-   (short hypothetical clause, capped tokens) — a cost measured and reported, not a
-   model retrained.
-
-Descriptive: per-category recall deltas for each transform; examples where a
-reformulated query retrieves the correct clause that the raw question missed.
+Descriptive: per-category recall for every transform; examples where a reformulation flips
+miss→hit; the authored gloss/keyword/sub-query templates (committed for reproducibility).
 
 ## Method
 
-**Host.** MacBook Pro (Mac16,8), M4 Pro, 24 GB, macOS 26.5.1, AC power (as PoC 009).
+**Host.** MacBook Pro (Mac16,8), M4 Pro, 24 GB, macOS 26.5.1, AC power (as PoC 009/014/016).
 
-**What is held fixed (so only the query changes):** chunks = PoC 007 page chunks;
-chunk embeddings = the PoC 011 `standard` condition (EmbeddingGemma-300M, mean pool,
-L2, ctx 2048); hybrid 0.9 semantic + 0.1 BM25; top-3. Only the **query text that gets
-embedded** differs between conditions. This is the mirror image of PoC 014 (which
-holds the query fixed and changes the chunks).
+**Held fixed (only the query changes):** chunks = PoC 014 page chunks; chunk embeddings =
+PoC 014 `emb-page`; hybrid 0.9 semantic + 0.1 BM25; top-3. Reuses the PoC 016 embed/score harness.
 
-**Items.** PoC 007's 1,325 answerable items from 397 CUAD v1 contracts (CC BY 4.0).
+**Items.** PoC 007's 1,325 answerable items / 397 CUAD contracts.
 
-**Conditions** (same items, same chunk index; only the query transform differs):
+**Conditions** (deterministic query transforms over the fixed page index; authored once per
+category, amortized across all contracts — the PoC-016 "41-generations-not-1,325" property):
 
 | Condition | Query that gets embedded |
 |---|---|
-| `raw` (baseline) | the CUAD question verbatim (today's behaviour) |
-| `category` | category label + a short canonical gloss, boilerplate stripped (deterministic, no model) |
-| `keywords` | category + a fixed keyword/synonym set per category (deterministic, no model) |
-| `hyde_qwen` | Qwen2.5-1.5B generates a short hypothetical answer clause for the question; embed that (query2doc/HyDE), on-device generator |
-| `hyde_qwen+raw` | concatenate the Qwen hypothetical clause with the raw question before embedding (ablation: does keeping the raw signal help?) |
+| `raw` (baseline) | the CUAD category question verbatim (today's behaviour) |
+| `gloss` | category label + a short canonical gloss, boilerplate stripped (deterministic) |
+| `keywords` | category + a fixed per-category keyword/synonym set (deterministic) |
+| `decomp` | 2–3 per-category sub-queries; retrieve top-3 per sub-query, union, re-rank by max hybrid, take top-3 (the PoC-016 mechanism, extended to all weak categories) |
 
-BM25 term matching uses the same transformed query text per condition, so the
-reformulation is tested on both arms of the hybrid, not just the dense one.
-
-**HyDE generation.** Reuse the PoC 011 generation harness (`llama-server` + Qwen2.5-1.5B
-Q4, same sampling recipe). Prompt: *"Write the contract clause that would answer this
-question, in 2–3 sentences."* Cap output tokens; deterministic seed; cache per
-(category) since the question is identical across contracts for a category — so HyDE
-runs **41 times, not 1,325 times** (one generation per CUAD category, reused across
-every contract). That is the feasibility insight: query reformulation amortises over
-the corpus in a way chunk-context (011) does not.
+On-device generation (HyDE / query2doc) is **excluded by prior evidence** (PoC 011 and PoC 016
+both measured it to hurt), not re-tested — recorded as a closed question, not an arm.
 
 **Measurements.**
-1. **Recall@3** (primary): top-3 cover ≥50% of the gold span (PoC 007 definition),
-   overall and per category, for each condition.
-2. **Per-category deltas** vs `raw` (H2).
-3. **Cost** (H4): HyDE generation tokens + wall time (amortised per category);
-   deterministic transforms ≈ free.
-4. Descriptive: queries where a reformulation flips a miss to a hit.
+1. Per-category + overall recall@3 for each condition, contract-level bootstrap CIs (seed 0).
+2. Cheapest-within-CI transform per category (H2).
+3. **(Arm B, end-to-end, see Scope)** key-fact accuracy on the key-fact items for `raw` vs the
+   best transform, using the PoC 006 Qwen2.5-1.5B harness over the retrieved top-3 (H4).
 
-**Intervals.** 95% CIs via contract-level bootstrap (10,000 resamples, seed 0), as PoC 009.
+## Scope
+
+**Arm A (recall@3 sweep) — run now.** Deterministic, reuses the PoC 016 harness; fast.
+
+**Arm B (end-to-end key-fact, H4) — the decisive follow-up.** Requires joining PoC 006's
+per-category key facts to per-item gold and running Qwen generation over the retrieved context
+(the PoC 006 `GGUFQA` harness). Registered here; run as a scoped `raw` vs best-transform
+comparison on the key-fact items. If the join/generation is not completed in the same pass it is
+explicitly marked pending — recall@3 alone does **not** settle the verdict (that is H4's point).
 
 ## Decision rule
 
 Written before the first run.
 
-- **Adopt** a reformulation if **H1 holds (overall +≥3 points)** for that transform
-  and the gain reproduces on a held-out category split. Among transforms that pass,
-  **prefer the cheapest** (deterministic > HyDE) within overlapping CIs.
-- **Reject** if no transform improves overall recall by >1 point.
-- **Inconclusive** otherwise (1–3 points, or gains not stable across the split).
-- **Report H2 and H3 prominently either way:** whether reformulation fixes the
-  specific weight-invariant categories (H2), and whether the on-device 1.5B is needed
-  or a free rewrite suffices (H3), are the headline findings regardless of the
-  overall number.
+- **Adopt a transform** (for the product retrieval path) if **H1** holds (decomposition
+  generalizes) **and H3** holds (no regression) **and H4** holds (recall converts to key-fact).
+- Among transforms that pass, **adopt the cheapest within the top CI per category** (H2) — e.g.
+  if a gloss matches decomposition on a category, prefer the gloss there.
+- **Reject query reformulation** as a general lever if the weak-category mean moves <2 points or
+  H4 fails (recall gain doesn't convert).
+- **Inconclusive** / narrow-win if it only helps Exclusivity (confirming PoC 016 without
+  generalizing).
+- Report per-category deltas prominently regardless.
 
 ## Results
 
-To be filled after run. Raw files in `results/raw/`:
-`queries-raw.jsonl`, `queries-category.jsonl`, `queries-keywords.jsonl`,
-`queries-hyde_qwen.jsonl`, `hyde-generations.jsonl`, `recall-<condition>.jsonl`,
-`comparison.txt`. All numbers tagged MEASURED / OBSERVED / INFERRED.
+Arm A (recall@3), full corpus: 397 contracts, 1,325 items, hybrid 0.9/0.1, top-3, chunks
+fixed = PoC 014 page. `raw` reproduces PoC 014/016's 61.8% (harness validated). Raw in
+`results/` (`recall-{raw,gloss,keywords,decomp}.json`, `comparison.txt`, `query-variants.json`).
+
+**Recall@3 by transform (MEASURED, 1,325 items).**
+
+| Condition | overall | 95% CI | Δ overall | weak-cat mean | Δ weak |
+|---|---|---|---|---|---|
+| `raw` (baseline) | 61.8% | — | — | 35.0% | — |
+| `gloss` | 59.8% | — | −2.0 | 32.9% | −2.0 |
+| **`keywords`** | **66.6%** | — | **+4.8** | **43.7%** | **+8.8** |
+| `decomp` | 62.9% | — | +1.1 | 37.9% | +2.9 |
+
+**Per-category recall@3, weak categories (MEASURED).**
+
+| Category | raw | gloss | keywords | decomp | best |
+|---|---|---|---|---|---|
+| **Exclusivity** | 7% | 14% | **32%** | 24% | keywords |
+| Non-Compete | 25% | 31% | **32%** | 30% | keywords |
+| Agreement Date | 29% | 20% | **40%** | 34% | keywords |
+| Warranty Duration | 48% | 49% | **62%** | 46% | keywords |
+| Liquidated Damages | 50% | 33% | 44% | 37% | **raw** |
+| Cap On Liability | 51% | 50% | 52% | **56%** | decomp |
+
+**Observations.**
+- **OBSERVED (keyword expansion wins):** adding the category's discriminative vocabulary to the
+  query lifts overall recall +4.8 and the weak-cat mean +8.8, and raises **Exclusivity 7%→32%** —
+  more than decomposition's 7%→24%, with a single query (no sub-query union). Best on 4 of 6 weak
+  categories.
+- **OBSERVED (decomposition confirmed but narrower):** decomp reproduces the PoC 016 Exclusivity
+  lift (+17) but **does not generalize** (weak-mean only +2.9; ≥+10 on just 1/6 categories). The
+  PoC 016 "decomposition" win is better explained as **vocabulary injection** — decomp's varied
+  sub-queries incidentally add discriminative terms; keywords do it directly and better.
+- **OBSERVED (the gloss hurts):** a fluent natural-language gloss *reduced* recall (−2.0). Fluency
+  is not the lever; discriminative *terms* are. This is the cleanest evidence that the CUAD query
+  problem is vocabulary mismatch, not phrasing.
+- **OBSERVED:** Liquidated Damages regressed under every transform (raw best) — a category whose
+  raw question already carries the right terms; forcing extra vocabulary hurt it.
+- **INFERRED (mechanism caveat):** keywords boost both the semantic query *and* the BM25 (0.1)
+  arm; part of the gain may be lexical (BM25) rather than semantic. Arm B and a weight-ablation
+  would disentangle this. Also, aggressive keyword queries risk raising false retrieval on
+  category-absent contracts (OP-4) — untested here (answerable-only).
 
 ## Verdict
 
-To be determined after run, against the decision rule.
+**Arm A (recall@3): keyword expansion is the clear winner; decomposition a weaker second; gloss
+rejected.** Against the decision rule:
+
+- **H1 (decomposition generalizes): NO** (+2.9 weak-mean, 1/6 categories ≥+10). Decomposition is a
+  narrow win, essentially the Exclusivity effect from PoC 016.
+- **H2 (cheapest best transform): keyword expansion** — top on 4/6 weak categories and cheapest
+  (one query, no union). The adopt-candidate per-category is in the `best` column (keywords
+  mostly; decomp for Cap On Liability; raw for Liquidated Damages).
+- **H3 (no regression): mixed** — `keywords` does not regress (+4.8), but `gloss` does (−2.0), so
+  gloss is rejected.
+- **H4 (end-to-end conversion): PENDING (Arm B).** Recall@3 is a proxy; the verdict is **not
+  final** until key-fact accuracy confirms the retrieval gain produces better Qwen answers.
+
+**Recommendation.** Reject the gloss. Treat **keyword expansion** as the lead query transform
+(cheap, generalizes, biggest Exclusivity lift) and **run Arm B** (`raw` vs `keywords` key-fact
+accuracy on the PoC 006 harness) before adopting it into the product retrieval path. Net finding
+across PoC 015/016: the hard-category bottleneck is **query vocabulary mismatch** — the fix is
+injecting discriminative category terms, not fluent rephrasing, not generation, not chunking.
 
 ## Deviations
 
-None yet. Dated changes recorded here after registration.
+- **2026-10-20 (the run):** Ran Arm A only (recall@3). `gloss`/`keywords` use one authored vector
+  per category; `decomp` unions top-3 per sub-query. Reused PoC 014 `emb-page` + `emb-queries`;
+  embedded only the 57 authored query variants. Arm B (end-to-end key-fact, H4) not yet run —
+  verdict explicitly holds H4 open.
+
+## Deviations
+
+- **2026-10-20 (refresh, before first run):** Re-aimed from the original draft (raw vs gloss vs
+  keywords vs **HyDE/query2doc** generation arms) in light of PoC 016. Changes: (1) **dropped the
+  HyDE/on-device-generation arms** — PoC 011 and PoC 016 both measured generation to hurt
+  retrieval, so it is excluded by evidence, not re-tested; (2) **centered template
+  decomposition** (PoC 016's winner) and extended it from 3 hard categories to all weak ones to
+  test generalization; (3) **added the end-to-end key-fact arm (H4)** — the original draft
+  measured recall@3 only, which PoC 016 showed is a proxy. No run had occurred before this change.
 
 ## Limits
 
-1. **CUAD category questions only** — a known, templated question set; gains may not
-   transfer to free-form user questions (though the boilerplate problem is worse for
-   free-form, so this is conservative).
-2. **Answerable items only** — absence behaviour (PoC 008) not measured; a HyDE
-   hypothetical could *increase* false retrieval on unanswerable categories, flagged
-   as a follow-up risk.
-3. **CUAD contracts only**; **EmbeddingGemma only**; **top-3 only**; **English only** —
-   held fixed to isolate the query transform.
-4. **Retrieval recall, not end-to-end** — key-fact accuracy with Qwen is a follow-up.
-5. **Qwen2.5-1.5B Q4 only** for HyDE — the shippable 6GB generator; a larger host
-   model might reformulate better but isn't deployable, so it's out of scope.
-6. Composes with PoC 014 (chunk side) and PoC 011 (chunk-context): all change
-   different parts of the same pipeline and can be combined later. Of the two levers
-   PoC 013 named, 014 + 015 together tell us which one moves the hard categories.
+1. **Deterministic transforms only** — no on-device generation (by design; see Deviations).
+2. **Hand-authored templates** may overfit CUAD's category phrasing; may not transfer to
+   free-form user questions (conservative — free-form is likely harder).
+3. **Answerable items only** — absence behaviour (PoC 008) not measured; decomposition could
+   raise false retrieval on category-absent contracts (OP-4 risk).
+4. **CUAD / EmbeddingGemma / top-3 / English only** — held fixed to isolate the query transform.
+5. **Arm B** depends on the PoC 006 key-fact harness; if deferred, recall@3 is a proxy and the
+   verdict stays open on H4 (stated, not hidden).
+6. Composes with PoC 016 (same mechanism family); supersedes PoC 016's "tune/extend templates"
+   follow-up.
 
 ## Reproduce
 
-Requirements: Apple-silicon Mac (macOS 26.4+, Swift 6.3+), llama.cpp; PoC 006/007 run
-once; PoC 011 `standard` chunk embeddings present (reused as the fixed index).
+Requirements: Apple-silicon Mac (macOS 26.4+, Swift 6.3+), llama.cpp; PoC 006/007/014 run once.
 
 ```bash
 cd poc/015-query-formulation
-python3 build-queries.py       # emit the 5 query-transform variants (HyDE via Qwen, 41 gens)
-./run.sh                       # embed each query variant, score recall@3 vs the fixed chunk index
-python3 compare.py             # overall + per-category deltas, CIs, HyDE cost
+python3 build-queries.py       # author gloss / keyword / sub-query templates per category
+llama-server --embedding --embd-gemma-default --pooling mean --embd-normalize 2 \
+  -c 16384 --parallel 8 -b 16384 -ub 2048 --port 8090 --log-disable &
+python3 embed.py               # embed the transformed queries (per category, amortized)
+for c in raw gloss keywords decomp; do python3 score.py --cond $c; done
+python3 compare.py             # per-category deltas + CIs across transforms
+# Arm B (end-to-end key-fact): python3 keyfact.py --conds raw decomp   (PoC 006 Qwen harness)
 ```
 
 ## Replications
 
 | Date | Device | Authors | Outcome |
 |---|---|---|---|
-| TBD | Mac16,8 M4 Pro | Ralph Mattew Palomaria | TBD |
+| 2026-10-20 | Mac16,8 M4 Pro | Ralph Mattew Palomaria | Arm A: keyword expansion +4.8 overall / +8.8 weak-mean (Exclusivity 7%→32%); gloss rejected; decomp narrow. Arm B pending |
