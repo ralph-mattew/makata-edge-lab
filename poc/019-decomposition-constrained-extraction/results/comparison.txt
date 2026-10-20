@@ -1,0 +1,24 @@
+== PoC 019: decomposition + constrained substring extraction (hard categories) ==
+NOTE: absolute span-F1 is a low proxy for long clause answers; the DELTA vs the
+same-retrieval free-generation arm is what's interpreted. Both arms share identical
+PoC-016 decomposed retrieval. Host: Qwen2.5-1.5B Q4, greedy. 300 items (100/category).
+
+category              free   constrained       Δ
+Exclusivity            3.3          15.1   +11.8
+Non-Compete           16.1          17.3    +1.2
+Change Of Control     26.8          33.8    +7.0
+
+hard-mean span-F1: free 15.4 -> constrained 22.1 (+6.6)
+95% CI (contract bootstrap): free 12.6-18.4  constrained 18.4-25.9
+free reproduces the registered 16.1 baseline (15.4) -> control holds.
+validator reject rate: 61.7% (verbatim substring returned in only 38% of items;
+the rest fell back to the highest-scored chunk's first sentence).
+
+DECISION RULE:
+  H1 hard-mean span-F1 >= +5:        PASS (+6.6)
+  H3 fact-category no regress > 2:   PASS (retrieval identical by construction)
+  H4 validator fidelity (manual):    reject RATE 61.7% measured; 50-item true/false
+                                     hallucination spot-check still pending
+  -> ADOPT (host stage), with caveat: the first-sentence fallback carries most of
+     the gain (not constrained generation), so this overlaps PoC-018 (20.7).
+     Promote the cheaper generator-free PoC-018 to device.

@@ -1,0 +1,22 @@
+== PoC 018: generator-free extractive span selection (hard categories) ==
+NOTE: absolute span-F1 is a low proxy for long clause answers (gold 50-70 words);
+the DELTA vs the same-retrieval generate arm is what's interpreted.
+Host: EmbeddingGemma (--embd-gemma-default, verified cosine 1.00000 vs committed
+PoC-014 vectors) + Qwen2.5-1.5B Q4. 300 items (100/category). Single pass.
+
+category            generate   extract-w1   extract-w3
+Exclusivity              3.7          7.5         12.2
+Non-Compete             16.7         16.6         19.1
+Change Of Control       26.6         28.3         30.8
+
+hard-mean span-F1:   generate 15.7  |  w1 17.5  |  w3 20.7
+95% CI (contract bootstrap): generate 12.8-18.6  w1 14.6-20.6  w3 17.9-23.7
+generate reproduces the registered 16.1 baseline (15.7) -> control holds.
+
+DECISION RULE (window = 3):
+  H1 hard-mean >= +4 over 16.1:      PASS (+4.6; +5.0 vs same-retrieval generate)
+  H2 Exclusivity span-F1 >= 8.0:     PASS (12.2)
+  H3 fact recall@3 unaffected:       PASS (retrieval identical by construction)
+  H4 peak RAM <= 5 GB:               host RSS 2.9 GB INFERRED (device run pending)
+  window = 1 variant:                FAILS H1 (17.5, +1.4) -> passage window is load-bearing
+  -> ADOPT (host stage) with the <=3-sentence passage. Device H4 open.
