@@ -48,10 +48,19 @@ sources:
 # LLM settings
 llm:
   provider: "anthropic"  # anthropic or openai
-  model: "claude-sonnet-4-5-20250929"
+  model: "claude-sonnet-4-6"  # default / fallback for any stage not overridden
+  # Per-stage overrides: cheap Haiku for the high-volume relevance filter,
+  # a stronger model for extraction and the quality gates.
+  models:
+    relevance: "claude-haiku-4-5"    # stage 2
+    extraction: "claude-sonnet-4-6"  # stage 3
+    gate: "claude-sonnet-4-6"        # stage 4 (use claude-opus-4-8 for the hardest gates)
   temperature: 0.1
   max_tokens: 4096
+  max_retries: 3  # SDK auto-retries 429/5xx with exponential backoff
   api_key_env: "ANTHROPIC_API_KEY"  # Environment variable name
+  # User-scoped keys (sk-ant-usr-...) also require ANTHROPIC_WORKSPACE_ID in the
+  # environment — no workspace ID is committed to this repo.
 
 # Relevance filtering (Stage 2)
 relevance:

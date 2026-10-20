@@ -18,6 +18,9 @@ pip3 install --break-system-packages arxiv requests pyyaml anthropic
 
 ```bash
 export ANTHROPIC_API_KEY="your-api-key-here"
+# Only if you use a user-scoped key (sk-ant-usr-...): also set your workspace.
+# No workspace ID is baked into the source.
+export ANTHROPIC_WORKSPACE_ID="wrkspc_..."
 ```
 
 ### 3. Run Weekly Scan
@@ -106,10 +109,29 @@ Edit `config.yaml` to customize:
 
 - **Search sources**: arXiv categories, HuggingFace, blogs
 - **Keywords**: Search terms for each source
-- **LLM settings**: Model, temperature, max_tokens
+- **LLM settings**: Model, temperature, max_tokens, `max_retries`, and optional
+  per-stage models under `llm.models` (e.g. cheap `claude-haiku-4-5` for the
+  high-volume relevance filter, a stronger model for extraction/gates)
 - **Quality gate thresholds**: Min scores for each gate
 - **Prioritization weights**: Impact vs effort vs confidence
+- **Duplicate detection**: `similarity_threshold` / `check_against_existing`
+  (now enforced — Stage 6 skips ideas already in `POC-IDEAS.md`)
 - **System context**: Current baseline performance
+
+### Behavior notes
+
+- **Scan date is committed only on full success.** Stage 1 no longer records the
+  last-scan date itself; `run-weekly-scan.sh` does it after Stage 6 (via
+  `1-discover-research.py --commit-date-only`), so a mid-pipeline failure
+  re-scans the same window next time instead of skipping it.
+- **Cross-scan paper dedup.** Stage 1 persists `scans/seen-papers.txt` and skips
+  papers surfaced in earlier scans.
+- **Stage 6 writes the bank.** Non-duplicate approved ideas are inserted into a
+  dated "Recently Discovered" section of `POC-IDEAS.md`. Use `--dry-run` to
+  preview without writing.
+- **Cost/usage logging.** Each LLM stage prints a token + estimated-cost line;
+  Stage 4 also writes `scans/<date>/gate-stats.json` (per-gate funnel) for
+  threshold calibration.
 
 ---
 
@@ -123,8 +145,10 @@ scans/
 │   ├── extracted-ideas.jsonl          (23 ideas, ~2 per paper)
 │   ├── validated-ideas.jsonl          (3 ideas, passed 3 gates)
 │   ├── prioritized-ideas.jsonl        (3 ideas, ranked by ROI)
+│   ├── gate-stats.json                (per-gate funnel counts, for calibration)
 │   └── weekly-summary.md              (Human-readable report)
-└── last-scan-date.txt                 (2026-10-19)
+├── seen-papers.txt                    (paper IDs surfaced in prior scans)
+└── last-scan-date.txt                 (committed only after a full run)
 ```
 
 ---

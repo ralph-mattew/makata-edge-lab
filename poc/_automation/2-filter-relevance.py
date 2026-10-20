@@ -11,7 +11,10 @@ from typing import Dict, List
 
 import yaml
 
+from _client import make_client, resolve_model, CostTracker
+
 try:
+    import anthropic
     from anthropic import Anthropic
     HAS_ANTHROPIC = True
 except ImportError:
@@ -32,7 +35,8 @@ def load_prompt_template(name: str) -> str:
     return prompt_path.read_text()
 
 
-def evaluate_relevance(client: Anthropic, config: Dict, candidate: Dict, prompt_template: str) -> Dict:
+def evaluate_relevance(client: Anthropic, config: Dict, candidate: Dict, prompt_template: str,
+                       model: str, tracker: CostTracker) -> Dict:
     """Use LLM to evaluate paper relevance"""
     # Fill in prompt template
     prompt = prompt_template.format(
@@ -53,10 +57,11 @@ def evaluate_relevance(client: Anthropic, config: Dict, candidate: Dict, prompt_
     # Call LLM
     try:
         response = client.messages.create(
-            model=config['llm']['model'],
+            model=model,
             max_tokens=config['llm']['max_tokens'],
             messages=[{"role": "user", "content": prompt}]
         )
+        tracker.add(response.usage)
 
         # Parse JSON response
         response_text = response.content[0].text
@@ -70,7 +75,7 @@ def evaluate_relevance(client: Anthropic, config: Dict, candidate: Dict, prompt_
         else:
             raise ValueError(f"No JSON found in response: {response_text}")
 
-    except Exception as e:
+    except (anthropic.APIError, ValueError, json.JSONDecodeError) as e:
         print(f"Error evaluating {candidate['title']}: {e}")
         return {
             "score": 0.0,
@@ -93,25 +98,14 @@ def main():
 
     config = load_config()
 
-    # Check API key
-    api_key_env = config['llm']['api_key_env']
-    api_key = os.getenv(api_key_env)
-    if not api_key:
-        print(f"Error: {api_key_env} environment variable not set")
-        print(f"Set it with: export {api_key_env}=your-api-key")
-        return 1
-
-    # Support user-scoped API keys with workspace ID
-    workspace_id = os.getenv("ANTHROPIC_WORKSPACE_ID", "wrkspc_01QUXXVWdV2avEfw6N37vSkC")
-    client = Anthropic(
-        api_key=api_key,
-        default_headers={"anthropic-workspace-id": workspace_id} if api_key.startswith("sk-ant-usr-") else {}
-    )
+    client = make_client(config)
+    model = resolve_model(config, "relevance")
+    tracker = CostTracker(model)
 
     # Load prompt template
     prompt_template = load_prompt_template("relevance-filter")
 
-    print(f"=== Stage 2: Relevance Filtering ===")
+    print(f"=== Stage 2: Relevance Filtering ({model}) ===")
 
     # Load candidates
     candidates = []
@@ -127,7 +121,7 @@ def main():
     for i, candidate in enumerate(candidates):
         print(f"[{i+1}/{len(candidates)}] Evaluating: {candidate['title'][:60]}...")
 
-        result = evaluate_relevance(client, config, candidate, prompt_template)
+        result = evaluate_relevance(client, config, candidate, prompt_template, model, tracker)
 
         # Add relevance info to candidate
         candidate['relevance_score'] = result['score']
@@ -145,6 +139,7 @@ def main():
     print(f"\n=== Results ===")
     print(f"Candidates evaluated: {len(candidates)}")
     print(f"Relevant papers: {len(relevant)} ({100*len(relevant)/len(candidates):.1f}%)")
+    print(f"Usage — {tracker.summary()}")
 
     # Write output
     output_path = Path(args.output)

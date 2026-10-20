@@ -46,6 +46,23 @@ def save_last_scan_date(date: datetime):
     last_scan_file.write_text(date.isoformat())
 
 
+def _seen_papers_file() -> Path:
+    return Path(__file__).parent / "scans" / "seen-papers.txt"
+
+
+def load_seen_papers() -> set:
+    """IDs of papers surfaced in prior scans — so the same HuggingFace daily
+    paper (or an arXiv revision) isn't re-extracted week after week."""
+    f = _seen_papers_file()
+    if not f.exists():
+        return set()
+    return {line.strip() for line in f.read_text().splitlines() if line.strip()}
+
+
+def save_seen_papers(ids: set):
+    _seen_papers_file().write_text("\n".join(sorted(ids)) + "\n")
+
+
 def search_arxiv(config: Dict, start_date: datetime) -> List[Dict]:
     """Search arXiv for recent papers"""
     if not HAS_ARXIV or not config['sources']['arxiv']['enabled']:
@@ -158,9 +175,22 @@ def search_blogs(config: Dict, start_date: datetime) -> List[Dict]:
 
 def main():
     parser = argparse.ArgumentParser(description="Stage 1: Discover recent research")
-    parser.add_argument("--output", required=True, help="Output JSONL file")
+    parser.add_argument("--output", help="Output JSONL file")
     parser.add_argument("--days", type=int, help="Days to scan (overrides last scan date)")
+    parser.add_argument("--commit-date-only", action="store_true",
+                        help="Record today as the last-scan date and exit "
+                             "(call this only after the full pipeline succeeds).")
     args = parser.parse_args()
+
+    # The last-scan date is committed by the orchestrator *after* the whole run
+    # succeeds — committing it here would permanently skip papers whenever a
+    # later stage fails. This mode is that post-success commit.
+    if args.commit_date_only:
+        save_last_scan_date(datetime.now(timezone.utc))
+        print("Recorded last-scan date.")
+        return
+    if not args.output:
+        parser.error("--output is required unless --commit-date-only is given")
 
     config = load_config()
 
@@ -179,18 +209,29 @@ def main():
     candidates.extend(search_huggingface_papers(config, start_date))
     candidates.extend(search_blogs(config, start_date))
 
-    # Remove duplicates (same paper from multiple sources)
+    # Remove duplicates: within this run (same paper from multiple sources) and
+    # across runs (papers already surfaced in a prior scan).
+    seen_prior = load_seen_papers()
     seen_titles = {}
     unique_candidates = []
+    cross_run_skipped = 0
     for candidate in candidates:
         title_normalized = candidate['title'].lower().strip()
-        if title_normalized not in seen_titles:
-            seen_titles[title_normalized] = True
-            unique_candidates.append(candidate)
+        if title_normalized in seen_titles:
+            continue
+        seen_titles[title_normalized] = True
+        if candidate['id'] in seen_prior:
+            cross_run_skipped += 1
+            continue
+        unique_candidates.append(candidate)
 
     print(f"\n=== Results ===")
     print(f"Total candidates: {len(candidates)}")
-    print(f"Unique candidates: {len(unique_candidates)}")
+    print(f"Skipped (seen in a prior scan): {cross_run_skipped}")
+    print(f"Unique new candidates: {len(unique_candidates)}")
+
+    # Record every id we surfaced this run so future scans skip them.
+    save_seen_papers(seen_prior | {c['id'] for c in unique_candidates})
 
     # Write output
     output_path = Path(args.output)
@@ -201,9 +242,9 @@ def main():
             f.write(json.dumps(candidate) + '\n')
 
     print(f"Wrote {len(unique_candidates)} candidates to {output_path}")
-
-    # Save scan date
-    save_last_scan_date(datetime.now(timezone.utc))
+    # NOTE: the last-scan date is intentionally NOT saved here. The orchestrator
+    # commits it via `--commit-date-only` after Stage 6 succeeds, so a failure in
+    # stages 2-6 doesn't permanently skip this window's papers.
 
 
 if __name__ == "__main__":

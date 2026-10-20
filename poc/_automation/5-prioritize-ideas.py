@@ -1,12 +1,34 @@
 #!/usr/bin/env python3
 """Stage 5: Prioritize approved ideas by ROI"""
-import argparse, json
+import argparse, json, re
 from pathlib import Path
 import yaml
 
 def load_config():
     with open(Path(__file__).parent / "config.yaml") as f:
         return yaml.safe_load(f)
+
+def _first_int(effort_str, default=1):
+    """First integer in a free-form estimate; for ranges ('1-2 weeks') the low
+    end. Returns `default` when there's no digit ('a few days')."""
+    m = re.search(r'\d+', effort_str)
+    return int(m.group()) if m else default
+
+def _effort_to_score(effort_str):
+    """Map a free-form effort estimate to a 0-10 score (less effort = higher).
+
+    Robust to ranges like '1-2 weeks' / '2-3 days' (the extraction prompt emits
+    these) — the old `int(effort_str.split()[0])` raised ValueError on them.
+    """
+    s = (effort_str or '').lower()
+    n = _first_int(s)
+    if 'hour' in s:
+        return 9.0
+    if 'day' in s:
+        return 9.0 if n <= 3 else 7.0
+    if 'week' in s:
+        return 5.0 if n <= 1 else 3.0
+    return 2.0
 
 def calculate_priority_score(idea, config):
     """Calculate priority score from impact, effort, confidence"""
@@ -17,17 +39,7 @@ def calculate_priority_score(idea, config):
     confidence = idea.get('confidence', 0.5)
 
     # Convert effort to 0-10 scale (inverse: less effort = higher score)
-    effort_str = idea.get('estimated_effort', '1 week').lower()
-    if 'hour' in effort_str or 'day' in effort_str and int(effort_str.split()[0]) <= 3:
-        effort_score = 9.0
-    elif 'day' in effort_str:
-        effort_score = 7.0
-    elif 'week' in effort_str and int(effort_str.split()[0]) == 1:
-        effort_score = 5.0
-    elif 'week' in effort_str:
-        effort_score = 3.0
-    else:
-        effort_score = 2.0
+    effort_score = _effort_to_score(idea.get('estimated_effort', '1 week'))
 
     score = (
         weights['impact_weight'] * impact +
@@ -39,6 +51,7 @@ def calculate_priority_score(idea, config):
 
 def assign_priority_label(score, effort_str):
     """Assign priority label based on score and effort"""
+    effort_str = (effort_str or '').lower()
     if score >= 8.0 and ('hour' in effort_str or 'day' in effort_str):
         return "🔥 HIGH"
     elif score >= 6.0:

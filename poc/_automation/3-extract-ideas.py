@@ -3,7 +3,8 @@
 import argparse, json, os
 from pathlib import Path
 import yaml
-from anthropic import Anthropic
+import anthropic
+from _client import make_client, resolve_model, CostTracker
 
 def load_config():
     with open(Path(__file__).parent / "config.yaml") as f:
@@ -12,7 +13,7 @@ def load_config():
 def load_prompt():
     return (Path(__file__).parent / "prompts" / "idea-extraction.txt").read_text()
 
-def extract_ideas(client, config, paper, prompt_template):
+def extract_ideas(client, config, paper, prompt_template, model, tracker):
     prompt = prompt_template.format(
         device=config['system_context']['device'],
         ram_budget=config['system_context']['ram_budget'],
@@ -30,16 +31,17 @@ def extract_ideas(client, config, paper, prompt_template):
 
     try:
         response = client.messages.create(
-            model=config['llm']['model'],
+            model=model,
             max_tokens=config['llm']['max_tokens'],
             messages=[{"role": "user", "content": prompt}]
         )
+        tracker.add(response.usage)
         text = response.content[0].text
         start, end = text.find('{'), text.rfind('}') + 1
         if start >= 0 and end > start:
             result = json.loads(text[start:end])
             return result.get('ideas', [])
-    except Exception as e:
+    except (anthropic.APIError, json.JSONDecodeError) as e:
         print(f"Error: {e}")
     return []
 
@@ -50,27 +52,19 @@ def main():
     args = parser.parse_args()
 
     config = load_config()
-    api_key = os.getenv(config['llm']['api_key_env'])
-    if not api_key:
-        print(f"Error: Set {config['llm']['api_key_env']}")
-        return 1
-
-    # Support user-scoped API keys with workspace ID
-    workspace_id = os.getenv("ANTHROPIC_WORKSPACE_ID", "wrkspc_01QUXXVWdV2avEfw6N37vSkC")
-    client = Anthropic(
-        api_key=api_key,
-        default_headers={"anthropic-workspace-id": workspace_id} if api_key.startswith("sk-ant-usr-") else {}
-    )
+    client = make_client(config)
+    model = resolve_model(config, "extraction")
+    tracker = CostTracker(model)
     prompt = load_prompt()
 
-    print("=== Stage 3: Idea Extraction ===")
+    print(f"=== Stage 3: Idea Extraction ({model}) ===")
 
     papers = [json.loads(line) for line in open(args.input)]
     all_ideas = []
 
     for i, paper in enumerate(papers):
         print(f"[{i+1}/{len(papers)}] Extracting ideas from: {paper['title'][:60]}...")
-        ideas = extract_ideas(client, config, paper, prompt)
+        ideas = extract_ideas(client, config, paper, prompt, model, tracker)
 
         for idea in ideas:
             idea['source_paper'] = paper['id']
@@ -86,6 +80,7 @@ def main():
             f.write(json.dumps(idea) + '\n')
 
     print(f"\n Extracted {len(all_ideas)} ideas from {len(papers)} papers")
+    print(f"Usage — {tracker.summary()}")
     return 0
 
 if __name__ == "__main__":
