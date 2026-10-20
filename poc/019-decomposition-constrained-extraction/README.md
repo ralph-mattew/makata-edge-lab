@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | planned |
+| Status | Building (host harness scaffolded; logic validated on committed data, full run pending Qwen server) |
 | Verdict | — |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
@@ -44,21 +44,63 @@ Adopt if H1 (hard-mean span-F1 ≥+5) AND H3 (no fact-category regression >2 poi
 
 inconclusive  ·  confidence 0.38  ·  est. effort 1-2 weeks
 
+## Harness
+
+`constrained-extract.py` implements the host stage. Retrieval is held fixed to PoC-016
+decomposed sub-queries (max-pool hybrid 0.9/0.1) → top-3 chunks, reusing committed vectors
+(`007/items.jsonl`, `007/contracts.jsonl`, `014/chunks-page.jsonl`, `014/emb-page.jsonl`,
+`016/emb-subqueries.jsonl`, `016/decomp-templates.json`) — no re-embedding, and only the Qwen
+server is needed.
+
+Two arms on identical retrieved chunks:
+
+- `constrained`: Qwen gets the constrained prompt (*"Return only the exact sentence(s)… Do not
+  paraphrase… If none apply, output NONE."*). A substring validator then accepts the output only
+  if its normalized form (lowercase, collapsed whitespace, ≥ 8 chars) appears verbatim in a
+  top-3 chunk; otherwise — NONE, empty, or a paraphrase — it falls back to the first sentence of
+  the highest-scored chunk. Validator accept/reject counts are logged.
+- `free`: the PoC-017 free-generation baseline, same prompt/sampling, run here so the span-F1 Δ
+  is a clean same-retrieval contrast (rather than comparing to 017's 16.1 under different retrieval).
+
+Both use greedy decoding (temperature 0) for determinism.
+
 ## Results
 
-Link raw files in `results/` once run. Tag every number MEASURED / OBSERVED / INFERRED.
+Not run yet. Non-embedding logic is validated against the committed data (300 items — 100 each
+Exclusivity / Non-Compete / Change Of Control; 3 chunks/item; validator accept/reject/fallback +
+span-F1 checked on a dry pass). The run needs the Qwen server. Raw per-item answers (incl. the
+raw model output and the accepted/fallback flag) land in `results/raw/*-answers.jsonl`; summaries
+in `results/constrained-*.json`. Tag every number MEASURED / OBSERVED / INFERRED.
 
 ## Verdict
 
-Adopt / reject / inconclusive, against the decision rule.
+To be determined against the decision rule after the run.
 
 ## Limits
 
-What this does not show.
+- **Span-F1 is the answer-quality metric.** H2 is written as "Exclusivity key_fact recall@3", but
+  the hard categories have `key_fact = None` in PoC-006 (not key-fact-scorable) and recall@3 is a
+  retrieval quantity unchanged by the answer step (fixed at PoC-016's 24% for Exclusivity). So the
+  constrained answer step is evaluated by Exclusivity **span-F1**; recall@3 is reported as the
+  retrieval reference only. Reconcile H2's wording on promotion to a verdict.
+- **H3 (fact-category regression) is a retrieval sanity check** — retrieval is identical across
+  arms, so fact recall@3 is unchanged by construction; cite PoC-016/007, not re-run here.
+- **H4 (validator fidelity) is partly manual.** The harness logs the validator reject rate
+  automatically, but judging whether a rejected output was a true hallucination vs a correct
+  paraphrase needs a human spot-check on ~50 items (the registration's H4). The 50-item
+  category-absent false-positive probe (OP-4) needs a CUAD negative/unanswerable set (cf. PoC-008)
+  and is not wired in this scaffold.
+- **Off-the-shelf substring matching.** Normalization is lowercase + whitespace collapse; OCR
+  artifacts in CUAD text may cause a few false rejects (then the fallback applies).
 
 ## Reproduce
 
-Commands from a clean checkout.
+```bash
+llama-server -m <Qwen2.5-1.5B-Q4.gguf> -c 4096 -ngl 99 --port 8091 --log-disable &
+
+cd poc/019-decomposition-constrained-extraction
+python3 constrained-extract.py --arm both      # constrained + validator vs free baseline, prints Δ
+```
 
 ---
 
