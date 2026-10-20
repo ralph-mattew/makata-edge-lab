@@ -81,8 +81,10 @@ def search_arxiv(config: Dict, start_date: datetime) -> List[Dict]:
     cat_query = ' OR '.join(f'cat:{cat}' for cat in categories)
     query = f'({keyword_query}) AND ({cat_query})'
 
-    # Search arXiv
-    client = arxiv.Client()
+    # Shared client so arXiv's "1 request / 3s, single connection" rule is
+    # enforced across the keyword search AND the semantic arm (see _arxiv.py).
+    from _arxiv import get_client
+    client = get_client()
     search = arxiv.Search(
         query=query,
         max_results=100,
@@ -90,22 +92,25 @@ def search_arxiv(config: Dict, start_date: datetime) -> List[Dict]:
         sort_order=arxiv.SortOrder.Descending
     )
 
+    # A rate-limited or down arXiv must not abort the whole weekly run — return
+    # what we have (possibly nothing) and let the other sources proceed.
     results = []
-    for paper in client.results(search):
-        # Filter by date
-        if paper.published < start_date:
-            continue
-
-        results.append({
-            "id": f"arxiv-{paper.entry_id.split('/')[-1]}",
-            "source": "arxiv",
-            "title": paper.title,
-            "authors": [author.name for author in paper.authors],
-            "date": paper.published.isoformat(),
-            "abstract": paper.summary.replace('\n', ' ').strip(),
-            "url": paper.entry_id,
-            "pdf_url": paper.pdf_url
-        })
+    try:
+        for paper in client.results(search):
+            if paper.published < start_date:
+                continue
+            results.append({
+                "id": f"arxiv-{paper.entry_id.split('/')[-1]}",
+                "source": "arxiv",
+                "title": paper.title,
+                "authors": [author.name for author in paper.authors],
+                "date": paper.published.isoformat(),
+                "abstract": paper.summary.replace('\n', ' ').strip(),
+                "url": paper.entry_id,
+                "pdf_url": paper.pdf_url
+            })
+    except Exception as e:
+        print(f"[arXiv] query failed ({e}); continuing with other sources")
 
     print(f"[arXiv] Found {len(results)} papers")
     return results

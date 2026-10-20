@@ -86,20 +86,25 @@ def _fetch_recent_arxiv(categories: List[str], start_date: datetime, pool_size: 
     search = arxiv.Search(query=query, max_results=pool_size,
                           sort_by=arxiv.SortCriterion.SubmittedDate,
                           sort_order=arxiv.SortOrder.Descending)
+    from _arxiv import get_client
+    client = get_client()  # shared with Stage 1 so the 3s spacing is global
     papers: List[Dict] = []
-    for p in arxiv.Client().results(search):
-        if p.published < start_date:
-            continue
-        papers.append({
-            "id": f"arxiv-{p.entry_id.split('/')[-1]}",
-            "source": "arxiv-semantic",
-            "title": p.title,
-            "authors": [a.name for a in p.authors],
-            "date": p.published.isoformat(),
-            "abstract": p.summary.replace("\n", " ").strip(),
-            "url": p.entry_id,
-            "pdf_url": p.pdf_url,
-        })
+    try:
+        for p in client.results(search):
+            if p.published < start_date:
+                continue
+            papers.append({
+                "id": f"arxiv-{p.entry_id.split('/')[-1]}",
+                "source": "arxiv-semantic",
+                "title": p.title,
+                "authors": [a.name for a in p.authors],
+                "date": p.published.isoformat(),
+                "abstract": p.summary.replace("\n", " ").strip(),
+                "url": p.entry_id,
+                "pdf_url": p.pdf_url,
+            })
+    except Exception as e:  # arXiv rate-limited/down — skip this arm, don't abort
+        print(f"[semantic] arXiv fetch failed ({e}); skipping semantic arm")
     return papers
 
 
