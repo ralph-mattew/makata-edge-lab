@@ -12,7 +12,7 @@ Usage:
   python3 embed.py --queries --out results/raw/emb-queries.jsonl   # queries for contracts present in chunks-page
 """
 from __future__ import annotations
-import argparse, json, urllib.request
+import argparse, json, time, urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -23,16 +23,50 @@ DOC_PREFIX = "title: none | text: {t}"
 QRY_PREFIX = "task: search result | query: {t}"
 
 
+MAX_WORDS = 1200  # EmbeddingGemma context is 2048 tok; ~1200 words stays under one slot
+                  # llama-server returns 500 (not silent truncation) on over-length input,
+                  # so we truncate here to reproduce PoC 007's effective ctx-2048 behaviour.
+
+
+def _post(url, inputs):
+    body = json.dumps({"input": inputs}).encode()
+    req = urllib.request.Request(url + "/v1/embeddings", data=body,
+                                 headers={"Content-Type": "application/json"})
+    return [d["embedding"] for d in json.load(urllib.request.urlopen(req, timeout=600))["data"]]
+
+
 def embed_many(texts, label, url, batch):
+    texts = [" ".join(t.split()[:MAX_WORDS]) for t in texts]  # bound every input
     vecs = []
-    for i in range(0, len(texts), batch):
-        body = json.dumps({"input": texts[i:i + batch]}).encode()
-        req = urllib.request.Request(url + "/v1/embeddings", data=body,
-                                     headers={"Content-Type": "application/json"})
-        data = json.load(urllib.request.urlopen(req, timeout=600))["data"]
-        vecs.extend(d["embedding"] for d in data)
-        if (i // batch) % 20 == 0 or i + batch >= len(texts):
-            print(f"  [{label}] {min(i + batch, len(texts))}/{len(texts)}")
+    i = 0
+    while i < len(texts):
+        chunk = texts[i:i + batch]
+        try:
+            vecs.extend(_post(url, chunk))
+            i += batch
+        except (urllib.error.HTTPError, urllib.error.URLError):
+            if len(chunk) == 1:
+                # transient 500s under load — retry with backoff before giving up
+                emb = None
+                for attempt in range(5):
+                    time.sleep(0.5 * 2 ** attempt)
+                    try:
+                        emb = _post(url, chunk); break
+                    except Exception:
+                        continue
+                if emb is None:  # last resort: hard-truncate, then zero-vec
+                    try:
+                        emb = _post(url, [" ".join(chunk[0].split()[:400])])
+                    except Exception:
+                        print(f"  [{label}] WARN: row {i} unembeddable after retries, zero vector")
+                        emb = [[0.0] * (len(vecs[-1]) if vecs else 768)]
+                vecs.extend(emb)
+                i += 1
+            else:
+                batch = max(1, len(chunk) // 2)  # sub-split and retry this slice
+                continue
+        if (i // max(batch, 1)) % 20 == 0 or i >= len(texts):
+            print(f"  [{label}] {min(i, len(texts))}/{len(texts)}")
     return vecs
 
 
