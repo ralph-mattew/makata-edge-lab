@@ -1,0 +1,476 @@
+PoC 011: Contextual Embeddings - Spot-Check Results
+================================================================================
+Sample: 10 items (seed 11)
+Model: sentence-transformers/all-MiniLM-L6-v2
+Method: Cosine similarity (semantic only, no BM25 hybrid)
+
+
+================================================================================
+ITEM 926 (1/10): Renewal Term
+================================================================================
+Question: Does this contract renew after its initial term, and for how long?
+Contract: PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement
+Gold words: [528, 573]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.5138
+    E. "Territory" shall mean Worldwide. 2. Term. Unless earlier terminated in accordance with the provisions hereof, the initial term of this Agreement (...
+
+[2] Similarity: 0.4953
+    (not including video) (individually and collectively, the "Personality Rights"), in each case, solely as Approved (as hereinafter defined) by ABG, in ...
+
+[3] Similarity: 0.4289
+    (D) The fourth payment is due December 1 for each Contract Year. 10
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4310
+    Document: PapaJohnsInternationalInc 20-19-0617 8-K EX-10.1 11-70-7365 EX-10.1 Endorsement Agreement. Chunk: (not including video) (individually and co...
+
+[2] Similarity: 0.4224
+    Document: PapaJohnsInternationalInc 20-19-0617 8-K EX-10.1 11-70-7365 EX-10.1 Endorsement Agreement. Chunk: of which is the total number of days in su...
+
+[3] Similarity: 0.4141
+    Document: PapaJohnsInternationalInc 20-19-0617 8-K EX-10.1 11-70-7365 EX-10.1 Endorsement Agreement. Chunk: E. "Territory" shall mean Worldwide. 2. Te...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4227
+    Document: PapaJohnsInternationalInc 20-19-0617 8-K EX-10.1 11-70-7365 EX-10.1 Endorsement Agreement. Section: ENDORSEMENT AGREEMENT. Chunk: (not inclu...
+
+[2] Similarity: 0.4050
+    Document: PapaJohnsInternationalInc 20-19-0617 8-K EX-10.1 11-70-7365 EX-10.1 Endorsement Agreement. Section: 7. Termination.. Chunk: of which is the ...
+
+[3] Similarity: 0.4019
+    Document: PapaJohnsInternationalInc 20-19-0617 8-K EX-10.1 11-70-7365 EX-10.1 Endorsement Agreement. Section: ENDORSEMENT AGREEMENT. Chunk: E. "Territ...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+
+
+================================================================================
+ITEM 1146 (2/10): Notice Period To Terminate Renewal
+================================================================================
+Question: How much notice is needed to stop this contract from renewing?
+Contract: XpresspaGroupInc_20190401_10-K_EX-10.28_11599457_EX-10.28_Marketing Agreement
+Gold words: [268, 323]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4060
+    termination of this Agreement, Calm shall have a right of first refusal to expand the rights and obligations described in this Agreement to any Stores...
+
+[2] Similarity: 0.3742
+    Agreement. NOW THEREFORE, in consideration of the foregoing and other good and valuable consideration, the receipt and sufficiency of which are hereby...
+
+[3] Similarity: 0.3700
+    (30) days following the receipt of a written notice from the Party alleging the material breach which notice shall describe in reasonable detail the n...
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3548
+    Document: XpresspaGroupInc 20-19-0401 10-K EX-10.28 11-59-9457 EX-10.28 Marketing Agreement. Chunk: Agreement. NOW THEREFORE, in consideration of the ...
+
+[2] Similarity: 0.3344
+    Document: XpresspaGroupInc 20-19-0401 10-K EX-10.28 11-59-9457 EX-10.28 Marketing Agreement. Chunk: days of the termination or expiration of this Agre...
+
+[3] Similarity: 0.3332
+    Document: XpresspaGroupInc 20-19-0401 10-K EX-10.28 11-59-9457 EX-10.28 Marketing Agreement. Chunk: (30) days following the receipt of a written notic...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3799
+    Document: XpresspaGroupInc 20-19-0401 10-K EX-10.28 11-59-9457 EX-10.28 Marketing Agreement. Section: Document body. Chunk: Agreement. NOW THEREFORE, ...
+
+[2] Similarity: 0.3413
+    Document: XpresspaGroupInc 20-19-0401 10-K EX-10.28 11-59-9457 EX-10.28 Marketing Agreement. Section: Document body. Chunk: (30) days following the re...
+
+[3] Similarity: 0.3283
+    Document: XpresspaGroupInc 20-19-0401 10-K EX-10.28 11-59-9457 EX-10.28 Marketing Agreement. Section: Document body. Chunk: days of the termination or...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+
+
+================================================================================
+ITEM 953 (3/10): Warranty Duration
+================================================================================
+Question: How long is the warranty period?
+Contract: Array BioPharma Inc. - LICENSE, DEVELOPMENT AND COMMERCIALIZATION AGREEMENT
+Gold words: [30315, 30385]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3859
+    warranties of any kind either express or implied, including, but not limited to, warranties of merchantability, fitness for a particular purpose, noni...
+
+[2] Similarity: 0.3838
+    its assets for the benefit of creditors; or (d) substantially all of the assets of such other Party are seized or attached and not released within nin...
+
+[3] Similarity: 0.3755
+    due hereunder, provided that Array shall remit any such overpaid amounts that remain uncredited as of the termination of this Agreement within fifteen...
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3414
+    Document: Array BioPharma Inc. - LICENSE, DEVELOPMENT AND COMMERCIALIZATION AGREEMENT. Chunk: have the right to terminate this Agreement, for any reas...
+
+[2] Similarity: 0.3329
+    Document: Array BioPharma Inc. - LICENSE, DEVELOPMENT AND COMMERCIALIZATION AGREEMENT. Chunk: 14.5 Survival. Upon the expiration or termination of thi...
+
+[3] Similarity: 0.3240
+    Document: Array BioPharma Inc. - LICENSE, DEVELOPMENT AND COMMERCIALIZATION AGREEMENT. Chunk: decision unless each Party otherwise agrees in writing; ...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3405
+    Document: Array BioPharma Inc. - LICENSE, DEVELOPMENT AND COMMERCIALIZATION AGREEMENT. Section: 12.5 Enforcement.. Chunk: have the right to terminate ...
+
+[2] Similarity: 0.3341
+    Document: Array BioPharma Inc. - LICENSE, DEVELOPMENT AND COMMERCIALIZATION AGREEMENT. Section: ARTICLE XV. Chunk: 14.5 Survival. Upon the expiration ...
+
+[3] Similarity: 0.3299
+    Document: Array BioPharma Inc. - LICENSE, DEVELOPMENT AND COMMERCIALIZATION AGREEMENT. Section: GENERAL PROVISIONS. Chunk: decision unless each Party ...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+
+
+================================================================================
+ITEM 925 (4/10): Change Of Control
+================================================================================
+Question: What happens under this contract if a party is acquired or undergoes a change of control?
+Contract: VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT
+Gold words: [9079, 9119]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4921
+    or taken together, bear the signatures of both parties hereto. For the purposes hereof, a facsimile copy of this Agreement, including the signature pa...
+
+[2] Similarity: 0.4846
+    shall be considered an assignment for purposes of this Section 11.9. This Agreement will bind and inure to the benefit of the parties and their respec...
+
+[3] Similarity: 0.4673
+    ACTION, WHETHER IN CONTRACT, TORT, NEGLIGENCE, STRICT PRODUCT LIABILITY, OR OTHERWISE, EVEN IF THE PARTY HAS BEEN INFORMED OF THE POSSIBILITY OF ANY S...
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4896
+    Document: VERTICALNETINC 04 01 2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT. Chunk: or taken together, bear the signatures of both parties hereto. ...
+
+[2] Similarity: 0.4528
+    Document: VERTICALNETINC 04 01 2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT. Chunk: 9.2 Events of Default. The occurrence of any one or more of the...
+
+[3] Similarity: 0.4517
+    Document: VERTICALNETINC 04 01 2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT. Chunk: does not have a collection responsibility, Converge will be req...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4991
+    Document: VERTICALNETINC 04 01 2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT. Section: 10. General.. Chunk: or taken together, bear the signatures o...
+
+[2] Similarity: 0.4736
+    Document: VERTICALNETINC 04 01 2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT. Section: 4. Fees and Payments.. Chunk: does not have a collection resp...
+
+[3] Similarity: 0.4521
+    Document: VERTICALNETINC 04 01 2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT. Section: 10. General.. Chunk: No Third-Party Beneficiaries. Nothing in...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+
+
+================================================================================
+ITEM 1040 (5/10): Cap On Liability
+================================================================================
+Question: Is there a cap on liability under this contract?
+Contract: QIWI_06_16_2017-EX-99.(D)(2)-COOPERATION AGREEMENT
+Gold words: [1777, 1912]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3807
+    No term of this Agreement is enforceable under the Contracts (Rights of Third Parties) Act 1999 or otherwise by a person who is not a Party to this Ag...
+
+[2] Similarity: 0.3798
+    part), transfer, mortgage, charge or otherwise dispose in any manner whatsoever of the benefit of this Agreement or sub-contract or delegate in any ma...
+
+[3] Similarity: 0.3609
+    (b) Otkritie ceasing to own more than 2,237,216 class B shares or American depositary shares of QIWI. 6.3 Notwithstanding Clause 6.2, this Clause 6 an...
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3458
+    Document: QIWI 06 16 2017-EX-99.(D)(2)-COOPERATION AGREEMENT. Chunk: (b) Otkritie ceasing to own more than 2,237,216 class B shares or American deposi...
+
+[2] Similarity: 0.3231
+    Document: QIWI 06 16 2017-EX-99.(D)(2)-COOPERATION AGREEMENT. Chunk: 6.3 Notwithstanding Clause 6.2, this Clause 6 and Clauses 1, 5, 7 through 9 (incl...
+
+[3] Similarity: 0.3071
+    Document: QIWI 06 16 2017-EX-99.(D)(2)-COOPERATION AGREEMENT. Chunk: (h) Commercial terms of the potential sale of the NKO Rapida's banking license to...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3769
+    Document: QIWI 06 16 2017-EX-99.(D)(2)-COOPERATION AGREEMENT. Section: 8. Notices.. Chunk: (b) Otkritie ceasing to own more than 2,237,216 class B sha...
+
+[2] Similarity: 0.3598
+    Document: QIWI 06 16 2017-EX-99.(D)(2)-COOPERATION AGREEMENT. Section: 8. Notices.. Chunk: 6.3 Notwithstanding Clause 6.2, this Clause 6 and Clauses 1...
+
+[3] Similarity: 0.3437
+    Document: QIWI 06 16 2017-EX-99.(D)(2)-COOPERATION AGREEMENT. Section: 8. Notices.. Chunk: part), transfer, mortgage, charge or otherwise dispose in a...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+
+
+================================================================================
+ITEM 1202 (6/10): Governing Law
+================================================================================
+Question: Which state's or country's law governs this contract?
+Contract: CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement
+Gold words: [953, 967]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3967
+    3.2 Assignment of Rights and Obligations Neither Party shall assign any rights or obligations provided herein without the prior written consent of the...
+
+[2] Similarity: 0.3812
+    provision of this Agreement is held to be illegal, unenforceable or invalid by the judgment or ruling of the court, other provisions herein shall rema...
+
+[3] Similarity: 0.3607
+    Agreement may claim, pursuant to the laws and this Agreement, shall not preclude other rights, powers or remedies that such Party may claim pursuant t...
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3886
+    Document: CHIPMOSTECHNOLOGIESBERMUDALTD 04 18 2016-EX-4.72-Strategic Alliance Agreement. Chunk: 3.2 Assignment of Rights and Obligations Neither Party...
+
+[2] Similarity: 0.3854
+    Document: CHIPMOSTECHNOLOGIESBERMUDALTD 04 18 2016-EX-4.72-Strategic Alliance Agreement. Chunk: Parties. The losing Party in such arbitration shall be...
+
+[3] Similarity: 0.3764
+    Document: CHIPMOSTECHNOLOGIESBERMUDALTD 04 18 2016-EX-4.72-Strategic Alliance Agreement. Chunk: Agreement may claim, pursuant to the laws and this Agr...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3803
+    Document: CHIPMOSTECHNOLOGIESBERMUDALTD 04 18 2016-EX-4.72-Strategic Alliance Agreement. Section: 2.2 Early Termination This Agreement may be terminat...
+
+[2] Similarity: 0.3624
+    Document: CHIPMOSTECHNOLOGIESBERMUDALTD 04 18 2016-EX-4.72-Strategic Alliance Agreement. Section: 2.2 Early Termination This Agreement may be terminat...
+
+[3] Similarity: 0.3498
+    Document: CHIPMOSTECHNOLOGIESBERMUDALTD 04 18 2016-EX-4.72-Strategic Alliance Agreement. Section: 2.2 Early Termination This Agreement may be terminat...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+
+
+================================================================================
+ITEM 388 (7/10): Cap On Liability
+================================================================================
+Question: Is there a cap on liability under this contract?
+Contract: IpassInc_20181203_8-K_EX-99.1_11445874_EX-99.1_Reseller Agreement
+Gold words: [4049, 4175]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.5789
+    LIABILITY AND OBLIGATIONS OF THE PARTIES WITH RESPECT TO ANY ACTUAL OR ALLEGED THIRD PARTY CLAIMS ARISING FROM OR RELATING TO THIS AGREEMENT. 9. LIMIT...
+
+[2] Similarity: 0.5685
+    GIVING RISE TO SUCH LIABILITY. ALL CLAIMS AGAINST THE PARTIES WILL BE AGGREGATED TO DETERMINE SATISFACTION OF THIS LIMIT, AND MULTIPLE CLAIMS WILL NOT...
+
+[3] Similarity: 0.4366
+    Source: IPASS INC, 8-K, 12/3/2018 12. GENERAL TERMS 12.1 Neither party will be liable to the other for failure to fulfill its obligations caused by ci...
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.5044
+    Document: IpassInc 20-18-1203 8-K EX-99.1 11-44-5874 EX-99.1 Reseller Agreement. Chunk: LIABILITY AND OBLIGATIONS OF THE PARTIES WITH RESPECT TO ANY A...
+
+[2] Similarity: 0.4593
+    Document: IpassInc 20-18-1203 8-K EX-99.1 11-44-5874 EX-99.1 Reseller Agreement. Chunk: GIVING RISE TO SUCH LIABILITY. ALL CLAIMS AGAINST THE PARTIES ...
+
+[3] Similarity: 0.4255
+    Document: IpassInc 20-18-1203 8-K EX-99.1 11-44-5874 EX-99.1 Reseller Agreement. Chunk: trade secret or other proprietary rights or rights of publicit...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4910
+    Document: IpassInc 20-18-1203 8-K EX-99.1 11-44-5874 EX-99.1 Reseller Agreement. Section: Document body. Chunk: LIABILITY AND OBLIGATIONS OF THE PARTI...
+
+[2] Similarity: 0.4474
+    Document: IpassInc 20-18-1203 8-K EX-99.1 11-44-5874 EX-99.1 Reseller Agreement. Section: Document body. Chunk: GIVING RISE TO SUCH LIABILITY. ALL CLA...
+
+[3] Similarity: 0.4087
+    Document: IpassInc 20-18-1203 8-K EX-99.1 11-44-5874 EX-99.1 Reseller Agreement. Section: Document body. Chunk: trade secret or other proprietary righ...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+
+
+================================================================================
+ITEM 378 (8/10): Renewal Term
+================================================================================
+Question: Does this contract renew after its initial term, and for how long?
+Contract: ENERGYXXILTD_05_08_2015-EX-10.13-Transportation AGREEMENT
+Gold words: [4795, 4830]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4217
+    for maintaining the confidentiality commitments of this Section 16.8 (e) The provisions of this Section 16.8 shall survive any termination of this Agr...
+
+[2] Similarity: 0.3748
+    10 ARTICLE 8 TERM   8.1 Term. Subject to the other provisions of this Agreement, the term of this Agreement shall commence on the Effective Date and s...
+
+[3] Similarity: 0.3147
+    contractors and subcontractors to perform services, for the benefit of Shipper, in connection with the performance by Shipper of its obligations under...
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3199
+    Document: ENERGYXXILTD 05 08 2015-EX-10.13-Transportation AGREEMENT. Chunk: 10 ARTICLE 8 TERM   8.1 Term. Subject to the other provisions of this Agre...
+
+[2] Similarity: 0.3130
+    Document: ENERGYXXILTD 05 08 2015-EX-10.13-Transportation AGREEMENT. Chunk: for maintaining the confidentiality commitments of this Section 16.8 (e) T...
+
+[3] Similarity: 0.2817
+    Document: ENERGYXXILTD 05 08 2015-EX-10.13-Transportation AGREEMENT. Chunk: contractors and subcontractors to perform services, for the benefit of Shi...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3356
+    Document: ENERGYXXILTD 05 08 2015-EX-10.13-Transportation AGREEMENT. Section: Document body. Chunk: for maintaining the confidentiality commitments of...
+
+[2] Similarity: 0.3060
+    Document: ENERGYXXILTD 05 08 2015-EX-10.13-Transportation AGREEMENT. Section: Document body. Chunk: 10 ARTICLE 8 TERM   8.1 Term. Subject to the other...
+
+[3] Similarity: 0.3020
+    Document: ENERGYXXILTD 05 08 2015-EX-10.13-Transportation AGREEMENT. Section: Document body. Chunk: negative) volume in the current month allocation p...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+
+
+================================================================================
+ITEM 1048 (9/10): Governing Law
+================================================================================
+Question: Which state's or country's law governs this contract?
+Contract: VITAMINSHOPPECOMINC_09_13_1999-EX-10.26-SPONSORSHIP AGREEMENT
+Gold words: [5774, 5805]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4256
+    ii) To the extent permitted by applicable law. 11.              OWNERSHIP
+
+[2] Similarity: 0.4140
+    16. GENERAL a)       Assignment.  Neither party may assign this Agreement,                           in whole or in part, without the other party's   ...
+
+[3] Similarity: 0.4111
+    authority to assume or create any obligation or responsibility on behalf of each other. This Agreement will not be construed to create or imply any pa...
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3684
+    Document: VITAMINSHOPPECOMINC 09 13 1999-EX-10.26-SPONSORSHIP AGREEMENT. Chunk: parties will refer the dispute(s) to the American Arbitration Associat...
+
+[2] Similarity: 0.3575
+    Document: VITAMINSHOPPECOMINC 09 13 1999-EX-10.26-SPONSORSHIP AGREEMENT. Chunk: authority to assume or create any obligation or responsibility on beha...
+
+[3] Similarity: 0.3442
+    Document: VITAMINSHOPPECOMINC 09 13 1999-EX-10.26-SPONSORSHIP AGREEMENT. Chunk: subsidiary or affiliate or joint venture in which the assigning party ...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.3748
+    Document: VITAMINSHOPPECOMINC 09 13 1999-EX-10.26-SPONSORSHIP AGREEMENT. Section: 16. GENERAL. Chunk: parties will refer the dispute(s) to the America...
+
+[2] Similarity: 0.3657
+    Document: VITAMINSHOPPECOMINC 09 13 1999-EX-10.26-SPONSORSHIP AGREEMENT. Section: 16. GENERAL. Chunk: authority to assume or create any obligation or ...
+
+[3] Similarity: 0.3601
+    Document: VITAMINSHOPPECOMINC 09 13 1999-EX-10.26-SPONSORSHIP AGREEMENT. Section: EXHIBIT A. Chunk: any of the provisions of this Agreement are held t...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+
+
+================================================================================
+ITEM 974 (10/10): Audit Rights
+================================================================================
+Question: Does either party have the right to audit the other's books or records?
+Contract: JOINTCORP_09_19_2014-EX-10.15-FRANCHISE AGREEMENT
+Gold words: [11882, 11921]
+
+--------------------------------------------------------------------------------
+STANDARD CHUNKS (baseline):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4356
+    present to your customers any evaluation forms we periodically prescribe, and agree to participate in, and/or request that your customers participate ...
+
+[2] Similarity: 0.3626
+    32 13. INSPECTIONS AND AUDITS. 13.1 Company's Right to Inspect the Franchise. To determine whether you and the Franchise are complying with this Agree...
+
+[3] Similarity: 0.3595
+    Forms of Advertising Media or any of the information contained therein, you will submit each such revision to us for our prior written approval. 12. A...
+
+--------------------------------------------------------------------------------
+DOC-ONLY CONTEXTUAL:
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4374
+    Document: JOINTCORP 09 19 2014-EX-10.15-FRANCHISE AGREEMENT. Chunk: present to your customers any evaluation forms we periodically prescribe, and agre...
+
+[2] Similarity: 0.3034
+    Document: JOINTCORP 09 19 2014-EX-10.15-FRANCHISE AGREEMENT. Chunk: it in the development and operation of the Franchise, and that the use or duplicat...
+
+[3] Similarity: 0.2994
+    Document: JOINTCORP 09 19 2014-EX-10.15-FRANCHISE AGREEMENT. Chunk: Forms of Advertising Media or any of the information contained therein, you will s...
+
+--------------------------------------------------------------------------------
+FULL CONTEXTUAL (doc+section):
+--------------------------------------------------------------------------------
+[1] Similarity: 0.4466
+    Document: JOINTCORP 09 19 2014-EX-10.15-FRANCHISE AGREEMENT. Section: Document body. Chunk: present to your customers any evaluation forms we periodic...
+
+[2] Similarity: 0.3084
+    Document: JOINTCORP 09 19 2014-EX-10.15-FRANCHISE AGREEMENT. Section: Document body. Chunk: Forms of Advertising Media or any of the information conta...
+
+[3] Similarity: 0.2971
+    Document: JOINTCORP 09 19 2014-EX-10.15-FRANCHISE AGREEMENT. Section: Document body. Chunk: 20 9.2 Non-Disclosure Agreement. You agree that your relat...
+
+ASSESSMENT: Which method retrieved better chunks?
+[ ] Standard  [ ] Doc-only  [ ] Full  [ ] Unclear
+

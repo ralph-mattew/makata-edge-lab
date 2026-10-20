@@ -41,3 +41,10 @@ poc/009-*/results/raw/inputs-*.jsonl
 poc/_automation/scans/*
 !poc/_automation/scans/test/
 !poc/_automation/scans/test/*
+
+# Editor/assistant scratch exports (personal, not lab assets).
+chat.json
+
+# PoC 014 raw chunk dumps are large (~65 MB) and regenerable from the chunking
+# script; kept local like the other bulky per-PoC raw inputs above.
+poc/014-*/results/raw/chunks-*.jsonl
