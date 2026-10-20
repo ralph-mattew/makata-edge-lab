@@ -16,7 +16,7 @@ Does lightweight cross-encoder reranking (mxbai-rerank-base-v1, 184M params) imp
 ## Why it matters here
 
 Xylo's current retrieval pipeline:
-1. **Hybrid retrieval**: 0.7 semantic (EmbeddingGemma embeddings) + 0.3 BM25 keyword
+1. **Hybrid retrieval**: 0.9 semantic (EmbeddingGemma embeddings) + 0.1 BM25 keyword (weight adopted in [PoC 013](../013-weight-tuning))
 2. **Select top-3 chunks** directly
 3. **Feed to Qwen2.5-1.5B** for Q&A
 
@@ -92,7 +92,7 @@ All models Apache 2.0 or MIT license. Download from Hugging Face, convert to ONN
 | `rerank-tiny` (fallback) | Hybrid top-10 | TinyBERT → top-3 | Reranked top-3 |
 | `rerank-bge` (accuracy) | Hybrid top-10 | BGE-reranker-base → top-3 | Reranked top-3 |
 
-All conditions use PoC 007's hybrid retrieval (0.7 semantic, 0.3 BM25) and PoC 006's Qwen prompt (ChatML, 3 chunks, 2048 context).
+All conditions use the current hybrid retrieval weight (0.9 semantic, 0.1 BM25, adopted in PoC 013) and PoC 006's Qwen prompt (ChatML, 3 chunks, 2048 context).
 
 **Reranking procedure:**
 1. Hybrid retrieval produces top-10 chunks with their scores
@@ -174,7 +174,11 @@ To be determined after run, against decision rule above.
 
 ## Deviations
 
-None yet. Any post-registration changes will be dated and justified here.
+- **2026-10-20 (before first run):** Promoted from a top-level draft
+  (`poc/012-cross-encoder-reranking-DRAFT.md`) into a registered PoC directory;
+  updated the baseline hybrid weight from 0.7/0.3 to the 0.9/0.1 adopted in
+  PoC 013. No run had occurred. This PoC is the reranking arm referenced by
+  [PoC 011](../011-contextual-embeddings)'s revised registration.
 
 ## Limits
 
