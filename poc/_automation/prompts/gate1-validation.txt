@@ -70,6 +70,11 @@ EXAMPLES:
 - FAIL: "Does max semantic weight improve recall?" (no tradeoff, just optimization like PoC 013)
 - FAIL: "Does adding voice input improve UX?" (untestable, no baseline)
 ===USER===
+PRIOR LAB RESULTS most related to this idea (from completed PoCs — if the idea
+re-asks a settled question or repeats a rejected approach, that is a Gate 1 fail;
+use the lessons):
+{prior_results}
+
 SOURCE PAPER (ground truth — judge the idea against THIS, not its self-description):
 Title: {source_title}
 Abstract: {source_abstract}

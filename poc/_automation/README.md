@@ -152,6 +152,12 @@ Edit `config.yaml` to customize:
 - **Cost/usage logging.** Each LLM stage prints a token + estimated-cost line;
   Stage 4 also writes `scans/<date>/gate-stats.json` (per-gate funnel) for
   threshold calibration.
+- **Feedback loop.** `knowledge/outcomes.jsonl` is a ledger of completed-PoC
+  outcomes (verdict + lesson). Gate 1 retrieves the most relevant ones
+  (`_knowledge.py`; token-overlap by default, `knowledge.use_embeddings` for
+  semantic) and refuses ideas that re-ask a settled question or repeat a rejected
+  approach — e.g. a BM25-only idea is matched to PoC-010 [reject] and failed. Add
+  a line here whenever a PoC concludes so the scanner stops re-proposing it.
 - **Structured outputs + concurrency.** Stages 2/3 constrain output via
   `output_config.format` (falls back to prompt-guided JSON on older SDKs);
   stages 2/3/4 run `max_workers` calls concurrently. Prompts are split into a

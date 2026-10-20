@@ -112,6 +112,16 @@ duplicates:
   similarity_threshold: 0.8  # Cosine similarity for idea comparison
   check_against_existing: true
 
+# Feedback loop: retrieve relevant completed-PoC outcomes (knowledge/outcomes.jsonl)
+# into Gate 1 so the grader refuses re-proposing settled/rejected work and carries
+# lessons forward. Token-overlap ranking by default; use_embeddings for semantic.
+knowledge:
+  enabled: true
+  top_k: 3
+  min_score: 0.04
+  use_embeddings: false
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+
 # System context (current baseline)
 system_context:
   device: "iPhone 15 Pro"

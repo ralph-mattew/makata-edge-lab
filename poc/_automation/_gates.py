@@ -12,6 +12,7 @@ from typing import Dict, Tuple
 import anthropic
 
 from _client import load_split_prompt, call_json
+from _knowledge import format_prior_results
 
 
 def load_gate_prompts() -> Dict[int, Tuple]:
@@ -38,6 +39,8 @@ def evaluate_gate(client, config, idea, gate_num, templates, model, tracker):
             completed_pocs=completed_pocs_text,
             source_title=source_title,
             source_abstract=source_abstract,
+            # Feedback loop: the most relevant completed-PoC outcomes + lessons.
+            prior_results=format_prior_results(idea['question'], config),
         )
     elif gate_num == 2:
         fields = dict(
