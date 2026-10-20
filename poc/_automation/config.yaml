@@ -7,6 +7,23 @@ sources:
   fetch_fulltext: false
   fulltext_char_budget: 20000
 
+  # Semantic discovery arm: embed the lab's open problems + recent arXiv abstracts
+  # and keep the closest papers — finds relevant work the keyword list misses.
+  # Needs sentence-transformers (pip install sentence-transformers); disabled by
+  # default so it doesn't load a model unless opted in.
+  semantic:
+    enabled: false
+    model: "sentence-transformers/all-MiniLM-L6-v2"
+    categories: ["cs.CL", "cs.LG", "cs.AI", "cs.IR"]
+    pool_size: 200        # recent papers to embed and rank
+    top_k: 15             # keep the closest N
+    min_similarity: 0.35  # cosine floor (0-1)
+    problems:
+      - "Reduce on-device RAG memory below a 600MB embedding model on a 6GB iPhone without losing recall"
+      - "Improve retrieval recall@3 above 61.4% under mobile memory and thermal constraints"
+      - "Smaller or faster embedding and reranking models for offline document QA on mobile"
+      - "Low-bit / ternary / binary quantization that runs under llama.cpp or MLX on iPhone"
+
   arxiv:
     enabled: true
     categories: ["cs.CL", "cs.LG", "cs.AI", "cs.IR"]

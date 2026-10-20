@@ -13,6 +13,8 @@ from typing import List, Dict
 import requests
 import yaml
 
+from _semantic import search_semantic
+
 # Try to import arxiv library
 try:
     import arxiv
@@ -208,6 +210,10 @@ def main():
     candidates.extend(search_arxiv(config, start_date))
     candidates.extend(search_huggingface_papers(config, start_date))
     candidates.extend(search_blogs(config, start_date))
+    # Semantic arm: papers close in meaning to the lab's open problems, even when
+    # they don't match the keyword list. Dedups against what we already have.
+    kw_titles = {c['title'].lower().strip() for c in candidates}
+    candidates.extend(search_semantic(config, start_date, existing_titles=kw_titles))
 
     # Remove duplicates: within this run (same paper from multiple sources) and
     # across runs (papers already surfaced in a prior scan).

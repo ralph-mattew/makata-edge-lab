@@ -12,6 +12,8 @@
 
 ```bash
 pip3 install --break-system-packages arxiv requests pyyaml anthropic
+# Optional — only for the semantic discovery arm (sources.semantic.enabled):
+pip3 install --break-system-packages sentence-transformers
 ```
 
 ### 2. Set API Key
@@ -53,6 +55,12 @@ The pipeline consists of 6 automated stages:
 
 Searches arXiv and HuggingFace for papers since last scan matching keywords:
 - mobile AI, edge AI, quantization, RAG, retrieval, embeddings, etc.
+
+Plus an optional **semantic arm** (`sources.semantic.enabled`): embeds the lab's
+open problems and recent arXiv abstracts and keeps the closest papers, so relevant
+work that doesn't use the keyword vocabulary still surfaces (e.g. an on-device
+training paper found via meaning, not keywords). Results are tagged with
+`semantic_similarity` and the `matched_problem`.
 
 ### Stage 2: Relevance Filtering (10-15 min)
 **Script**: `2-filter-relevance.py`
