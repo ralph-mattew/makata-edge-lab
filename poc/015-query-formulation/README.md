@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | Concluded (Arm A, recall@3) — full corpus; Arm B (end-to-end key-fact) pending |
-| Verdict | **Keyword expansion is the winner** (+4.8 overall, +8.8 weak-cat mean, Exclusivity 7%→32%) — beating and cheaper than decomposition; the natural-language gloss *hurts*. Adopt-candidate pending Arm B (key-fact conversion). See Verdict. |
+| Status | Concluded — Arm A (recall@3) + Arm B (end-to-end key-fact), full corpus |
+| Verdict | **Keyword expansion wins and the gain is real end-to-end.** Arm A: +4.8 overall / +8.8 weak-cat recall@3 (Exclusivity 7%→32%), cheaper than decomposition; gloss hurts. Arm B: +3.2 overall key-fact accuracy (69.8%→73.1%), **+10.7 on Agreement Date** — the recall gain *converts* to better answers. Caveat: Exclusivity isn't key-fact-scorable, so its end-to-end benefit is unproven. See Verdict. |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | None yet |
 | Source idea | The lab's own chain of eliminations. [PoC 013](../013-weight-tuning)/[009](../009-retrieval-depth-qwen)/[014](../014-clause-aware-chunking)/[016](../016-crossref-decomposition) ruled out scoring, depth, chunk boundaries, generated context, and cross-references for the hard categories. [PoC 016](../016-crossref-decomposition) found the one thing that moved them: **template question decomposition (Exclusivity 7%→24%)**. This PoC generalizes that finding across the query side. |
@@ -157,10 +157,37 @@ fixed = PoC 014 page. `raw` reproduces PoC 014/016's 61.8% (harness validated). 
   would disentangle this. Also, aggressive keyword queries risk raising false retrieval on
   category-absent contracts (OP-4) — untested here (answerable-only).
 
+### Arm B — end-to-end key-fact accuracy (MEASURED)
+
+`raw` vs `keywords`, Qwen2.5-1.5B over the retrieved top-3, scored by the PoC 006 key-fact
+extractor. Only the 6 fact-bearing categories are scorable (date/duration/jurisdiction); the
+hard categories incl. **Exclusivity are `key_fact=None` → not scorable**. 464 scorable items.
+`raw` = 69.8% (≈ the 67.9% config baseline → harness sane). Raw in `results/keyfact-armB.json`.
+
+| Category | raw | keywords | Δ key-fact | (Arm A recall Δ) |
+|---|---|---|---|---|
+| **Agreement Date** | 35.7% | 46.4% | **+10.7** | +11 (≈full conversion) |
+| Warranty Duration | 42.5% | 47.5% | +5.0 | +14 (partial) |
+| Governing Law | 92.5% | 96.8% | +4.3 | (already high) |
+| Notice Period To Terminate Renewal | 78.9% | 81.1% | +2.1 | |
+| Expiration Date | 62.3% | 62.3% | +0.0 | |
+| Renewal Term | 85.7% | 83.5% | −2.2 | |
+| **Overall** | **69.8%** | **73.1%** | **+3.2** | |
+
+- **OBSERVED (H4 — conversion is real):** the recall gain is **not cosmetic**. Overall key-fact
+  accuracy rose +3.2, and **Agreement Date converted ~1:1** (recall +11 → key-fact +10.7).
+- **OBSERVED (conversion is category-dependent):** Warranty Duration converted only partially
+  (recall +14 → key-fact +5.0 — retrieving the clause isn't enough if Qwen misreads the duration),
+  and Renewal Term slightly regressed. So keyword expansion helps answers on average but not
+  uniformly.
+- **LIMIT (the headline caveat):** Exclusivity — the biggest Arm-A recall win (7%→32%) — has no
+  machine-parsable key fact, so Arm B **cannot** confirm its end-to-end benefit. The conversion
+  evidence stands only for the fact-bearing categories.
+
 ## Verdict
 
-**Arm A (recall@3): keyword expansion is the clear winner; decomposition a weaker second; gloss
-rejected.** Against the decision rule:
+**Keyword expansion is adopt-worthy: it wins on retrieval (Arm A) AND the gain converts to
+better answers (Arm B), with honest caveats.** Against the decision rule:
 
 - **H1 (decomposition generalizes): NO** (+2.9 weak-mean, 1/6 categories ≥+10). Decomposition is a
   narrow win, essentially the Exclusivity effect from PoC 016.
@@ -169,21 +196,31 @@ rejected.** Against the decision rule:
   mostly; decomp for Cap On Liability; raw for Liquidated Damages).
 - **H3 (no regression): mixed** — `keywords` does not regress (+4.8), but `gloss` does (−2.0), so
   gloss is rejected.
-- **H4 (end-to-end conversion): PENDING (Arm B).** Recall@3 is a proxy; the verdict is **not
-  final** until key-fact accuracy confirms the retrieval gain produces better Qwen answers.
+- **H4 (end-to-end conversion): HOLDS on the fact-bearing categories.** Key-fact accuracy rose
+  +3.2 overall and +10.7 on Agreement Date (≈full conversion of its recall gain) — above the
+  "≥½ of the recall gain" bar there. Partial on Warranty Duration (below ½). **Unproven on
+  Exclusivity** (not key-fact-scorable) — the one category where the recall win was largest.
 
-**Recommendation.** Reject the gloss. Treat **keyword expansion** as the lead query transform
-(cheap, generalizes, biggest Exclusivity lift) and **run Arm B** (`raw` vs `keywords` key-fact
-accuracy on the PoC 006 harness) before adopting it into the product retrieval path. Net finding
-across PoC 015/016: the hard-category bottleneck is **query vocabulary mismatch** — the fix is
-injecting discriminative category terms, not fluent rephrasing, not generation, not chunking.
+**Recommendation — ADOPT keyword expansion** as the lead query transform for the product
+retrieval path: it is cheap (one deterministic per-category query, no generation), generalizes
+across weak categories on recall, and its gain **converts to better answers** where that can be
+measured. Reject the gloss; decomposition is a redundant, costlier second. Carry two caveats:
+(1) Exclusivity's end-to-end benefit is unmeasured (needs a span-level answer metric, not
+fact-extraction); (2) part of the recall gain is lexical (BM25) — a weight ablation would
+disentangle. Net finding across PoC 015/016: the hard-category bottleneck is **query-vocabulary
+mismatch** — the fix is injecting discriminative category terms, not fluent rephrasing, not
+generation, not chunking/scoring/depth.
 
 ## Deviations
 
-- **2026-10-20 (the run):** Ran Arm A only (recall@3). `gloss`/`keywords` use one authored vector
-  per category; `decomp` unions top-3 per sub-query. Reused PoC 014 `emb-page` + `emb-queries`;
-  embedded only the 57 authored query variants. Arm B (end-to-end key-fact, H4) not yet run —
-  verdict explicitly holds H4 open.
+- **2026-10-20 (Arm A):** Ran recall@3. `gloss`/`keywords` use one authored vector per category;
+  `decomp` unions top-3 per sub-query. Reused PoC 014 `emb-page` + `emb-queries`; embedded only
+  the 57 authored query variants.
+- **2026-10-20 (Arm B):** Ran end-to-end key-fact (`raw` vs `keywords`) on the 464 fact-bearing
+  scorable items via Qwen2.5-1.5B over retrieved top-3 + the PoC 006 `facts.py` scorer
+  (`keyfact.py`). Discovered only 6 CUAD categories carry a machine-parsable key fact — the hard
+  categories (incl. Exclusivity) are `key_fact=None`, so Arm B settles conversion only for the
+  fact-bearing categories, not Exclusivity. H4 holds there (recorded as a limit, not hidden).
 
 ## Deviations
 
@@ -227,4 +264,4 @@ python3 compare.py             # per-category deltas + CIs across transforms
 
 | Date | Device | Authors | Outcome |
 |---|---|---|---|
-| 2026-10-20 | Mac16,8 M4 Pro | Ralph Mattew Palomaria | Arm A: keyword expansion +4.8 overall / +8.8 weak-mean (Exclusivity 7%→32%); gloss rejected; decomp narrow. Arm B pending |
+| 2026-10-20 | Mac16,8 M4 Pro | Ralph Mattew Palomaria | Arm A: keyword expansion +4.8 overall / +8.8 weak-mean (Exclusivity 7%→32%). Arm B: +3.2 key-fact (Agreement Date +10.7) — converts. ADOPT keywords |
