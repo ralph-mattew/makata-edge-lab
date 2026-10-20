@@ -64,6 +64,16 @@ contribution, or otherwise have the right to submit it under this repository's l
 enforces it on pull requests. To fix a missing sign-off, run `git commit --amend -s` for the last
 commit, or `git rebase --signoff main` for all of them, then force-push your branch.
 
+To add the sign-off automatically on every commit (so you never forget `-s`), enable the bundled
+hook once per clone:
+
+```
+git config core.hooksPath .githooks
+```
+
+The `.githooks/prepare-commit-msg` hook appends your `Signed-off-by` trailer if it's missing
+(idempotent — it won't duplicate one).
+
 ## Licensing and credit
 
 You keep the copyright to your contribution. Code is licensed under Apache-2.0; write-ups and
