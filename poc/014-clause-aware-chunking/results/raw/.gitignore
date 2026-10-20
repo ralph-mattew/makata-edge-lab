@@ -1,0 +1,2 @@
+# Large embedding vector dumps — regenerate via embed.py, do not commit
+emb-*.jsonl
