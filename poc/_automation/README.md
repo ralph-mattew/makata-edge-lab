@@ -304,7 +304,14 @@ After each weekly scan:
 2. **Verify** approved ideas aren't duplicates
 3. **Override** any incorrect LLM decisions
 4. **Select** highest priority idea to execute
-5. **Register** PoC following POC-GENERATION-WORKFLOW.md
+5. **Scaffold** it into a PoC folder, then refine before the first run:
+   ```bash
+   ./scaffold-poc.py --input scans/$(date +%Y-%m-%d)/validated-ideas.jsonl --dry-run
+   ./scaffold-poc.py --input scans/$(date +%Y-%m-%d)/validated-ideas.jsonl   # writes poc/NNN-slug/README.md
+   ```
+   Generates the next `poc/NNN-slug/README.md` in the `_template` format,
+   pre-filled with the idea's question / hypotheses / method / decision rule
+   (per POC-GENERATION-WORKFLOW.md) plus the grader's pre-registration notes.
 
 ---
 
