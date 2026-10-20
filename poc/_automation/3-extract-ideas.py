@@ -125,6 +125,9 @@ def main():
             idea['source_paper'] = paper['id']
             idea['source_title'] = paper['title']
             idea['source_url'] = paper['url']
+            # Carry the source abstract so Stage 4 can grade claims against the
+            # paper itself (ground truth), not just the idea's self-description.
+            idea['source_abstract'] = paper.get('abstract', '')
             idea['idea_id'] = f"{paper['id']}-idea-{len(all_ideas)+1}"
             all_ideas.append(idea)
             print(f"  + {idea['question'][:80]}")

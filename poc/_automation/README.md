@@ -73,14 +73,23 @@ LLM reads each paper and extracts 1-3 testable PoC ideas with:
 ### Stage 4: Quality Gate Validation (15-20 min)
 **Script**: `4-validate-quality-gate.py`
 **Input**: `extracted-ideas.jsonl`
-**Output**: `validated-ideas.jsonl`
+**Output**: `validated-ideas.jsonl` (approved) + `graded-all.jsonl` (all, incl. rejects)
 
-Runs each idea through 3-gate quality process:
-- **Gate 1**: Problem validation (root cause analysis)
-- **Gate 2**: Solution understanding (mechanism, implementation)
-- **Gate 3**: Feasibility & ROI (device constraints, expected value)
+Runs each idea through a 3-gate quality process. The grader is an **adversarial,
+source-grounded reviewer**: it judges each idea against the SOURCE PAPER's
+abstract (carried on the idea as `source_abstract`), not the idea's own
+self-description, and its job is to find the strongest reason to reject. Each
+gate returns `evidence` (what in the source supports the claim) and `red_flags`
+(claims the source does NOT support) alongside the score.
 
-Only ideas passing all 3 gates are approved.
+- **Gate 1**: Problem validation (is the premise grounded in source or baseline?)
+- **Gate 2**: Solution understanding (does the source actually describe the mechanism / an implementation?)
+- **Gate 3**: Feasibility & ROI (device constraints; discount unsupported resource claims)
+
+Only ideas passing all 3 gates are approved. This decoupling of generator and
+grader (plus source grounding) is what stops the generator from grading its own
+homework — e.g. an idea that extrapolates a vision-classifier result to embedding
+retrieval now fails Gate 2 with specific red flags instead of self-approving.
 
 ### Stage 5: Prioritization (5 min)
 **Script**: `5-prioritize-ideas.py`
@@ -157,6 +166,9 @@ scans/
 │   ├── validated-ideas.jsonl          (3 ideas, passed 3 gates)
 │   ├── prioritized-ideas.jsonl        (3 ideas, ranked by ROI)
 │   ├── gate-stats.json                (per-gate funnel counts, for calibration)
+│   ├── graded-all.jsonl               (every idea graded — approved AND rejected,
+│   │                                   with per-gate evidence/red_flags; the
+│   │                                   audit trail + published-rejects material)
 │   └── weekly-summary.md              (Human-readable report)
 ├── seen-papers.txt                    (paper IDs surfaced in prior scans)
 └── last-scan-date.txt                 (committed only after a full run)
