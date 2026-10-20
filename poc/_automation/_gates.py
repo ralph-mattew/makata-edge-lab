@@ -43,12 +43,21 @@ def evaluate_gate(client, config, idea, gate_num, templates, model, tracker):
             prior_results=format_prior_results(idea['question'], config),
         )
     elif gate_num == 2:
+        # Transfer-aware grounding: give the grader the idea's own separation of what
+        # the source establishes vs the unverified transfer leap vs the disclosed gap,
+        # so a well-framed transfer PoC isn't failed merely for testing something the
+        # source didn't prove (that is the point of a PoC). Older records may lack these.
+        def _fmt(v):
+            return '\n'.join(f"- {x}" for x in v) if isinstance(v, list) else (v or '')
         fields = dict(
             question=idea['question'],
             setup=idea['setup'],
             source_url=idea.get('source_url', ''),
             source_title=source_title,
             source_abstract=source_abstract,
+            source_establishes=_fmt(idea.get('source_establishes')) or '(not provided by extractor)',
+            transfer_hypothesis=idea.get('transfer_hypothesis', '') or '(not separately stated)',
+            source_limits=_fmt(idea.get('source_limits')) or '(not provided by extractor)',
         )
     else:  # gate 3
         fields = dict(

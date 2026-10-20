@@ -18,6 +18,15 @@ from typing import Dict, List
 
 HERE = Path(__file__).parent
 _OUTCOMES_PATH = HERE / "knowledge" / "outcomes.jsonl"
+_OPEN_PROBLEMS_PATH = HERE / "knowledge" / "open-problems.md"
+
+
+def load_open_problems() -> str:
+    """The lab's live bottleneck frontier (markdown), fed to the synthesis stage as the
+    'problem' side of problem×method matching. Empty string if absent."""
+    if not _OPEN_PROBLEMS_PATH.exists():
+        return ""
+    return _OPEN_PROBLEMS_PATH.read_text(encoding="utf-8")
 
 
 def load_outcomes() -> List[Dict]:

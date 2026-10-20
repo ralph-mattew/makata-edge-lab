@@ -21,6 +21,9 @@ IDEAS_SCHEMA = {
                 "properties": {
                     "question": {"type": "string"},
                     "why_matters": {"type": "array", "items": {"type": "string"}},
+                    "source_establishes": {"type": "array", "items": {"type": "string"}},
+                    "transfer_hypothesis": {"type": "string"},
+                    "source_limits": {"type": "array", "items": {"type": "string"}},
                     "hypotheses": {"type": "array", "items": {"type": "string"}},
                     "setup": {"type": "string"},
                     "decision_rule": {"type": "string"},
@@ -28,7 +31,8 @@ IDEAS_SCHEMA = {
                     "expected_outcome": {"type": "string"},
                     "confidence": {"type": "number"},
                 },
-                "required": ["question", "why_matters", "hypotheses", "setup",
+                "required": ["question", "why_matters", "source_establishes",
+                             "transfer_hypothesis", "source_limits", "hypotheses", "setup",
                              "decision_rule", "estimated_effort", "expected_outcome", "confidence"],
             },
         }
