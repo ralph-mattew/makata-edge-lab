@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | planned |
+| Status | Building (host harness scaffolded; logic validated on committed data, full run pending model servers) |
 | Verdict | — |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
@@ -44,21 +44,73 @@ Adopt if H1 (hard-mean span-F1 ≥ +4 over 16.1) AND H3 (fact recall regression 
 
 inconclusive  ·  confidence 0.45  ·  est. effort 1-2 weeks
 
+## Harness
+
+`extract-span.py` implements the full host stage. It reuses committed vectors (no
+re-embedding of the 79k-chunk corpus):
+
+- `007/items.jsonl`, `007/contracts.jsonl` — the 300 hard-category items (100 each:
+  Exclusivity, Non-Compete, Change Of Control) and their gold word-spans.
+- `014/chunks-page.jsonl`, `014/emb-page.jsonl` — chunk corpus + page vectors.
+- `016/emb-subqueries.jsonl`, `016/decomp-templates.json` — decomposed sub-query vectors.
+
+Flow: PoC-016 decomposed retrieval (max-pool hybrid 0.9/0.1) → top-3 chunks → split each
+chunk into sentences → embed each candidate sentence with EmbeddingGemma → score by max
+cosine over the category's sub-queries → return the best sentence (`--window 1`) or a
+contiguous passage of ≤ 3 sentences (`--window 3`). The `generate` arm feeds the *same*
+top-3 chunks to Qwen2.5-1.5B with PoC-017's exact prompt/sampling, so the span-F1 Δ is a
+clean same-retrieval contrast.
+
+Method choices (confirm/adjust on promotion to a verdict):
+
+- Retrieval is held fixed to PoC-016 decomposed sub-queries for all three hard categories —
+  the only thing varying is the answer step.
+- "Union query" sentence scoring = **max** cosine over the category's sub-query vectors
+  (the "does any decomposed aspect match this sentence" reading). Mean-pool is the fallback.
+- The generation baseline is **re-measured** on identical chunks rather than copied from
+  PoC-017's 16.1 (which used raw/keyword retrieval). Validate the `generate` hard-mean lands
+  in 017's ballpark before trusting the Δ.
+- Sentence splitter is deterministic: punctuation/newline breaks, tiny-fragment drop, 80-word
+  hard-wrap.
+
 ## Results
 
-Link raw files in `results/` once run. Tag every number MEASURED / OBSERVED / INFERRED.
+Not run yet. The non-embedding logic is validated against the committed data (300 items,
+3 chunks/item, span-F1 + splitter checked on a dry pass). The extractive arm needs the
+EmbeddingGemma server; the `generate` arm needs the Qwen server. Raw per-item answers land
+in `results/raw/*-answers.jsonl`; summaries in `results/span-quality-*.json`. Tag every
+number MEASURED / OBSERVED / INFERRED.
 
 ## Verdict
 
-Adopt / reject / inconclusive, against the decision rule.
+To be determined against the decision rule after the run.
 
 ## Limits
 
-What this does not show.
+- **H4 (peak RAM ≤ 5 GB) is a device claim.** The host logs `ru_maxrss` as INFERRED only; the
+  real figure needs an on-iPhone run (see REPLICATION). The structural saving is unconditional:
+  the extractive arm never loads Qwen (~1 GB).
+- **Absolute span-F1 is low for long clause answers** (gold spans here run 50–70 words), same
+  caveat as PoC-017. Interpret the Δ vs the generate arm, not the absolute number. `--window 1`
+  will under-recall long clauses by construction; `--window 3` probes that.
+- **Hard categories only.** Fact-category key_fact is unaffected by the answer step (retrieval is
+  identical), so H3 is a retrieval sanity check, not re-run here.
+- **Off-the-shelf sentence splitter + single embedding model.** No clause-boundary model, no
+  re-ranker.
 
 ## Reproduce
 
-Commands from a clean checkout.
+```bash
+# EmbeddingGemma (extractive arm) + Qwen (generate arm), same configs as PoC 007/014/016/017:
+llama-server --embedding --embd-gemma-default --pooling mean --embd-normalize 2 \
+  -c 16384 --parallel 8 -b 16384 -ub 2048 --port 8090 --log-disable &
+llama-server -m <Qwen2.5-1.5B-Q4.gguf> -c 4096 -ngl 99 --port 8091 --log-disable &
+
+cd poc/018-extractive-span-no-generator
+python3 extract-span.py --arm extract --window 1    # primary: single best sentence
+python3 extract-span.py --arm extract --window 3    # contiguous passage ≤ 3 sentences
+python3 extract-span.py --arm both --window 3       # extract vs Qwen on identical chunks, prints Δ
+```
 
 ---
 
