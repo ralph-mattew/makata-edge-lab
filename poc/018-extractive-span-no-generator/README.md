@@ -1,17 +1,13 @@
-# PoC (proposed): Does removing the LLM generator entirely — replacing Qwen2.5-1.5B with…
-
-> **Staged proposal — not yet a registered PoC.** Auto-exported from the lab's ideation engine.
-> A human must review this, fill Method/devices, then PROMOTE it to a numbered `poc/NNN-<slug>/`
-> and register it (commit before the first run). See `../POC-GENERATION-WORKFLOW.md`.
+# PoC 018: Generator-free extractive span selection for hard categories
 
 | | |
 |---|---|
 | Status | planned |
 | Verdict | — |
-| Authors | (unclaimed — assign on promotion) |
+| Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
-| Source idea | (synthesized) |
-| Registered | not yet — proposed 2026-10-20 |
+| Source idea | Synthesized by the lab's ideation engine (2026-10-20 edge-ai scan, MAP-Elites `constraint-relax`, attacks OP-2). Builds on PoC-016 (decomposition) and PoC-017 (span-answer quality). |
+| Registered | 2026-10-20 (this draft, before the first run) |
 
 ## Question
 
@@ -37,7 +33,8 @@ Reuse the existing PoC-016/017 harness and CUAD 300-item hard-category + fact-ca
 
 - Baseline stack (fill exact files/SHA-256 on promotion): EmbeddingGemma 300M (600 MB), Qwen2.5-1.5B Q4 (1.0 GB), Hybrid: 0.9 semantic + 0.1 BM25 (weight adopted in PoC 013).
 - Device: iPhone 15 Pro (6GB). Dataset: CUAD contracts (397 documents, 1,325 Q&A items).
-- What varies vs held fixed, measurements, repetitions: TO BE SPECIFIED before registration.
+- Varies: the answer step only — extractive sentence-selection (no LLM) vs the PoC-017 constrained-Qwen baseline. Held fixed: EmbeddingGemma retrieval, top-3 chunks, PoC-016 decomposed queries, the CUAD eval set.
+- Measurements: hard-category + fact-category span-F1 (SQuAD token overlap), key_fact exact-match, recall@3, peak RAM. Repetitions: retrieval + cosine span-selection are deterministic → single pass; RAM sampled across the full run. Host run first, then on-device replication (see REPLICATION.md).
 
 ## Decision rule
 
