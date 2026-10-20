@@ -1,0 +1,69 @@
+{
+  "chunk_cond": "xref",
+  "query_cond": "raw",
+  "recall": 61.132075471698116,
+  "ci": [
+    58.56313497822932,
+    63.74714394516375
+  ],
+  "n_items": 1325,
+  "hard_mean": 32.0,
+  "per_category": {
+    "Renewal Term": {
+      "recall": 95.0,
+      "n": 100
+    },
+    "Expiration Date": {
+      "recall": 83.0,
+      "n": 100
+    },
+    "Exclusivity": {
+      "recall": 7.0,
+      "n": 100
+    },
+    "Non-Compete": {
+      "recall": 24.0,
+      "n": 100
+    },
+    "Cap On Liability": {
+      "recall": 52.0,
+      "n": 100
+    },
+    "Governing Law": {
+      "recall": 91.0,
+      "n": 100
+    },
+    "Change Of Control": {
+      "recall": 65.0,
+      "n": 100
+    },
+    "Termination For Convenience": {
+      "recall": 64.0,
+      "n": 100
+    },
+    "Insurance": {
+      "recall": 84.0,
+      "n": 100
+    },
+    "Liquidated Damages": {
+      "recall": 51.851851851851855,
+      "n": 54
+    },
+    "Audit Rights": {
+      "recall": 67.0,
+      "n": 100
+    },
+    "Notice Period To Terminate Renewal": {
+      "recall": 84.0,
+      "n": 100
+    },
+    "Agreement Date": {
+      "recall": 31.0,
+      "n": 100
+    },
+    "Warranty Duration": {
+      "recall": 49.29577464788732,
+      "n": 71
+    }
+  }
+}

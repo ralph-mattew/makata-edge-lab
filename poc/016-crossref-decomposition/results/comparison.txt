@@ -1,0 +1,21 @@
+== PoC 016: cross-reference resolution + question decomposition ==
+baseline (page/raw): overall 61.8% | hard-cat mean 33.0%
+
+condition         overall   Δover  hard-mean   Δhard
+page/raw            61.8%   +0.0      33.0%   +0.0
+xref/raw            61.1%   -0.7      32.0%   -1.0
+page/decomp         63.2%   +1.4      39.0%   +6.0
+xref/decomp         62.3%   +0.5      37.0%   +4.0
+
+Hard categories, per condition (recall@3):
+  category                page/raw    xref  decomp    both
+  Exclusivity                 7.0%    7.0%   24.0%   18.0%
+  Non-Compete                25.0%   24.0%   28.0%   27.0%
+  Change Of Control          67.0%   65.0%   65.0%   66.0%
+
+DECISION RULE read-out:
+  H1 xref hard-mean +>=10:        no (-1.0)
+  H2 decomp hard-mean +>=10:      no (+6.0)
+  H3 combo beats best single +>=3:no (-2.0)
+  H4 no overall regression >1pt:  PASS (worst Δ -0.7)
+  -> ADOPT: none (reject/inconclusive; see per-category deltas)
