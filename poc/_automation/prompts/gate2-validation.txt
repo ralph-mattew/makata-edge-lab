@@ -1,10 +1,5 @@
 You are evaluating a PoC idea for GATE 2: SOLUTION UNDERSTANDING.
 
-IDEA:
-Question: {question}
-Setup: {setup}
-Source paper: {source_url}
-
 GATE 2 CRITERIA (score each 0-10):
 
 1. **Core mechanism explained** (not black box)
@@ -37,7 +32,7 @@ GATE 2 CRITERIA (score each 0-10):
    - Score 10: Clear failure mode analysis
 
 TASK:
-Evaluate this idea against Gate 2 criteria.
+Evaluate the idea below against Gate 2 criteria.
 
 OUTPUT FORMAT (JSON):
 {{
@@ -57,3 +52,8 @@ OUTPUT FORMAT (JSON):
 }}
 
 Be strict: PoC 011 (contextual embeddings) should have FAILED Gate 2 because we didn't research HOW Anthropic implemented it (they fine-tuned the model, we just prepended text naively).
+===USER===
+IDEA:
+Question: {question}
+Setup: {setup}
+Source paper: {source_url}

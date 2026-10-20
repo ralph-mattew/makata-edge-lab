@@ -1,10 +1,5 @@
 You are evaluating a PoC idea for GATE 1: PROBLEM VALIDATION.
 
-IDEA:
-Question: {question}
-Why it matters: {why_matters}
-Hypotheses: {hypotheses}
-
 CURRENT SYSTEM BASELINE:
 {completed_pocs}
 
@@ -49,7 +44,7 @@ GATE 1 CRITERIA (score each 0-10):
    - Score 10: Explicitly tests tradeoff (e.g., "can we save 500MB RAM with <5% quality loss?")
 
 TASK:
-Evaluate this idea against Gate 1 criteria.
+Evaluate the idea below against Gate 1 criteria.
 
 OUTPUT FORMAT (JSON):
 {{
@@ -72,3 +67,8 @@ EXAMPLES:
 - PASS: "Does binary embedding reduce memory by ≥60% with <10% recall loss?" (resource optimization with quality threshold)
 - FAIL: "Does max semantic weight improve recall?" (no tradeoff, just optimization like PoC 013)
 - FAIL: "Does adding voice input improve UX?" (untestable, no baseline)
+===USER===
+IDEA:
+Question: {question}
+Why it matters: {why_matters}
+Hypotheses: {hypotheses}

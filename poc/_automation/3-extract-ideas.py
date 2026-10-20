@@ -1,20 +1,76 @@
 #!/usr/bin/env python3
 """Stage 3: Extract PoC ideas from relevant papers using LLM"""
-import argparse, json, os
+import argparse, json, os, re
 from pathlib import Path
 import yaml
+import requests
 import anthropic
-from _client import make_client, resolve_model, CostTracker
+from _client import (make_client, resolve_model, CostTracker,
+                     load_split_prompt, call_json, concurrent_map)
+
+# Structured-outputs schema for the extracted ideas.
+IDEAS_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "ideas": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": False,
+                "properties": {
+                    "question": {"type": "string"},
+                    "why_matters": {"type": "array", "items": {"type": "string"}},
+                    "hypotheses": {"type": "array", "items": {"type": "string"}},
+                    "setup": {"type": "string"},
+                    "decision_rule": {"type": "string"},
+                    "estimated_effort": {"type": "string"},
+                    "expected_outcome": {"type": "string"},
+                    "confidence": {"type": "number"},
+                },
+                "required": ["question", "why_matters", "hypotheses", "setup",
+                             "decision_rule", "estimated_effort", "expected_outcome", "confidence"],
+            },
+        }
+    },
+    "required": ["ideas"],
+}
+
 
 def load_config():
     with open(Path(__file__).parent / "config.yaml") as f:
         return yaml.safe_load(f)
 
-def load_prompt():
-    return (Path(__file__).parent / "prompts" / "idea-extraction.txt").read_text()
 
-def extract_ideas(client, config, paper, prompt_template, model, tracker):
-    prompt = prompt_template.format(
+def fetch_fulltext(url: str, char_budget: int) -> str:
+    """Best-effort arXiv full text via ar5iv HTML, truncated to a char budget.
+    Returns '' on any failure (caller falls back to the abstract alone)."""
+    m = re.search(r'(\d{4}\.\d{4,5})(v\d+)?', url or '')
+    if not m:
+        return ""
+    arxiv_id = m.group(1)
+    try:
+        resp = requests.get(f"https://ar5iv.org/abs/{arxiv_id}", timeout=20)
+        resp.raise_for_status()
+        html = resp.text
+        text = re.sub(r'(?is)<(script|style).*?</\1>', ' ', html)  # drop script/style
+        text = re.sub(r'(?s)<[^>]+>', ' ', text)                   # strip tags
+        text = re.sub(r'\s+', ' ', text).strip()
+        return text[:char_budget]
+    except Exception as e:
+        print(f"  (full text fetch failed for {arxiv_id}: {e}; using abstract)")
+        return ""
+
+
+def extract_ideas(client, config, paper, sys_tmpl, user_tmpl, model, tracker):
+    fulltext = ""
+    if config.get('sources', {}).get('fetch_fulltext'):
+        budget = int(config.get('sources', {}).get('fulltext_char_budget', 20000))
+        body = fetch_fulltext(paper.get('url', ''), budget)
+        if body:
+            fulltext = f"\nFULL TEXT (truncated):\n{body}"
+
+    fields = dict(
         device=config['system_context']['device'],
         ram_budget=config['system_context']['ram_budget'],
         embedding_model=config['system_context']['embedding_model'],
@@ -26,24 +82,20 @@ def extract_ideas(client, config, paper, prompt_template, model, tracker):
         completed_pocs='\n'.join(f"- {poc}" for poc in config['system_context']['completed_pocs']),
         title=paper['title'],
         url=paper['url'],
-        abstract=paper['abstract']
+        abstract=paper['abstract'],
+        fulltext=fulltext,
     )
+    system_text = sys_tmpl.format(**fields) if sys_tmpl else None
+    user_text = user_tmpl.format(**fields)
 
     try:
-        response = client.messages.create(
-            model=model,
-            max_tokens=config['llm']['max_tokens'],
-            messages=[{"role": "user", "content": prompt}]
-        )
-        tracker.add(response.usage)
-        text = response.content[0].text
-        start, end = text.find('{'), text.rfind('}') + 1
-        if start >= 0 and end > start:
-            result = json.loads(text[start:end])
-            return result.get('ideas', [])
+        result = call_json(client, model, system_text, user_text,
+                           config['llm']['max_tokens'], tracker, IDEAS_SCHEMA)
+        return (result or {}).get('ideas', [])
     except (anthropic.APIError, json.JSONDecodeError) as e:
         print(f"Error: {e}")
     return []
+
 
 def main():
     parser = argparse.ArgumentParser(description="Stage 3: Extract PoC ideas")
@@ -55,17 +107,20 @@ def main():
     client = make_client(config)
     model = resolve_model(config, "extraction")
     tracker = CostTracker(model)
-    prompt = load_prompt()
+    workers = int(config['llm'].get('max_workers', 1))
+    sys_tmpl, user_tmpl = load_split_prompt("idea-extraction")
 
-    print(f"=== Stage 3: Idea Extraction ({model}) ===")
+    print(f"=== Stage 3: Idea Extraction ({model}, {workers} worker(s)) ===")
 
     papers = [json.loads(line) for line in open(args.input)]
+
+    def work(paper):
+        return paper, extract_ideas(client, config, paper, sys_tmpl, user_tmpl, model, tracker)
+
+    results = concurrent_map(work, papers, workers)
+
     all_ideas = []
-
-    for i, paper in enumerate(papers):
-        print(f"[{i+1}/{len(papers)}] Extracting ideas from: {paper['title'][:60]}...")
-        ideas = extract_ideas(client, config, paper, prompt, model, tracker)
-
+    for paper, ideas in results:
         for idea in ideas:
             idea['source_paper'] = paper['id']
             idea['source_title'] = paper['title']

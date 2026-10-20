@@ -2,6 +2,11 @@
 
 # Research sources
 sources:
+  # When true, Stage 3 fetches arXiv full text (ar5iv HTML) for extraction
+  # instead of relying on the abstract alone; falls back to abstract on failure.
+  fetch_fulltext: false
+  fulltext_char_budget: 20000
+
   arxiv:
     enabled: true
     categories: ["cs.CL", "cs.LG", "cs.AI", "cs.IR"]
@@ -57,7 +62,8 @@ llm:
     gate: "claude-sonnet-4-6"        # stage 4 (use claude-opus-4-8 for the hardest gates)
   temperature: 0.1
   max_tokens: 4096
-  max_retries: 3  # SDK auto-retries 429/5xx with exponential backoff
+  max_retries: 3    # SDK auto-retries 429/5xx with exponential backoff
+  max_workers: 4    # concurrent LLM calls per stage (1 = sequential)
   api_key_env: "ANTHROPIC_API_KEY"  # Environment variable name
   # User-scoped keys (sk-ant-usr-...) also require ANTHROPIC_WORKSPACE_ID in the
   # environment — no workspace ID is committed to this repo.

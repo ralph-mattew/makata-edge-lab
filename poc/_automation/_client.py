@@ -7,9 +7,13 @@ ANTHROPIC_WORKSPACE_ID to be set in the environment.
 """
 from __future__ import annotations
 
+import json
 import os
 import sys
-from typing import Dict
+import threading
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from typing import Callable, Dict, List, Optional
 
 from anthropic import Anthropic
 
@@ -80,14 +84,16 @@ class CostTracker:
         self.output = 0
         self.cache_read = 0
         self.cache_write = 0
+        self._lock = threading.Lock()
 
     def add(self, usage) -> None:
         if not usage:
             return
-        self.input += getattr(usage, "input_tokens", 0) or 0
-        self.output += getattr(usage, "output_tokens", 0) or 0
-        self.cache_read += getattr(usage, "cache_read_input_tokens", 0) or 0
-        self.cache_write += getattr(usage, "cache_creation_input_tokens", 0) or 0
+        with self._lock:  # called from worker threads under concurrency
+            self.input += getattr(usage, "input_tokens", 0) or 0
+            self.output += getattr(usage, "output_tokens", 0) or 0
+            self.cache_read += getattr(usage, "cache_read_input_tokens", 0) or 0
+            self.cache_write += getattr(usage, "cache_creation_input_tokens", 0) or 0
 
     def estimate_usd(self):
         px = _price_for(self.model)
@@ -107,3 +113,85 @@ class CostTracker:
         return (f"tokens: in={self.input} out={self.output} "
                 f"cache_read={self.cache_read} cache_write={self.cache_write} "
                 f"| est cost {cost} ({self.model})")
+
+
+# ---------------------------------------------------------------------------
+# Prompt loading + LLM call
+# ---------------------------------------------------------------------------
+_PROMPTS_DIR = Path(__file__).parent / "prompts"
+_USER_MARKER = "===USER==="
+
+
+def load_split_prompt(name: str):
+    """Load a prompt template split into (system, user) halves on `===USER===`.
+
+    The system half is the stable, per-run-identical instructions + context (so
+    it can be cached across items); the user half is the volatile per-item data.
+    Templates without the marker fall back to (None, whole-template).
+    """
+    text = (_PROMPTS_DIR / f"{name}.txt").read_text(encoding="utf-8")
+    if _USER_MARKER in text:
+        sys_part, user_part = text.split(_USER_MARKER, 1)
+        return sys_part.strip(), user_part.strip()
+    return None, text
+
+
+def _extract_json(text: str) -> Optional[dict]:
+    text = (text or "").strip()
+    try:
+        return json.loads(text)
+    except Exception:
+        pass
+    start, end = text.find("{"), text.rfind("}")
+    if 0 <= start < end:
+        try:
+            return json.loads(text[start:end + 1])
+        except Exception:
+            return None
+    return None
+
+
+def call_json(client, model: str, system_text: Optional[str], user_text: str,
+              max_tokens: int, tracker: CostTracker, schema: Optional[dict] = None) -> Optional[dict]:
+    """One Messages call that returns parsed JSON (or None).
+
+    - `system_text` is sent as a cached system block (`cache_control: ephemeral`).
+      NOTE: caching only engages once that block exceeds the model's minimum
+      cacheable prefix (~2048 tok Sonnet 4.6 / ~4096 tok Haiku 4.5); smaller
+      prefixes silently don't cache — harmless, just no hit.
+    - `schema`, when given, constrains output via structured outputs
+      (`output_config.format`); falls back to prompt-guided JSON on older SDKs.
+    """
+    kwargs = dict(model=model, max_tokens=max_tokens,
+                  messages=[{"role": "user", "content": user_text}])
+    if system_text:
+        kwargs["system"] = [{"type": "text", "text": system_text,
+                             "cache_control": {"type": "ephemeral"}}]
+
+    if schema is not None:
+        try:
+            resp = client.messages.create(
+                output_config={"format": {"type": "json_schema", "schema": schema}},
+                **kwargs,
+            )
+        except TypeError:
+            # SDK without output_config — rely on the prompt's JSON instructions.
+            resp = client.messages.create(**kwargs)
+    else:
+        resp = client.messages.create(**kwargs)
+
+    tracker.add(getattr(resp, "usage", None))
+    text = "".join(b.text for b in resp.content if getattr(b, "type", None) == "text")
+    return _extract_json(text)
+
+
+def concurrent_map(fn: Callable, items: List, workers: int) -> List:
+    """`[fn(x) for x in items]`, parallelized across `workers` threads (order
+    preserved). Caching caveat: a cache entry is only readable after the first
+    response starts streaming, so when the shared system prefix is large enough
+    to cache, prefer a warmup call before fanning out. At current prompt sizes
+    the prefix is sub-minimum (no caching), so plain fan-out is fine."""
+    if workers <= 1 or len(items) <= 1:
+        return [fn(x) for x in items]
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        return list(ex.map(fn, items))

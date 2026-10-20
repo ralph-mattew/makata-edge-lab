@@ -11,15 +11,27 @@ from typing import Dict, List
 
 import yaml
 
-from _client import make_client, resolve_model, CostTracker
+from _client import make_client, resolve_model, CostTracker, load_split_prompt, call_json, concurrent_map
 
 try:
     import anthropic
-    from anthropic import Anthropic
     HAS_ANTHROPIC = True
 except ImportError:
     HAS_ANTHROPIC = False
     print("Warning: anthropic library not installed. Install with: pip3 install anthropic")
+
+# Structured-outputs schema for the relevance verdict (no numeric min/max allowed).
+RELEVANCE_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "score": {"type": "number", "description": "Relevance 0-10"},
+        "reason": {"type": "string"},
+        "key_contribution": {"type": "string"},
+        "applicable": {"type": "boolean"},
+    },
+    "required": ["score", "reason", "key_contribution", "applicable"],
+}
 
 
 def load_config() -> Dict:
@@ -29,17 +41,10 @@ def load_config() -> Dict:
         return yaml.safe_load(f)
 
 
-def load_prompt_template(name: str) -> str:
-    """Load prompt template from prompts/ directory"""
-    prompt_path = Path(__file__).parent / "prompts" / f"{name}.txt"
-    return prompt_path.read_text()
-
-
-def evaluate_relevance(client: Anthropic, config: Dict, candidate: Dict, prompt_template: str,
+def evaluate_relevance(client, config: Dict, candidate: Dict, sys_tmpl, user_tmpl,
                        model: str, tracker: CostTracker) -> Dict:
-    """Use LLM to evaluate paper relevance"""
-    # Fill in prompt template
-    prompt = prompt_template.format(
+    """Use LLM to evaluate paper relevance (cached system block + structured output)."""
+    fields = dict(
         device=config['system_context']['device'],
         ram_budget=config['system_context']['ram_budget'],
         embedding_model=config['system_context']['embedding_model'],
@@ -51,38 +56,20 @@ def evaluate_relevance(client: Anthropic, config: Dict, candidate: Dict, prompt_
         title=candidate['title'],
         authors=', '.join(candidate['authors'][:3]),  # First 3 authors
         date=candidate['date'],
-        abstract=candidate['abstract']
+        abstract=candidate['abstract'],
     )
+    system_text = sys_tmpl.format(**fields) if sys_tmpl else None
+    user_text = user_tmpl.format(**fields)
 
-    # Call LLM
     try:
-        response = client.messages.create(
-            model=model,
-            max_tokens=config['llm']['max_tokens'],
-            messages=[{"role": "user", "content": prompt}]
-        )
-        tracker.add(response.usage)
-
-        # Parse JSON response
-        response_text = response.content[0].text
-        # Extract JSON from response (sometimes LLM adds explanation before/after JSON)
-        start_idx = response_text.find('{')
-        end_idx = response_text.rfind('}') + 1
-        if start_idx >= 0 and end_idx > start_idx:
-            json_text = response_text[start_idx:end_idx]
-            result = json.loads(json_text)
-            return result
-        else:
-            raise ValueError(f"No JSON found in response: {response_text}")
-
+        result = call_json(client, model, system_text, user_text,
+                           config['llm']['max_tokens'], tracker, RELEVANCE_SCHEMA)
+        if not result:
+            raise ValueError("no JSON in response")
+        return result
     except (anthropic.APIError, ValueError, json.JSONDecodeError) as e:
         print(f"Error evaluating {candidate['title']}: {e}")
-        return {
-            "score": 0.0,
-            "reason": f"Error: {e}",
-            "key_contribution": "",
-            "applicable": False
-        }
+        return {"score": 0.0, "reason": f"Error: {e}", "key_contribution": "", "applicable": False}
 
 
 def main():
@@ -101,11 +88,11 @@ def main():
     client = make_client(config)
     model = resolve_model(config, "relevance")
     tracker = CostTracker(model)
+    workers = int(config['llm'].get('max_workers', 1))
 
-    # Load prompt template
-    prompt_template = load_prompt_template("relevance-filter")
+    sys_tmpl, user_tmpl = load_split_prompt("relevance-filter")
 
-    print(f"=== Stage 2: Relevance Filtering ({model}) ===")
+    print(f"=== Stage 2: Relevance Filtering ({model}, {workers} worker(s)) ===")
 
     # Load candidates
     candidates = []
@@ -116,25 +103,23 @@ def main():
     print(f"Loaded {len(candidates)} candidates")
     print(f"Min relevance score: {config['relevance']['min_score']}/10")
 
-    # Evaluate each candidate
+    # Evaluate candidates concurrently (order preserved).
+    def work(candidate):
+        return candidate, evaluate_relevance(client, config, candidate, sys_tmpl, user_tmpl, model, tracker)
+
+    results = concurrent_map(work, candidates, workers)
+
     relevant = []
-    for i, candidate in enumerate(candidates):
-        print(f"[{i+1}/{len(candidates)}] Evaluating: {candidate['title'][:60]}...")
-
-        result = evaluate_relevance(client, config, candidate, prompt_template, model, tracker)
-
-        # Add relevance info to candidate
+    for candidate, result in results:
         candidate['relevance_score'] = result['score']
         candidate['relevance_reason'] = result['reason']
         candidate['key_contribution'] = result.get('key_contribution', '')
         candidate['applicable'] = result.get('applicable', False)
-
-        # Filter by threshold
         if result['score'] >= config['relevance']['min_score']:
             relevant.append(candidate)
-            print(f"  ✓ RELEVANT ({result['score']}/10): {result['reason'][:80]}")
+            print(f"  ✓ RELEVANT ({result['score']}/10): {candidate['title'][:55]}")
         else:
-            print(f"  ✗ NOT RELEVANT ({result['score']}/10): {result['reason'][:80]}")
+            print(f"  ✗ ({result['score']}/10): {candidate['title'][:55]}")
 
     print(f"\n=== Results ===")
     print(f"Candidates evaluated: {len(candidates)}")

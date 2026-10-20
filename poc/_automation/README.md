@@ -109,9 +109,12 @@ Edit `config.yaml` to customize:
 
 - **Search sources**: arXiv categories, HuggingFace, blogs
 - **Keywords**: Search terms for each source
-- **LLM settings**: Model, temperature, max_tokens, `max_retries`, and optional
-  per-stage models under `llm.models` (e.g. cheap `claude-haiku-4-5` for the
-  high-volume relevance filter, a stronger model for extraction/gates)
+- **LLM settings**: Model, temperature, max_tokens, `max_retries`, `max_workers`
+  (concurrent calls per stage), and optional per-stage models under `llm.models`
+  (e.g. cheap `claude-haiku-4-5` for the high-volume relevance filter, a stronger
+  model for extraction/gates)
+- **Full-text ingestion**: `sources.fetch_fulltext` (Stage 3 fetches arXiv HTML
+  for extraction instead of abstract-only; `fulltext_char_budget` caps size)
 - **Quality gate thresholds**: Min scores for each gate
 - **Prioritization weights**: Impact vs effort vs confidence
 - **Duplicate detection**: `similarity_threshold` / `check_against_existing`
@@ -132,6 +135,12 @@ Edit `config.yaml` to customize:
 - **Cost/usage logging.** Each LLM stage prints a token + estimated-cost line;
   Stage 4 also writes `scans/<date>/gate-stats.json` (per-gate funnel) for
   threshold calibration.
+- **Structured outputs + concurrency.** Stages 2/3 constrain output via
+  `output_config.format` (falls back to prompt-guided JSON on older SDKs);
+  stages 2/3/4 run `max_workers` calls concurrently. Prompts are split into a
+  cached system block + volatile user turn — note caching only engages once the
+  system block exceeds the model's minimum cacheable prefix (~2048/4096 tokens),
+  which the current context blocks do not, so cache hits are latent until prompts grow.
 
 ---
 

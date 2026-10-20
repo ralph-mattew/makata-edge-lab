@@ -4,59 +4,90 @@ import argparse, json, os
 from pathlib import Path
 import yaml
 import anthropic
-from _client import make_client, resolve_model, CostTracker
+from _client import (make_client, resolve_model, CostTracker,
+                     load_split_prompt, call_json, concurrent_map)
 
 def load_config():
     with open(Path(__file__).parent / "config.yaml") as f:
         return yaml.safe_load(f)
 
-def load_prompt(name):
-    return (Path(__file__).parent / "prompts" / f"{name}.txt").read_text()
-
-def evaluate_gate(client, config, idea, gate_num, prompt_template, model, tracker):
-    """Evaluate a single gate"""
+def evaluate_gate(client, config, idea, gate_num, templates, model, tracker):
+    """Evaluate a single gate. `templates` is a (system, user) pair."""
     completed_pocs_text = '\n'.join(f"- {poc}" for poc in config['system_context']['completed_pocs'])
 
     if gate_num == 1:
-        prompt = prompt_template.format(
+        fields = dict(
             question=idea['question'],
             why_matters='\n'.join(f"- {item}" for item in idea['why_matters']),
             hypotheses='\n'.join(f"- {h}" for h in idea['hypotheses']),
-            completed_pocs=completed_pocs_text
+            completed_pocs=completed_pocs_text,
         )
     elif gate_num == 2:
-        prompt = prompt_template.format(
+        fields = dict(
             question=idea['question'],
             setup=idea['setup'],
-            source_url=idea.get('source_url', '')
+            source_url=idea.get('source_url', ''),
         )
-    elif gate_num == 3:
-        prompt = prompt_template.format(
+    else:  # gate 3
+        fields = dict(
             question=idea['question'],
             estimated_effort=idea['estimated_effort'],
             expected_outcome=idea['expected_outcome'],
             confidence=idea['confidence'],
             device=config['system_context']['device'],
-            ram_budget=config['system_context']['ram_budget']
+            ram_budget=config['system_context']['ram_budget'],
         )
 
+    sys_tmpl, user_tmpl = templates
+    system_text = sys_tmpl.format(**fields) if sys_tmpl else None
+    user_text = user_tmpl.format(**fields)
+
     try:
-        response = client.messages.create(
-            model=model,
-            max_tokens=config['llm']['max_tokens'],
-            messages=[{"role": "user", "content": prompt}]
-        )
-        tracker.add(response.usage)
-        text = response.content[0].text
-        start, end = text.find('{'), text.rfind('}') + 1
-        if start >= 0 and end > start:
-            result = json.loads(text[start:end])
+        # Gate schemas are nested/complex; rely on the centralized robust JSON
+        # parse (schema=None) rather than structured outputs here.
+        result = call_json(client, model, system_text, user_text,
+                           config['llm']['max_tokens'], tracker, schema=None)
+        if result:
             return result.get(f'gate{gate_num}', {})
-    except (anthropic.APIError, json.JSONDecodeError) as e:
+    except anthropic.APIError as e:
         print(f"  Error evaluating gate {gate_num}: {e}")
         return {"verdict": "FAIL", "overall_score": 0.0, "reason": f"Error: {e}"}
 
     return {"verdict": "FAIL", "overall_score": 0.0, "reason": "No JSON found in response"}
+
+
+def validate_idea(client, config, idea, prompts, model, tracker):
+    """Run the 3 gates for one idea. Returns (approved_idea_or_None, stats)
+    where stats records which gates were reached/passed (aggregated later)."""
+    stats = {f"gate{n}": {"reached": 0, "passed": 0} for n in (1, 2, 3)}
+    label = idea['question'][:60]
+
+    stats["gate1"]["reached"] = 1
+    gate1 = evaluate_gate(client, config, idea, 1, prompts[1], model, tracker)
+    print(f"  [{label}] Gate 1: {gate1.get('verdict', 'UNKNOWN')} ({gate1.get('overall_score', 0):.1f})")
+    if gate1.get('verdict') == 'FAIL':
+        return None, stats
+    stats["gate1"]["passed"] = 1
+
+    stats["gate2"]["reached"] = 1
+    gate2 = evaluate_gate(client, config, idea, 2, prompts[2], model, tracker)
+    print(f"  [{label}] Gate 2: {gate2.get('verdict', 'UNKNOWN')} ({gate2.get('overall_score', 0):.1f})")
+    if gate2.get('verdict') == 'FAIL':
+        return None, stats
+    stats["gate2"]["passed"] = 1
+
+    stats["gate3"]["reached"] = 1
+    gate3 = evaluate_gate(client, config, idea, 3, prompts[3], model, tracker)
+    print(f"  [{label}] Gate 3: {gate3.get('verdict', 'UNKNOWN')} ({gate3.get('overall_score', 0):.1f})")
+    if gate3.get('verdict') in ['APPROVE', 'PASS']:
+        stats["gate3"]["passed"] = 1
+        idea['gate1'] = gate1
+        idea['gate2'] = gate2
+        idea['gate3'] = gate3
+        idea['overall_verdict'] = 'APPROVED'
+        return idea, stats
+    return None, stats
+
 
 def main():
     parser = argparse.ArgumentParser(description="Stage 4: Quality gate validation")
@@ -68,56 +99,31 @@ def main():
     client = make_client(config)
     model = resolve_model(config, "gate")
     tracker = CostTracker(model)
+    workers = int(config['llm'].get('max_workers', 1))
     prompts = {
-        1: load_prompt("gate1-validation"),
-        2: load_prompt("gate2-validation"),
-        3: load_prompt("gate3-validation")
+        1: load_split_prompt("gate1-validation"),
+        2: load_split_prompt("gate2-validation"),
+        3: load_split_prompt("gate3-validation"),
     }
 
-    print(f"=== Stage 4: Quality Gate Validation ({model}) ===")
+    print(f"=== Stage 4: Quality Gate Validation ({model}, {workers} worker(s)) ===")
 
     ideas = [json.loads(line) for line in open(args.input)]
-    approved = []
-    # Per-gate funnel counters — a lopsided funnel (e.g. 36→1) means a gate is
-    # likely miscalibrated; `gate-stats.json` makes thresholds data-driven.
+
+    # Validate ideas concurrently; each idea's 3 gates run sequentially inside.
+    def work(idea):
+        return validate_idea(client, config, idea, prompts, model, tracker)
+
+    results = concurrent_map(work, ideas, workers)
+
+    approved = [idea for idea, _ in results if idea is not None]
+    # Aggregate the per-idea funnel counters — a lopsided funnel (e.g. 36→1)
+    # means a gate is likely miscalibrated; gate-stats.json makes it data-driven.
     gate_stats = {f"gate{n}": {"reached": 0, "passed": 0} for n in (1, 2, 3)}
-
-    for i, idea in enumerate(ideas):
-        print(f"\n[{i+1}/{len(ideas)}] Validating: {idea['question'][:60]}")
-
-        # Evaluate 3 gates
-        gate_stats["gate1"]["reached"] += 1
-        gate1 = evaluate_gate(client, config, idea, 1, prompts[1], model, tracker)
-        print(f"  Gate 1: {gate1.get('verdict', 'UNKNOWN')} ({gate1.get('overall_score', 0):.1f}/10)")
-
-        if gate1.get('verdict') == 'FAIL':
-            print(f"    Reason: {gate1.get('reason', '')[:100]}")
-            continue
-        gate_stats["gate1"]["passed"] += 1
-
-        gate_stats["gate2"]["reached"] += 1
-        gate2 = evaluate_gate(client, config, idea, 2, prompts[2], model, tracker)
-        print(f"  Gate 2: {gate2.get('verdict', 'UNKNOWN')} ({gate2.get('overall_score', 0):.1f}/10)")
-
-        if gate2.get('verdict') == 'FAIL':
-            print(f"    Reason: {gate2.get('reason', '')[:100]}")
-            continue
-        gate_stats["gate2"]["passed"] += 1
-
-        gate_stats["gate3"]["reached"] += 1
-        gate3 = evaluate_gate(client, config, idea, 3, prompts[3], model, tracker)
-        print(f"  Gate 3: {gate3.get('verdict', 'UNKNOWN')} ({gate3.get('overall_score', 0):.1f}/10)")
-
-        if gate3.get('verdict') in ['APPROVE', 'PASS']:
-            gate_stats["gate3"]["passed"] += 1
-            idea['gate1'] = gate1
-            idea['gate2'] = gate2
-            idea['gate3'] = gate3
-            idea['overall_verdict'] = 'APPROVED'
-            approved.append(idea)
-            print(f"  ✓ APPROVED")
-        else:
-            print(f"    Reason: {gate3.get('reason', '')[:100]}")
+    for _, stats in results:
+        for n in (1, 2, 3):
+            gate_stats[f"gate{n}"]["reached"] += stats[f"gate{n}"]["reached"]
+            gate_stats[f"gate{n}"]["passed"] += stats[f"gate{n}"]["passed"]
 
     Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     with open(args.output, 'w') as f:

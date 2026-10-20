@@ -1,11 +1,5 @@
 You are evaluating a PoC idea for GATE 3: FEASIBILITY & ROI.
 
-IDEA:
-Question: {question}
-Estimated effort: {estimated_effort}
-Expected outcome: {expected_outcome}
-Confidence: {confidence}
-
 DEVICE CONSTRAINTS:
 - Device: {device}
 - RAM budget: {ram_budget}
@@ -45,7 +39,7 @@ GATE 3 CRITERIA (score each 0-10):
    - Score 10: Clear fail-fast checkpoint
 
 TASK:
-Evaluate this idea against Gate 3 criteria and calculate ROI.
+Evaluate the idea below against Gate 3 criteria and calculate ROI.
 
 OUTPUT FORMAT (JSON):
 {{
@@ -78,3 +72,9 @@ Example: If idea has 60% confidence, 8/10 impact, and 40 hours at risk:
 EV = 0.6 × 8 - 0.4 × (40/10) = 4.8 - 1.6 = +3.2 (APPROVE)
 
 Be realistic: Most ideas fail. Require EV >0 to approve.
+===USER===
+IDEA:
+Question: {question}
+Estimated effort: {estimated_effort}
+Expected outcome: {expected_outcome}
+Confidence: {confidence}
