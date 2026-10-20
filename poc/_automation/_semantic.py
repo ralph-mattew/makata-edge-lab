@@ -86,7 +86,8 @@ def _fetch_recent_arxiv(categories: List[str], start_date: datetime, pool_size: 
     search = arxiv.Search(query=query, max_results=pool_size,
                           sort_by=arxiv.SortCriterion.SubmittedDate,
                           sort_order=arxiv.SortOrder.Descending)
-    client = arxiv.Client(page_size=100, delay_seconds=5.0, num_retries=5)
+    from _arxiv import get_client
+    client = get_client()  # shared with Stage 1 so the 3s spacing is global
     papers: List[Dict] = []
     try:
         for p in client.results(search):

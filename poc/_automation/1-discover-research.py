@@ -81,9 +81,10 @@ def search_arxiv(config: Dict, start_date: datetime) -> List[Dict]:
     cat_query = ' OR '.join(f'cat:{cat}' for cat in categories)
     query = f'({keyword_query}) AND ({cat_query})'
 
-    # Search arXiv. Polite delay + retries — export.arxiv.org rate-limits (429)
-    # aggressively, and the default client has no backoff.
-    client = arxiv.Client(page_size=100, delay_seconds=5.0, num_retries=5)
+    # Shared client so arXiv's "1 request / 3s, single connection" rule is
+    # enforced across the keyword search AND the semantic arm (see _arxiv.py).
+    from _arxiv import get_client
+    client = get_client()
     search = arxiv.Search(
         query=query,
         max_results=100,
