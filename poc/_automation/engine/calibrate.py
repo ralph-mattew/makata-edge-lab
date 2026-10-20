@@ -24,14 +24,10 @@ import yaml
 
 from _client import make_client, resolve_model, CostTracker, concurrent_map
 from _gates import load_gate_prompts, validate_idea
+from pack import load_pack, add_pack_arg
 
 HERE = Path(__file__).parent
 CAL_KEYS = ("id", "label", "expected_fail_gate", "rationale")  # harness-only fields
-
-
-def load_config():
-    with open(HERE / "config.yaml") as f:
-        return yaml.safe_load(f)
 
 
 def actual_outcome(idea: dict) -> tuple[str, int | None]:
@@ -46,11 +42,15 @@ def actual_outcome(idea: dict) -> tuple[str, int | None]:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Calibrate the quality gates against labeled cases.")
-    ap.add_argument("--cases", default=str(HERE / "calibration" / "cases.jsonl"))
+    ap.add_argument("--cases", default=None, help="cases JSONL (default: the pack's calibration/cases.jsonl)")
     ap.add_argument("--json", action="store_true", help="emit per-case JSON results")
+    add_pack_arg(ap)
     args = ap.parse_args()
 
-    config = load_config()
+    pack = load_pack(args.pack)
+    config = pack.config
+    if not args.cases:
+        args.cases = str(pack.calibration_dir / "cases.jsonl")
     client = make_client(config)
     model = resolve_model(config, "gate")
     tracker = CostTracker(model)

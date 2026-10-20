@@ -117,8 +117,16 @@ class CostTracker:
 # ---------------------------------------------------------------------------
 # Prompt loading + LLM call
 # ---------------------------------------------------------------------------
+# The active pack sets this via pack.wire() -> set_prompts_dir(); default is the
+# engine's own prompts/ dir (holds generalized skeletons once Phase 1 lands).
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
 _USER_MARKER = "===USER==="
+
+
+def set_prompts_dir(path):
+    """Point prompt loading at the active pack's prompts/ directory."""
+    global _PROMPTS_DIR
+    _PROMPTS_DIR = Path(path)
 
 
 def load_split_prompt(name: str):

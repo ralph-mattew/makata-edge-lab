@@ -6,6 +6,25 @@
 
 ---
 
+## Architecture: engine + packs
+
+The pipeline is a **domain-agnostic engine** plus swappable **domain packs**, so the same
+machinery (discover → filter → extract → synthesize → gate → prioritize → bank) can ideate on
+any field, not just Edge AI:
+
+```
+engine/          reusable machinery — stages/, _client, _gates, _knowledge, _semantic, pack.py, calibrate.py
+packs/<name>/    one domain: pack.yaml + prompts/ + knowledge/ (open-problems, outcomes) + calibration/
+scans/<name>/    git-ignored run outputs
+run.py --pack <name>   orchestrator (run-weekly-scan.sh is a thin wrapper → edge-ai-rag by default)
+```
+
+Run a scan: `python3 run.py --pack edge-ai-rag` (or `--dry-run`, `--days N`). Add a new domain by
+creating `packs/<name>/` with its own `pack.yaml`, prompts, open-problems, and calibration cases.
+Regression-test a pack's gates: `python3 engine/calibrate.py --pack <name>`.
+
+---
+
 ## Quick Start
 
 ### 1. Install Dependencies

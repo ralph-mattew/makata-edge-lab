@@ -2,6 +2,9 @@
 """Stage 3: Extract PoC ideas from relevant papers using LLM"""
 import argparse, json, os, re
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # put engine/ on sys.path
+from pack import load_pack, add_pack_arg
 import yaml
 import requests
 import anthropic
@@ -105,9 +108,10 @@ def main():
     parser = argparse.ArgumentParser(description="Stage 3: Extract PoC ideas")
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", required=True)
+    add_pack_arg(parser)
     args = parser.parse_args()
 
-    config = load_config()
+    config = load_pack(args.pack).config
     client = make_client(config)
     model = resolve_model(config, "extraction")
     tracker = CostTracker(model)
