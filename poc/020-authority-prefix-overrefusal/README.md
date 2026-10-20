@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| Status | planned |
+| Status | Building (host harness scaffolded; logic validated on committed data, full run pending Qwen server) |
 | Verdict | — |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
@@ -44,21 +44,63 @@ ADOPT plain/task-only prompt if H1 holds (key-fact accuracy ≥70.9%) AND H3 hol
 
 inconclusive  ·  confidence 0.45  ·  est. effort 2-3 days (prompt variants require no retraining; only inference re-runs on existing harness)
 
+## Harness
+
+`authority-prompt.py` runs three system-prompt variants with a **byte-identical user turn** and
+**identical retrieval**, so only the authority framing varies:
+
+- **A (authority)** — `system = "You are a legal expert specializing in contract analysis…"`
+- **B (plain)** — no system message at all
+- **C (task-only)** — `system = "Answer the question using the provided text."`
+
+Per item: EmbeddingGemma hybrid 0.9/0.1 retrieval (raw query, top-3, committed `014/emb-page` +
+`014/emb-queries` — no re-embedding) → Qwen2.5-1.5B with each variant. Metrics:
+
+- **Key-fact accuracy** (primary) via PoC-006 `facts.py`, on the 6 date/duration/jurisdiction
+  categories (464 scorable items).
+- **Refusal/hedge rate** on every answerable item — a refusal or "not stated" is a miss here —
+  via a frozen marker regex, stratified by category.
+- **recall@3** — identical across variants (retrieval is unchanged), computed once. The dry pass
+  reproduces the 61.8% PoC-007/014 baseline, confirming the retrieval layer.
+
+Greedy decoding (temperature 0). Full run = 1,325 items × the chosen variants.
+
 ## Results
 
-Link raw files in `results/` once run. Tag every number MEASURED / OBSERVED / INFERRED.
+Not run yet. Non-embedding logic validated on committed data: full 1,325-item set, 464 key-fact
+scorable, recall@3 = 61.8% (matches baseline), refusal regex + facts scorer checked. The run needs
+the Qwen server. Per-variant raw answers (with `refused` / `key_fact_hit` flags) land in
+`results/raw/variant-*-answers.jsonl`; the summary in `results/authority-overrefusal.json`. Tag
+every number MEASURED / OBSERVED / INFERRED.
 
 ## Verdict
 
-Adopt / reject / inconclusive, against the decision rule.
+To be determined against the decision rule after the run.
 
 ## Limits
 
-What this does not show.
+- **H2 (hard-category accuracy gain) is not key-fact-scorable.** The PoC-013 hard categories
+  (Exclusivity, Non-Compete, Change Of Control) have `key_fact = None`, so H2's "disproportionate
+  accuracy gain" is measured here via **refusal-rate** on those categories (reported as
+  `hard_cat_refusal_rate`), not key-fact accuracy. Note this when evaluating H2.
+- **Variant A's wording is representative, not verbatim-from-app.** It should be reconciled with
+  Xylo's exact production system prompt on promotion to a verdict; the experiment measures the
+  *framing effect*, which the three variants isolate.
+- **Refusal detection is lexical.** A frozen marker regex; it will miss paraphrased refusals and
+  may count a legitimately-absent "not stated" — but on the answerable CUAD set a "not stated" is
+  a miss, which is exactly the over-refusal signal under test.
+- **recall@3 unaffected by construction** — prompt framing does not touch retrieval, so H3 is a
+  sanity check, confirmed by the 61.8% reproduction.
 
 ## Reproduce
 
-Commands from a clean checkout.
+```bash
+llama-server -m <Qwen2.5-1.5B-Q4.gguf> -c 4096 -ngl 99 --port 8091 --log-disable &
+
+cd poc/020-authority-prefix-overrefusal
+python3 authority-prompt.py                 # all three variants, full 1,325-item set
+python3 authority-prompt.py --limit 200     # quick smoke run
+```
 
 ---
 
