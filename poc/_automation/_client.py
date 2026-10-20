@@ -35,14 +35,12 @@ def make_client(config: Dict) -> Anthropic:
 
     kwargs = {"api_key": api_key, "max_retries": int(config["llm"].get("max_retries", 2))}
 
-    # User-scoped keys must be pinned to a workspace via header. Require it
-    # explicitly rather than shipping someone's workspace ID in the source.
-    if api_key.startswith("sk-ant-usr-"):
-        workspace_id = os.getenv("ANTHROPIC_WORKSPACE_ID")
-        if not workspace_id:
-            sys.exit("Error: user-scoped API key detected (sk-ant-usr-...) but "
-                     "ANTHROPIC_WORKSPACE_ID is not set. Export it, or use a "
-                     "workspace/organization key.")
+    # Pin to a workspace only when one is provided. User-scoped keys already
+    # resolve to their default workspace, so this is optional — set
+    # ANTHROPIC_WORKSPACE_ID to target a specific workspace. No workspace ID is
+    # committed to the source.
+    workspace_id = os.getenv("ANTHROPIC_WORKSPACE_ID")
+    if workspace_id:
         kwargs["default_headers"] = {"anthropic-workspace-id": workspace_id}
 
     return Anthropic(**kwargs)

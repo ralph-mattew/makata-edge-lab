@@ -18,8 +18,8 @@ pip3 install --break-system-packages arxiv requests pyyaml anthropic
 
 ```bash
 export ANTHROPIC_API_KEY="your-api-key-here"
-# Only if you use a user-scoped key (sk-ant-usr-...): also set your workspace.
-# No workspace ID is baked into the source.
+# Optional: target a specific workspace (keys resolve to their default
+# workspace otherwise). No workspace ID is baked into the source.
 export ANTHROPIC_WORKSPACE_ID="wrkspc_..."
 ```
 
@@ -138,9 +138,11 @@ Edit `config.yaml` to customize:
 - **Structured outputs + concurrency.** Stages 2/3 constrain output via
   `output_config.format` (falls back to prompt-guided JSON on older SDKs);
   stages 2/3/4 run `max_workers` calls concurrently. Prompts are split into a
-  cached system block + volatile user turn — note caching only engages once the
-  system block exceeds the model's minimum cacheable prefix (~2048/4096 tokens),
-  which the current context blocks do not, so cache hits are latent until prompts grow.
+  cached system block + volatile user turn. Measured: the Sonnet stages
+  (extraction/gates) cache their system prefix — a re-run shows
+  `cache_read` > 0. The relevance stage's block is small (and runs on Haiku,
+  which has a larger cacheable minimum), so it doesn't cache — that's fine,
+  since relevance runs on the cheapest model anyway.
 
 ---
 

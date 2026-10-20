@@ -65,8 +65,8 @@ llm:
   max_retries: 3    # SDK auto-retries 429/5xx with exponential backoff
   max_workers: 4    # concurrent LLM calls per stage (1 = sequential)
   api_key_env: "ANTHROPIC_API_KEY"  # Environment variable name
-  # User-scoped keys (sk-ant-usr-...) also require ANTHROPIC_WORKSPACE_ID in the
-  # environment — no workspace ID is committed to this repo.
+  # Optional ANTHROPIC_WORKSPACE_ID in the environment targets a specific
+  # workspace — no workspace ID is committed to this repo.
 
 # Relevance filtering (Stage 2)
 relevance:
