@@ -33,3 +33,11 @@ poc/004-*/results/raw/inputs-no-end-line.jsonl
 poc/005-*/results/raw/inputs.jsonl
 poc/008-*/results/raw/inputs-*.jsonl
 poc/009-*/results/raw/inputs-*.jsonl
+
+# Automated ideation pipeline: live scan outputs + operational state are NOT
+# published — they're an unvetted idea firehose that also reveals the live
+# roadmap. The engine is public; publish curated scan reports deliberately.
+# The tiny scans/test/ fixture is kept for the documented per-stage examples.
+poc/_automation/scans/*
+!poc/_automation/scans/test/
+!poc/_automation/scans/test/*
