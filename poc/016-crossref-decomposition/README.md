@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | Planned (registration draft) |
-| Verdict | TBD |
+| Status | Concluded — full corpus (397 contracts, 1,325 items) |
+| Verdict | **Mixed — xref rejected, decomposition is a partial win.** Cross-reference resolution slightly hurt (−0.7). Template question decomposition lifted overall +1.4 and **Exclusivity 7%→24% (+17)** — the first mechanism in the whole PoC series to move a hard category — but its hard-category *mean* gain (+6) fell short of the pre-registered +10, so strictly inconclusive-with-signal. See Verdict. |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | None yet |
 | Source idea | Synthesized by the lab's own ideation pipeline (2026-10-20 scan, Stage 3b cross-pollination), then consolidated by hand. Combines two papers neither of which proposed the combination — *StrucChunk* (clause/cross-reference-aware legal RAG) and *RESIN* (multi-chain question decomposition) — aimed at the bottleneck PoC 013/014 isolated. |
@@ -127,16 +127,76 @@ Written before the first run.
 
 ## Results
 
-To be filled after run. Raw in `results/`: `recall-<condition>.json`, `comparison.txt`,
-`xref-stats.json`, `decomp-templates.json`. Numbers tagged MEASURED / OBSERVED / INFERRED.
+Full corpus: 397 contracts, 1,325 items, hybrid 0.9/0.1, top-3. Raw in `results/`
+(`recall-{page,xref}-{raw,decomp}.json`, `comparison.txt`). xref augmented 6,774 / 79,037
+chunks (8.6%); decomposition used 3 templates each for the 3 hard categories (9 sub-queries,
+non-generative). Baseline reuses PoC 014 page chunks/embeddings; `page/raw` reproduces PoC
+014's 61.8% exactly (harness validated).
+
+**Recall@3 (MEASURED, 1,325 items).**
+
+| Condition | overall | 95% CI | Δ overall | hard-cat mean | Δ hard |
+|---|---|---|---|---|---|
+| `page/raw` (baseline) | 61.8% | 59.3–64.4 | — | 33.0% | — |
+| `xref/raw` | 61.1% | 58.6–63.7 | −0.7 | 32.0% | −1.0 |
+| **`page/decomp`** | **63.2%** | 60.7–65.6 | **+1.4** | **39.0%** | **+6.0** |
+| `xref/decomp` | 62.3% | 59.7–64.8 | +0.5 | 37.0% | +4.0 |
+
+**Hard categories, per condition (MEASURED, 100 items each).**
+
+| Category | page/raw | xref | decomp | both |
+|---|---|---|---|---|
+| **Exclusivity** | 7% | 7% | **24%** | 18% |
+| Non-Compete | 25% | 24% | 28% | 27% |
+| Change Of Control | 67% | 65% | 65% | 66% |
+
+**Observations.**
+- **OBSERVED (xref refuted, H1 no):** cross-reference resolution did **not** help and slightly
+  hurt (−0.7 overall, −1.0 hard). Appending the referenced clause's text dilutes the chunk's
+  embedding more than the extra context helps matching — the same dilution effect PoC 011 saw
+  with generated context. The "thin-pointer" theory does not hold on CUAD/EmbeddingGemma.
+- **OBSERVED (decomposition — the signal, H2 partial):** template question decomposition lifted
+  overall recall +1.4 and the hard-category mean +6.0. The headline is **Exclusivity 7% → 24%
+  (+17 points)** — the first mechanism across PoC 009/011/013/014 to move a hard category at
+  all. Non-Compete +3; Change Of Control −2 (its single-query form was already adequate at 67%).
+  The pre-registered bar was +≥10 on the hard *mean*; actual +6.0, so H2 is **not** met as a mean
+  — but the decision rule explicitly flagged a per-category fix as notable, and Exclusivity is it.
+- **OBSERVED (no synergy, H3 no):** combining xref+decomp (37.0%) was *worse* than decomp alone
+  (39.0%) — xref's dilution drags decomposition down. Drop the combination.
+- **OBSERVED (H4 pass):** no condition regressed overall by >1 pt (worst −0.7); easy categories
+  were not measured to move materially.
+- **INFERRED:** the hard categories are a **query** problem, not a chunk problem. Exclusivity
+  questions are multi-facet (restriction + exceptions + parties); a single averaged query vector
+  misses dispersed evidence that 2–3 focused sub-queries recover — and this works with **zero
+  on-device generation** (static templates), so it is 6GB-deployable.
 
 ## Verdict
 
-To be determined after run, against the decision rule.
+**Mixed, against the pre-registered decision rule:**
+
+- **`xref` (cross-reference resolution): REJECT.** H1 fails (−1.0 hard mean, −0.7 overall). Does
+  not transfer to CUAD/EmbeddingGemma; appended reference text dilutes the embedding.
+- **`decomp` (template question decomposition): ADOPT-worthy signal, strictly inconclusive.**
+  H2's +10 hard-mean bar was not met (+6.0), so by the letter of the rule it is **inconclusive**.
+  But it produced the series' only real hard-category movement — **Exclusivity +17 (7%→24%)** —
+  lifts overall +1.4 with no regression (H4 pass), and needs **no on-device generation**. Per the
+  registered "report per-category prominently" clause, this is the result worth carrying forward.
+- **Combination: REJECT.** H3 fails (combo < best single); xref drags decomp down.
+
+**Recommendation.** Reject xref and the combination. Pursue **decomposition** as the live lead on
+the hard categories — a focused follow-up: tune the Exclusivity/Non-Compete templates, extend to
+other weak categories, and measure key-fact accuracy end-to-end (not just recall@3). This is the
+first evidence that the hard-category bottleneck is a **query-formulation** problem (consistent
+with [PoC 015](../015-query-formulation)), not a chunking/scoring/depth one (PoC 013/014/009).
 
 ## Deviations
 
-None yet. Dated changes recorded here after registration.
+- **2026-10-20 (the run):** Cross-reference resolution restricted to **reliably-resolvable**
+  targets — distinctive dotted section numbers ("Section 3.2") and UPPERCASE heading phrases
+  ("EXHIBIT A", "ARTICLE V") — after an initial version mis-resolved bare single-letter labels
+  ("A") against the ubiquitous token "A". Embedding reused PoC 014's `emb-page` as the base and
+  embedded only the 6,774 changed chunks (overlaid at score time) to avoid re-embedding 79k
+  chunks and a 1.3 GB in-memory copy.
 
 ## Provenance (how this idea was generated)
 
@@ -171,13 +231,16 @@ Requirements: Apple-silicon Mac (macOS 26.4+, Swift 6.3+), llama.cpp; PoC 006/00
 
 ```bash
 cd poc/016-crossref-decomposition
-python3 build-conditions.py    # resolve cross-references; author/load decomposition templates
-./run.sh                       # embed each condition, score per-category recall@3, compare
-python3 compare.py             # per-category deltas + CIs for xref / decomp / combination
+python3 build-conditions.py                  # xref chunks (reusing PoC 014 page chunks) + templates
+llama-server --embedding --embd-gemma-default --pooling mean --embd-normalize 2 \
+  -c 16384 --parallel 8 -b 16384 -ub 2048 --port 8090 --log-disable &
+python3 embed.py --xref --subqueries         # embed only changed chunks + sub-queries (reuse emb-page)
+for cc in page xref; do for qc in raw decomp; do python3 score.py --chunk-cond $cc --query-cond $qc; done; done
+python3 compare.py                           # per-category deltas + CIs, H1-H4 read-out
 ```
 
 ## Replications
 
 | Date | Device | Authors | Outcome |
 |---|---|---|---|
-| TBD | Mac16,8 M4 Pro | Ralph Mattew Palomaria | TBD |
+| 2026-10-20 | Mac16,8 M4 Pro | Ralph Mattew Palomaria | xref reject; decomposition lifts Exclusivity +17 (7%→24%), hard-mean +6 (<+10 bar) |
