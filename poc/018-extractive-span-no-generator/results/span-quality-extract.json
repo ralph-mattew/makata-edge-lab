@@ -1,0 +1,23 @@
+{
+  "extract": {
+    "arm": "extract-w1",
+    "mean_f1": 17.495898943848417,
+    "ci": [
+      14.59564096058715,
+      20.623101573759598
+    ],
+    "hard_mean_f1": 17.495898943848413,
+    "per_category": {
+      "Exclusivity": 7.544311660325403,
+      "Non-Compete": 16.63894470318133,
+      "Change Of Control": 28.30444046803851
+    },
+    "n_items": 300
+  },
+  "_meta": {
+    "peak_rss_mb_host": 2901.2,
+    "window": 1,
+    "topk": 3,
+    "n_work": 300
+  }
+}

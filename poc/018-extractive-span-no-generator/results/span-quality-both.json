@@ -1,0 +1,38 @@
+{
+  "extract": {
+    "arm": "extract-w3",
+    "mean_f1": 20.695739901734967,
+    "ci": [
+      17.886755741494433,
+      23.682117175862476
+    ],
+    "hard_mean_f1": 20.69573990173497,
+    "per_category": {
+      "Exclusivity": 12.228458597373736,
+      "Non-Compete": 19.072561892813052,
+      "Change Of Control": 30.786199215018122
+    },
+    "n_items": 300
+  },
+  "generate": {
+    "arm": "generate",
+    "mean_f1": 15.671839071807739,
+    "ci": [
+      12.762045541751352,
+      18.601676055550243
+    ],
+    "hard_mean_f1": 15.671839071807739,
+    "per_category": {
+      "Exclusivity": 3.6865279051197253,
+      "Non-Compete": 16.707347000793153,
+      "Change Of Control": 26.621642309510335
+    },
+    "n_items": 300
+  },
+  "_meta": {
+    "peak_rss_mb_host": 2901.2,
+    "window": 3,
+    "topk": 3,
+    "n_work": 300
+  }
+}
