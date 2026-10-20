@@ -1,0 +1,115 @@
+{
+  "Exclusivity": {
+    "gloss": "Exclusivity: clause restricting a party from dealing with third parties",
+    "keywords": "exclusive exclusivity sole solely restriction prohibited third parties compete",
+    "subqueries": [
+      "exclusive dealing restriction on the parties",
+      "exceptions or carve-outs to the exclusivity obligation",
+      "which party is bound by exclusivity and in what territory or field"
+    ]
+  },
+  "Non-Compete": {
+    "gloss": "Non-Compete: covenant prohibiting a party from competing",
+    "keywords": "non-compete noncompete compete competing restrict covenant business",
+    "subqueries": [
+      "non-compete restriction prohibiting a competing business",
+      "duration and geographic scope of the non-compete",
+      "exceptions to the non-competition covenant"
+    ]
+  },
+  "Change Of Control": {
+    "gloss": "Change of Control: rights triggered by change in ownership",
+    "keywords": "change of control merger acquisition assignment ownership consent",
+    "subqueries": [
+      "change of control or change in ownership provision",
+      "assignment or termination rights triggered by change of control",
+      "consent required on a merger acquisition or sale"
+    ]
+  },
+  "Agreement Date": {
+    "gloss": "Agreement Date: the date the contract is dated or signed",
+    "keywords": "dated as of effective date entered into execution signed day of",
+    "subqueries": [
+      "the date this agreement is dated or made",
+      "effective date of the agreement"
+    ]
+  },
+  "Warranty Duration": {
+    "gloss": "Warranty Duration: how long the warranty lasts",
+    "keywords": "warranty warrants period duration months years from delivery defects",
+    "subqueries": [
+      "duration or period of the warranty",
+      "warranty start date and length"
+    ]
+  },
+  "Liquidated Damages": {
+    "gloss": "Liquidated Damages: pre-agreed damages payable on breach",
+    "keywords": "liquidated damages penalty pre-agreed amount payable breach failure",
+    "subqueries": [
+      "liquidated damages amount payable on breach",
+      "penalty or pre-agreed damages clause"
+    ]
+  },
+  "Cap On Liability": {
+    "gloss": "Cap on Liability: limit on a party's total liability",
+    "keywords": "limitation of liability cap aggregate maximum shall not exceed total",
+    "subqueries": [
+      "limitation or cap on total liability",
+      "maximum aggregate amount a party is liable for",
+      "exclusions from the liability cap"
+    ]
+  },
+  "Audit Rights": {
+    "gloss": "Audit Rights: right to inspect or audit records",
+    "keywords": "audit inspect records books examine right upon notice",
+    "subqueries": [
+      "right to audit or inspect the other party's records",
+      "notice and frequency of audits"
+    ]
+  },
+  "Notice Period To Terminate Renewal": {
+    "gloss": "Notice Period to Terminate Renewal: notice needed to stop auto-renewal",
+    "keywords": "notice days prior written terminate non-renewal renewal period before",
+    "subqueries": [
+      "notice period required to terminate or not renew",
+      "days of prior written notice before renewal"
+    ]
+  },
+  "Termination For Convenience": {
+    "gloss": "Termination for Convenience: right to terminate without cause",
+    "keywords": "terminate for convenience without cause upon notice any reason",
+    "subqueries": [
+      "right to terminate for convenience without cause",
+      "notice required to terminate for convenience"
+    ]
+  },
+  "Renewal Term": {
+    "gloss": "Renewal Term: automatic or optional renewal length",
+    "keywords": "renew renewal automatically successive additional term extended period",
+    "subqueries": [
+      "renewal term length",
+      "automatic or optional renewal provision"
+    ]
+  },
+  "Expiration Date": {
+    "gloss": "Expiration Date: when the agreement term ends",
+    "keywords": "expire expiration term ends until through terminate date",
+    "subqueries": [
+      "date the agreement term expires or ends"
+    ]
+  },
+  "Governing Law": {
+    "gloss": "Governing Law: the law that governs the contract",
+    "keywords": "governed construed laws state of jurisdiction without regard conflicts",
+    "subqueries": [
+      "which state or country law governs the agreement"
+    ]
+  },
+  "Insurance": {
+    "gloss": "Insurance: required insurance coverage",
+    "keywords": "insurance coverage policy maintain liability amount insured",
+    "subqueries": [
+      "required insurance coverage and amounts"
+    ]
+  }
+}
