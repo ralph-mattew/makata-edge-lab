@@ -1,17 +1,13 @@
-# PoC (proposed): Does combining PoC-016's static template decomposition (multi-query re…
-
-> **Staged proposal — not yet a registered PoC.** Auto-exported from the lab's ideation engine.
-> A human must review this, fill Method/devices, then PROMOTE it to a numbered `poc/NNN-<slug>/`
-> and register it (commit before the first run). See `../POC-GENERATION-WORKFLOW.md`.
+# PoC 019: Template decomposition + constrained substring extraction
 
 | | |
 |---|---|
 | Status | planned |
 | Verdict | — |
-| Authors | (unclaimed — assign on promotion) |
+| Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
-| Source idea | PoC-008 + PoC-016 + PoC-017 |
-| Registered | not yet — proposed 2026-10-20 |
+| Source idea | Synthesized by the lab's ideation engine (2026-10-20 edge-ai scan, MAP-Elites `novelty-push`, attacks OP-2). Combines PoC-008 + PoC-016 (decomposition) + PoC-017 (span quality). |
+| Registered | 2026-10-20 (this draft, before the first run) |
 
 ## Question
 
@@ -37,7 +33,8 @@ Reuse the existing experiment harness and CUAD dataset (300 hard-category items 
 
 - Baseline stack (fill exact files/SHA-256 on promotion): EmbeddingGemma 300M (600 MB), Qwen2.5-1.5B Q4 (1.0 GB), Hybrid: 0.9 semantic + 0.1 BM25 (weight adopted in PoC 013).
 - Device: iPhone 15 Pro (6GB). Dataset: CUAD contracts (397 documents, 1,325 Q&A items).
-- What varies vs held fixed, measurements, repetitions: TO BE SPECIFIED before registration.
+- Varies: the generation step — constrained extractive prompt + substring validator vs the PoC-017 free-generation baseline. Held fixed: PoC-016 decomposition, EmbeddingGemma retrieval, Qwen2.5-1.5B Q4, the CUAD eval set.
+- Measurements: hard-mean span-F1, Exclusivity key_fact recall@3, fact-category recall@3, validator reject rate, category-absent false-positive rate (50-item spot-check). Repetitions: Qwen decoding greedy (temp 0) for determinism → single pass; H4 validator fidelity on the 50-item spot-check. Host run first, then on-device replication.
 
 ## Decision rule
 

@@ -1,17 +1,13 @@
-# PoC (proposed): Does the authority-framing prefix used in our RAG pipeline (e.g., 'You…
-
-> **Staged proposal — not yet a registered PoC.** Auto-exported from the lab's ideation engine.
-> A human must review this, fill Method/devices, then PROMOTE it to a numbered `poc/NNN-<slug>/`
-> and register it (commit before the first run). See `../POC-GENERATION-WORKFLOW.md`.
+# PoC 020: Does the authority-framing prompt prefix cause over-refusal?
 
 | | |
 |---|---|
 | Status | planned |
 | Verdict | — |
-| Authors | (unclaimed — assign on promotion) |
+| Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
-| Source idea | LLMs Prompted for Legal Context Refuse More: Overrefusal from Small On-Premises LLMs in Criminal Legal Context (http://arxiv.org/abs/2610.26211v1) |
-| Registered | not yet — proposed 2026-10-20 |
+| Source idea | *LLMs Prompted for Legal Context Refuse More: Overrefusal from Small On-Premises LLMs in Criminal Legal Context* (http://arxiv.org/abs/2610.26211v1), surfaced by the lab's ideation engine (2026-10-20 edge-ai scan, Stage-3 extraction) as a self-critique of our own system prompt. |
+| Registered | 2026-10-20 (this draft, before the first run) |
 
 ## Question
 
@@ -37,7 +33,8 @@ Reuse the PoC-006/007 harness and the full CUAD 1,325 Q&A benchmark. Design thre
 
 - Baseline stack (fill exact files/SHA-256 on promotion): EmbeddingGemma 300M (600 MB), Qwen2.5-1.5B Q4 (1.0 GB), Hybrid: 0.9 semantic + 0.1 BM25 (weight adopted in PoC 013).
 - Device: iPhone 15 Pro (6GB). Dataset: CUAD contracts (397 documents, 1,325 Q&A items).
-- What varies vs held fixed, measurements, repetitions: TO BE SPECIFIED before registration.
+- Varies: the system-prompt framing only — (A) current authority-framed baseline / (B) plain / (C) task-only. Held fixed: EmbeddingGemma retrieval, Qwen2.5-1.5B Q4, decoding settings, the full CUAD eval set.
+- Measurements: key_fact accuracy, recall@3, refusal/hedge rate, all stratified by the PoC-013 hard categories. Repetitions: greedy decoding (temp 0) → single pass over 1,325 items × 3 conditions. Host run first, then on-device replication.
 
 ## Decision rule
 
