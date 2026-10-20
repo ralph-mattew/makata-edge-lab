@@ -17,9 +17,17 @@ python3 01-generate-contexts.py --limit "$LIMIT"
 kill $QPID $GPID 2>/dev/null || true; trap - EXIT
 
 echo "== Stage 2: embed (queries + each condition) =="
+# NOTE: llama-server splits context across --parallel slots, so per-input context
+# is n_ctx / parallel. Use -c 16384 --parallel 8 => 2048 tokens/input (matches
+# PoC 007); a bare -c 2048 gives only 256/input and 400s on long chunks.
+llama-server --embedding --embd-gemma-default --pooling mean --embd-normalize 2 \
+  -c 16384 --parallel 8 --host 127.0.0.1 --port 8090 --log-disable >/tmp/p011-emb.log 2>&1 & EPID=$!
+trap 'kill $EPID 2>/dev/null || true' EXIT
+for _ in $(seq 1 120); do curl -s http://127.0.0.1:8090/health 2>/dev/null | grep -q ok && break; sleep 1; done
 for cond in queries standard naive ctx_qwen ctx_gemma; do
-  python3 02-embed.py --condition "$cond"
+  python3 02-embed.py --condition "$cond" --batch 8
 done
+kill $EPID 2>/dev/null || true; trap - EXIT
 
 echo "== Stage 3: retrieve + recall (PROVISIONAL scorer) =="
 echo "Validate standard first:"

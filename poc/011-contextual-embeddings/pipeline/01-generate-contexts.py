@@ -68,29 +68,36 @@ def main():
     ap.add_argument("--gemma-url", default="http://127.0.0.1:8098")
     ap.add_argument("--doc-char-budget", type=int, default=6000)
     ap.add_argument("--limit", type=int, default=0, help="cap chunks (0 = all)")
+    ap.add_argument("--contracts", type=int, default=0, help="cap to first N contracts (0 = all)")
     ap.add_argument("--skip-gemma", action="store_true")
+    ap.add_argument("--standard-only", action="store_true",
+                    help="skip LLM generation; write chunk + naive only (for scorer validation)")
     args = ap.parse_args()
 
     contracts = load_contracts()
     docs = {name: " ".join(c.get("pages", []) or []) for name, c in contracts.items()}
+    allowed = set(list(docs)[:args.contracts]) if args.contracts else None
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     n = 0
     with open(OUT, "w") as f:
         for title, page, own in iter_chunks():
-            doc = (docs.get(title, "") or "")[:args.doc_char_budget]
-            prompt = SITUATE.format(doc=doc, chunk=own)
+            if allowed is not None and title not in allowed:
+                continue
             row = {"contract": title, "page": page, "chunk": own,
                    "naive": f"Document: {title}. Chunk: {own}"}
-            try:
-                row["ctx_qwen"] = chat_openai(args.qwen_url, prompt)
-            except Exception as e:
-                row["ctx_qwen"] = ""; row["qwen_error"] = str(e)[:120]
-            if not args.skip_gemma:
+            if not args.standard_only:
+                doc = (docs.get(title, "") or "")[:args.doc_char_budget]
+                prompt = SITUATE.format(doc=doc, chunk=own)
                 try:
-                    row["ctx_gemma"] = completion_gemma(args.gemma_url, prompt)
+                    row["ctx_qwen"] = chat_openai(args.qwen_url, prompt)
                 except Exception as e:
-                    row["ctx_gemma"] = ""; row["gemma_error"] = str(e)[:120]
+                    row["ctx_qwen"] = ""; row["qwen_error"] = str(e)[:120]
+                if not args.skip_gemma:
+                    try:
+                        row["ctx_gemma"] = completion_gemma(args.gemma_url, prompt)
+                    except Exception as e:
+                        row["ctx_gemma"] = ""; row["gemma_error"] = str(e)[:120]
             f.write(json.dumps(row) + "\n")
             n += 1
             if n % 25 == 0:
