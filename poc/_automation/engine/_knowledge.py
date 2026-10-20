@@ -17,22 +17,28 @@ from pathlib import Path
 from typing import Dict, List
 
 HERE = Path(__file__).parent
-_OUTCOMES_PATH = HERE / "knowledge" / "outcomes.jsonl"
-_OPEN_PROBLEMS_PATH = HERE / "knowledge" / "open-problems.md"
+# Active pack's knowledge/ dir, set via pack.wire() -> set_knowledge_dir().
+_KNOWLEDGE_DIR = HERE / "knowledge"
+
+
+def set_knowledge_dir(path):
+    """Point outcomes/open-problems loading at the active pack's knowledge/ dir."""
+    global _KNOWLEDGE_DIR
+    _KNOWLEDGE_DIR = Path(path)
 
 
 def load_open_problems() -> str:
-    """The lab's live bottleneck frontier (markdown), fed to the synthesis stage as the
+    """The pack's open-problems frontier (markdown), fed to the synthesis stage as the
     'problem' side of problem×method matching. Empty string if absent."""
-    if not _OPEN_PROBLEMS_PATH.exists():
-        return ""
-    return _OPEN_PROBLEMS_PATH.read_text(encoding="utf-8")
+    p = _KNOWLEDGE_DIR / "open-problems.md"
+    return p.read_text(encoding="utf-8") if p.exists() else ""
 
 
 def load_outcomes() -> List[Dict]:
-    if not _OUTCOMES_PATH.exists():
+    p = _KNOWLEDGE_DIR / "outcomes.jsonl"
+    if not p.exists():
         return []
-    return [json.loads(l) for l in _OUTCOMES_PATH.read_text(encoding="utf-8").splitlines() if l.strip()]
+    return [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
 def _tokens(s: str) -> set:

@@ -8,6 +8,12 @@ import json
 import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # put engine/ on sys.path
+from pack import load_pack, add_pack_arg
+
+# Pack's scans/ dir (seen-papers, last-scan-date); set in main() from the active pack.
+_SCANS_DIR = Path(__file__).resolve().parent.parent.parent / "scans" / "edge-ai-rag"
 from typing import List, Dict
 
 import requests
@@ -34,7 +40,7 @@ def load_config() -> Dict:
 
 def get_last_scan_date() -> datetime:
     """Get date of last scan, or 7 days ago if first run"""
-    last_scan_file = Path(__file__).parent / "scans" / "last-scan-date.txt"
+    last_scan_file = _SCANS_DIR / "last-scan-date.txt"
     if last_scan_file.exists():
         date_str = last_scan_file.read_text().strip()
         return datetime.fromisoformat(date_str).replace(tzinfo=timezone.utc)
@@ -45,12 +51,12 @@ def get_last_scan_date() -> datetime:
 
 def save_last_scan_date(date: datetime):
     """Save date of successful scan"""
-    last_scan_file = Path(__file__).parent / "scans" / "last-scan-date.txt"
+    last_scan_file = _SCANS_DIR / "last-scan-date.txt"
     last_scan_file.write_text(date.isoformat())
 
 
 def _seen_papers_file() -> Path:
-    return Path(__file__).parent / "scans" / "seen-papers.txt"
+    return _SCANS_DIR / "seen-papers.txt"
 
 
 def load_seen_papers() -> set:
@@ -188,7 +194,12 @@ def main():
     parser.add_argument("--commit-date-only", action="store_true",
                         help="Record today as the last-scan date and exit "
                              "(call this only after the full pipeline succeeds).")
+    add_pack_arg(parser)
     args = parser.parse_args()
+
+    global _SCANS_DIR
+    pack = load_pack(args.pack)
+    _SCANS_DIR = pack.scans_dir
 
     # The last-scan date is committed by the orchestrator *after* the whole run
     # succeeds — committing it here would permanently skip papers whenever a
@@ -200,7 +211,7 @@ def main():
     if not args.output:
         parser.error("--output is required unless --commit-date-only is given")
 
-    config = load_config()
+    config = pack.config
 
     # Determine start date
     if args.days:

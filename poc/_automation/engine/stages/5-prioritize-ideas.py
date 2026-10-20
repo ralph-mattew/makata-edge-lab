@@ -2,6 +2,9 @@
 """Stage 5: Prioritize approved ideas by ROI"""
 import argparse, json, re
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # put engine/ on sys.path
+from pack import load_pack, add_pack_arg
 import yaml
 
 def load_config():
@@ -63,9 +66,10 @@ def main():
     parser = argparse.ArgumentParser(description="Stage 5: Prioritize ideas")
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", required=True)
+    add_pack_arg(parser)
     args = parser.parse_args()
 
-    config = load_config()
+    config = load_pack(args.pack).config
 
     print("=== Stage 5: Prioritization ===")
 

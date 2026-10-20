@@ -1,4 +1,9 @@
-# Automated Research-to-PoC Pipeline Configuration
+# Pack: edge-ai-rag — on-device RAG / Edge AI ideation (the original domain)
+pack:
+  name: edge-ai-rag
+  description: "On-device document RAG under a 6GB iPhone constraint (CUAD, EmbeddingGemma, Qwen2.5-1.5B)"
+# Idea-bank write target for Stage 6, relative to this pack dir (shared lab bank).
+idea_bank: "../../POC-IDEAS.md"
 
 # Research sources
 sources:

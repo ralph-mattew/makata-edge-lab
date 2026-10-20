@@ -7,6 +7,9 @@ import argparse
 import json
 import os
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # put engine/ on sys.path
+from pack import load_pack, add_pack_arg
 from typing import Dict, List
 
 import yaml
@@ -77,13 +80,14 @@ def main():
     parser.add_argument("--input", required=True, help="Input JSONL from Stage 1")
     parser.add_argument("--output", required=True, help="Output JSONL")
     parser.add_argument("--batch-size", type=int, default=10, help="Papers to process per batch")
+    add_pack_arg(parser)
     args = parser.parse_args()
 
     if not HAS_ANTHROPIC:
         print("Error: anthropic library required. Install with: pip3 install anthropic")
         return 1
 
-    config = load_config()
+    config = load_pack(args.pack).config
 
     client = make_client(config)
     model = resolve_model(config, "relevance")

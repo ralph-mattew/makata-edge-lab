@@ -9,6 +9,9 @@ writing the bank.
 import argparse, json, re
 from difflib import SequenceMatcher
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # put engine/ on sys.path
+from pack import load_pack, add_pack_arg
 from datetime import datetime
 
 import yaml
@@ -170,9 +173,10 @@ def main():
     parser.add_argument("--summary", required=True)
     parser.add_argument("--dry-run", action="store_true",
                         help="Preview; do not modify the idea bank.")
+    add_pack_arg(parser)
     args = parser.parse_args()
 
-    config = load_config()
+    config = load_pack(args.pack).config
     threshold = config.get("duplicates", {}).get("similarity_threshold", 0.8)
     check_dupes = config.get("duplicates", {}).get("check_against_existing", True)
 

@@ -2,6 +2,9 @@
 """Stage 4: Validate ideas through 3-gate quality process"""
 import argparse, json, os
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # put engine/ on sys.path
+from pack import load_pack, add_pack_arg
 import yaml
 from _client import make_client, resolve_model, CostTracker, concurrent_map
 from _gates import load_gate_prompts, validate_idea
@@ -15,9 +18,10 @@ def main():
     parser = argparse.ArgumentParser(description="Stage 4: Quality gate validation")
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", required=True)
+    add_pack_arg(parser)
     args = parser.parse_args()
 
-    config = load_config()
+    config = load_pack(args.pack).config
     client = make_client(config)
     model = resolve_model(config, "gate")
     tracker = CostTracker(model)
