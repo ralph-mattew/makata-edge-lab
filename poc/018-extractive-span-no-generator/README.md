@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | Building (host harness scaffolded; logic validated on committed data, full run pending model servers) |
-| Verdict | — |
+| Status | Concluded — host stage (300 hard-category items, full run) |
+| Verdict | **Adopt (host stage), with the ≤3-sentence passage.** Generator-free extractive selection (window = 3) lifts hard-mean span-F1 to 20.7 — +4.6 over the 16.1 baseline and +5.0 over the same-retrieval Qwen arm (15.7) — and clears H2 (Exclusivity 12.2 ≥ 8.0), while removing the ~1 GB generator. Single-sentence (window = 1) under-recalls the long clause spans (17.5, +1.4) and does not qualify. H4 (≤ 5 GB) is a device claim, host peak RSS 2.9 GB INFERRED. See Verdict. |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
 | Source idea | Synthesized by the lab's ideation engine (2026-10-20 edge-ai scan, MAP-Elites `constraint-relax`, attacks OP-2). Builds on PoC-016 (decomposition) and PoC-017 (span-answer quality). |
@@ -75,15 +75,42 @@ Method choices (confirm/adjust on promotion to a verdict):
 
 ## Results
 
-Not run yet. The non-embedding logic is validated against the committed data (300 items,
-3 chunks/item, span-F1 + splitter checked on a dry pass). The extractive arm needs the
-EmbeddingGemma server; the `generate` arm needs the Qwen server. Raw per-item answers land
-in `results/raw/*-answers.jsonl`; summaries in `results/span-quality-*.json`. Tag every
-number MEASURED / OBSERVED / INFERRED.
+MEASURED on the host (Mac, EmbeddingGemma via `--embd-gemma-default` + Qwen2.5-1.5B-Instruct
+Q4_K_M), 300 hard-category items (100 each), single deterministic pass. Span-F1 is SQuAD
+token-overlap vs the gold span; contract-level bootstrap CI (10k, seed 0). The embedding model
+was verified to reproduce the committed PoC-014 vectors at cosine 1.00000 before the run.
+
+Hard-category mean span-F1:
+
+| Arm | Exclusivity | Non-Compete | Change Of Control | hard-mean | 95% CI |
+|---|---|---|---|---|---|
+| `generate` (same-retrieval Qwen baseline) | 3.7 | 16.7 | 26.6 | **15.7** | 12.8–18.6 |
+| `extract` window = 1 (single sentence) | 7.5 | 16.6 | 28.3 | **17.5** | 14.6–20.6 |
+| `extract` window = 3 (≤ 3-sentence passage) | 12.2 | 19.1 | 30.8 | **20.7** | 17.9–23.7 |
+
+- The `generate` arm reproduces the registration's 16.1 baseline (15.7) under identical
+  retrieval — the control holds, so the deltas are attributable to the answer step. MEASURED.
+- **H1 (hard-mean ≥ +4 over 16.1):** window = 3 → 20.7, **+4.6** over 16.1 and **+5.0** over the
+  same-retrieval generate arm. PASS. Window = 1 → 17.5 (+1.4), fails. MEASURED.
+- **H2 (Exclusivity span-F1 ≥ 8.0):** window = 3 → 12.2. PASS (window = 1 → 7.5, fails). MEASURED.
+- **H3 (fact-category recall@3 unaffected):** retrieval is identical to the generate arm by
+  construction, so fact recall is unchanged. OBSERVED (not re-scored here).
+- **H4 (peak RAM ≤ 5 GB):** host peak RSS 2.9 GB for the extractive pass (which never loads
+  Qwen). INFERRED; the device figure needs an on-iPhone run (REPLICATION).
+
+Raw per-item answers in `results/raw/{extract-w3,extract-w1,generate}-answers.jsonl`; summaries
+in `results/span-quality-both.json` (window 3 + generate) and `span-quality-extract.json` (window 1).
 
 ## Verdict
 
-To be determined against the decision rule after the run.
+**Adopt (host stage) — generator-free extractive selection with a ≤ 3-sentence passage.** It meets
+H1 (+4.6 over baseline, +5.0 over the same-retrieval generator), H2 (Exclusivity 12.2 ≥ 8.0), and
+H3, while removing the ~1 GB Qwen weight from the answer path. The win is concentrated where it was
+predicted: Exclusivity rises 3.7 → 12.2 vs the generator. The single-sentence variant (window = 1)
+does **not** qualify — the hard-category gold spans run 50–70 words and one sentence under-recalls
+them — so the passage window is load-bearing, not incidental. Open for the device stage: confirm H4
+(≤ 5 GB) on an iPhone 15 Pro. This is the first mechanism in the series to lift Exclusivity
+answer-quality into double digits.
 
 ## Limits
 
