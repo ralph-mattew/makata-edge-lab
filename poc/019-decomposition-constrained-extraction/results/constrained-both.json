@@ -1,0 +1,41 @@
+{
+  "constrained": {
+    "arm": "constrained",
+    "mean_f1": 22.06665341915437,
+    "ci": [
+      18.404368922966924,
+      25.922136337990285
+    ],
+    "hard_mean_f1": 22.066653419154374,
+    "per_category": {
+      "Exclusivity": 15.13827178412132,
+      "Non-Compete": 17.27361912790801,
+      "Change Of Control": 33.78806934543378
+    },
+    "n_items": 300,
+    "validator": {
+      "accepted": 115,
+      "rejected": 185,
+      "reject_rate": 61.7
+    }
+  },
+  "free": {
+    "arm": "free",
+    "mean_f1": 15.437192621842838,
+    "ci": [
+      12.572736102373794,
+      18.36048257063463
+    ],
+    "hard_mean_f1": 15.43719262184284,
+    "per_category": {
+      "Exclusivity": 3.3403740589658795,
+      "Non-Compete": 16.1413264900613,
+      "Change Of Control": 26.82987731650134
+    },
+    "n_items": 300
+  },
+  "_meta": {
+    "topk": 3,
+    "n_work": 300
+  }
+}

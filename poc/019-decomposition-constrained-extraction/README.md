@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | Building (host harness scaffolded; logic validated on committed data, full run pending Qwen server) |
-| Verdict | — |
+| Status | Concluded — host stage (300 hard-category items, full run) |
+| Verdict | **Adopt (host stage).** Decomposed retrieval + constrained verbatim-extraction prompt + substring validator lifts hard-mean span-F1 to 22.1 — **+6.6** over the same-retrieval free-generation arm (15.4, which reproduces the 16.1 baseline) — clearing H1 (≥ +5). Exclusivity rises 3.3 → 15.1 (**+11.8**). Validator reject rate 61.7%: the verbatim constraint rarely held, so the first-sentence fallback carries most of the gain — see Verdict. |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
 | Source idea | Synthesized by the lab's ideation engine (2026-10-20 edge-ai scan, MAP-Elites `novelty-push`, attacks OP-2). Combines PoC-008 + PoC-016 (decomposition) + PoC-017 (span quality). |
@@ -66,15 +66,44 @@ Both use greedy decoding (temperature 0) for determinism.
 
 ## Results
 
-Not run yet. Non-embedding logic is validated against the committed data (300 items — 100 each
-Exclusivity / Non-Compete / Change Of Control; 3 chunks/item; validator accept/reject/fallback +
-span-F1 checked on a dry pass). The run needs the Qwen server. Raw per-item answers (incl. the
-raw model output and the accepted/fallback flag) land in `results/raw/*-answers.jsonl`; summaries
-in `results/constrained-*.json`. Tag every number MEASURED / OBSERVED / INFERRED.
+MEASURED on the host (Mac, Qwen2.5-1.5B-Instruct Q4_K_M, greedy temp 0), 300 hard-category
+items (100 each), single pass. Span-F1 is SQuAD token-overlap vs the gold span; contract-level
+bootstrap CI (10k, seed 0). Both arms share identical PoC-016 decomposed retrieval.
+
+Hard-category span-F1:
+
+| Arm | Exclusivity | Non-Compete | Change Of Control | hard-mean | 95% CI |
+|---|---|---|---|---|---|
+| `free` (same-retrieval baseline) | 3.3 | 16.1 | 26.8 | **15.4** | 12.6–18.4 |
+| `constrained` (+ substring validator) | 15.1 | 17.3 | 33.8 | **22.1** | 18.4–25.9 |
+
+- The `free` arm reproduces the registration's 16.1 baseline (15.4) under identical retrieval —
+  the control holds. MEASURED.
+- **H1 (hard-mean span-F1 ≥ +5):** constrained 22.1 vs free 15.4 = **+6.6**. PASS. MEASURED.
+- Exclusivity 3.3 → 15.1 (**+11.8**), Change Of Control 26.8 → 33.8 (+7.0), Non-Compete +1.2.
+- **H3 (fact-category regression):** retrieval is identical across arms → fact recall@3 unchanged
+  by construction. OBSERVED (cite PoC-016/007, not re-scored).
+- **H4 (validator fidelity):** reject rate **61.7%** (185/300) — Qwen's output was a verbatim
+  substring of a top-3 chunk in only 38% of items; the other 62% fell back to the highest-scored
+  chunk's first sentence. AUTOMATED reject rate only; whether each reject was a true hallucination
+  vs a correct paraphrase still needs the ~50-item manual spot-check. MEASURED (rate).
+
+Raw per-item answers (with the raw model output + `accepted` flag) in
+`results/raw/{constrained,free}-answers.jsonl`; summary in `results/constrained-both.json`.
 
 ## Verdict
 
-To be determined against the decision rule after the run.
+**Adopt (host stage) — with an important mechanism caveat.** The combination clears H1 (+6.6) and
+delivers the largest Exclusivity gain in the series (+11.8). **But the 61.7% validator reject rate
+means the first-sentence fallback — not Qwen's constrained generation — produces most answers.** In
+effect this result is closer to a *retrieval-anchored extractive* method (pick the decomposed-query
+top chunk, return its lead sentence) than to "constrained generation": the tiny generator rarely
+emitted a usable verbatim span. That is itself the finding — consistent with PoC-017's conclusion
+that Qwen2.5-1.5B is the answer-step bottleneck — and it overlaps heavily with PoC-018's
+generator-free extractive result (hard-mean 20.7). Recommend promoting the **cheaper** of the two
+to the device stage: PoC-018 needs no generator at all. Before a device build, run the H4 manual
+fidelity spot-check and an ablation that replaces Qwen with a pure "first sentence of top chunk" to
+quantify how much (if any) the generation step adds over the fallback alone.
 
 ## Limits
 
