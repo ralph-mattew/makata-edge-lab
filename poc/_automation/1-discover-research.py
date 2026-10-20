@@ -14,6 +14,7 @@ import requests
 import yaml
 
 from _semantic import search_semantic
+from _hf_models import search_hf_models
 
 # Try to import arxiv library
 try:
@@ -214,6 +215,9 @@ def main():
     # they don't match the keyword list. Dedups against what we already have.
     kw_titles = {c['title'].lower().strip() for c in candidates}
     candidates.extend(search_semantic(config, start_date, existing_titles=kw_titles))
+    # Model releases (new quantized embedders/rerankers/LLMs) — often more
+    # immediately PoC-worthy for an edge lab than a paper.
+    candidates.extend(search_hf_models(config, start_date))
 
     # Remove duplicates: within this run (same paper from multiple sources) and
     # across runs (papers already surfaced in a prior scan).
