@@ -43,24 +43,36 @@ if [ "$RELEVANT" -eq 0 ]; then
   exit 0
 fi
 
-# Stage 3: Idea Extraction (20-30 min)
+# Stage 3: Idea Extraction (20-30 min) — one idea per paper (transfer-framed)
 echo "=== Stage 3: Idea Extraction ==="
 python3 "$AUTOMATION_DIR/3-extract-ideas.py" \
   --input "$SCAN_DIR/relevant-research.jsonl" \
   --output "$SCAN_DIR/extracted-ideas.jsonl"
 echo ""
 
-# Check if we extracted ideas
-IDEAS=$(wc -l < "$SCAN_DIR/extracted-ideas.jsonl" | tr -d ' ')
+# Stage 3b: Synthesis / cross-pollination — recombine the paper batch with the lab's
+# own open problems (problem×method, method×method, analogical, constraint-driven) to
+# derive candidates no single paper proposes. Non-fatal if it yields none.
+echo "=== Stage 3b: Synthesis / Cross-Pollination ==="
+python3 "$AUTOMATION_DIR/3b-synthesize-ideas.py" \
+  --input "$SCAN_DIR/relevant-research.jsonl" \
+  --output "$SCAN_DIR/synthesized-ideas.jsonl" || true
+echo ""
+
+# Combine per-paper + synthesized ideas for the gates.
+cat "$SCAN_DIR/extracted-ideas.jsonl" "$SCAN_DIR/synthesized-ideas.jsonl" 2>/dev/null \
+  > "$SCAN_DIR/all-ideas.jsonl"
+IDEAS=$(wc -l < "$SCAN_DIR/all-ideas.jsonl" | tr -d ' ')
 if [ "$IDEAS" -eq 0 ]; then
-  echo "No ideas extracted. Exiting."
+  echo "No ideas extracted or synthesized. Exiting."
   exit 0
 fi
+echo "Total candidates to gate: $IDEAS"
 
 # Stage 4: Quality Gate Validation (15-20 min)
 echo "=== Stage 4: Quality Gate Validation ==="
 python3 "$AUTOMATION_DIR/4-validate-quality-gate.py" \
-  --input "$SCAN_DIR/extracted-ideas.jsonl" \
+  --input "$SCAN_DIR/all-ideas.jsonl" \
   --output "$SCAN_DIR/validated-ideas.jsonl"
 echo ""
 

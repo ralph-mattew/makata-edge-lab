@@ -152,13 +152,18 @@ system_context:
   ram_budget: "6GB"
   embedding_model: "EmbeddingGemma 300M (600 MB)"
   llm_model: "Qwen2.5-1.5B Q4 (1.0 GB)"
-  retrieval: "Hybrid: 0.7 semantic + 0.3 BM25"
+  retrieval: "Hybrid: 0.9 semantic + 0.1 BM25 (weight adopted in PoC 013)"
   dataset: "CUAD contracts (397 documents, 1,325 Q&A items)"
   current_recall: 61.4
   current_key_fact_accuracy: 67.9
   completed_pocs:
     - "PoC 006: Dataset baseline established"
-    - "PoC 007: Hybrid retrieval baseline (61.4% recall)"
+    - "PoC 007: Hybrid retrieval baseline (61.4% recall@3)"
     - "PoC 008: Tested 3 embedding models (EmbeddingGemma best)"
-    - "PoC 009: Tested retrieval depth (3 chunks optimal)"
+    - "PoC 009: Tested retrieval depth (3 chunks optimal; more depth did not help)"
     - "PoC 010: Tested BM25-only (reject: -15 points)"
+    - "PoC 011: Model-generated chunk context — REJECT on-device (Qwen-1.5B-generated context cut recall 62.7%->52.2%; host upper-bound untested)"
+    - "PoC 012: Cross-encoder reranking (registered; on-device latency hypothesis needs a device — parked)"
+    - "PoC 013: Semantic/BM25 weight tuning — ADOPT 0.9/0.1; KEY FINDING: hard categories (Exclusivity ~11%, Non-Compete, Change-of-Control) are INVARIANT to retrieval weight — bottleneck is chunking or question formulation, not scoring"
+    - "PoC 014: Clause-aware vs page chunking (running) — tests the chunk-boundary half of the PoC-013 bottleneck"
+    - "PoC 015: Query formulation vs raw question (registered) — tests the query half of the PoC-013 bottleneck"
