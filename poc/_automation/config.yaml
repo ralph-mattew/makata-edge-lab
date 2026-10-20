@@ -100,6 +100,11 @@ quality_gate:
   gate1_min_score: 6.0  # Problem validation
   gate2_min_score: 6.0  # Solution understanding
   gate3_min_score: 6.0  # Feasibility & ROI
+  # Gate 2 can use web_search to verify an implementation actually exists /
+  # runs on-device, instead of guessing. Opt-in (extra cost + latency); falls
+  # back to the ungrounded gate if the key lacks web-tool access.
+  gate2_web_search: false
+  gate2_web_search_max_uses: 3
 
 # Prioritization weights (Stage 5)
 prioritization:

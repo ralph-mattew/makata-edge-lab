@@ -14,6 +14,13 @@ implementation path, score high (8-10) — don't withhold points reflexively. Lo
 scores are for ideas whose claimed mechanism/implementation is absent from or
 contradicted by the source. Score honestly; the pipeline applies the pass threshold.
 
+If a web_search tool is available, USE IT to check whether a real, usable
+implementation exists — an open-source repo, and specifically llama.cpp / MLX /
+Core ML support for on-device use. Base the "implementation" score on what you
+actually find: cite the repo/support you found in `evidence`; if you cannot find
+an on-device-viable implementation, say so in `red_flags` and score it low. Do
+not assume support exists from training knowledge alone.
+
 GATE 2 CRITERIA (score each 0-10):
 
 1. **Core mechanism explained** — does the SOURCE describe HOW it works concretely

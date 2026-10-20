@@ -15,6 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Callable, Dict, List, Optional
 
+import anthropic
 from anthropic import Anthropic
 
 
@@ -181,6 +182,38 @@ def call_json(client, model: str, system_text: Optional[str], user_text: str,
     tracker.add(getattr(resp, "usage", None))
     text = "".join(b.text for b in resp.content if getattr(b, "type", None) == "text")
     return _extract_json(text)
+
+
+def call_json_with_tools(client, model: str, system_text: Optional[str], user_text: str,
+                         max_tokens: int, tracker: CostTracker, tools: list,
+                         max_rounds: int = 6) -> Optional[dict]:
+    """Like call_json but with server-side tools (e.g. web_search). Runs the
+    pause_turn continuation loop, accumulates usage across rounds, then parses
+    JSON from the final text. No structured-outputs schema here — citations from
+    web tools are incompatible with output_config.format. Falls back to a plain
+    call_json (no tools) if the tools request is rejected (e.g. no tool access)."""
+    base = dict(model=model, max_tokens=max_tokens,
+                messages=[{"role": "user", "content": user_text}])
+    if system_text:
+        base["system"] = [{"type": "text", "text": system_text,
+                           "cache_control": {"type": "ephemeral"}}]
+    messages = list(base["messages"])
+    try:
+        resp = None
+        for _ in range(max_rounds):
+            resp = client.messages.create(**{**base, "messages": messages, "tools": tools})
+            tracker.add(getattr(resp, "usage", None))
+            if getattr(resp, "stop_reason", None) == "pause_turn":
+                messages.append({"role": "assistant", "content": resp.content})
+                continue  # server tool loop hit its cap; resume
+            break
+        text = "".join(b.text for b in resp.content if getattr(b, "type", None) == "text")
+        return _extract_json(text)
+    except anthropic.APIError as e:
+        # e.g. the key lacks web-tool access — degrade to the ungrounded gate
+        # rather than failing the run.
+        print(f"  [web_search unavailable: {e}; falling back to ungrounded gate]")
+        return call_json(client, model, system_text, user_text, max_tokens, tracker, schema=None)
 
 
 def concurrent_map(fn: Callable, items: List, workers: int) -> List:

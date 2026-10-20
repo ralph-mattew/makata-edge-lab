@@ -11,7 +11,7 @@ from typing import Dict, Tuple
 
 import anthropic
 
-from _client import load_split_prompt, call_json
+from _client import load_split_prompt, call_json, call_json_with_tools
 from _knowledge import format_prior_results
 
 
@@ -66,11 +66,23 @@ def evaluate_gate(client, config, idea, gate_num, templates, model, tracker):
     system_text = sys_tmpl.format(**fields) if sys_tmpl else None
     user_text = user_tmpl.format(**fields)
 
+    # Gate 2 (solution understanding) can use web_search to verify an
+    # implementation actually exists / runs on-device, instead of guessing from
+    # training data. Opt-in (costs extra) via quality_gate.gate2_web_search.
+    qg = config.get('quality_gate', {})
+    use_search = gate_num == 2 and qg.get('gate2_web_search')
+
     try:
         # Gate schemas are nested/complex; rely on the centralized robust JSON
         # parse (schema=None) rather than structured outputs here.
-        result = call_json(client, model, system_text, user_text,
-                           config['llm']['max_tokens'], tracker, schema=None)
+        if use_search:
+            tools = [{"type": "web_search_20260209", "name": "web_search",
+                      "max_uses": int(qg.get('gate2_web_search_max_uses', 3))}]
+            result = call_json_with_tools(client, model, system_text, user_text,
+                                          config['llm']['max_tokens'], tracker, tools)
+        else:
+            result = call_json(client, model, system_text, user_text,
+                               config['llm']['max_tokens'], tracker, schema=None)
         if result:
             return _apply_threshold(result.get(f'gate{gate_num}', {}), gate_num, config)
     except anthropic.APIError as e:

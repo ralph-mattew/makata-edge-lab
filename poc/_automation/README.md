@@ -91,7 +91,7 @@ gate returns `evidence` (what in the source supports the claim) and `red_flags`
 (claims the source does NOT support) alongside the score.
 
 - **Gate 1**: Problem validation (is the premise grounded in source or baseline?)
-- **Gate 2**: Solution understanding (does the source actually describe the mechanism / an implementation?)
+- **Gate 2**: Solution understanding (does the source actually describe the mechanism / an implementation?). Optionally (`quality_gate.gate2_web_search`) the grader gets a **web_search** tool to verify a real implementation exists / has llama.cpp/MLX/Core ML support, rather than guessing from training data — it scores the implementation criterion on what it actually finds, and falls back to the ungrounded gate if the key lacks web-tool access. (Opt-in: extra cost/latency, and it makes Gate 2 stricter.)
 - **Gate 3**: Feasibility & ROI (device constraints; discount unsupported resource claims)
 
 Only ideas passing all 3 gates are approved. This decoupling of generator and
