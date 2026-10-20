@@ -1,0 +1,35 @@
+== PoC 014: clause-aware vs page-based chunking ==
+items: 1325 | chunks: page 79037 / clause 46848 (0.59x)
+
+H1 (overall recall@3):
+  page   = 61.8% (CI 59.3–64.4)
+  clause = 64.3% (CI 61.5–67.1)
+  Δ = +2.5 pts   (adopt threshold: +>=3)
+
+H3 (span-integrity: gold span fully inside one chunk):
+  page   = 95.8%
+  clause = 83.5%
+  Δ = -12.4 pts   (adopt needs: improves)
+
+H2 (per-category recall Δ; HARD = weight-invariant targets):
+  category                        n    page  clause       Δ  class
+  Governing Law                 100   91.0%   94.0%   +3.0  easy
+  Agreement Date                100   29.0%   40.0%  +11.0  
+  Insurance                     100   84.0%   82.0%   -2.0  easy
+  Termination For Convenience   100   67.0%   76.0%   +9.0  
+  Audit Rights                  100   70.0%   70.0%   +0.0  
+  Expiration Date               100   87.0%   86.0%   -1.0  
+  Change Of Control             100   67.0%   67.0%   +0.0  HARD
+  Exclusivity                   100    7.0%    9.0%   +2.0  HARD
+  Non-Compete                   100   25.0%   29.0%   +4.0  HARD
+  Notice Period To Terminate R  100   84.0%   91.0%   +7.0  
+  Renewal Term                  100   96.0%   96.0%   +0.0  
+  Cap On Liability              100   51.0%   45.0%   -6.0  
+  Warranty Duration              71   47.9%   54.9%   +7.0  
+  Liquidated Damages             54   50.0%   51.9%   +1.9  
+
+VERDICT read-out (apply the registered decision rule):
+  H1 overall +>=3 pts: no (+2.5)
+  H2 hard cats each +>=5 pts: no
+  H3 span-integrity improves: no
+  -> ADOPT needs H1 AND H3 (and H4 chunk-ratio <=1.3x). INCONCLUSIVE

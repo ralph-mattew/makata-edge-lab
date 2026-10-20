@@ -1,0 +1,85 @@
+{
+  "cond": "clause",
+  "recall": 64.30188679245283,
+  "ci": [
+    61.53846153846154,
+    67.12538226299694
+  ],
+  "n_items": 1325,
+  "n_chunks": 46848,
+  "span_integrity": 83.47169811320755,
+  "per_category": {
+    "Renewal Term": {
+      "recall": 96.0,
+      "n": 100
+    },
+    "Expiration Date": {
+      "recall": 86.0,
+      "n": 100
+    },
+    "Exclusivity": {
+      "recall": 9.0,
+      "n": 100
+    },
+    "Non-Compete": {
+      "recall": 29.0,
+      "n": 100
+    },
+    "Cap On Liability": {
+      "recall": 45.0,
+      "n": 100
+    },
+    "Governing Law": {
+      "recall": 94.0,
+      "n": 100
+    },
+    "Change Of Control": {
+      "recall": 67.0,
+      "n": 100
+    },
+    "Termination For Convenience": {
+      "recall": 76.0,
+      "n": 100
+    },
+    "Insurance": {
+      "recall": 82.0,
+      "n": 100
+    },
+    "Liquidated Damages": {
+      "recall": 51.851851851851855,
+      "n": 54
+    },
+    "Audit Rights": {
+      "recall": 70.0,
+      "n": 100
+    },
+    "Notice Period To Terminate Renewal": {
+      "recall": 91.0,
+      "n": 100
+    },
+    "Agreement Date": {
+      "recall": 40.0,
+      "n": 100
+    },
+    "Warranty Duration": {
+      "recall": 54.929577464788736,
+      "n": 71
+    }
+  },
+  "span_integrity_by_category": {
+    "Renewal Term": 91.0,
+    "Expiration Date": 81.0,
+    "Exclusivity": 77.0,
+    "Non-Compete": 90.0,
+    "Cap On Liability": 56.0,
+    "Governing Law": 89.0,
+    "Change Of Control": 76.0,
+    "Termination For Convenience": 88.0,
+    "Insurance": 87.0,
+    "Liquidated Damages": 61.111111111111114,
+    "Audit Rights": 85.0,
+    "Notice Period To Terminate Renewal": 91.0,
+    "Agreement Date": 100.0,
+    "Warranty Duration": 87.32394366197182
+  }
+}
