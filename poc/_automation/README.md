@@ -62,6 +62,12 @@ work that doesn't use the keyword vocabulary still surfaces (e.g. an on-device
 training paper found via meaning, not keywords). Results are tagged with
 `semantic_similarity` and the `matched_problem`.
 
+And an optional **model-release arm** (`sources.huggingface_models.enabled`): for
+an edge lab, a new quantized embedder / reranker / small LLM on HuggingFace is
+often more immediately PoC-worthy than a paper and won't appear in a paper scan.
+Keyword-targeted to the lab's interests (the raw recent-model feed is noisy); each
+release becomes a candidate the relevance gate judges. No API key needed.
+
 ### Stage 2: Relevance Filtering (10-15 min)
 **Script**: `2-filter-relevance.py`
 **Input**: `research-candidates.jsonl`

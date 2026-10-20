@@ -54,6 +54,25 @@ sources:
       - "RAG"
       - "retrieval"
 
+  # Model-release discovery: new quantized embedders / rerankers / small LLMs on
+  # HuggingFace are often more PoC-worthy for an edge lab than a paper. Opt-in and
+  # keyword-targeted (the raw recent-model feed is noisy); the relevance gate
+  # filters the rest. No API key needed.
+  huggingface_models:
+    enabled: false
+    keywords:
+      - "embedding gguf"
+      - "reranker gguf"
+      - "embedding mlx"
+      - "quantized embedding"
+      - "ternary"
+      - "bitnet"
+      - "1-bit llm"
+      - "mobile embedding"
+    limit_per_keyword: 10
+    min_likes: 0
+    max_total: 15
+
   papers_with_code:
     enabled: false  # Requires API key
     keywords:
