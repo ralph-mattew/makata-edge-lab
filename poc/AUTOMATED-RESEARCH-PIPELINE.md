@@ -676,13 +676,13 @@ echo "Summary: $SCAN_DIR/weekly-summary.md"
 
 ### Initial Setup
 ```bash
-cd /Users/rlpalomaria/Projects/makata-edge-lab
+cd <path-to-repo>
 pip3 install arxiv requests feedparser pypdf sentence-transformers anthropic
 ```
 
 ### Run Weekly Scan
 ```bash
-cd /Users/rlpalomaria/Projects/makata-edge-lab
+cd <path-to-repo>
 ./poc/_automation/run-weekly-scan.sh
 ```
 
@@ -698,7 +698,7 @@ git diff poc/POC-IDEAS.md
 ### Schedule Weekly (macOS launchd or cron)
 ```bash
 # Add to crontab for every Monday at 9am
-0 9 * * 1 cd /Users/rlpalomaria/Projects/makata-edge-lab && ./poc/_automation/run-weekly-scan.sh
+0 9 * * 1 cd <path-to-repo> && ./poc/_automation/run-weekly-scan.sh
 ```
 
 ---

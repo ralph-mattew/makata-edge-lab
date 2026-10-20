@@ -23,7 +23,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 ### 3. Run Weekly Scan
 
 ```bash
-cd /Users/rlpalomaria/Projects/makata-edge-lab/poc/_automation
+cd <path-to-repo>/poc/_automation
 ./run-weekly-scan.sh
 ```
 
@@ -156,7 +156,7 @@ scans/
 crontab -e
 
 # Add line:
-0 9 * * 1 cd /Users/rlpalomaria/Projects/makata-edge-lab/poc/_automation && ./run-weekly-scan.sh
+0 9 * * 1 cd <path-to-repo>/poc/_automation && ./run-weekly-scan.sh
 ```
 
 ---
