@@ -1,5 +1,5 @@
 % References for the Makata AI Edge Lab consolidated study.
-% Entries marked "VERIFY" need the exact citation confirmed before submission.
+% All entries verified against arXiv / proceedings (October 2026).
 
 @inproceedings{hendrycks2021cuad,
   title     = {{CUAD}: An Expert-Annotated {NLP} Dataset for Legal Contract Review},
@@ -19,19 +19,21 @@
 }
 
 @misc{gemma,
-  title        = {{Gemma}: Open Models Based on {Gemini} Research and Technology},
+  title        = {{Gemma 4} Technical Report},
   author       = {{Gemma Team, Google DeepMind}},
-  year         = {2024},
-  note         = {Open-weights model family; VERIFY exact report/version used (Gemma E2B)},
-  howpublished = {\url{https://ai.google.dev/gemma}}
+  year         = {2026},
+  note         = {Open-weight model family 2.3B--31B; the E2B edge variant runs under 1.5\,GB quantized. Apache-2.0},
+  eprint       = {2607.02770},
+  archivePrefix = {arXiv}
 }
 
 @misc{embeddinggemma,
-  title        = {{EmbeddingGemma}: On-device Text Embeddings},
-  author       = {{Google DeepMind}},
+  title        = {{EmbeddingGemma}: Powerful and Lightweight Text Representations},
+  author       = {Schechter Vera, Henrique and Dua, Sahil and {EmbeddingGemma Team, Google DeepMind}},
   year         = {2025},
-  note         = {Model card; VERIFY canonical citation},
-  howpublished = {\url{https://ai.google.dev/gemma/docs/embeddinggemma}}
+  note         = {300M on-device text embedder based on Gemma 3},
+  eprint       = {2509.20354},
+  archivePrefix = {arXiv}
 }
 
 @misc{llamacpp,
@@ -57,27 +59,28 @@
 
 @inproceedings{cuconasu2024noise,
   title     = {The Power of Noise: Redefining Retrieval for {RAG} Systems},
-  author    = {Cuconasu, Florin and others},
-  booktitle = {Proceedings of SIGIR},
+  author    = {Cuconasu, Florin and Trappolini, Giovanni and Siciliano, Federico and Filice, Simone and Campagnano, Cesare and Maarek, Yoelle and Tonellotto, Nicola and Silvestri, Fabrizio},
+  booktitle = {Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+  pages     = {719--729},
   year      = {2024},
   eprint    = {2401.14887},
   archivePrefix = {arXiv}
 }
 
-@misc{longctx2025rag,
-  title        = {Long-Context {LLMs} Meet {RAG}: Overcoming Challenges for Long Inputs in {RAG}},
-  author       = {{Anonymous}},
-  year         = {2025},
-  note         = {ICLR 2025; VERIFY author list},
-  eprint       = {2410.05983},
+@inproceedings{longctx2025rag,
+  title     = {Long-Context {LLMs} Meet {RAG}: Overcoming Challenges for Long Inputs in {RAG}},
+  author    = {Jin, Bowen and Yoon, Jinsung and Han, Jiawei and Arik, Sercan O.},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2025},
+  eprint    = {2410.05983},
   archivePrefix = {arXiv}
 }
 
 @article{liu2023lost,
   title   = {Lost in the Middle: How Language Models Use Long Contexts},
-  author  = {Liu, Nelson F. and others},
+  author  = {Liu, Nelson F. and Lin, Kevin and Hewitt, John and Paranjape, Ashwin and Bevilacqua, Michele and Petroni, Fabio and Liang, Percy},
   journal = {Transactions of the Association for Computational Linguistics (TACL)},
-  year    = {2024},
+  volume  = {12}, pages = {157--173}, year = {2024},
   eprint  = {2307.03172},
   archivePrefix = {arXiv}
 }
@@ -93,24 +96,27 @@
 
 @misc{overrefusal2026,
   title        = {{LLMs} Prompted for Legal Context Refuse More: Overrefusal from Small On-Premises {LLMs} in Criminal Legal Context},
-  author       = {{Authors as listed on arXiv}},
+  author       = {Kucherenko, Anastasiia and Brouchoud, Francois and Percia David, Dimitri and Kucharavy, Andrei},
   year         = {2026},
-  note         = {VERIFY author list and venue},
   eprint       = {2610.26211},
-  archivePrefix = {arXiv}
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI}
 }
 
 @misc{strucchunk,
   title        = {{StrucChunk}: Structure-Aware Retrieval for Legal Document {RAG}},
-  author       = {Singh, Surya Deep and others},
-  year         = {2025},
-  note         = {VERIFY exact title/authors/arXiv id},
-  howpublished = {\url{https://github.com/SinghSuryaDeep/legal-rag-strucchunk-1}}
+  author       = {Singh, Surya Deep and Tripathi, Ashutosh and Singh, Gaurav Deep},
+  year         = {2026},
+  eprint       = {2610.26313},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI}
 }
 
 @misc{resin,
-  title        = {{RESIN}: Multi-chain Question Decomposition for Retrieval},
-  author       = {{Authors to confirm}},
-  year         = {2025},
-  note         = {PLACEHOLDER --- confirm the exact decomposition paper referenced in PoC 016 before submission}
+  title        = {{RESIN}: Multi-Chain Reasoning with Entity-Structured Indexing},
+  author       = {Meng, Xuanyu and Parekh, Jash Rajesh and Han, Jiawei},
+  year         = {2026},
+  eprint       = {2610.26782},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL}
 }

@@ -33,8 +33,9 @@ here ahead of its README** — the README is the source of truth.
 ## Before submitting
 
 - [x] ORCID set to `0009-0004-5450-253X` in `main.tex`, `.zenodo.json` and `CITATION.cff`.
-- [ ] Resolve the `VERIFY` / `PLACEHOLDER` entries in `references.bib` (EmbeddingGemma, Gemma E2B,
-      StrucChunk, RESIN, the over-refusal paper's author list).
+- [x] `references.bib` verified against arXiv/proceedings — all entries have real authors + IDs
+      (EmbeddingGemma 2509.20354, Gemma 4 2607.02770, StrucChunk 2610.26313, RESIN 2610.26782,
+      over-refusal 2610.26211, Power-of-Noise 2401.14887, Long-Context-RAG 2410.05983).
 - [ ] Re-read each cited verdict on the live site / README the day you submit (errata may exist).
 - [ ] Confirm every claim is still MEASURED/OBSERVED/INFERRED-accurate.
 - [ ] See [`ARXIV_CHECKLIST.md`](ARXIV_CHECKLIST.md) for the submission mechanics.

@@ -102,10 +102,11 @@ Where a technique's source did not evaluate CUAD, EmbeddingGemma, recall@3, or a
 we treat transfer as unverified and test it.
 
 \section{Setup and method}\label{sec:method}
-\paragraph{Stack.} Qwen2.5-1.5B-Instruct Q4\_K\_M (the shipped file), EmbeddingGemma-300M for
-dense retrieval, hybrid scoring, top-3 chunks, a 2{,}048-token context. All runs are on a Mac
-host (Apple M4 Pro, 24\,GB) through llama.cpp with Metal---the same build the app ships; device
-(iPhone) figures are explicitly marked as follow-ups.
+\paragraph{Stack.} Qwen2.5-1.5B-Instruct Q4\_K\_M \citep{qwen2025} (the shipped file),
+EmbeddingGemma-300M \citep{embeddinggemma} for dense retrieval, hybrid scoring, top-3 chunks, a
+2{,}048-token context. All runs are on a Mac host (Apple M4 Pro, 24\,GB) through
+llama.cpp \citep{llamacpp} with Metal---the same build the app ships; device (iPhone) figures
+are explicitly marked as follow-ups.
 
 \paragraph{Benchmark.} CUAD v1 \citep{hendrycks2021cuad}: 397 commercial contracts, 1{,}325
 answerable question--span items. A 464-item subset carries a machine-parsable key fact (a date,
@@ -232,8 +233,8 @@ model's absence rate without costing answer accuracy (\poc{008}); it helped only
 already abstained most. And a reported over-refusal effect---legal ``authority'' framing making
 small models refuse more---did \emph{not} transfer: on Qwen2.5-1.5B the authority prompt refused
 \emph{least} (26.3\% vs 29.9\% plain vs 35.2\% task-only) and key-fact accuracy was flat
-(\poc{020}). A separate comparison of answer backends found the on-device Gemma variant more
-willing to say ``absent'' than the platform foundation model (\poc{006}). These are useful
+(\poc{020}). A separate comparison of answer backends found the on-device Gemma\,4 E2B variant
+\citep{gemma} more willing to say ``absent'' than the platform foundation model (\poc{006}). These are useful
 negatives: they rule out cheap prompt-only fixes.
 
 \section{Summary generation}\label{sec:summary}
