@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | Building (host harness scaffolded; logic validated on committed data, full run pending Qwen server) |
-| Verdict | — |
+| Status | Concluded — host stage (full CUAD, 1,325 items, 3 prompt variants) |
+| Verdict | **Reject.** Removing the authority framing does not raise key-fact accuracy (B plain +0.9, C task-only −0.4 vs the 69.8% authority baseline — below the +1 floor, far below +3). The hypothesis is refuted *in the opposite direction*: the authority prompt has the **lowest** refusal rate (26.3%); plain and task-only refuse **more** (29.9%, 35.2%). The source paper's over-refusal effect does not transfer to Qwen2.5-1.5B on CUAD. Keep the current prompt. See Verdict. |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
 | Source idea | *LLMs Prompted for Legal Context Refuse More: Overrefusal from Small On-Premises LLMs in Criminal Legal Context* (http://arxiv.org/abs/2610.26211v1), surfaced by the lab's ideation engine (2026-10-20 edge-ai scan, Stage-3 extraction) as a self-critique of our own system prompt. |
@@ -67,15 +67,41 @@ Greedy decoding (temperature 0). Full run = 1,325 items × the chosen variants.
 
 ## Results
 
-Not run yet. Non-embedding logic validated on committed data: full 1,325-item set, 464 key-fact
-scorable, recall@3 = 61.8% (matches baseline), refusal regex + facts scorer checked. The run needs
-the Qwen server. Per-variant raw answers (with `refused` / `key_fact_hit` flags) land in
-`results/raw/variant-*-answers.jsonl`; the summary in `results/authority-overrefusal.json`. Tag
-every number MEASURED / OBSERVED / INFERRED.
+MEASURED on the host (Mac, Qwen2.5-1.5B-Instruct Q4_K_M, greedy temp 0), full CUAD 1,325 items,
+464 key-fact scorable (date/duration/jurisdiction). Single pass per variant. Identical retrieval
+(EmbeddingGemma hybrid 0.9/0.1, raw query, top-3) across all three.
+
+| Variant | key-fact acc | refusal rate | hard-cat refusal |
+|---|---|---|---|
+| A — authority (`"You are a legal expert…"`) | **69.8%** | **26.3%** | **55.0%** |
+| B — plain (no system message) | 70.7% | 29.9% | 62.7% |
+| C — task-only (neutral system) | 69.4% | 35.2% | 68.7% |
+
+Δ vs the authority baseline (A): **B −A key-fact +0.9** / refusal +3.5 · **C −A key-fact −0.4** / refusal +8.8.
+
+- **H1 (removing framing raises key-fact ≥ +3):** FAIL. Best is +0.9 (plain); task-only is −0.4.
+  MEASURED. A's 69.8% sits on the registered 67.9% baseline (sanity).
+- **H2 (hard categories gain ≥ +5):** FAIL. Hard categories are `key_fact=None`, so measured via
+  refusal rate — which moves the *wrong* way: authority 55.0% vs plain 62.7% vs task-only 68.7%.
+  Removing the framing *increases* refusals on the hard categories. MEASURED.
+- **H3 (recall@3 unchanged):** PASS. 61.8% identical across variants by construction. OBSERVED.
+
+Per-variant raw answers (with `refused` / `key_fact_hit` flags) in
+`results/raw/variant-{A,B,C}-answers.jsonl`; summary in `results/authority-overrefusal.json`;
+human-readable `results/comparison.txt`.
 
 ## Verdict
 
-To be determined against the decision rule after the run.
+**Reject.** The authority-framing prefix does **not** cause measurable over-refusal on Qwen2.5-1.5B
+for CUAD contract Q&A — the opposite of the source paper. The authority prompt has the *lowest*
+refusal rate (26.3%) and the plain/task-only variants refuse progressively *more* (29.9%, 35.2%)
+while leaving key-fact accuracy flat (+0.9 / −0.4, both under the +1 reject floor). The over-refusal
+effect reported for criminal-law prompts on unspecified small LLMs does not transfer to this model,
+subdomain, and metric. **Keep the current prompt.** Useful negative result: it rules out a
+"zero-cost prompt fix" and redirects the hard-category effort back to retrieval/answer-step work
+(PoC-016/018/019). Caveat: variant A is a representative authority prompt, not Xylo's verbatim
+production system prompt; a follow-up could drop in the exact app prompt, but the direction (framing
+is not the bottleneck) is unlikely to flip.
 
 ## Limits
 
