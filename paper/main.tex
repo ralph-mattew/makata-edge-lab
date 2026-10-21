@@ -1,0 +1,285 @@
+\documentclass[11pt]{article}
+
+% ---------------------------------------------------------------------------
+% What actually helps on-device RAG at 6 GB
+% Makata AI Edge Lab — consolidated study of PoCs 001-020
+% Build:  latexmk -pdf main.tex   (or: pdflatex; bibtex; pdflatex x2)
+% License: CC BY 4.0 (matches the lab's write-ups)
+% ---------------------------------------------------------------------------
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\newcommand{\poc}[1]{PoC~#1}
+\newcommand{\repo}{\href{https://github.com/ralph-mattew/makata-edge-lab}{makata-edge-lab}}
+
+\title{\textbf{What actually helps on-device RAG at 6\,GB:\\
+a pre-registered study of retrieval, query formulation,\\
+and the answer step for contract QA with a 1.5B model}}
+
+\author{Ralph Mattew Palomaria\\
+  Makata AI Edge Lab\\
+  \texttt{ralphmattew@gmail.com} \quad ORCID: \texttt{0000-0000-0000-0000}\\
+  \small\href{https://makata.ai}{makata.ai} \,\textbar\, \repo}
+
+\date{Preprint --- \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+On-device retrieval-augmented generation (RAG) on a 6\,GB phone is constrained in ways
+cloud RAG is not: a sub-2B generator, a few hundred megabytes for the embedder, a short
+context window, and thermal limits. We report a pre-registered study of twenty experiments
+(\poc{001}--\poc{020}) that test, one mechanism at a time, what raises answer quality for
+document question-answering under those limits. The target stack is the one shipped in a
+document-chat app: Qwen2.5-1.5B (Q4) as the single on-device model, EmbeddingGemma-300M for
+retrieval, and llama.cpp; the benchmark is CUAD contract QA. Each experiment fixes its
+question, hypotheses and decision rule before the first run, publishes raw outputs, and is
+labelled MEASURED/OBSERVED/INFERRED. We find (i) a strong embedder is the single largest
+retrieval lever (recall@3 35\%$\rightarrow$61\%), while BM25-only, model-generated chunk
+context, extra retrieval depth, and clause-aware chunking do not help on this benchmark;
+(ii) the residual ``hard categories'' are a \emph{query-vocabulary} problem, fixed cheaply by
+deterministic keyword expansion (Exclusivity recall 7\%$\rightarrow$32\%) rather than by
+scoring, depth, or chunking; and (iii) once the right text is retrieved, a 1.5B generator is
+the bottleneck for clause-style answers---so a generator-free extractive answer step
+outperforms it (hard-category span-F1 15.7$\rightarrow$20.7) at lower RAM. Several widely-cited
+techniques did \emph{not} transfer to this regime, and we report those negative results in
+full. All code, raw results and per-experiment commit hashes are public and open to
+replication.
+\end{abstract}
+
+\section{Introduction}
+Retrieval-augmented generation is usually studied with large models and ample compute.
+Shipping it \emph{on a phone} changes the constraints: the generator is a quantized sub-2B
+model, the embedder must fit in a few hundred megabytes, the context window is short, and
+sustained inference throttles under heat. Techniques that help in the cloud may not survive
+this regime, and the only way to know is to measure on the target stack.
+
+This paper consolidates twenty experiments run by the Makata AI Edge Lab against one such
+stack---the configuration shipped in \emph{Xylo}, a document-chat app whose 6\,GB tier runs a
+single Qwen2.5-1.5B (Q4) model for both summarisation and chat, with EmbeddingGemma-300M for
+retrieval, through llama.cpp. Our contribution is not a new algorithm; it is a
+\emph{disciplined empirical map} of which levers move answer quality in this regime and which
+do not. Three properties make the map trustworthy:
+
+\begin{itemize}
+  \item \textbf{Pre-registration.} Each experiment's question, hypotheses and decision rule
+  are committed to version control before the first run; deviations are dated, not silent.
+  \item \textbf{Published negatives.} Rejected and inconclusive results are written up in the
+  same detail as adopted ones---most of the twenty are negative or replication results, which
+  is the point.
+  \item \textbf{Reproducibility.} Raw per-item outputs, scoring scripts, and the commit hash
+  for each registration and write-up are public (Section~\ref{sec:repro}).
+\end{itemize}
+
+Our headline findings: a strong embedder dominates retrieval; a cluster of ``hard'' legal
+categories is a query-vocabulary problem solvable without any generation; and for clause-style
+answers the 1.5B generator---not retrieval---is the limit, so removing it in favour of
+extraction helps.
+
+\section{Background and related work}
+We build on and test claims from: BM25 and hybrid lexical/dense retrieval
+\citep{robertson2009bm25}; contextual retrieval, which prepends model-generated per-chunk
+context before indexing \citep{anthropic2024contextual}; structure/clause-aware legal RAG
+\citep{strucchunk}; question decomposition \citep{resin}; the sensitivity of small LLMs to
+distracting retrieved context \citep{cuconasu2024noise,longctx2025rag}; position effects in
+long contexts \citep{liu2023lost}; and reported over-refusal of small on-premises models under
+legal authority framing \citep{overrefusal2026}. The benchmark is CUAD \citep{hendrycks2021cuad};
+the models are Qwen2.5 \citep{qwen2025} and the Gemma family of open models and embedders
+\citep{gemma,embeddinggemma}; inference is via llama.cpp \citep{llamacpp}. Answer quality on
+clause-style questions is measured with SQuAD-style token F1 \citep{rajpurkar2016squad}.
+Where a technique's source did not evaluate CUAD, EmbeddingGemma, recall@3, or a 1.5B generator,
+we treat transfer as unverified and test it.
+
+\section{Setup and method}\label{sec:method}
+\paragraph{Stack.} Qwen2.5-1.5B-Instruct Q4\_K\_M (the shipped file), EmbeddingGemma-300M for
+dense retrieval, hybrid scoring, top-3 chunks, a 2{,}048-token context. All runs are on a Mac
+host (Apple M4 Pro, 24\,GB) through llama.cpp with Metal---the same build the app ships; device
+(iPhone) figures are explicitly marked as follow-ups.
+
+\paragraph{Benchmark.} CUAD v1 \citep{hendrycks2021cuad}: 397 commercial contracts, 1{,}325
+answerable question--span items. A 464-item subset carries a machine-parsable key fact (a date,
+duration, or jurisdiction); the remaining ``hard'' categories (e.g.\ Exclusivity, Non-Compete,
+Change Of Control) have clause-text answers with no extractable fact.
+
+\paragraph{Metrics.} \emph{recall@3}: the top-3 chunks cover $\geq$50\% of the gold span.
+\emph{key-fact accuracy}: the answer contains the gold fact (the 464 scorable items).
+\emph{span-F1}: SQuAD-style token overlap against the gold span, used for the non-fact
+categories (absolute values are low for long clauses, so we read the delta, not the number).
+Confidence intervals are contract-level bootstraps (10{,}000 resamples, seed 0).
+
+\paragraph{Discipline.} Every experiment is pre-registered; every reported number is tagged
+MEASURED (recorded in a run here), OBSERVED (seen, not systematically measured), or INFERRED
+(follows from measurements). Verdicts are \emph{adopt}, \emph{reject}, or \emph{inconclusive}
+against the registered decision rule.
+
+\section{Retrieval: what helps, what does not}\label{sec:retrieval}
+The largest single lever is embedder quality. EmbeddingGemma raises recall@3 from 35\% (the
+NLEmbedding fallback) to 61\% (\poc{007}, $+$26 pts, 95\% CI $+$24 to $+$29), at 8.9\,ms/chunk.
+Against that, a series of plausible additions do \emph{not} help on this benchmark
+(Table~\ref{tab:retrieval}): BM25-only retrieval drops recall 15 points (\poc{010}); having
+Qwen2.5-1.5B write a per-chunk context before embedding---Anthropic-style contextual retrieval
+with an on-device generator---is a net regression ($-$10.5 pts, \poc{011}); five retrieved
+chunks instead of three do not raise answer accuracy (\poc{009}); and clause-aware chunking
+gives only $+$2.5 pts (CIs overlap) while \emph{reducing} span integrity, so even that small
+gain is not from the registered mechanism (\poc{014}). A recurring cause unites the negatives:
+on a small model, extra or mismatched text \emph{dilutes} rather than helps.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l l l}
+\toprule
+PoC & Mechanism tested & Verdict (headline) \\
+\midrule
+007 & EmbeddingGemma vs NLEmbedding & \textbf{Adopt}: recall 35\%$\rightarrow$61\% ($+$26) \\
+010 & BM25-only (drop the embedder)  & Reject: $-$15 pts recall \\
+011 & 1.5B-generated chunk context   & Reject (on-device): $-$10.5 pts \\
+009 & 5 retrieved chunks vs 3        & Reject: $+$0.4 key-fact (CI $-$3.7,$+$4.4) \\
+014 & Clause-aware chunking          & Inconclusive: $+$2.5 (CIs overlap), mechanism refuted \\
+013 & Semantic/BM25 weight sweep     & Weight 0.9/0.1 adopted; hard categories invariant \\
+\bottomrule
+\end{tabular}
+\caption{Retrieval experiments. A strong embedder dominates; the other levers do not move
+recall on CUAD.}
+\label{tab:retrieval}
+\end{table}
+
+\section{The hard categories are a query problem}\label{sec:query}
+A cluster of categories (Exclusivity around 7--11\%, Non-Compete, Change Of Control) resisted
+every retrieval lever above: weight tuning left Exclusivity near 11\% at every setting
+(\poc{013}), depth did not help (\poc{009}), and chunk boundaries did not either---page
+chunks already contained the gold span whole 95.8\% of the time (\poc{014}). The common cause
+is on the \emph{query} side: the CUAD category questions are long shared boilerplate, so the
+embedded query vector is dominated by words every category has in common.
+
+Two deterministic, generation-free query transforms move them (Table~\ref{tab:query}).
+Template question decomposition---issuing 2--3 fixed sub-queries and unioning their
+results---lifts Exclusivity recall 7\%$\rightarrow$24\% (\poc{016}), the first mechanism in the
+series to move a hard category at all. Keyword expansion---adding each category's
+discriminative vocabulary to the query---does better and cheaper: $+$4.8 pts overall,
+$+$8.8 on the weak-category mean, Exclusivity 7\%$\rightarrow$32\% with a single query
+(\poc{015}). A fluent natural-language gloss, by contrast, \emph{hurt} ($-$2.0), isolating the
+lever as discriminative \emph{terms}, not phrasing. Crucially, the recall gain converts
+end-to-end: key-fact accuracy rises $+$3.2 overall and $+$10.7 on Agreement Date (\poc{015},
+Arm~B).
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l l l}
+\toprule
+PoC & Query transform & Exclusivity recall@3 \\
+\midrule
+--  & raw category question (baseline) & 7\% \\
+016 & template decomposition          & 24\% ($+$17) \\
+015 & keyword expansion               & \textbf{32\%} ($+$25) \\
+015 & fluent gloss                    & 14\% (overall $-$2.0; rejected) \\
+\bottomrule
+\end{tabular}
+\caption{Query formulation on the hard categories. Injecting discriminative terms---not
+rephrasing, generation, chunking, or scoring---is the lever.}
+\label{tab:query}
+\end{table}
+
+\section{The answer step: extraction beats generation}\label{sec:answer}
+Better retrieval exposed a harder limit. On the non-fact hard categories, keyword expansion's
+large recall win converts to only a small answer-quality gain (Exclusivity span-F1
+2.8$\rightarrow$5.9) and the hard-category mean is flat (\poc{017})---retrieving the right
+clause is necessary but not sufficient. The 1.5B generator is now the bottleneck.
+
+Two answer-step changes address it (Table~\ref{tab:answer}). Removing the generator
+entirely---selecting the best $\leq$3-sentence passage from the retrieved chunks by
+embedding similarity---raises hard-category span-F1 to 20.7, $+$5.0 over the same-retrieval
+Qwen arm, while freeing roughly 1\,GB of RAM (\poc{018}). Keeping the generator but forcing it
+to emit a verbatim substring, validated by string match with a first-sentence fallback,
+reaches 22.1 (\poc{019})---but the validator rejected 61.7\% of generations, so the extractive
+fallback, not constrained generation, carries most of the gain. Both point the same way: for
+clause-style answers at this scale, extraction is the robust choice, and the generator-free
+variant is the cheaper one to ship.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l l l}
+\toprule
+PoC & Answer step (hard categories) & span-F1 \\
+\midrule
+017 & Qwen2.5-1.5B free generation (baseline)     & 15.4--16.1 \\
+018 & generator-free extraction ($\leq$3 sentences) & \textbf{20.7} ($+$5.0), $\sim$1\,GB freed \\
+019 & constrained verbatim + validator            & 22.1 ($+$6.6); 61.7\% fell back to extraction \\
+\bottomrule
+\end{tabular}
+\caption{The answer step. Once retrieval is fixed, a generator-free extractive step beats the
+1.5B generator on clause-style answers.}
+\label{tab:answer}
+\end{table}
+
+\section{Prompting: absence and over-refusal}\label{sec:prompting}
+Two prompt-level interventions were tested and largely rejected. A firm ``reply exactly \dots\
+if the sections do not contain the answer'' instruction did not move the default on-device
+model's absence rate without costing answer accuracy (\poc{008}); it helped only the model that
+already abstained most. And a reported over-refusal effect---legal ``authority'' framing making
+small models refuse more---did \emph{not} transfer: on Qwen2.5-1.5B the authority prompt refused
+\emph{least} (26.3\% vs 29.9\% plain vs 35.2\% task-only) and key-fact accuracy was flat
+(\poc{020}). A separate comparison of answer backends found the on-device Gemma variant more
+willing to say ``absent'' than the platform foundation model (\poc{006}). These are useful
+negatives: they rule out cheap prompt-only fixes.
+
+\section{Summary generation}\label{sec:summary}
+A sub-thread (\poc{003}--\poc{005}) concerns the app's four-section summary. The quantized
+model's tendency to stop after two sections is a \emph{sampler} effect, not a token-budget or
+prompt-example effect: the repeat/presence penalties that stop chat rambling also suppress
+later section headings, and a summary-specific sampler plus heading-insertion raises complete
+four-section output from 39\% to 93\% (\poc{005}). KV-cache quantization, by contrast, was not
+the memory constraint it was assumed to be (\poc{001}).
+
+\section{Discussion: a recurring principle}
+Across retrieval (\poc{011}, \poc{016}'s cross-reference arm), grounding, and answering, the
+same principle recurs: \emph{for a small model, wrong or extra context is a net negative.}
+Adding generated per-chunk context, appending resolved cross-references, or injecting
+mislabelled entity hints all dilute rather than help; the wins come from \emph{more precise}
+inputs (discriminative query terms) and from \emph{removing} an unreliable step (the generator)
+rather than adding capability. This is the opposite of the ``add more context'' intuition that
+serves large-model RAG.
+
+\section{Threats to validity}
+Results are host-stage (Mac, llama.cpp/Metal), not on-device; RAM and latency claims marked
+INFERRED need an iPhone run. The benchmark is English US commercial contracts (CUAD); other
+domains and languages may behave differently. span-F1 is a proxy for clause-answer quality, read
+as a delta only. Several experiments use a single sampler seed in the verdict; where a second
+seed was run it is reported. Some transforms use hand-authored per-category templates that may
+overfit CUAD phrasing.
+
+\section{Reproducibility and data availability}\label{sec:repro}
+All code (Apache-2.0), write-ups and raw results (CC~BY~4.0) are in the \repo{} repository.
+Each experiment folder contains its pre-registration, run scripts, raw per-item outputs, and a
+write-up citing the commit hash of its registration and results. A versioned snapshot of the
+repository is archived on Zenodo (DOI in \texttt{CITATION.cff}). No model weights or datasets
+are redistributed; each experiment names its models and the CUAD release it uses.
+
+\section{Conclusion}
+On a 6\,GB phone, the levers that help document RAG are a strong embedder, precise query terms
+for hard categories, and---counter-intuitively---\emph{removing} the small generator in favour
+of extraction for clause-style answers. Many cloud-RAG techniques did not transfer; we report
+those negatives in full. We hope the pre-registered, reproducible format is as useful as the
+findings.
+
+\section*{Acknowledgements}
+Experiments and write-ups were assisted by Claude (Anthropic), disclosed per the lab's
+contributing norm; all results are reproducible from the public repository.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

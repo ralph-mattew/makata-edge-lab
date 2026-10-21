@@ -1,0 +1,41 @@
+{
+  "title": "Makata AI Edge Lab: pre-registered experiments on on-device RAG for document QA",
+  "description": "Code, pre-registered proof-of-concept experiments, and raw results for running retrieval-augmented document question-answering on 6 GB-class phones under memory and thermal limits. Includes the consolidated study paper (paper/). Each experiment commits its question, hypotheses and decision rule before the first run and publishes raw outputs; results are labelled MEASURED/OBSERVED/INFERRED.",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "creators": [
+    {
+      "name": "Palomaria, Ralph Mattew",
+      "affiliation": "Makata AI Edge Lab",
+      "orcid": "0000-0000-0000-0000"
+    }
+  ],
+  "keywords": [
+    "on-device AI",
+    "retrieval-augmented generation",
+    "RAG",
+    "small language models",
+    "information retrieval",
+    "llama.cpp",
+    "EmbeddingGemma",
+    "Qwen2.5",
+    "CUAD",
+    "reproducibility",
+    "pre-registration"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/ralph-mattew/makata-edge-lab",
+      "scheme": "url"
+    },
+    {
+      "relation": "isDocumentedBy",
+      "identifier": "https://makata.ai/lab",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Code under Apache-2.0; write-ups and result data under CC BY 4.0. No model weights or datasets are redistributed. Replace the placeholder ORCID before the first Zenodo release, and add the arXiv DOI as a related_identifier (relation: isIdenticalTo) once the preprint is live."
+}
