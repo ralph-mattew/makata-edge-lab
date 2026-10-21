@@ -1,0 +1,22 @@
+== PoC 020: authority-framing prompt -> over-refusal? (A authority / B plain / C task-only) ==
+Host: Qwen2.5-1.5B Q4, greedy, EmbeddingGemma hybrid 0.9/0.1 top-3 (raw query).
+Full CUAD: 1,325 items; 464 key-fact scorable (date/duration/jurisdiction).
+recall@3 = 61.8% (identical across variants -> retrieval unaffected, H3 holds).
+
+variant          key-fact   refusal   hard-cat refusal
+A authority        69.8%     26.3%            55.0%
+B plain            70.7%     29.9%            62.7%
+C task-only        69.4%     35.2%            68.7%
+
+Δ vs A (authority baseline):
+  B - A:  key-fact +0.9   refusal +3.5
+  C - A:  key-fact -0.4   refusal +8.8
+
+DECISION RULE:
+  H1 key-fact >= +3 by removing framing:   FAIL (best +0.9)
+  H3 recall@3 unchanged (+-1):             PASS (61.8% identical)
+  delta < +1 across all variant pairs:     -> REJECT
+  -> REJECT. The authority prefix does NOT cause over-refusal on our stack; it has the
+     LOWEST refusal rate. Plain/task-only refuse MORE and do not raise key-fact. The
+     source paper's effect (criminal-law prompts, unspecified small LLMs) does not
+     transfer to Qwen2.5-1.5B on CUAD contract Q&A. Keep the current prompt.

@@ -1,0 +1,239 @@
+{
+  "_meta": {
+    "n_items": 1325,
+    "n_scorable": 464,
+    "recall_at_k": 61.8,
+    "topk": 3
+  },
+  "A": {
+    "key_fact_accuracy": 69.82758620689656,
+    "refusal_rate": 26.339622641509433,
+    "hard_cat_refusal_rate": 55.0,
+    "per_category": {
+      "Agreement Date": {
+        "refusal_rate": 25.0,
+        "key_fact_acc": 33.333333333333336,
+        "n": 100
+      },
+      "Audit Rights": {
+        "refusal_rate": 18.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Cap On Liability": {
+        "refusal_rate": 35.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Change Of Control": {
+        "refusal_rate": 22.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Exclusivity": {
+        "refusal_rate": 95.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Expiration Date": {
+        "refusal_rate": 7.0,
+        "key_fact_acc": 63.9344262295082,
+        "n": 100
+      },
+      "Governing Law": {
+        "refusal_rate": 4.0,
+        "key_fact_acc": 92.47311827956989,
+        "n": 100
+      },
+      "Insurance": {
+        "refusal_rate": 7.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Liquidated Damages": {
+        "refusal_rate": 46.2962962962963,
+        "key_fact_acc": null,
+        "n": 54
+      },
+      "Non-Compete": {
+        "refusal_rate": 48.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Notice Period To Terminate Renewal": {
+        "refusal_rate": 5.0,
+        "key_fact_acc": 80.0,
+        "n": 100
+      },
+      "Renewal Term": {
+        "refusal_rate": 2.0,
+        "key_fact_acc": 84.61538461538461,
+        "n": 100
+      },
+      "Termination For Convenience": {
+        "refusal_rate": 38.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Warranty Duration": {
+        "refusal_rate": 25.35211267605634,
+        "key_fact_acc": 45.0,
+        "n": 71
+      }
+    }
+  },
+  "B": {
+    "key_fact_accuracy": 70.6896551724138,
+    "refusal_rate": 29.88679245283019,
+    "hard_cat_refusal_rate": 62.666666666666664,
+    "per_category": {
+      "Agreement Date": {
+        "refusal_rate": 33.0,
+        "key_fact_acc": 34.523809523809526,
+        "n": 100
+      },
+      "Audit Rights": {
+        "refusal_rate": 21.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Cap On Liability": {
+        "refusal_rate": 45.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Change Of Control": {
+        "refusal_rate": 37.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Exclusivity": {
+        "refusal_rate": 96.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Expiration Date": {
+        "refusal_rate": 9.0,
+        "key_fact_acc": 67.21311475409836,
+        "n": 100
+      },
+      "Governing Law": {
+        "refusal_rate": 4.0,
+        "key_fact_acc": 92.47311827956989,
+        "n": 100
+      },
+      "Insurance": {
+        "refusal_rate": 8.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Liquidated Damages": {
+        "refusal_rate": 51.851851851851855,
+        "key_fact_acc": null,
+        "n": 54
+      },
+      "Non-Compete": {
+        "refusal_rate": 55.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Notice Period To Terminate Renewal": {
+        "refusal_rate": 5.0,
+        "key_fact_acc": 80.0,
+        "n": 100
+      },
+      "Renewal Term": {
+        "refusal_rate": 1.0,
+        "key_fact_acc": 85.71428571428571,
+        "n": 100
+      },
+      "Termination For Convenience": {
+        "refusal_rate": 37.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Warranty Duration": {
+        "refusal_rate": 23.943661971830984,
+        "key_fact_acc": 45.0,
+        "n": 71
+      }
+    }
+  },
+  "C": {
+    "key_fact_accuracy": 69.39655172413794,
+    "refusal_rate": 35.16981132075472,
+    "hard_cat_refusal_rate": 68.66666666666667,
+    "per_category": {
+      "Agreement Date": {
+        "refusal_rate": 44.0,
+        "key_fact_acc": 35.714285714285715,
+        "n": 100
+      },
+      "Audit Rights": {
+        "refusal_rate": 23.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Cap On Liability": {
+        "refusal_rate": 53.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Change Of Control": {
+        "refusal_rate": 50.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Exclusivity": {
+        "refusal_rate": 95.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Expiration Date": {
+        "refusal_rate": 15.0,
+        "key_fact_acc": 67.21311475409836,
+        "n": 100
+      },
+      "Governing Law": {
+        "refusal_rate": 5.0,
+        "key_fact_acc": 92.47311827956989,
+        "n": 100
+      },
+      "Insurance": {
+        "refusal_rate": 20.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Liquidated Damages": {
+        "refusal_rate": 44.44444444444444,
+        "key_fact_acc": null,
+        "n": 54
+      },
+      "Non-Compete": {
+        "refusal_rate": 61.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Notice Period To Terminate Renewal": {
+        "refusal_rate": 14.0,
+        "key_fact_acc": 73.6842105263158,
+        "n": 100
+      },
+      "Renewal Term": {
+        "refusal_rate": 4.0,
+        "key_fact_acc": 84.61538461538461,
+        "n": 100
+      },
+      "Termination For Convenience": {
+        "refusal_rate": 38.0,
+        "key_fact_acc": null,
+        "n": 100
+      },
+      "Warranty Duration": {
+        "refusal_rate": 28.169014084507044,
+        "key_fact_acc": 45.0,
+        "n": 71
+      }
+    }
+  }
+}
