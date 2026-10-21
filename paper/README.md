@@ -32,7 +32,7 @@ here ahead of its README** — the README is the source of truth.
 
 ## Before submitting
 
-- [ ] Replace the placeholder **ORCID** (`0000-0000-0000-0000`) in `main.tex` and `.zenodo.json`.
+- [x] ORCID set to `0009-0004-5450-253X` in `main.tex`, `.zenodo.json` and `CITATION.cff`.
 - [ ] Resolve the `VERIFY` / `PLACEHOLDER` entries in `references.bib` (EmbeddingGemma, Gemma E2B,
       StrucChunk, RESIN, the over-refusal paper's author list).
 - [ ] Re-read each cited verdict on the live site / README the day you submit (errata may exist).
