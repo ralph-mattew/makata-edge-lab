@@ -1,0 +1,91 @@
+{
+  "_meta": {
+    "n_answerable": 1325,
+    "n_absent": 438,
+    "ungated_recall_at_k": 61.81132075471698,
+    "baseline_fp_cos050": 75.11415525114155,
+    "topk": 3
+  },
+  "sweep": [
+    {
+      "T": 0.4,
+      "fp_absent": 95.89041095890411,
+      "car": 4.109589041095887,
+      "recall_at_k": 61.735849056603776,
+      "recall_drop": 0.07547169811320487,
+      "abstention_f1": 7.860262008733623
+    },
+    {
+      "T": 0.45,
+      "fp_absent": 90.41095890410959,
+      "car": 9.589041095890408,
+      "recall_at_k": 61.20754716981132,
+      "recall_drop": 0.6037735849056602,
+      "abstention_f1": 16.733067729083665
+    },
+    {
+      "T": 0.5,
+      "fp_absent": 75.11415525114155,
+      "car": 24.885844748858446,
+      "recall_at_k": 59.62264150943396,
+      "recall_drop": 2.1886792452830193,
+      "abstention_f1": 34.99197431781702
+    },
+    {
+      "T": 0.55,
+      "fp_absent": 43.15068493150685,
+      "car": 56.84931506849315,
+      "recall_at_k": 53.660377358490564,
+      "recall_drop": 8.150943396226417,
+      "abstention_f1": 51.024590163934434
+    },
+    {
+      "T": 0.6,
+      "fp_absent": 15.981735159817351,
+      "car": 84.01826484018265,
+      "recall_at_k": 35.24528301886792,
+      "recall_drop": 26.566037735849058,
+      "abstention_f1": 48.83875248838753
+    },
+    {
+      "T": 0.65,
+      "fp_absent": 3.8812785388127855,
+      "car": 96.11872146118722,
+      "recall_at_k": 12.528301886792454,
+      "recall_drop": 49.283018867924525,
+      "abstention_f1": 42.762823768410364
+    },
+    {
+      "T": 0.7,
+      "fp_absent": 0.91324200913242,
+      "car": 99.08675799086758,
+      "recall_at_k": 2.339622641509434,
+      "recall_drop": 59.471698113207545,
+      "abstention_f1": 40.278422273781906
+    }
+  ],
+  "best_f1": {
+    "T": 0.55,
+    "fp_absent": 43.15068493150685,
+    "car": 56.84931506849315,
+    "recall_at_k": 53.660377358490564,
+    "recall_drop": 8.150943396226417,
+    "abstention_f1": 51.024590163934434
+  },
+  "per_category_fp_at_best": {
+    "Agreement Date": 70.37037037037037,
+    "Audit Rights": 0.0,
+    "Cap On Liability": 45.45454545454545,
+    "Change Of Control": 65.71428571428571,
+    "Exclusivity": 6.0606060606060606,
+    "Expiration Date": 44.44444444444444,
+    "Governing Law": 42.10526315789474,
+    "Insurance": 15.625,
+    "Liquidated Damages": 88.23529411764706,
+    "Non-Compete": 30.303030303030305,
+    "Notice Period To Terminate Renewal": 62.857142857142854,
+    "Renewal Term": 35.294117647058826,
+    "Termination For Convenience": 90.625,
+    "Warranty Duration": 6.25
+  }
+}

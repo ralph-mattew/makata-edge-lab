@@ -1,0 +1,25 @@
+== PoC 021: retrieval-confidence abstention gating for absent clauses (OP-4) ==
+Host: EmbeddingGemma (--embd-gemma-default). Gate = raw top-1 semantic cosine >= T.
+Answerable: PoC-007 1,325 items (committed vectors). Absent: PoC-008 answerable=False, 438 items.
+ungated recall@3 = 61.8%.  baseline FP on absent (cos>=0.50) = 75.1%.
+
+   T   FP_absent    CAR   recall@3  rec_drop  abst_F1
+ 0.40     95.9%     4.1%    61.7%     +0.1      7.9
+ 0.45     90.4%     9.6%    61.2%     +0.6     16.7
+ 0.50     75.1%    24.9%    59.6%     +2.2     35.0
+ 0.55     43.2%    56.8%    53.7%     +8.2     51.0
+ 0.60     16.0%    84.0%    35.2%    +26.6     48.8
+ 0.65      3.9%    96.1%    12.5%    +49.3     42.8
+ 0.70      0.9%    99.1%     2.3%    +59.5     40.3
+
+per-category FP on absent at best-F1 T=0.55 (hard *): Exclusivity* 6.1, Non-Compete* 30.3,
+Change Of Control* 65.7; range across all categories 0.0 - 90.6.
+
+DECISION RULE:
+  H1 baseline FP > 20%:                 PASS (75.1% - OP-4 is severe, first measurement)
+  H2 some T cuts FP by >= 30%:          PASS (T>=0.55: 75->43%)
+  H3 recall drop <= 2 at that T:        FAIL (+8.2 at T=0.55)
+  recall drop > 3 at any T meeting H2:  -> REJECT global single-threshold gate
+  -> REJECT the global cosine gate; KEEP the H1 finding. Raw top-1 cosine does not separate
+     absent from answerable (answerable top-1 median 0.596). Next: per-category thresholds or a
+     learned confidence signal (top1-top2 margin / cross-encoder).
