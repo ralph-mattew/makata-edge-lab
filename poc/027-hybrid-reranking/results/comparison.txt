@@ -1,0 +1,17 @@
+== PoC 027: cross-encoder reranking of hybrid top-10 (OP-1) — executes PoC-012 host stage ==
+Host MPS, full CUAD. hybrid top-10 -> rerank -> top-3. PoC-025 ceiling (perfect top-10 reranker =
+recall@10): overall 79 / Non-Compete 51 / Exclusivity 25 / Change-of-Control 78.
+
+arm                     overall  Non-Compete  Exclusivity  Change-of-Control  latency
+hybrid top-3 (base)      61.8       25.0         7.0           67.0             -
++ MiniLM rerank          63.0       15.0 (-10)   6.0 (-1)      60.0 (-7)        41 ms/q
++ BGE-reranker-base      49.3        8.0 (-17)   2.0 (-5)      54.0 (-13)      220 ms/q
+
+DECISION RULE: adopt if overall +>=3 AND >=1 hard cat +>=5 (AND device latency<=4s); reject if overall <+1.
+  H1 (+3 overall): FAIL (MiniLM +1.2, BGE -12.5)
+  H2 (+5 on a hard cat): FAIL (all hard cats REGRESS; Non-Compete -10/-17)
+  -> REJECT. Headroom is real (PoC-025) but off-the-shelf rerankers demote the correct legal clauses.
+     General-domain MS-MARCO/BGE relevance does not transfer to CUAD clause matching. Only a
+     legal-domain fine-tuned reranker could capture it (out of scope). Closes PoC-012 too.
+     Every retrieval-stage lever has now failed on hard cats (022 embedder, 023 weight, 027 rerank);
+     durable movers remain query decomposition (016) + answer step (018).

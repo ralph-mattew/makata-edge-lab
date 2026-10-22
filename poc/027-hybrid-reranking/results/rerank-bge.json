@@ -1,0 +1,99 @@
+{
+  "model": "BAAI/bge-reranker-base",
+  "pool": 10,
+  "n_items": 1325,
+  "baseline_overall": 61.81132075471698,
+  "reranked_overall": 49.283018867924525,
+  "reranked_ci": [
+    46.513353115727,
+    52.059925093632955
+  ],
+  "delta_overall": -12.528301886792455,
+  "per_category": {
+    "Agreement Date": {
+      "baseline": 29.0,
+      "reranked": 54.0,
+      "delta": 25.0,
+      "n": 100
+    },
+    "Audit Rights": {
+      "baseline": 70.0,
+      "reranked": 42.0,
+      "delta": -28.0,
+      "n": 100
+    },
+    "Cap On Liability": {
+      "baseline": 51.0,
+      "reranked": 9.0,
+      "delta": -42.0,
+      "n": 100
+    },
+    "Change Of Control": {
+      "baseline": 67.0,
+      "reranked": 54.0,
+      "delta": -13.0,
+      "n": 100
+    },
+    "Exclusivity": {
+      "baseline": 7.0,
+      "reranked": 2.0,
+      "delta": -5.0,
+      "n": 100
+    },
+    "Expiration Date": {
+      "baseline": 87.0,
+      "reranked": 69.0,
+      "delta": -18.0,
+      "n": 100
+    },
+    "Governing Law": {
+      "baseline": 91.0,
+      "reranked": 93.0,
+      "delta": 2.0,
+      "n": 100
+    },
+    "Insurance": {
+      "baseline": 84.0,
+      "reranked": 64.0,
+      "delta": -20.0,
+      "n": 100
+    },
+    "Liquidated Damages": {
+      "baseline": 50.0,
+      "reranked": 48.148148148148145,
+      "delta": -1.8518518518518547,
+      "n": 54
+    },
+    "Non-Compete": {
+      "baseline": 25.0,
+      "reranked": 8.0,
+      "delta": -17.0,
+      "n": 100
+    },
+    "Notice Period To Terminate Renewal": {
+      "baseline": 84.0,
+      "reranked": 80.0,
+      "delta": -4.0,
+      "n": 100
+    },
+    "Renewal Term": {
+      "baseline": 96.0,
+      "reranked": 89.0,
+      "delta": -7.0,
+      "n": 100
+    },
+    "Termination For Convenience": {
+      "baseline": 67.0,
+      "reranked": 35.0,
+      "delta": -32.0,
+      "n": 100
+    },
+    "Warranty Duration": {
+      "baseline": 47.88732394366197,
+      "reranked": 39.436619718309856,
+      "delta": -8.450704225352112,
+      "n": 71
+    }
+  },
+  "host_rerank_ms_per_query": 219.65663855930543
+}
