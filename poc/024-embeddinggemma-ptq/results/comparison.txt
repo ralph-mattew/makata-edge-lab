@@ -1,0 +1,16 @@
+== PoC 024: 4-bit PTQ of EmbeddingGemma-300M (OP-3) ==
+Finding: our deployed embedder is ALREADY 4-bit QAT.
+
+--embd-gemma-default  ->  ggml-org/embeddinggemma-300M-qat-q4_0-GGUF  (≈270 MB on disk)
+   = the model behind every committed vector + the 61.4% recall baseline (cosine 1.0, per PoC-022).
+ggml-org Q8_0 (318 MB)  ->  orthogonal to committed Q4_0 (cosine ~0.02-0.05) = different checkpoint,
+   not a precision twin. f16 repo gated (HTTP 401).
+
+DECISION RULE mapping:
+  H1 D_func gate:         MOOT (QAT is already 4-bit; paper targets PTQ of fp16)
+  H2 recall within 1pt:   NOT DETERMINABLE host-side (no same-model fp16 reference)
+  H3 <=400MB/free>=200MB: ALREADY SATISFIED (≈270 MB; the 600MB fp16 premise never applied)
+  H4 key-fact within 2pt: MOOT alongside H2
+  -> REJECT AS MOOT. We already run 4-bit QAT EmbeddingGemma (≈270 MB). No fp16 baseline exists to
+     quantize. Correct the lab-wide "EmbeddingGemma = 600MB" framing to ≈270 MB. Sub-4-bit / embedder
+     swap is a separate question (PoC-022 UIBK was inconclusive). Device CoreML RAM parked.
