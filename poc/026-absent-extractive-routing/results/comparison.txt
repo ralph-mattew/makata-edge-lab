@@ -1,0 +1,19 @@
+== PoC 026: cosine-gated abstention vs Qwen stack on absent hard clauses (OP-4) ==
+Host: EmbeddingGemma + Qwen2.5-1.5B Q4. 101 absent hard-cat items (calib 50/held 51);
+300 answerable hard-cat items (baseline recall@3 33.0%).
+
+ tau   gate_CAR(held)  answ_regression
+ 0.30-0.45    0.0%          0.0pp
+ 0.50        13.7%          0.7pp
+
+arm                         CAR (held-out absent)
+Qwen generation (current)       86.3%
+cosine gate @ tau*=0.50         13.7%
+Δ (gate - Qwen)                -72.5pp
+
+DECISION RULE: adopt if Δ>=+10 AND regression<=2; reject if Δ<+5.
+  -> REJECT (Δ=-72.5pp). Premise inverted: Qwen is an EXCELLENT absent-clause abstainer (86%);
+     the cosine score can't separate absent from present (absent items retrieve high-cosine chunks).
+Reconciles PoC-021: the 75% retrieval-level false-surfacing is largely caught downstream by Qwen's
+"not stated". Keep Qwen for absent handling. Design tension: 018 says remove Qwen (answerable quality),
+026 says keep Qwen (absent abstention) -> generator-free pipeline needs its own abstainer (not cosine).
