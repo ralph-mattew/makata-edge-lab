@@ -1,0 +1,338 @@
+{
+  "raw": {
+    "overall": 61.81132075471698,
+    "hard_mean": 33.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 7.0,
+      "Non-Compete": 25.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 67.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    },
+    "ci": [
+      59.29961089494164,
+      64.38152011922504
+    ]
+  },
+  "decomp": {
+    "overall": 63.24528301886792,
+    "hard_mean": 39.333333333333336,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 23.0,
+      "Non-Compete": 36.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 59.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    },
+    "ci": [
+      60.73338426279603,
+      65.8069270449521
+    ]
+  },
+  "decomp_dpff_a0.1_r1": {
+    "overall": 63.320754716981135,
+    "hard_mean": 39.666666666666664,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 25.0,
+      "Non-Compete": 33.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 61.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    },
+    "ci": [
+      60.84573218480814,
+      65.859375
+    ]
+  },
+  "raw_dpff_a0.1_r1": {
+    "overall": 61.735849056603776,
+    "hard_mean": 33.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 7.0,
+      "Non-Compete": 25.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 67.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 46.478873239436616
+    },
+    "ci": [
+      59.226190476190474,
+      64.30123099203476
+    ]
+  },
+  "decomp_dpff_a0.1_r2": {
+    "overall": 63.16981132075472,
+    "hard_mean": 39.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 25.0,
+      "Non-Compete": 31.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 61.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    },
+    "ci": [
+      60.69578090303479,
+      65.66455696202532
+    ]
+  },
+  "raw_dpff_a0.1_r2": {
+    "overall": 61.735849056603776,
+    "hard_mean": 33.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 7.0,
+      "Non-Compete": 25.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 67.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 46.478873239436616
+    },
+    "ci": [
+      59.226190476190474,
+      64.30123099203476
+    ]
+  },
+  "decomp_dpff_a0.3_r1": {
+    "overall": 62.943396226415096,
+    "hard_mean": 38.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 24.0,
+      "Non-Compete": 30.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 60.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    },
+    "ci": [
+      60.45454545454545,
+      65.46762589928058
+    ]
+  },
+  "raw_dpff_a0.3_r1": {
+    "overall": 61.660377358490564,
+    "hard_mean": 33.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 7.0,
+      "Non-Compete": 25.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 90.0,
+      "Change Of Control": 67.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 46.478873239436616
+    },
+    "ci": [
+      59.151785714285715,
+      64.21130952380952
+    ]
+  },
+  "decomp_dpff_a0.3_r2": {
+    "overall": 63.0188679245283,
+    "hard_mean": 38.333333333333336,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 23.0,
+      "Non-Compete": 30.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 62.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    },
+    "ci": [
+      60.57185854025583,
+      65.53544494720965
+    ]
+  },
+  "raw_dpff_a0.3_r2": {
+    "overall": 61.43396226415094,
+    "hard_mean": 32.666666666666664,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 7.0,
+      "Non-Compete": 24.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 89.0,
+      "Change Of Control": 67.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 83.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 46.478873239436616
+    },
+    "ci": [
+      58.91126025354213,
+      64.02767102229055
+    ]
+  },
+  "decomp_dpff_a0.5_r1": {
+    "overall": 63.094339622641506,
+    "hard_mean": 38.666666666666664,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 22.0,
+      "Non-Compete": 31.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 63.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    },
+    "ci": [
+      60.63912704598597,
+      65.58823529411765
+    ]
+  },
+  "raw_dpff_a0.5_r1": {
+    "overall": 61.43396226415094,
+    "hard_mean": 32.666666666666664,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 7.0,
+      "Non-Compete": 24.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 89.0,
+      "Change Of Control": 67.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 83.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 46.478873239436616
+    },
+    "ci": [
+      58.91126025354213,
+      64.02767102229055
+    ]
+  },
+  "decomp_dpff_a0.5_r2": {
+    "overall": 62.943396226415096,
+    "hard_mean": 38.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 24.0,
+      "Non-Compete": 28.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 62.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    },
+    "ci": [
+      60.50420168067227,
+      65.41916167664671
+    ]
+  },
+  "raw_dpff_a0.5_r2": {
+    "overall": 61.20754716981132,
+    "hard_mean": 32.333333333333336,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 7.0,
+      "Non-Compete": 23.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 89.0,
+      "Change Of Control": 67.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 51.851851851851855,
+      "Audit Rights": 69.0,
+      "Notice Period To Terminate Renewal": 81.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 46.478873239436616
+    },
+    "ci": [
+      58.68440502586844,
+      63.77358490566038
+    ]
+  }
+}
