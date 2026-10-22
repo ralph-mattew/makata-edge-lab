@@ -1,0 +1,70 @@
+{
+  "model": "DataScience-UIBK/uibk-embedding-v1",
+  "recall_at_k": 63.16981132075472,
+  "ci": [
+    60.488958990536275,
+    65.75645756457564
+  ],
+  "n_items": 1325,
+  "eg_baseline": 61.4,
+  "delta_vs_eg": 1.7698113207547195,
+  "hard_mean": 37.0,
+  "per_category": {
+    "Agreement Date": {
+      "recall": 30.0,
+      "n": 100
+    },
+    "Audit Rights": {
+      "recall": 65.0,
+      "n": 100
+    },
+    "Cap On Liability": {
+      "recall": 49.0,
+      "n": 100
+    },
+    "Change Of Control": {
+      "recall": 66.0,
+      "n": 100
+    },
+    "Exclusivity": {
+      "recall": 4.0,
+      "n": 100
+    },
+    "Expiration Date": {
+      "recall": 88.0,
+      "n": 100
+    },
+    "Governing Law": {
+      "recall": 89.0,
+      "n": 100
+    },
+    "Insurance": {
+      "recall": 79.0,
+      "n": 100
+    },
+    "Liquidated Damages": {
+      "recall": 57.407407407407405,
+      "n": 54
+    },
+    "Non-Compete": {
+      "recall": 41.0,
+      "n": 100
+    },
+    "Notice Period To Terminate Renewal": {
+      "recall": 92.0,
+      "n": 100
+    },
+    "Renewal Term": {
+      "recall": 95.0,
+      "n": 100
+    },
+    "Termination For Convenience": {
+      "recall": 70.0,
+      "n": 100
+    },
+    "Warranty Duration": {
+      "recall": 53.521126760563384,
+      "n": 71
+    }
+  }
+}

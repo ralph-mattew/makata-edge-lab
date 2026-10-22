@@ -1,0 +1,19 @@
+== PoC 022: UIBK-Embedding-v1 (179M) MaxSim vs EmbeddingGemma hybrid (OP-3) ==
+Host: Mac MPS, UIBK via PyLate (MaxSim = token-MaxSim + 0.75*dense). Full CUAD 1,325 items.
+recall@3 = top-3 cover >= 50% of gold span (PoC-007 defn). EmbeddingGemma cols = PoC-016 page/raw.
+
+metric                      EmbeddingGemma     UIBK MaxSim      Δ
+overall recall@3               61.4% (61.8)        63.2%       +1.8   (CI 60.5-65.8)
+Exclusivity                     7.0%                4.0%       -3.0
+Non-Compete                    25.0%               41.0%      +16.0
+Change Of Control              67.0%               66.0%       -1.0
+hard-category mean             33.0%               37.0%       +4.0
+
+DECISION RULE:
+  H1 recall@3 >= 64.4% (+3):     NOT met (63.2%, +1.8 -> INCONCLUSIVE band 62.4-64.4)
+  H2 RAM <= 420 MB:              not measured (device-bound, parked like PoC-012)
+  H3 >= +5 on a hard category:   PASS via Non-Compete (+16); but Exclusivity -3 -> redistribution
+  -> INCONCLUSIVE (host). Do not promote to device: marginal overall gain vs real device cost.
+     Follow-up: UIBK MaxSim as a Non-Compete-specific retriever, or hybridise with EmbeddingGemma.
+
+CAUTION: a 40-item smoke gave 80-85% (easy early contracts) — the representative full number is 63.2%.
