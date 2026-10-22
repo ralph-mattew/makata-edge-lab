@@ -33,7 +33,7 @@ Reuse PoC-007/PoC-013 harness. Step 1 (diagnostic): for every hard-category Q&A 
 
 - Baseline stack (fill exact files/SHA-256 on promotion): EmbeddingGemma 300M (600 MB), Qwen2.5-1.5B Q4 (1.0 GB), Hybrid: 0.9 semantic + 0.1 BM25 (weight adopted in PoC 013).
 - Device: iPhone 15 Pro (6GB). Dataset: CUAD contracts (397 documents, 1,325 Q&A items).
-- What varies vs held fixed, measurements, repetitions: TO BE SPECIFIED before registration.
+- **Varies:** the candidate depth k examined (diagnostic — recall@{1,3,5,10,20} and the gold-chunk rank). **Held fixed:** EmbeddingGemma hybrid 0.9/0.1 retrieval, the PoC-014 chunk index, the PoC-007 coverage definition (≥50% span overlap). **Measurements:** recall@k per category + overall, and the rank histogram of the best covering gold chunk (top-3 / 4–10 / 11–20 / 21+ / never). **Repetitions:** deterministic → single pass.
 
 ## Decision rule
 

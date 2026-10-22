@@ -33,7 +33,7 @@ Reuse PoC-007/008 harness. Step 1: prepare a CUAD retrieval calibration set (200
 
 - Baseline stack (fill exact files/SHA-256 on promotion): EmbeddingGemma 300M (600 MB), Qwen2.5-1.5B Q4 (1.0 GB), Hybrid: 0.9 semantic + 0.1 BM25 (weight adopted in PoC 013).
 - Device: iPhone 15 Pro (6GB). Dataset: CUAD contracts (397 documents, 1,325 Q&A items).
-- What varies vs held fixed, measurements, repetitions: TO BE SPECIFIED before registration.
+- **Varies:** (investigation, not an intervention) the embedder precision/checkpoint under inspection. **Held fixed:** the committed PoC-014 vectors + doc/query prefixes used as the reference space. **Measurements:** the identity + on-disk size of the `--embd-gemma-default` model, and the cosine between a Q8_0 re-embedding and the committed Q4_0 vectors (space-equivalence check). **Repetitions:** deterministic — single probe.
 
 ## Decision rule
 

@@ -32,7 +32,7 @@ Reuse existing experiment harness and CUAD dataset. (1) Identify all category-ab
 
 - Baseline stack (fill exact files/SHA-256 on promotion): EmbeddingGemma 300M (600 MB), Qwen2.5-1.5B Q4 (1.0 GB), Hybrid: 0.9 semantic + 0.1 BM25 (weight adopted in PoC 013).
 - Device: iPhone 15 Pro (6GB). Dataset: CUAD contracts (397 documents, 1,325 Q&A items).
-- What varies vs held fixed, measurements, repetitions: TO BE SPECIFIED before registration.
+- **Varies:** the abstention mechanism on absent items — cosine-threshold gate (sweep τ ∈ {0.30…0.50}) vs the current Qwen generation stack. **Held fixed:** EmbeddingGemma hybrid 0.9/0.1 retrieval, top-3, the PoC-008 absent set + PoC-007 answerable set, Qwen prompt/sampling. **Measurements:** CAR on absent hard-cat items (primary), recall@3 regression on answerable hard-cat items (constraint). **Repetitions:** deterministic (greedy Qwen, fixed cosines) → single pass; seeded 50/50 calibration split.
 
 ## Decision rule
 
