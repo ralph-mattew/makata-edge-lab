@@ -1,0 +1,23 @@
+== PoC 025: evidence-retention depth diagnostic (OP-1) ==
+Host, committed PoC-014 vectors, hybrid 0.9/0.1. Rank of best covering gold chunk (>=50% span overlap).
+
+recall@k (hard *):            @1  @3  @5 @10 @20
+  OVERALL                     45  62  71  79  86
+* Exclusivity                  3   7  12  25  45
+* Non-Compete                 16  25  33  51  73
+* Change Of Control           38  67  74  78  85
+
+gold-chunk rank histogram:    top3  4-10  11-20  21+  never
+* Exclusivity                   7%   18%    20%  54%    1%
+* Non-Compete                  25%   26%    22%  27%    0%
+* Change Of Control            67%   11%     7%  15%    0%
+
+H1 (>=15% hard-cat gold in rank 4-10): PASS (18.3%)
+H2 (dual-threshold filter -> +4): NO-OP by construction (filtering can't promote into top-3)
+
+VERDICT: Inconclusive by rule, decisive diagnostic. OP-1 splits:
+  - Non-Compete = RANKING problem (25% top3, +26% at 4-10, recall@10=51%) -> reranker should ~2x it.
+    GREENLIGHT the cross-encoder reranking PoC, scoped to Non-Compete.
+  - Exclusivity = REPRESENTATION problem (54% at rank 21+, recall@10=25%) -> reranking can't reach;
+    needs better embedder / query decomposition (PoC-016).
+  - Change-of-Control already fine (67% top3).
