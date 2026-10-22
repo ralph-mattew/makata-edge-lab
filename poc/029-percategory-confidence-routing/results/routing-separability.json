@@ -1,0 +1,35 @@
+{
+  "Exclusivity": {
+    "auc": 0.6003030303030303,
+    "absent_median_cos": 0.5121018622371961,
+    "answerable_median_cos": 0.5223820467573193,
+    "youden_threshold": 0.506,
+    "car_at_youden": 42.42424242424242,
+    "recall_loss_at_youden_pp": 3.0,
+    "car_at_3pp_recall_cap": 63.63636363636363,
+    "n_absent": 33,
+    "n_answerable": 100
+  },
+  "Non-Compete": {
+    "auc": 0.7263636363636363,
+    "absent_median_cos": 0.5306345596452229,
+    "answerable_median_cos": 0.5593168243913971,
+    "youden_threshold": 0.548,
+    "car_at_youden": 69.6969696969697,
+    "recall_loss_at_youden_pp": 13.0,
+    "car_at_3pp_recall_cap": 36.36363636363637,
+    "n_absent": 33,
+    "n_answerable": 100
+  },
+  "Change Of Control": {
+    "auc": 0.7294285714285714,
+    "absent_median_cos": 0.5569005455411735,
+    "answerable_median_cos": 0.5940668008331649,
+    "youden_threshold": 0.565,
+    "car_at_youden": 60.0,
+    "recall_loss_at_youden_pp": 9.0,
+    "car_at_3pp_recall_cap": 11.428571428571429,
+    "n_absent": 35,
+    "n_answerable": 100
+  }
+}

@@ -1,0 +1,17 @@
+== PoC 029: per-category retrieval-confidence routing for absent clauses (OP-4) ==
+Host, EmbeddingGemma. 101 absent + 300 answerable hard-cat items. top-1 cosine separability.
+
+category            AUC   abs_med  ans_med  CAR@<=3pp-recall  CAR-gain-ceiling*
+Exclusivity         0.60   0.512    0.522       63.6%            +8.8pp
+Non-Compete         0.73   0.531    0.559       36.4%            +5.0pp
+Change Of Control   0.73   0.557    0.594       11.4%            +1.6pp
+
+* ceiling = routed_fraction * (100% - 86.3% Qwen-with-context CAR from PoC-026); assumes zero-context
+  Qwen abstains 100% on routed items (strict upper bound).
+
+DECISION RULE: adopt if H1 (CAR +>=10pp) AND H2 (recall loss <=3pp) AND H3 (AUC>0.65); reject if H1<+5.
+  H3: PASS (NC/CoC AUC 0.73) -- per-category cosine DOES separate (refines PoC-021 global-pool result).
+  H1: FAIL -- ceiling +8.8/+5.0/+1.6pp < +10 (NC/CoC <= +5). Adopt arithmetically unreachable.
+  -> REJECT. Two ceilings: AUC 0.73 only "fair" (H2 caps routed fraction) AND PoC-026's 86.3% baseline
+     leaves almost no headroom. Closes OP-4: Qwen is the correct abstainer; no cosine router beats it.
+     Future absent-clause work: target Qwen's ~14% misses (NLI/entailment on top chunk), not a gate.
