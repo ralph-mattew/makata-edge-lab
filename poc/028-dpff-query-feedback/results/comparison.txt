@@ -1,0 +1,17 @@
+== PoC 028: DPFF — query-embedding pseudo-relevance feedback (OP-1) ==
+Host, committed vectors, hybrid 0.9/0.1, recall@3. q' = normalize(q + alpha*(centroid(top-k) - q)).
+
+arm                         overall  hard-mean  Excl  NonC  CoC
+raw (baseline a)              61.8     33.0        7    25   67
+decomp PoC-016 (baseline b)   63.2     39.3       23    36   59
+decomp+DPFF a0.1 r1 (best)    63.3     39.7       25    33   61
+decomp+DPFF a0.3 r1           62.9     38.0       24    30   60
+decomp+DPFF a0.5 r2           62.9     38.0       24    28   62
+
+DECISION RULE: adopt if hard-mean +>=10 over decomp AND overall regression<=1; reject if <+5.
+  H1: FAIL (best +0.4). Larger alpha hurts; Non-Compete regresses 36->33->28.
+  -> REJECT. Classic PRF precondition failure: hard-cat top-3 precision too low (Excl 7%, NonC 25%),
+     so the top-3 centroid is mostly wrong chunks and the query drifts toward them.
+Query FORMULATION (015/016) helps; query-embedding FEEDBACK does not.
+OP-1: embedder(022)+weight(023)+rerank(027)+query-feedback(028) all failed -> every retrieval-scoring/
+refinement lever exhausted; durable movers are formulation (015/016) + answer step (018).
