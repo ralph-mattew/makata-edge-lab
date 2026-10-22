@@ -33,7 +33,7 @@ Reuse PoC-012/PoC-007 harness on CUAD 1,325 Q&A items. Retrieve top-10 candidate
 
 - Baseline stack (fill exact files/SHA-256 on promotion): EmbeddingGemma 300M (600 MB), Qwen2.5-1.5B Q4 (1.0 GB), Hybrid: 0.9 semantic + 0.1 BM25 (weight adopted in PoC 013).
 - Device: iPhone 15 Pro (6GB). Dataset: CUAD contracts (397 documents, 1,325 Q&A items).
-- What varies vs held fixed, measurements, repetitions: TO BE SPECIFIED before registration.
+- **Varies:** the answer-pool reranker — none (hybrid top-3 baseline) vs a cross-encoder (`ms-marco-MiniLM-L-6-v2`, `bge-reranker-base`) applied to the hybrid top-10. **Held fixed:** EmbeddingGemma hybrid 0.9/0.1 candidate retrieval, the top-10 pool size, the PoC-014 chunk index, the PoC-007 coverage definition, the eval set. **Measurements:** overall + per-category recall@3 (hard categories called out), host rerank latency. **Repetitions:** deterministic → single pass; contract-level bootstrap CI.
 
 ## Decision rule
 

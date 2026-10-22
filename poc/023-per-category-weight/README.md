@@ -33,7 +33,7 @@ Reuse the existing hybrid retrieval harness (EmbeddingGemma + BM25, CUAD 300-ite
 
 - Baseline stack (fill exact files/SHA-256 on promotion): EmbeddingGemma 300M (600 MB), Qwen2.5-1.5B Q4 (1.0 GB), Hybrid: 0.9 semantic + 0.1 BM25 (weight adopted in PoC 013).
 - Device: iPhone 15 Pro (6GB). Dataset: CUAD contracts (397 documents, 1,325 Q&A items).
-- What varies vs held fixed, measurements, repetitions: TO BE SPECIFIED before registration.
+- **Varies:** a per-category hybrid weight α routed by the query's CUAD category label (hard cats only). **Held fixed:** EmbeddingGemma retrieval, the PoC-014 chunk index, BM25 params, the eval set, α=0.9 for all non-hard categories. **Measurements:** per-category + overall recall@3 at the calibrated α vs the global α=0.9 baseline; calibration α-sweep per hard category. **Repetitions:** deterministic retrieval → single pass (seeded calibration split).
 
 ## Decision rule
 
