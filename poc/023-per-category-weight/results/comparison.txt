@@ -1,0 +1,22 @@
+== PoC 023: per-category adaptive hybrid weight for hard categories (OP-1) ==
+Host, committed PoC-014 vectors + PoC-007 items. Calibrate alpha per hard category (20-item split,
+seed 0), apply to eval (calibration excluded). Compare vs global alpha=0.9.
+
+category             alpha*   global@0.9   per-cat      Δ    (n)
+Exclusivity            0.9        6.2%       6.2%      +0.0  (80)
+Non-Compete            0.9       27.5%      27.5%      +0.0  (80)
+Change Of Control      0.9       67.5%      67.5%      +0.0  (80)
+overall                 -        63.3%      63.3%      +0.0  (1265)
+
+calibration alpha-sweep recall@3 (higher alpha monotonically better; BM25-heavy collapses):
+  Exclusivity:        a<=0.5 -> 0%,  0.8/0.9 -> 10%
+  Non-Compete:        a<=0.5 -> 0%,  0.9 -> 15%
+  Change Of Control:  0.1 -> 30%,  0.8/0.9 -> 65%
+
+DECISION RULE:
+  H1 Exclusivity +>=5:          FAIL (Δ0.0; alpha*=0.9)
+  H2 NC & CoC +>=3:             FAIL (Δ0.0)
+  H4 alpha* differs from 0.9:   FAIL (alpha*=0.9 all)
+  -> REJECT. Optimal per-category alpha IS the global 0.9. BM25-heavy weighting strictly hurts;
+     hard categories are retrieval-scoring-invariant per-category too (extends PoC-013).
+     OP-1 must come from chunking / query formulation (PoC-016) / answer step (PoC-018), not weight.

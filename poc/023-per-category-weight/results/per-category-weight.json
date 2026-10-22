@@ -1,0 +1,89 @@
+{
+  "calib_per_cat": 20,
+  "seed": 0,
+  "topk": 3,
+  "chosen_alpha": {
+    "Exclusivity": 0.9,
+    "Non-Compete": 0.9,
+    "Change Of Control": 0.9
+  },
+  "per_category": {
+    "Exclusivity": {
+      "alpha": 0.9,
+      "n": 80,
+      "recall_global_0.9": 6.25,
+      "recall_percat": 6.25,
+      "delta": 0.0
+    },
+    "Non-Compete": {
+      "alpha": 0.9,
+      "n": 80,
+      "recall_global_0.9": 27.5,
+      "recall_percat": 27.5,
+      "delta": 0.0
+    },
+    "Change Of Control": {
+      "alpha": 0.9,
+      "n": 80,
+      "recall_global_0.9": 67.5,
+      "recall_percat": 67.5,
+      "delta": 0.0
+    }
+  },
+  "overall": {
+    "recall_global_0.9": 63.3201581027668,
+    "recall_percat": 63.3201581027668,
+    "delta": 0.0,
+    "n": 1265
+  },
+  "calibration_detail": {
+    "Exclusivity": {
+      "alpha": 0.9,
+      "calib_recall": 10.0,
+      "calib_recall_at_0.9": 10.0,
+      "sweep": {
+        "0.1": 0.0,
+        "0.2": 0.0,
+        "0.3": 0.0,
+        "0.4": 0.0,
+        "0.5": 0.0,
+        "0.6": 5.0,
+        "0.7": 5.0,
+        "0.8": 10.0,
+        "0.9": 10.0
+      }
+    },
+    "Non-Compete": {
+      "alpha": 0.9,
+      "calib_recall": 15.0,
+      "calib_recall_at_0.9": 15.0,
+      "sweep": {
+        "0.1": 0.0,
+        "0.2": 0.0,
+        "0.3": 0.0,
+        "0.4": 0.0,
+        "0.5": 0.0,
+        "0.6": 5.0,
+        "0.7": 5.0,
+        "0.8": 5.0,
+        "0.9": 15.0
+      }
+    },
+    "Change Of Control": {
+      "alpha": 0.9,
+      "calib_recall": 65.0,
+      "calib_recall_at_0.9": 65.0,
+      "sweep": {
+        "0.1": 30.0,
+        "0.2": 30.0,
+        "0.3": 30.0,
+        "0.4": 40.0,
+        "0.5": 50.0,
+        "0.6": 55.0,
+        "0.7": 50.0,
+        "0.8": 65.0,
+        "0.9": 65.0
+      }
+    }
+  }
+}
