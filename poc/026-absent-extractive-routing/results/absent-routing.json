@@ -1,0 +1,39 @@
+{
+  "n_absent": 101,
+  "n_answerable": 300,
+  "base_recall": 33.0,
+  "tau_star": 0.5,
+  "tau_feasible_le2pp": [
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5
+  ],
+  "qwen_car_held": 86.27450980392157,
+  "gate_car_held": 13.72549019607843,
+  "car_delta": -72.54901960784315,
+  "answ_regression_at_tau_star": 0.6666666666666666,
+  "sweep": {
+    "0.3": {
+      "gate_car_held": 0.0,
+      "answ_regression": 0.0
+    },
+    "0.35": {
+      "gate_car_held": 0.0,
+      "answ_regression": 0.0
+    },
+    "0.4": {
+      "gate_car_held": 0.0,
+      "answ_regression": 0.0
+    },
+    "0.45": {
+      "gate_car_held": 0.0,
+      "answ_regression": 0.0
+    },
+    "0.5": {
+      "gate_car_held": 13.72549019607843,
+      "answ_regression": 0.6666666666666666
+    }
+  }
+}
