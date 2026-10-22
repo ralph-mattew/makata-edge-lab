@@ -1,0 +1,7 @@
+== Default embedder identity ==
+--embd-gemma-default -> embeddinggemma-300M-qat-Q4_0.gguf  (278 MB on disk)
+This is the model behind every committed vector + the 61.4% recall baseline. Already 4-bit QAT.
+
+== Q8_0 vs committed Q4_0 (same chunk text + doc prefix) ==
+
+(Q8 reference server not reachable on :8092 — skipping space check: <urlopen error [Errno 61] Connection refused>)
