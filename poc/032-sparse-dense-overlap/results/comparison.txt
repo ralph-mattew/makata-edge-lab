@@ -1,0 +1,17 @@
+== PoC 032: sparse-dense overlap — does BM25 earn its 0.1? (OP-3) ==
+Host, committed vectors, recall@3, full CUAD 1,325 items.
+
+arm                  overall  Excl  NonC  CoC
+dense-only (1.0/0.0)   61.0     6    36    60
+BM25-only              41.8     1     8    47
+hybrid 0.9/0.1         62.6     6    33    65
+
+sparse-exclusive coverage: 5.3% overall (4.0% hard)  [H1 <15% PASS]
+dense vs hybrid: 61.0 vs 62.6 (Δ -1.6; CoC -5)       [H2 within-1pp FAIL; dense>=60.4 -> inconclusive band]
+host BM25 cost: ~2.0 ms/q (dense ~3.9 ms/q)
+
+DECISION RULE: adopt dense-only if H1 AND H2 (within 1pp & >=60.4) AND H3; reject if dense<60.4;
+inconclusive if H1 holds but H2 borderline (60.4-61.4).
+  -> INCONCLUSIVE by rule; ACTIONABLE = KEEP BM25. The "fusion tax" does NOT transfer to CUAD;
+     BM25's 0.1 buys +1.6pp (and +5pp on Change-of-Control) for ~2ms/q. Confirms PoC-013's 0.9/0.1.
+     Do not re-propose dropping BM25 / dense-only on CUAD.
