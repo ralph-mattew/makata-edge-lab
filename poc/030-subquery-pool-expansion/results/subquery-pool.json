@@ -1,0 +1,102 @@
+{
+  "raw": {
+    "overall": 61.81132075471698,
+    "hard_mean": 33.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 7.0,
+      "Non-Compete": 25.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 67.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    }
+  },
+  "N1": {
+    "overall": 62.41509433962264,
+    "hard_mean": 35.666666666666664,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 20.0,
+      "Non-Compete": 33.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 54.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    }
+  },
+  "N2": {
+    "overall": 63.24528301886792,
+    "hard_mean": 39.333333333333336,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 23.0,
+      "Non-Compete": 32.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 63.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    }
+  },
+  "N3": {
+    "overall": 63.16981132075472,
+    "hard_mean": 39.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 24.0,
+      "Non-Compete": 28.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 65.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    }
+  },
+  "N5": {
+    "overall": 63.16981132075472,
+    "hard_mean": 39.0,
+    "per_category": {
+      "Renewal Term": 96.0,
+      "Expiration Date": 87.0,
+      "Exclusivity": 24.0,
+      "Non-Compete": 28.0,
+      "Cap On Liability": 51.0,
+      "Governing Law": 91.0,
+      "Change Of Control": 65.0,
+      "Termination For Convenience": 67.0,
+      "Insurance": 84.0,
+      "Liquidated Damages": 50.0,
+      "Audit Rights": 70.0,
+      "Notice Period To Terminate Renewal": 84.0,
+      "Agreement Date": 29.0,
+      "Warranty Duration": 47.88732394366197
+    }
+  }
+}
