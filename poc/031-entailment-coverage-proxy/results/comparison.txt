@@ -1,0 +1,15 @@
+== PoC 031: zero-parameter entailment proxy (weakest-link sub-phrase coverage) for absent clauses (OP-7) ==
+Host, EmbeddingGemma. 101 absent + 300 answerable hard-cat items. Both signals score the same top-1 chunk.
+
+category            AUC(top1cos)  AUC(minsub)  CAR@3pp(top1)  CAR@3pp(minsub)  dCAR
+Exclusivity            0.60          0.60          63.6%          60.6%        -3.0
+Non-Compete            0.73          0.73          33.3%          36.4%        +3.0
+Change Of Control      0.73          0.75          11.4%          11.4%        +0.0
+
+DECISION RULE: adopt if H1 (min-subphrase CAR +>=8pp over top-1 cosine) AND H2 (recall loss <=3pp);
+reject if CAR gain <+3 over 029; else inconclusive.
+  H1: FAIL (best +3.0, net ~0). AUC unchanged (weakest-link adds no separating power).
+  -> INCONCLUSIVE, effectively NEGATIVE. Decomposing the question + min-cosine does not beat plain
+     top-1 cosine. With PoC-026's 86.3% Qwen baseline, the retrieval-side absent-clause programme is
+     closed (021 global cosine, 029 per-category, 031 sub-phrase all fail). Only a real NLI/entailment
+     model over (clause, question) could move the residual ~14% -- or accept Qwen's 86%.
