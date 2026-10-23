@@ -1,0 +1,17 @@
+== PoC 030: expanded per-sub-query candidate pool before union (OP-1) ==
+Host, committed vectors, recall@3. top-N per sub-query -> union+dedupe -> rerank -> K=3.
+
+arm                 overall  hard-mean  Excl  NonC  CoC
+raw (single-query)    61.8     33.0       7    25    67
+decomp N=1 (PoC-016)  62.4     35.7      20    33    54
+decomp N=2 (best)     63.2     39.3      23    32    63
+decomp N=3            63.2     39.0      24    28    65
+decomp N=5            63.2     39.0      24    28    65
+
+DECISION RULE: adopt if H1 (hard-mean +>=10 over raw) AND H3 (overall regression <=2 vs decomp-N1);
+reject if hard-mean gain <+3 over decomp-N1 at all N; else inconclusive.
+  H1: FAIL (+6.3). H2 (Excl>=30): FAIL (23). H3: PASS (+0.8). gain over decomp-N1 = +3.7 (>=+3).
+  H4: N=2 optimal (N>=3 inflates distractors).
+  -> INCONCLUSIVE. Best hard-mean the lab has reached (39.3); first improvement over PoC-016 decomp;
+     recovers decomposition's CoC regression (54->63). Adopt N=2 as the decomposition default (free),
+     but hard categories remain ~39% -> larger gains must come from the answer step (PoC-018).
