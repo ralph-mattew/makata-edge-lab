@@ -1,0 +1,17 @@
+== PoC 037: fixed chunk-size sweep for retrieval (OP-1) ==
+Host, EmbeddingGemma, full CUAD, recall@3 (top-3 cover >=50% of gold span). Re-chunk + re-embed.
+
+chunk size (words/~tok)   chunks   overall   Excl  NonC  CoC
+baseline (014 ~25w med)   79,037    61.4      ~7    ~29   ~65
+W=96  (~128 tok)          39,812    58.6       7    28    55
+W=192 (~256 tok)          20,003    65.7      15    42    66
+W=384 (~512 tok)          10,096    67.6      16    46    70
+
+DECISION RULE: adopt best if H1 (>=+3pp) AND H3 (RAM in budget); reject if <+1 at all sizes.
+  W=384: +6.2 overall, hard-mean ~33 -> 44, every hard cat up; FEWER chunks (10k vs 79k). -> ADOPT.
+HEADLINE: the hard-category retrieval plateau (022/023/025/027/028/030/033) was substantially a
+chunk-FRAGMENTATION artifact -- all prior retrieval PoCs used the tiny 014 chunks.
+CAVEATS: (1) recall@3 coverage metric is chunk-size-sensitive (bigger chunks meet the >=50% bar more
+easily) -- direction real, magnitude partly mechanical; (2) 512-tok chunks cost ~4x Qwen context ->
+must re-validate at the ANSWER step. ACTIONS: adopt W~384; re-run answer-step PoCs (017/018/030/036)
+on it; sweep W=512/768 + overlap; composes with PoC-035 binary index (better recall + smaller index).
