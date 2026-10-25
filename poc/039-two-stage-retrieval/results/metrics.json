@@ -1,0 +1,130 @@
+{
+  "recall_at_3": 64.3,
+  "ci95": [
+    61.8,
+    66.83
+  ],
+  "n_items": 1325,
+  "hard_mean": 44.0,
+  "weak_mean": 41.65,
+  "per_category": {
+    "Agreement Date": {
+      "recall": 29.0,
+      "n": 100
+    },
+    "Audit Rights": {
+      "recall": 70.0,
+      "n": 100
+    },
+    "Cap On Liability": {
+      "recall": 51.0,
+      "n": 100
+    },
+    "Change Of Control": {
+      "recall": 60.0,
+      "n": 100
+    },
+    "Exclusivity": {
+      "recall": 33.0,
+      "n": 100
+    },
+    "Expiration Date": {
+      "recall": 87.0,
+      "n": 100
+    },
+    "Governing Law": {
+      "recall": 91.0,
+      "n": 100
+    },
+    "Insurance": {
+      "recall": 84.0,
+      "n": 100
+    },
+    "Liquidated Damages": {
+      "recall": 50.0,
+      "n": 54
+    },
+    "Non-Compete": {
+      "recall": 39.0,
+      "n": 100
+    },
+    "Notice Period To Terminate Renewal": {
+      "recall": 84.0,
+      "n": 100
+    },
+    "Renewal Term": {
+      "recall": 96.0,
+      "n": 100
+    },
+    "Termination For Convenience": {
+      "recall": 67.0,
+      "n": 100
+    },
+    "Warranty Duration": {
+      "recall": 47.89,
+      "n": 71
+    }
+  },
+  "measurements": {},
+  "verdict": {
+    "verdict": "reject",
+    "reason": "pre-registered rule",
+    "adopt_checks": [
+      {
+        "var": "hard_mean",
+        "op": ">=",
+        "value": 49.3,
+        "actual": 44.0,
+        "pass": false,
+        "note": "H1: hard-mean recall@3 reaches target of +10pp over PoC-030 (39.3 \u2192 49.3)"
+      },
+      {
+        "var": "recall_at_3",
+        "op": ">=",
+        "value": 60.8,
+        "actual": 64.3,
+        "pass": true,
+        "note": "H3: overall recall@3 does not regress by more than 1pp (61.8 - 1.0 = 60.8)"
+      }
+    ],
+    "reject_checks": [
+      {
+        "var": "hard_mean_delta",
+        "op": "<",
+        "value": 5.0,
+        "actual": 4.7,
+        "pass": true,
+        "note": "Reject if hard-mean gain <5pp over PoC-030 baseline (39.3 + 5 = 44.3)"
+      }
+    ]
+  },
+  "decision": {
+    "baseline": {
+      "recall_at_3": 61.8,
+      "hard_mean": 39.3
+    },
+    "adopt_if_all": [
+      {
+        "var": "hard_mean",
+        "op": ">=",
+        "value": 49.3,
+        "note": "H1: hard-mean recall@3 reaches target of +10pp over PoC-030 (39.3 \u2192 49.3)"
+      },
+      {
+        "var": "recall_at_3",
+        "op": ">=",
+        "value": 60.8,
+        "note": "H3: overall recall@3 does not regress by more than 1pp (61.8 - 1.0 = 60.8)"
+      }
+    ],
+    "reject_if_any": [
+      {
+        "var": "hard_mean_delta",
+        "op": "<",
+        "value": 5.0,
+        "note": "Reject if hard-mean gain <5pp over PoC-030 baseline (39.3 + 5 = 44.3)"
+      }
+    ]
+  },
+  "harness_baseline_recall_at_3": 61.8
+}

@@ -9,8 +9,8 @@
 
 | | |
 |---|---|
-| Status | planned |
-| Verdict | — |
+| Status | host run (2026-10-25) |
+| Verdict | reject |
 | Authors | (unclaimed — assign on promotion) |
 | Reviewers | none yet |
 | Source idea | (synthesized) |
