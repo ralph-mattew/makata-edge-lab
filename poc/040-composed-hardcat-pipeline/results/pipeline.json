@@ -1,0 +1,109 @@
+{
+  "B1": {
+    "arm": "B1",
+    "hard_mean_f1": 21.21,
+    "ci": [
+      18.36,
+      24.28
+    ],
+    "per_category_f1": {
+      "Exclusivity": 11.86,
+      "Non-Compete": 22.84,
+      "Change Of Control": 28.94
+    },
+    "n_items": 300,
+    "recall3_coverage": {
+      "Exclusivity": 28.0,
+      "Non-Compete": 30.0,
+      "Change Of Control": 61.0
+    },
+    "recall3_hard_mean": 39.7
+  },
+  "C1": {
+    "arm": "C1",
+    "hard_mean_f1": 18.02,
+    "ci": [
+      15.34,
+      20.85
+    ],
+    "per_category_f1": {
+      "Exclusivity": 8.94,
+      "Non-Compete": 17.67,
+      "Change Of Control": 27.46
+    },
+    "n_items": 300,
+    "recall3_coverage": {
+      "Exclusivity": 16.0,
+      "Non-Compete": 46.0,
+      "Change Of Control": 70.0
+    },
+    "recall3_hard_mean": 44.0
+  },
+  "C2": {
+    "arm": "C2",
+    "hard_mean_f1": 21.12,
+    "ci": [
+      18.3,
+      24.14
+    ],
+    "per_category_f1": {
+      "Exclusivity": 11.84,
+      "Non-Compete": 20.06,
+      "Change Of Control": 31.47
+    },
+    "n_items": 300,
+    "recall3_coverage": {
+      "Exclusivity": 30.0,
+      "Non-Compete": 42.0,
+      "Change Of Control": 69.0
+    },
+    "recall3_hard_mean": 47.0
+  },
+  "C2p": {
+    "arm": "C2p",
+    "hard_mean_f1": 21.06,
+    "ci": [
+      18.17,
+      24.13
+    ],
+    "per_category_f1": {
+      "Exclusivity": 11.54,
+      "Non-Compete": 19.69,
+      "Change Of Control": 31.95
+    },
+    "n_items": 300,
+    "recall3_coverage": {
+      "Exclusivity": 29.0,
+      "Non-Compete": 43.0,
+      "Change Of Control": 69.0
+    },
+    "recall3_hard_mean": 47.0
+  },
+  "B0": {
+    "arm": "B0",
+    "hard_mean_f1": 17.54,
+    "ci": [
+      14.48,
+      20.66
+    ],
+    "per_category_f1": {
+      "Exclusivity": 2.71,
+      "Non-Compete": 21.3,
+      "Change Of Control": 28.6
+    },
+    "n_items": 300,
+    "recall3_coverage": {
+      "Exclusivity": 6.0,
+      "Non-Compete": 33.0,
+      "Change Of Control": 65.0
+    },
+    "recall3_hard_mean": 34.7
+  },
+  "_meta": {
+    "peak_rss_mb_host": 3874.4,
+    "window": 3,
+    "depth": 10,
+    "n_work": 300,
+    "b0": true
+  }
+}
