@@ -48,3 +48,7 @@ chat.json
 # PoC 014 raw chunk dumps are large (~65 MB) and regenerable from the chunking
 # script; kept local like the other bulky per-PoC raw inputs above.
 poc/014-*/results/raw/chunks-*.jsonl
+
+# auto_experiment runtime artifacts (daily logs + single-flight lock); not lab assets.
+auto_experiment/daily-logs/
+.autoexp.lock
