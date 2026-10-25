@@ -62,8 +62,16 @@ def candidate_scores(ctx, item, idxs):   # -> [float] aligned to idxs   (preferr
 
 `ctx` is `harness.Corpus`: `ctx.cvec` (chunk vectors), `ctx.qvec[item['qa_id']]` (query
 vector), `ctx.rows[i]['chunk']` (text), and primitives `ctx.cosine/bm25/norm01/hybrid_scores`.
-A mechanism needing its own embeddings builds them from `ctx.rows` text and caches under
-`poc/NNN/results/raw/`. **Off limits:** `ctx.gold` and any gold span.
+
+**New query/template text** (sub-queries, glosses, expansions) must be embedded *in-space* via
+`ctx.embed_queries([...], cache=Path(__file__).parent/'results/raw/emb-cache.jsonl')` — it uses
+the same model + task prefix that produced `emb-queries`/`emb-page`, so cosine against chunk
+vectors is meaningful (the self-test verifies re-embedding a question reproduces its stored
+vector at cosine 1.0). **Never reuse the question vector for different query text or invent
+vectors** — that silently neuters the semantic signal and invalidates the test. Needs the local
+embed server (see `harness.py` header); if it's down the run fails loudly rather than faking it.
+
+**Off limits:** `ctx.gold` and any gold span.
 
 ### `decision.json` schema (the pre-registered rule)
 

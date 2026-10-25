@@ -32,7 +32,7 @@ wrapped via `evaluate_scores`. `ctx` is the Corpus (chunk text, vectors, query t
 and the shared primitives) so a mechanism can also build its own embeddings.
 """
 from __future__ import annotations
-import argparse, json, math, random, re
+import argparse, hashlib, json, math, random, re, time, urllib.error, urllib.request
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -49,6 +49,15 @@ WEAK = {"Exclusivity", "Non-Compete", "Agreement Date", "Warranty Duration",
 
 # The known page-chunk hybrid baseline this harness must reproduce (PoC 014/016).
 RAW_BASELINE_RECALL = 61.8
+
+# Embedding server: the SAME model + task prefixes that produced emb-page / emb-queries
+# (PoC 007/014). A mechanism that needs vectors for its own query/template text MUST embed it
+# here so the vectors live in the same space as ctx.cvec/ctx.qvec — never invent or reuse vectors.
+#   llama-server --embedding --embd-gemma-default --pooling mean --embd-normalize 2 \
+#     -c 16384 --parallel 8 -b 16384 -ub 2048 --port 8090 --log-disable
+EMBED_URL = "http://127.0.0.1:8090"
+QRY_PREFIX = "task: search result | query: {t}"   # query / sub-query / template text
+DOC_PREFIX = "title: none | text: {t}"             # chunk / document text
 
 
 # --- shared primitives (identical math to PoC 015) ---------------------------------
@@ -90,6 +99,56 @@ def bootstrap(per_contract, n=10000, seed=0):
     boot.sort(); return boot[int(0.025 * n)], boot[int(0.975 * n)]
 
 
+# --- embedding hook ----------------------------------------------------------------
+def _embed_post(url, inputs):
+    body = json.dumps({"input": inputs}).encode()
+    req = urllib.request.Request(url + "/v1/embeddings", data=body,
+                                 headers={"Content-Type": "application/json"})
+    return [d["embedding"] for d in json.load(urllib.request.urlopen(req, timeout=600))["data"]]
+
+
+def embed_texts(texts, kind="query", url=EMBED_URL, cache=None, batch=8):
+    """Embed `texts` with the corpus's own model + task prefix, so the vectors share the
+    space of ctx.cvec/ctx.qvec. `kind` ∈ {"query","doc"}. If `cache` (a path) is given,
+    vectors are memoized by sha1(prefix+text) across runs. Raises a clear error if the
+    embedding server is unreachable (the run then surfaces instead of inventing vectors)."""
+    prefix = QRY_PREFIX if kind == "query" else DOC_PREFIX
+    cache = Path(cache) if cache else None
+    store = {}
+    if cache and cache.exists():
+        for l in cache.read_text().splitlines():
+            if l.strip():
+                d = json.loads(l); store[d["h"]] = d["vec"]
+    keys = [hashlib.sha1((prefix + t).encode()).hexdigest() for t in texts]
+    misses = [t for t, k in zip(texts, keys) if k not in store]
+    if misses:
+        inputs = [prefix.format(t=t) for t in misses]
+        try:
+            fresh, i = [], 0
+            while i < len(inputs):
+                fresh.extend(_embed_post(url, inputs[i:i + batch])); i += batch
+        except (urllib.error.HTTPError, urllib.error.URLError, OSError) as e:
+            raise RuntimeError(
+                f"embedding server not reachable at {url} ({e}). Start it:\n"
+                "  llama-server --embedding --embd-gemma-default --pooling mean "
+                "--embd-normalize 2 -c 16384 --parallel 8 -b 16384 -ub 2048 --port 8090") from e
+        mk = [hashlib.sha1((prefix + t).encode()).hexdigest() for t in misses]
+        store.update(dict(zip(mk, fresh)))
+        if cache:
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            with open(cache, "a") as f:
+                for h, v in zip(mk, fresh):
+                    f.write(json.dumps({"h": h, "vec": v}) + "\n")
+    return [store[k] for k in keys]
+
+
+def embed_reachable(url=EMBED_URL) -> bool:
+    try:
+        urllib.request.urlopen(url + "/health", timeout=3); return True
+    except Exception:
+        return False
+
+
 # --- corpus ------------------------------------------------------------------------
 @dataclass
 class Corpus:
@@ -113,6 +172,13 @@ class Corpus:
         sem = [cosine(qvec, self.cvec[i]) for i in idxs]
         bm = norm01(bm25(qterms, [self.dterms[i] for i in idxs]))
         return [sw * s + (1 - sw) * b for s, b in zip(sem, bm)]
+
+    def embed_queries(self, texts, cache=None, url=EMBED_URL, batch=8):
+        """Embed query/sub-query/template `texts` into the SAME space as self.qvec/self.cvec
+        (so cosine against chunk vectors is meaningful). Use this instead of reusing a
+        question vector. `cache` (e.g. Path(__file__).parent/'results/raw/emb-cache.jsonl')
+        memoizes across runs. Requires the embedding server (see module header)."""
+        return embed_texts(texts, kind="query", url=url, cache=cache, batch=batch)
 
 
 def load() -> Corpus:
@@ -254,6 +320,16 @@ def _self_test():
     print(f"baseline recall@3 = {m['recall_at_3']}% (CI {m['ci95'][0]}-{m['ci95'][1]}), "
           f"expected ~{RAW_BASELINE_RECALL}%  ->  {'OK' if ok else 'MISMATCH'} (Δ{delta:+.2f})")
     print(f"  hard_mean={m['hard_mean']}  weak_mean={m['weak_mean']}  n={m['n_items']}")
+    # embedding hook: re-embedding a stored question must reproduce its emb-queries vector
+    if embed_reachable():
+        it = next(i for i in ctx.items if i["qa_id"] in ctx.qvec)
+        v = ctx.embed_queries([it["question"]])[0]
+        cos = cosine(v, ctx.qvec[it["qa_id"]])
+        print(f"  embed hook: re-embed(question) · stored emb-query = {cos:.4f} "
+              f"-> {'OK' if cos >= 0.999 else 'SPACE MISMATCH'}")
+        ok = ok and cos >= 0.999
+    else:
+        print("  embed hook: server not reachable — skipped (start llama-server to check)")
     # exercise the verdict comparator on a synthetic metrics bundle
     demo = verdict({**m, "ram_saved_mb": 210},
                    {"baseline": {"recall_at_3": RAW_BASELINE_RECALL},

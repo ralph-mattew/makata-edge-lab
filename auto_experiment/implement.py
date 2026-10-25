@@ -44,9 +44,16 @@ is ONLY to supply the retrieval/ranking MECHANISM. Contract:
       def topk(ctx, item, idxs, k):            # -> list[int] of GLOBAL row indices from idxs
   `ctx` is harness.Corpus: use ctx.cvec (chunk vectors), ctx.qvec[item['qa_id']] (query \
   vector), ctx.rows[i]['chunk'] (chunk text), item['question']/['category'], and the \
-  primitives ctx.cosine/ctx.bm25/ctx.norm01/ctx.hybrid_scores. If your idea needs its OWN \
-  embeddings (e.g. a different embedder, quantization), build them from ctx.rows text and \
-  cache them under `{poc_rel}/results/raw/` (that dir is .gitignore'd for large files).
+  primitives ctx.cosine/ctx.bm25/ctx.norm01/ctx.hybrid_scores.
+- If your idea uses NEW query/sub-query/template text (not the item's own question), you MUST \
+  embed it with `ctx.embed_queries([...], cache=Path(__file__).parent/'results/raw/emb-cache.jsonl')` \
+  so the vectors share the same space as ctx.qvec/ctx.cvec. NEVER reuse the question vector for \
+  different query text and NEVER invent vectors — a reused/invented vector silently neuters the \
+  semantic signal and invalidates the test. (This needs the local embed server running; if it \
+  is down, the run will fail loudly rather than fake it, which is correct.)
+- If your idea needs a different CHUNK embedder/quantization, that is likely out of scope for this \
+  harness (it would need re-embedding the whole corpus with another model); say so in a comment \
+  rather than approximate it.
 - Keep import side-effect free: do heavy work inside the functions / under `if __name__`, \
   never at import time (the PR check imports your module).
 - Add a `--smoke` mode under `if __name__ == '__main__'` that runs on a SMALL slice and \
@@ -97,15 +104,23 @@ def build_prompt(poc_dir: Path) -> str:
     return PROMPT.format(poc_rel=poc_rel, spec=readme.read_text())
 
 
-def verify(poc_dir: Path) -> None:
-    """Fail loudly unless the generated output honors the contract and stayed in scope."""
+def dirty_paths() -> set[str]:
+    """Paths currently dirty/untracked (the inbox is normally a firehose of untracked dirs)."""
+    out = run(["git", "status", "--porcelain"], capture_output=True).stdout.splitlines()
+    return {l[3:] for l in out if l.strip()}
+
+
+def verify(poc_dir: Path, baseline: set[str]) -> None:
+    """Fail loudly unless the generated output honors the contract and stayed in scope.
+    `baseline` is the set of paths already dirty BEFORE Claude Code ran, so pre-existing
+    untracked siblings (other inbox proposals) don't read as strays — only NEW out-of-scope
+    changes do."""
     poc_rel = poc_dir.relative_to(LAB).as_posix()
-    # 1. only files under the poc dir changed (harness + everything else untouched)
-    changed = run(["git", "status", "--porcelain"], capture_output=True).stdout.splitlines()
-    stray = [l for l in changed if l.strip() and not l[3:].startswith(poc_rel + "/")]
+    # 1. only NEW changes under the poc dir (harness + everything else untouched)
+    stray = [p for p in dirty_paths() - baseline if not p.startswith(poc_rel + "/")]
     if stray:
         sys.exit("error: Claude Code changed files OUTSIDE the poc dir — aborting:\n"
-                 + "\n".join(stray))
+                 + "\n".join(sorted(stray)))
     # 2. required files exist and parse
     exp, dec = poc_dir / "experiment.py", poc_dir / "decision.json"
     if not exp.exists(): sys.exit(f"error: {exp} was not created")
@@ -159,7 +174,7 @@ def open_pr(poc_dir: Path, base: str) -> None:
 def main():
     ap = argparse.ArgumentParser(description="Propose an auto-implemented experiment as a PR.")
     ap.add_argument("poc_dir", help="path to a promoted PoC dir, e.g. poc/039-some-slug")
-    ap.add_argument("--model", default="opus", help="claude model alias (default: opus)")
+    ap.add_argument("--model", default="", help="claude model alias/id; empty uses the CLI default")
     ap.add_argument("--base", default="main", help="PR base branch (default: main)")
     ap.add_argument("--print-prompt", action="store_true", help="print the prompt and exit")
     ap.add_argument("--dry-run", action="store_true", help="show the claude command, do not run")
@@ -172,21 +187,23 @@ def main():
         print(prompt); return
 
     claude_cmd = ["claude", "-p", prompt,
-                  "--model", args.model,
                   "--permission-mode", "acceptEdits",
                   "--allowedTools", "Read", "Write", "Edit", "Bash(python3:*)",
                   "--add-dir", str(LAB),
                   "--output-format", "text"]
+    if args.model:
+        claude_cmd[3:3] = ["--model", args.model]
     if args.dry_run:
         print("DRY RUN — would run headless Claude Code in", LAB, "\n")
         print(" ".join(claude_cmd[:1] + ["-p", "<prompt>"] + claude_cmd[3:]))
         return
 
     print(f"implement: invoking headless Claude Code for {poc_dir.name} …")
+    baseline = dirty_paths()   # snapshot pre-existing strays (untracked inbox siblings, etc.)
     r = run(claude_cmd)
     if r.returncode != 0:
         sys.exit(f"error: claude exited {r.returncode}")
-    verify(poc_dir)
+    verify(poc_dir, baseline)
     if args.no_pr:
         print("done (--no-pr): changes left in the working tree for review.")
         return
