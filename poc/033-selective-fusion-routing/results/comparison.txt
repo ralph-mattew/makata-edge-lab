@@ -1,0 +1,18 @@
+== PoC 033: per-category selective fusion routing (dense-only for hard categories) (OP-1) ==
+Host, committed vectors, recall@3, full CUAD. Per-category follow-up to PoC-032.
+
+hard category        hybrid  dense  sparse  dense-hybrid
+Exclusivity            6.0    6.0     1.0      +0.0
+Non-Compete           33.0   36.0     8.0      +3.0
+Change Of Control     65.0   60.0    47.0      -5.0
+
+policy                              overall recall@3
+hybrid everywhere (baseline)             62.6
+routed: dense-only @ hard cats           62.4   (-0.2)
+oracle per-category best-of{hyb,dense}   62.8   (+0.2)
+
+DECISION RULE: adopt if ALL hard cats +>=5 AND overall drop<=1; reject if <+3 on any two of three.
+  Excl +0, NC +3, CoC -5  -> 2/3 fail  -> REJECT.
+The fusion tax is real but heterogeneous: BM25 taxes Non-Compete (+3 to drop) but HELPS Change-of-
+Control (-5 to drop); blanket dense-only-for-hard-cats nets a loss. Keep 0.9/0.1 hybrid everywhere.
+Closes the hybrid-fusion line on CUAD (013 weight / 032 global drop / 033 per-category routing).

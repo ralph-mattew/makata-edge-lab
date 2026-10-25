@@ -1,0 +1,27 @@
+{
+  "per_category_hard": {
+    "Exclusivity": {
+      "hybrid": 6.0,
+      "dense": 6.0,
+      "sparse": 1.0,
+      "dense_minus_hybrid": 0.0
+    },
+    "Non-Compete": {
+      "hybrid": 33.0,
+      "dense": 36.0,
+      "sparse": 8.0,
+      "dense_minus_hybrid": 3.0
+    },
+    "Change Of Control": {
+      "hybrid": 65.0,
+      "dense": 60.0,
+      "sparse": 47.0,
+      "dense_minus_hybrid": -5.0
+    }
+  },
+  "overall_hybrid": 62.56603773584906,
+  "overall_routed_dense_hardcats": 62.41509433962264,
+  "overall_oracle_percat_bestof": 62.79245283018868,
+  "hard_mean_hybrid": 34.666666666666664,
+  "hard_mean_routed": 34.0
+}
