@@ -1,0 +1,13 @@
+
+===== PoC-040 composed pipeline — read-out =====
+control: B1 should reproduce PoC-036 N=10 (hard-mean 22.1; Excl 13.1/NonC 22.5/CoC 30.6)
+  B1 measured: hard-mean 21.21  Excl 11.86/NonC 22.84/CoC 28.94
+
+H1 (C2 hard-mean span-F1 >= 30):            C2=21.12  -> FAIL
+H2 (chunk-size adds >=+3: C2 - B1):          -0.1  -> FAIL
+H3 (composed > best single lever by >=+3):   C2 - max(B1,036)=-1.0  -> FAIL
+H4 (host peak RSS <= 6 GB, generator-free):  3874 MB -> PASS (INFERRED; device pending)
+
+ladder (hard-mean span-F1):  B1=21.21  C1=18.02  C2=21.12  C2p(030 pool=2)=21.06
+recall@3 coverage (hard-mean): B1=39.7  C1=44.0  C2=47.0  C2p=47.0
+production B0 (raw+top3+Qwen generate): hard-mean 17.54  (C2 - B0 = +3.6)
