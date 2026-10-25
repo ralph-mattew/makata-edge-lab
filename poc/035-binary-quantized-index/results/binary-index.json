@@ -1,0 +1,26 @@
+{
+  "n_chunks": 79037,
+  "index_float_MB": 242.801664,
+  "index_binary_MB": 7.587552,
+  "freed_MB": 235.214112,
+  "recall": {
+    "float": {
+      "overall": 62.56603773584906,
+      "Exclusivity": 6.0,
+      "Non-Compete": 33.0,
+      "Change Of Control": 65.0
+    },
+    "binary": {
+      "overall": 60.528301886792455,
+      "Exclusivity": 9.0,
+      "Non-Compete": 24.0,
+      "Change Of Control": 56.0
+    },
+    "binary_rerank": {
+      "overall": 60.9811320754717,
+      "Exclusivity": 6.0,
+      "Non-Compete": 36.0,
+      "Change Of Control": 60.0
+    }
+  }
+}
