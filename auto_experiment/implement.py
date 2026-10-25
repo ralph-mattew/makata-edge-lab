@@ -167,7 +167,7 @@ def open_pr(poc_dir: Path, base: str) -> None:
 def main():
     ap = argparse.ArgumentParser(description="Propose an auto-implemented experiment as a PR.")
     ap.add_argument("poc_dir", help="path to a promoted PoC dir, e.g. poc/039-some-slug")
-    ap.add_argument("--model", default="opus", help="claude model alias (default: opus)")
+    ap.add_argument("--model", default="", help="claude model alias/id; empty uses the CLI default")
     ap.add_argument("--base", default="main", help="PR base branch (default: main)")
     ap.add_argument("--print-prompt", action="store_true", help="print the prompt and exit")
     ap.add_argument("--dry-run", action="store_true", help="show the claude command, do not run")
@@ -180,11 +180,12 @@ def main():
         print(prompt); return
 
     claude_cmd = ["claude", "-p", prompt,
-                  "--model", args.model,
                   "--permission-mode", "acceptEdits",
                   "--allowedTools", "Read", "Write", "Edit", "Bash(python3:*)",
                   "--add-dir", str(LAB),
                   "--output-format", "text"]
+    if args.model:
+        claude_cmd[3:3] = ["--model", args.model]
     if args.dry_run:
         print("DRY RUN — would run headless Claude Code in", LAB, "\n")
         print(" ".join(claude_cmd[:1] + ["-p", "<prompt>"] + claude_cmd[3:]))
