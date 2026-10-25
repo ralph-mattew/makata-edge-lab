@@ -97,15 +97,23 @@ def build_prompt(poc_dir: Path) -> str:
     return PROMPT.format(poc_rel=poc_rel, spec=readme.read_text())
 
 
-def verify(poc_dir: Path) -> None:
-    """Fail loudly unless the generated output honors the contract and stayed in scope."""
+def dirty_paths() -> set[str]:
+    """Paths currently dirty/untracked (the inbox is normally a firehose of untracked dirs)."""
+    out = run(["git", "status", "--porcelain"], capture_output=True).stdout.splitlines()
+    return {l[3:] for l in out if l.strip()}
+
+
+def verify(poc_dir: Path, baseline: set[str]) -> None:
+    """Fail loudly unless the generated output honors the contract and stayed in scope.
+    `baseline` is the set of paths already dirty BEFORE Claude Code ran, so pre-existing
+    untracked siblings (other inbox proposals) don't read as strays — only NEW out-of-scope
+    changes do."""
     poc_rel = poc_dir.relative_to(LAB).as_posix()
-    # 1. only files under the poc dir changed (harness + everything else untouched)
-    changed = run(["git", "status", "--porcelain"], capture_output=True).stdout.splitlines()
-    stray = [l for l in changed if l.strip() and not l[3:].startswith(poc_rel + "/")]
+    # 1. only NEW changes under the poc dir (harness + everything else untouched)
+    stray = [p for p in dirty_paths() - baseline if not p.startswith(poc_rel + "/")]
     if stray:
         sys.exit("error: Claude Code changed files OUTSIDE the poc dir — aborting:\n"
-                 + "\n".join(stray))
+                 + "\n".join(sorted(stray)))
     # 2. required files exist and parse
     exp, dec = poc_dir / "experiment.py", poc_dir / "decision.json"
     if not exp.exists(): sys.exit(f"error: {exp} was not created")
@@ -183,10 +191,11 @@ def main():
         return
 
     print(f"implement: invoking headless Claude Code for {poc_dir.name} …")
+    baseline = dirty_paths()   # snapshot pre-existing strays (untracked inbox siblings, etc.)
     r = run(claude_cmd)
     if r.returncode != 0:
         sys.exit(f"error: claude exited {r.returncode}")
-    verify(poc_dir)
+    verify(poc_dir, baseline)
     if args.no_pr:
         print("done (--no-pr): changes left in the working tree for review.")
         return
