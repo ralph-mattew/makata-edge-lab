@@ -1,0 +1,16 @@
+== PoC 035: binary (1-bit) quantized stored index + float re-rank (OP-3) ==
+Host, committed vectors, recall@3, full CUAD (79,037 chunks).
+
+index: float32 243 MB -> binary 7.6 MB  (32x, frees ~235 MB)
+
+mode                         overall  Excl  NonC  CoC
+float32 hybrid (baseline)      62.6     6    33    65
+binary hybrid (no rerank)      60.5     9    24    56
+binary -> float rerank (top50) 61.0     6    36    60
+
+DECISION RULE: adopt if H1 (binary+rerank within 2pp, >=59.4) AND H2 (free >=140MB); H4 hard cats not worse.
+  H1 PASS (61.0, -1.6). H2 PASS (~235MB). H4 PASS (hard-mean -0.7; NC +3). H3 latency device-bound (INFERRED).
+  -> ADOPT (host). 32x index shrink for -1.6pp recall; no hard-cat regression. Float re-rank of top-50
+     is load-bearing (pure binary -2.0; flips NC -9 -> +3). First lever that FREES budget (~235MB) for
+     the stalled OP-1/OP-2 (bigger LLM / longer context). Distinct from PoC-024 (model weights vs index).
+     Open: device H3 (latency/live RAM).
