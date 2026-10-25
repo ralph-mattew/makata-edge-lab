@@ -1,0 +1,28 @@
+{
+  "baseline": {
+    "recall_at_3": 61.8,
+    "hard_mean": 39.3
+  },
+  "adopt_if_all": [
+    {
+      "var": "hard_mean",
+      "op": ">=",
+      "value": 49.3,
+      "note": "H1: hard-mean recall@3 reaches target of +10pp over PoC-030 (39.3 → 49.3)"
+    },
+    {
+      "var": "recall_at_3",
+      "op": ">=",
+      "value": 60.8,
+      "note": "H3: overall recall@3 does not regress by more than 1pp (61.8 - 1.0 = 60.8)"
+    }
+  ],
+  "reject_if_any": [
+    {
+      "var": "hard_mean_delta",
+      "op": "<",
+      "value": 5.0,
+      "note": "Reject if hard-mean gain <5pp over PoC-030 baseline (39.3 + 5 = 44.3)"
+    }
+  ]
+}
