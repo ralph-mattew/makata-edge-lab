@@ -52,3 +52,5 @@ poc/014-*/results/raw/chunks-*.jsonl
 # auto_experiment runtime artifacts (daily logs + single-flight lock); not lab assets.
 auto_experiment/daily-logs/
 .autoexp.lock
+# per-PoC embedding caches written by ctx.embed_queries (regenerable from the embed server).
+poc/*/results/raw/emb-cache.jsonl

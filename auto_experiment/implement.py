@@ -44,9 +44,16 @@ is ONLY to supply the retrieval/ranking MECHANISM. Contract:
       def topk(ctx, item, idxs, k):            # -> list[int] of GLOBAL row indices from idxs
   `ctx` is harness.Corpus: use ctx.cvec (chunk vectors), ctx.qvec[item['qa_id']] (query \
   vector), ctx.rows[i]['chunk'] (chunk text), item['question']/['category'], and the \
-  primitives ctx.cosine/ctx.bm25/ctx.norm01/ctx.hybrid_scores. If your idea needs its OWN \
-  embeddings (e.g. a different embedder, quantization), build them from ctx.rows text and \
-  cache them under `{poc_rel}/results/raw/` (that dir is .gitignore'd for large files).
+  primitives ctx.cosine/ctx.bm25/ctx.norm01/ctx.hybrid_scores.
+- If your idea uses NEW query/sub-query/template text (not the item's own question), you MUST \
+  embed it with `ctx.embed_queries([...], cache=Path(__file__).parent/'results/raw/emb-cache.jsonl')` \
+  so the vectors share the same space as ctx.qvec/ctx.cvec. NEVER reuse the question vector for \
+  different query text and NEVER invent vectors — a reused/invented vector silently neuters the \
+  semantic signal and invalidates the test. (This needs the local embed server running; if it \
+  is down, the run will fail loudly rather than fake it, which is correct.)
+- If your idea needs a different CHUNK embedder/quantization, that is likely out of scope for this \
+  harness (it would need re-embedding the whole corpus with another model); say so in a comment \
+  rather than approximate it.
 - Keep import side-effect free: do heavy work inside the functions / under `if __name__`, \
   never at import time (the PR check imports your module).
 - Add a `--smoke` mode under `if __name__ == '__main__'` that runs on a SMALL slice and \
