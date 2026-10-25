@@ -1,0 +1,31 @@
+{
+  "N3": {
+    "hard_mean": 20.69573990173497,
+    "per_category": {
+      "Exclusivity": 12.228458597373736,
+      "Non-Compete": 19.072561892813052,
+      "Change Of Control": 30.786199215018122
+    }
+  },
+  "N5": {
+    "hard_mean": 21.634847201290512,
+    "per_category": {
+      "Exclusivity": 12.528065364334644,
+      "Non-Compete": 21.849618200024203,
+      "Change Of Control": 30.526858039512685
+    }
+  },
+  "N10": {
+    "hard_mean": 22.09336930393674,
+    "per_category": {
+      "Exclusivity": 13.112795171448639,
+      "Non-Compete": 22.531889797893783,
+      "Change Of Control": 30.6354229424678
+    }
+  },
+  "_meta": {
+    "peak_rss_mb_host": 3081.1,
+    "n_work": 300,
+    "window": 3
+  }
+}
