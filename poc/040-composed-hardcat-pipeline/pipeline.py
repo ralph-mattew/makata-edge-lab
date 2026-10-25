@@ -26,16 +26,15 @@ Run: python3 pipeline.py            # B1/C1/C2/C2p (needs :8090)
      python3 pipeline.py --b0       # also run the Qwen production baseline (needs :8091)
 """
 from __future__ import annotations
-import argparse, json, math, random, re, resource, time, urllib.request
+import argparse, json, math, os, random, re, resource, time, urllib.request
 from collections import Counter, defaultdict
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-# Committed retrieval vectors (007/014/016 results/raw) are gitignored heavy artifacts that live only
-# in the main lab clone's working tree, not in a fresh git worktree checkout. Read them (read-only)
-# from the main clone; fall back to the sibling path if present.
-LAB = Path("/Users/rlpalomaria/Projects/makata-edge-lab/poc")
-_base = LAB if (LAB / "007-embedding-retrieval-recall" / "results" / "raw" / "contracts.jsonl").exists() else HERE.parent
+# Committed retrieval vectors (007/014/016 results/raw) are gitignored heavy artifacts present in the lab
+# clone's working tree. Default to the sibling poc/ dir (normal clone); set LAB_POC_ROOT to the clone's
+# poc/ dir when running from a detached git worktree where those gitignored files are not checked out.
+_base = Path(os.environ.get("LAB_POC_ROOT", HERE.parent))
 P007 = _base / "007-embedding-retrieval-recall" / "results" / "raw"
 P014 = _base / "014-clause-aware-chunking" / "results" / "raw"
 P016 = _base / "016-crossref-decomposition" / "results" / "raw"

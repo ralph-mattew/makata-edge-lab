@@ -201,9 +201,10 @@ classifier over the retrieved sentences), not further retrieval-coverage levers.
   depth ≤ 10). C2p ≈ C2 on every metric, so the choice is immaterial to the verdict.
 - **B0 is raw-query production generate** (014 chunks, raw query, top-3, Qwen) — the true shipped stack —
   rather than PoC-018's decomposed-retrieval generate arm (which measured 15.7). Measured here at 17.5.
-- **Read-only inputs from the main clone.** The gitignored committed vectors (007/014/016 `results/raw`)
-  live only in the main lab clone's working tree, not in the isolated git worktree used for this run;
-  `pipeline.py` reads them from `/Users/rlpalomaria/Projects/makata-edge-lab/poc/...` (read-only).
+- **Read-only inputs when run from a worktree.** The gitignored committed vectors (007/014/016
+  `results/raw`) live in the lab clone's working tree, not in a detached git worktree. `pipeline.py`
+  defaults to the sibling `poc/` dir (normal clone) and honours `LAB_POC_ROOT` to point at the clone's
+  `poc/` dir when run from a worktree (read-only).
 - **W=384 index not committed** (124 MB, gitignored like all heavy vectors); regenerate via `pipeline.py`
   (it reproduces PoC-037's W=384 recall@3 as the C1 control).
 
