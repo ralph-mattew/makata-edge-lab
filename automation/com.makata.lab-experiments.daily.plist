@@ -2,8 +2,12 @@
 <!-- Daily PR-gated auto-experiment runner (macOS launchd LaunchAgent).
      Runs run-experiments-daily.sh at 10:00 local (after the engine's 09:00 ideation, so
      freshly-promoted specs and merged proposal PRs are picked up). Catches up once after wake.
-     Install:
-       cp automation/com.makata.lab-experiments.daily.plist ~/Library/LaunchAgents/
+
+     __LAB_DIR__ is a placeholder (the repo forbids committing personal home paths). Substitute
+     your absolute lab checkout path at install time — launchd needs absolute paths and does not
+     expand env vars in these fields:
+       sed "s|__LAB_DIR__|$PWD|g" automation/com.makata.lab-experiments.daily.plist \
+         > ~/Library/LaunchAgents/com.makata.lab-experiments.daily.plist
        launchctl load  ~/Library/LaunchAgents/com.makata.lab-experiments.daily.plist
        launchctl start com.makata.lab-experiments.daily   # optional: run once now
      Pause: touch STOP (in the lab root) or launchctl unload the plist. -->
@@ -16,11 +20,11 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/rlpalomaria/Projects/makata-edge-lab/auto_experiment/run-experiments-daily.sh</string>
+        <string>__LAB_DIR__/auto_experiment/run-experiments-daily.sh</string>
     </array>
 
     <key>WorkingDirectory</key>
-    <string>/Users/rlpalomaria/Projects/makata-edge-lab</string>
+    <string>__LAB_DIR__</string>
 
     <!-- launchd does not source your shell profile; make python3 + git + gh + claude findable. -->
     <key>EnvironmentVariables</key>
@@ -39,8 +43,8 @@
     <false/>
 
     <key>StandardOutPath</key>
-    <string>/Users/rlpalomaria/Projects/makata-edge-lab/auto_experiment/daily-logs/launchd.out.log</string>
+    <string>__LAB_DIR__/auto_experiment/daily-logs/launchd.out.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/rlpalomaria/Projects/makata-edge-lab/auto_experiment/daily-logs/launchd.err.log</string>
+    <string>__LAB_DIR__/auto_experiment/daily-logs/launchd.err.log</string>
 </dict>
 </plist>

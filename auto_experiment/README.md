@@ -89,7 +89,16 @@ python3 auto_experiment/run_experiment.py poc/039-slug     # run + open results 
 ```
 
 Daily (both phases): `auto_experiment/run-experiments-daily.sh` + the launchd agent in
-`automation/` (install mirrors the engine's `docs/AUTOMATION.md`). Pause with `touch STOP`.
+`automation/`. Install (the plist uses a `__LAB_DIR__` placeholder — substitute your checkout
+path, since the repo forbids committing personal home paths):
+
+```bash
+sed "s|__LAB_DIR__|$PWD|g" automation/com.makata.lab-experiments.daily.plist \
+  > ~/Library/LaunchAgents/com.makata.lab-experiments.daily.plist
+launchctl load ~/Library/LaunchAgents/com.makata.lab-experiments.daily.plist
+```
+
+Pause with `touch STOP` in the lab root (or `launchctl unload` the plist).
 
 ## Honest limits
 
