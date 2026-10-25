@@ -44,6 +44,8 @@ def parse_spec(poc_dir: Path) -> dict:
     m = re.match(r"(\d+)", poc_dir.name)
     pid = f"PoC-{m.group(1)}" if m else poc_dir.name
     title = next((l[1:].strip() for l in text.splitlines() if l.startswith("# ")), poc_dir.name)
+    # Clean the proposal scaffolding out of the ledger topic (prefix + truncation ellipsis).
+    title = re.sub(r"^PoC\s*(\(proposed\)|\d+)\s*:\s*", "", title).rstrip("…").strip()
     qm = re.search(r"##\s*Question\s*\n+(.+?)(?:\n##|\Z)", text, re.S)
     question = " ".join(qm.group(1).split()) if qm else ""
     return {"id": pid, "topic": title, "question": question}
@@ -90,8 +92,10 @@ def evaluate(poc_dir: Path, k: int) -> tuple[dict, dict, dict]:
 def write_results(poc_dir: Path, full: dict, metrics: dict, decision: dict) -> dict:
     spec = parse_spec(poc_dir)
     v = full["verdict"]
-    (poc_dir / "results").mkdir(parents=True, exist_ok=True)
-    (poc_dir / "results" / "metrics.json").write_text(json.dumps(full, indent=2))
+    # Write the full harness output as committed raw evidence (lab convention: a host-run
+    # PoC must have non-empty results/raw/). The embed cache alongside it stays gitignored.
+    raw = poc_dir / "results" / "raw"; raw.mkdir(parents=True, exist_ok=True)
+    (raw / "metrics.json").write_text(json.dumps(full, indent=2))
     lesson = make_lesson(v, metrics, decision)
     entry = {"id": spec["id"], "topic": spec["topic"], "question": spec["question"],
              "verdict": v["verdict"], "lesson": lesson}
