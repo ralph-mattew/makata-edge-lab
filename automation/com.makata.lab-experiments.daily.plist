@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Daily PR-gated auto-experiment runner (macOS launchd LaunchAgent).
+     Runs run-experiments-daily.sh at 10:00 local (after the engine's 09:00 ideation, so
+     freshly-promoted specs and merged proposal PRs are picked up). Catches up once after wake.
+     Install:
+       cp automation/com.makata.lab-experiments.daily.plist ~/Library/LaunchAgents/
+       launchctl load  ~/Library/LaunchAgents/com.makata.lab-experiments.daily.plist
+       launchctl start com.makata.lab-experiments.daily   # optional: run once now
+     Pause: touch STOP (in the lab root) or launchctl unload the plist. -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.makata.lab-experiments.daily</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/rlpalomaria/Projects/makata-edge-lab/auto_experiment/run-experiments-daily.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/rlpalomaria/Projects/makata-edge-lab</string>
+
+    <!-- launchd does not source your shell profile; make python3 + git + gh + claude findable. -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key><integer>10</integer>
+        <key>Minute</key><integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/rlpalomaria/Projects/makata-edge-lab/auto_experiment/daily-logs/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/rlpalomaria/Projects/makata-edge-lab/auto_experiment/daily-logs/launchd.err.log</string>
+</dict>
+</plist>
