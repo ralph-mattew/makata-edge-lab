@@ -1,0 +1,10 @@
+{
+  "n_absent": 101,
+  "n_answerable": 300,
+  "absent_CAR_baseline": 84.15841584158416,
+  "absent_CAR_selfcheck": 95.04950495049505,
+  "CAR_gain": 10.89108910891089,
+  "answerable_abstain_baseline": 52.0,
+  "answerable_abstain_selfcheck": 73.66666666666667,
+  "answerable_recall_loss": 21.66666666666667
+}

@@ -1,0 +1,14 @@
+== PoC 034: Qwen entailment self-check gate for absent clauses (OP-7) ==
+Host, Qwen2.5-1.5B Q4 + EmbeddingGemma. 101 absent + 300 answerable hard-cat items.
+Two-stage: Stage1 "does top-1 chunk contain a [CATEGORY] clause? YES/NO" -> Stage2 answer only if YES.
+
+metric (hard cats)              single-step   + self-check    Δ
+CAR on absent (higher better)      84.2%         95.0%      +10.9pp
+abstain on answerable (= loss)     52.0%         73.7%      +21.7pp
+
+DECISION RULE: adopt if H1 (absent CAR +>=10) AND H2 (answerable recall loss <=3); reject if H1<+5.
+  H1 PASS (+10.9). H2 FAIL (+21.7, ~7x budget). -> INCONCLUSIVE; do not adopt.
+Mechanism: the gate conflates "clause absent from contract" with "absent from the weak top-1 chunk";
+hard-cat retrieval is poor (Exclusivity recall@3 ~6%) so it over-abstains on real answerables. The
+abstainer is sound but RETRIEVAL-QUALITY-BOUND -- same wall as 022/023/025/027/028/030/033. Likely
+safe on fact categories (good retrieval); not where OP-7 needs it. Keep single-step generator (026, 86%).
