@@ -1,0 +1,13 @@
+== PoC 038: HyDE (hypothetical document embeddings) for retrieval (OP-1/OP-2) ==
+Host, Qwen2.5-1.5B Q4 + EmbeddingGemma, full CUAD, recall@3, same PoC-014 index (isolates HyDE).
+
+arm                  overall   Excl  NonC  CoC
+raw question (base)   62.6      6     33    65
+HyDE                  47.8      2     15    47   (Δ -14.7)
+
+DECISION RULE: adopt if recall@3 >=64.4 AND latency<=5x; reject if <62.4.
+  HyDE 47.8 << 62.4 -> REJECT (catastrophic). Every hard category worse.
+Qwen-1.5B's hypothetical clauses are generic/hallucinated -> embed far from gold clauses -> mislead
+retrieval. HyDE needs a strong generator; our 1.5B is the weak link (cf 017/018/034). Routing the
+retrieval query THROUGH the tiny generator loses. Productive retrieval levers remain chunk size (037)
+and decomposition (016/030) -- template/structure reformulation, not free generation.
