@@ -1,0 +1,17 @@
+== PoC 036: generator-free extractive span selection at depth (top-N pool) (OP-1) ==
+Host, EmbeddingGemma sentence embeddings, 300 hard-cat items, <=3-sentence window, generator-free.
+
+pool N   hard-mean span-F1   Excl   NonC   CoC
+3 (=018)       20.7          12.2   19.1   30.8
+5              21.6          12.5   21.8   30.5
+10             22.1          13.1   22.5   30.6
+
+N=3 reproduces PoC-018 exactly (control validated).
+
+DECISION RULE: adopt if NonC +>=10 AND Excl not regressed AND RAM<=6GB; reject if NonC <+3 or Excl drops >3; else inconclusive.
+  N10 vs N3: NonC +3.5 (band +3..9), CoC -0.2, Excl +0.9 (no regression), RSS 3.1GB.
+  -> INCONCLUSIVE. Adopt N=10 as a free extractor refinement (monotonic, strictly >= top-3, no generator).
+Key contrast: PoC-027 reranking DEMOTED legal clauses over a wider pool (NonC 25->8-15); sentence-level
+extraction over the same pool is DISTRACTOR-ROBUST (NonC +3.5, Excl +0.9). Confirms 018 as the answer-step
+mechanism; headroom modest-but-real with depth. Composed stack (016 decomp + 030 N=2 + 036 N=10 + 018
+extract) is the natural end-to-end test.
