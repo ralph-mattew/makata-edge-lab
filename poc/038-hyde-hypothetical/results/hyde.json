@@ -1,0 +1,16 @@
+{
+  "baseline_recall": 61.4,
+  "raw_overall": 62.56603773584906,
+  "hyde_overall": 47.84905660377358,
+  "delta": -14.716981132075475,
+  "raw_per_category": {
+    "Exclusivity": 6.0,
+    "Non-Compete": 33.0,
+    "Change Of Control": 65.0
+  },
+  "hyde_per_category": {
+    "Exclusivity": 2.0,
+    "Non-Compete": 15.0,
+    "Change Of Control": 47.0
+  }
+}
