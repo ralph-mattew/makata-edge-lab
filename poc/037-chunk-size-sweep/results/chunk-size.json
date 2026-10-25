@@ -1,0 +1,33 @@
+{
+  "baseline_recall": 61.4,
+  "W96": {
+    "n_chunks": 39812,
+    "overall": 58.56603773584906,
+    "hard_mean": 30.0,
+    "per_category": {
+      "Exclusivity": 7.0,
+      "Non-Compete": 28.0,
+      "Change Of Control": 55.0
+    }
+  },
+  "W192": {
+    "n_chunks": 20003,
+    "overall": 65.73584905660377,
+    "hard_mean": 41.0,
+    "per_category": {
+      "Exclusivity": 15.0,
+      "Non-Compete": 42.0,
+      "Change Of Control": 66.0
+    }
+  },
+  "W384": {
+    "n_chunks": 10096,
+    "overall": 67.62264150943396,
+    "hard_mean": 44.0,
+    "per_category": {
+      "Exclusivity": 16.0,
+      "Non-Compete": 46.0,
+      "Change Of Control": 70.0
+    }
+  }
+}
