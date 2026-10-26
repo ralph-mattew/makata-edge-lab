@@ -1,0 +1,10 @@
+{
+  "baseline": { "recall_at_3": 61.8, "hard_mean": 33.0 },
+  "adopt_if_all": [
+    { "var": "hard_mean", "op": ">=", "value": 44.3, "note": "beat PoC-030 best hard-mean (39.3) by >=5pp" },
+    { "var": "recall_at_3_delta", "op": ">=", "value": -1.0, "note": "overall recall@3 does not regress >1pp" }
+  ],
+  "reject_if_any": [
+    { "var": "hard_mean", "op": "<", "value": 39.3, "note": "fails to beat PoC-030's best hard-mean" }
+  ]
+}
