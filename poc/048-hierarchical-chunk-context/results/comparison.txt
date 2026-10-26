@@ -1,0 +1,5 @@
+heading coverage: 50.5% of chunks
+flat baseline:  overall 62.6  hard-mean 34.7  {'Exclusivity': 6.0, 'Non-Compete': 33.0, 'Change Of Control': 65.0}
+hierarchical:   overall 63.0  hard-mean 34.7  {'Exclusivity': 7.0, 'Non-Compete': 33.0, 'Change Of Control': 64.0}
+Δ overall +0.4  Δ hard-mean +0.0  (016 xref ref: -0.7/-1.0)
+H1 hard +>=10: False   H2 overall reg <=1: True   -> REJECT
