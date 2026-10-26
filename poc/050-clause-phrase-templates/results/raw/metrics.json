@@ -1,0 +1,130 @@
+{
+  "recall_at_3": 59.55,
+  "ci95": [
+    56.69,
+    62.43
+  ],
+  "n_items": 1325,
+  "hard_mean": 59.33,
+  "weak_mean": 42.23,
+  "per_category": {
+    "Agreement Date": {
+      "recall": 11.0,
+      "n": 100
+    },
+    "Audit Rights": {
+      "recall": 75.0,
+      "n": 100
+    },
+    "Cap On Liability": {
+      "recall": 62.0,
+      "n": 100
+    },
+    "Change Of Control": {
+      "recall": 63.0,
+      "n": 100
+    },
+    "Exclusivity": {
+      "recall": 57.0,
+      "n": 100
+    },
+    "Expiration Date": {
+      "recall": 48.0,
+      "n": 100
+    },
+    "Governing Law": {
+      "recall": 98.0,
+      "n": 100
+    },
+    "Insurance": {
+      "recall": 77.0,
+      "n": 100
+    },
+    "Liquidated Damages": {
+      "recall": 25.93,
+      "n": 54
+    },
+    "Non-Compete": {
+      "recall": 58.0,
+      "n": 100
+    },
+    "Notice Period To Terminate Renewal": {
+      "recall": 80.0,
+      "n": 100
+    },
+    "Renewal Term": {
+      "recall": 81.0,
+      "n": 100
+    },
+    "Termination For Convenience": {
+      "recall": 37.0,
+      "n": 100
+    },
+    "Warranty Duration": {
+      "recall": 39.44,
+      "n": 71
+    }
+  },
+  "measurements": {},
+  "verdict": {
+    "verdict": "inconclusive",
+    "reason": "pre-registered rule",
+    "adopt_checks": [
+      {
+        "var": "hard_mean",
+        "op": ">=",
+        "value": 44.3,
+        "actual": 59.33,
+        "pass": true,
+        "note": "beat PoC-030 best hard-mean (39.3) by >=5pp"
+      },
+      {
+        "var": "recall_at_3_delta",
+        "op": ">=",
+        "value": -1.0,
+        "actual": -2.25,
+        "pass": false,
+        "note": "overall recall@3 does not regress >1pp"
+      }
+    ],
+    "reject_checks": [
+      {
+        "var": "hard_mean",
+        "op": "<",
+        "value": 39.3,
+        "actual": 59.33,
+        "pass": false,
+        "note": "fails to beat PoC-030's best hard-mean"
+      }
+    ]
+  },
+  "decision": {
+    "baseline": {
+      "recall_at_3": 61.8,
+      "hard_mean": 33.0
+    },
+    "adopt_if_all": [
+      {
+        "var": "hard_mean",
+        "op": ">=",
+        "value": 44.3,
+        "note": "beat PoC-030 best hard-mean (39.3) by >=5pp"
+      },
+      {
+        "var": "recall_at_3_delta",
+        "op": ">=",
+        "value": -1.0,
+        "note": "overall recall@3 does not regress >1pp"
+      }
+    ],
+    "reject_if_any": [
+      {
+        "var": "hard_mean",
+        "op": "<",
+        "value": 39.3,
+        "note": "fails to beat PoC-030's best hard-mean"
+      }
+    ]
+  },
+  "harness_baseline_recall_at_3": 61.8
+}
