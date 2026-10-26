@@ -1,0 +1,43 @@
+{
+  "cosine": {
+    "hard_mean": 21.4,
+    "per_cat": {
+      "Exclusivity": 11.8,
+      "Non-Compete": 20.6,
+      "Change Of Control": 31.7
+    },
+    "ci": [
+      18.5,
+      24.4
+    ]
+  },
+  "copy": {
+    "hard_mean": 23.5,
+    "per_cat": {
+      "Exclusivity": 9.3,
+      "Non-Compete": 18.0,
+      "Change Of Control": 43.2
+    },
+    "ci": [
+      20.0,
+      27.3
+    ]
+  },
+  "generate": {
+    "hard_mean": 14.5,
+    "per_cat": {
+      "Exclusivity": 2.5,
+      "Non-Compete": 12.8,
+      "Change Of Control": 28.1
+    },
+    "ci": [
+      11.9,
+      17.2
+    ]
+  },
+  "n": 300,
+  "copy_substring_compliance_pct": 56.3,
+  "generate_substring_compliance_pct": 1.3,
+  "H1_copy_vs_cosine": 2.1,
+  "verdict": "INCONCLUSIVE"
+}
