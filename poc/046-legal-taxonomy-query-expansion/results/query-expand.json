@@ -1,0 +1,52 @@
+{
+  "baseline_single": {
+    "overall": 62.6,
+    "hard_mean": 34.7,
+    "per_hard": {
+      "Exclusivity": 6.0,
+      "Non-Compete": 33.0,
+      "Change Of Control": 65.0
+    },
+    "ci": [
+      60.1,
+      65.1
+    ]
+  },
+  "generic_016_030": {
+    "overall": 63.5,
+    "hard_mean": 38.7,
+    "per_hard": {
+      "Exclusivity": 26.0,
+      "Non-Compete": 30.0,
+      "Change Of Control": 60.0
+    },
+    "ci": [
+      60.9,
+      66.1
+    ]
+  },
+  "legal_taxonomy": {
+    "overall": 64.9,
+    "hard_mean": 45.0,
+    "per_hard": {
+      "Exclusivity": 34.0,
+      "Non-Compete": 41.0,
+      "Change Of Control": 60.0
+    },
+    "ci": [
+      62.4,
+      67.5
+    ]
+  },
+  "pool_N": 2,
+  "n_items": 1325,
+  "n_subqueries_per_cat": {
+    "Exclusivity": 7,
+    "Non-Compete": 7,
+    "Change Of Control": 7
+  },
+  "H1_taxo_vs_single_hard": 10.3,
+  "H2_taxo_vs_generic_hard": 6.3,
+  "H3_overall_regression": 2.3,
+  "verdict": "ADOPT"
+}
