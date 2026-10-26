@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | **Registered — host stage pending (not yet run).** Pre-registration: hypotheses + decision rule fixed before the first run. |
-| Verdict | _pending._ |
+| Status | Concluded — host stage (80 hard-contract sample, 103 items; span-F1 + recall@3, 2×2). |
+| Verdict | **Reject the composition — the two levers are redundant (substitutes), not additive; ship the single best.** The full stack (GreenLeaf + taxonomy + extractor) reaches hard-mean span-F1 **30.1**, which does **not** beat the best single lever — **GreenLeaf-only = 32.3** (−2.2) — and misses H2 (+7.5 over the EG+generic baseline, < +12). Each lever is strong *alone* (taxonomy on EmbeddingGemma +7.0; GreenLeaf +9.7 = PoC-049), but they exploit the **same legal-domain signal** from complementary surfaces (the taxonomy spells out clause facets as text; GreenLeaf's legal embedding already encodes them), so stacking adds nothing and slightly antagonises on Non-Compete/Change-of-Control. H1 (full ≥ +3 over best single) FAIL, H2 FAIL → **REJECT (composition).** Production recommendation: **ship one lever — GreenLeaf (best, if on-device encode is feasible) or the legal taxonomy on EmbeddingGemma (no new model) as the cheap fallback — not both.** See Verdict. |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
 | Source idea | Lab follow-up composing the session's two hard-category ADOPTs — **PoC-046** (legal-taxonomy query expansion, recall@3 +10.3) and **PoC-045/049** (GreenLeaf legal embedder, recall@3 +14.3 / span-F1 +9.7) — with the adopted **PoC-036** generator-free extractor. The candidate hard-category production stack. |
@@ -62,14 +62,65 @@ Report the 2×2 grid regardless.
 
 inconclusive · confidence ~0.5 · est. effort 1 week
 
-## Harness (to be written at run time)
+## Harness
 
-`compose.py` forks `049/greenleaf-answerstep.py`: adds the PoC-046 taxonomy as an alternate sub-query set,
-embeds taxonomy + generic sub-queries with both embedders, runs the extractor for all four embedder×query
-cells, and reports the span-F1 + recall@3 grid + additivity. Heavy GreenLeaf vectors gitignored; committed
-vectors via `LAB_POC_ROOT`.
+`compose.py` forks `049/greenleaf-answerstep.py`: adds PoC-046's committed `taxonomy.json` as an alternate
+sub-query set, embeds the generic (016) + taxonomy (046) sub-query texts with both embedders, runs the
+PoC-036 generator-free extractor (N=10, ≤3-sent window) for all four embedder×query cells, and reports the
+span-F1 + recall@3 grid. EmbeddingGemma via :8090; GreenLeaf via AutoModel/MPS. Heavy GL vectors gitignored;
+committed inputs via `LAB_POC_ROOT`.
 
-## Reproduce (planned)
+## Results
+
+MEASURED on the host (EmbeddingGemma `--embd-gemma-default` + GreenLeaf-Tiny AutoModel/MPS), **80
+hard-contract sample, 103 items**, generator-free extractor N=10, span-F1 + recall@3.
+
+| Cell (embedder + query-set) | hard-mean span-F1 | Exclusivity | Non-Compete | Change-of-Control | recall@3 |
+|---|---|---|---|---|---|
+| EG + generic (baseline, = PoC-036) | 22.6 | 14.4 | 26.7 | 26.7 | 43.9 |
+| EG + taxonomy (PoC-046 lever) | 29.6 | 27.3 | 24.0 | 37.6 | 45.6 |
+| GL + generic (PoC-045/049 lever) | **32.3** | 25.3 | 35.5 | 36.2 | 47.4 |
+| **GL + taxonomy (full composition)** | 30.1 | 28.0 | 31.7 | 30.6 | 47.6 |
+
+- **Single levers (control):** taxonomy alone +7.0 span-F1 (reproduces 046's direction at the answer step),
+  GreenLeaf alone +9.7 (reproduces PoC-049). MEASURED.
+- **H1 (full ≥ +3 over best single):** FAIL — full 30.1 vs best single (GL-only) 32.3 = **−2.2**. MEASURED.
+- **H2 (full ≥ +12 over baseline):** FAIL — **+7.5** (22.6 → 30.1). MEASURED.
+- **Per-category:** the levers *interfere* rather than add — on Non-Compete and Change-of-Control the full
+  stack (31.7 / 30.6) is **below** GreenLeaf-only (35.5 / 36.2); only Exclusivity is roughly tied (28.0 vs
+  27.3/25.3). recall@3 saturates ~45–48 across all cells. MEASURED.
+
+Grid in `results/compose.json`.
+
+## Verdict
+
+**Reject the composition — the two adopted levers are substitutes, not complements.** Both move the hard
+categories strongly *on their own* (legal taxonomy +7.0, GreenLeaf +9.7 span-F1), but combining them yields
+30.1 — **below** GreenLeaf alone (32.3). They do not stack because they attack the **same underlying
+deficit from two surfaces**: the hard-category failure is that the general-domain embedding under-represents
+legal clause facets (exclusivity scope, non-compete duration, change-of-control triggers). The taxonomy
+fixes this on the **query** side by naming those facets as extra sub-query text; GreenLeaf fixes it on the
+**embedding** side by encoding them natively. Once GreenLeaf encodes the facets, spelling them out again in
+the query is redundant — and the extra taxonomy sub-queries slightly dilute GreenLeaf's already-good ranking
+on Non-Compete/Change-of-Control (−2 to −6 per-cat).
+
+**Production recommendation: pick one lever, not both.** GreenLeaf-only (GL+generic) is the strongest answer
+step (span-F1 32.3, recall@3 47.4) — adopt it if the on-device GreenLeaf embed-throughput gate (still open,
+PoC-045/049) can be cleared. If GreenLeaf is not deployable on-device, the **legal taxonomy on
+EmbeddingGemma** (EG+taxonomy, 29.6) is the no-new-model fallback and captures most of the gain with zero
+extra model weight. The composed stack is not worth its cost. This closes the hard-category arc: the
+bottleneck was legal-domain facet representation, addressable from *either* the query or the embedder — and
+one is enough.
+
+## Limits
+
+- **80-contract sample (103 items)** — GreenLeaf full-corpus MPS encode infeasible; direction robust (both
+  single-lever effects reproduce 046/049), exact magnitudes carry sample noise.
+- **span-F1 proxy**, hard categories only, generator-free extractor.
+- **One taxonomy + one generic set** at N=10; a smaller taxonomy paired with GreenLeaf (less dilution) was
+  not swept — but since GreenLeaf-only already wins, it would at best tie.
+
+## Reproduce
 
 ```bash
 pip install -U transformers torch
@@ -82,4 +133,4 @@ LAB_POC_ROOT=/path/to/lab-clone/poc python3 compose.py --contracts 80
 
 ### Engine provenance
 - Lab-internal composition of the two session ADOPTs (046 + 045/049) with the adopted extractor (036) —
-  the capstone of the hard-category arc. Verdict feeds back to the ledger.
+  the capstone of the hard-category arc. Verdict **REJECT (composition) — levers are substitutes; ship GreenLeaf-only (32.3) or taxonomy-on-EG (29.6), not both.** Feeds back to the ledger.

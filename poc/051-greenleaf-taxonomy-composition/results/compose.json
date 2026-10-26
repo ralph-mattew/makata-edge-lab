@@ -1,0 +1,63 @@
+{
+  "n_items": 103,
+  "n_contracts": 80,
+  "grid": {
+    "EG+generic": {
+      "span_f1_hard": 22.6,
+      "per_cat": {
+        "Exclusivity": 14.4,
+        "Non-Compete": 26.7,
+        "Change Of Control": 26.7
+      },
+      "recall3_hard": 43.9,
+      "ci": [
+        17.8,
+        28.6
+      ]
+    },
+    "EG+taxonomy": {
+      "span_f1_hard": 29.6,
+      "per_cat": {
+        "Exclusivity": 27.3,
+        "Non-Compete": 24.0,
+        "Change Of Control": 37.6
+      },
+      "recall3_hard": 45.6,
+      "ci": [
+        23.9,
+        35.1
+      ]
+    },
+    "GL+generic": {
+      "span_f1_hard": 32.3,
+      "per_cat": {
+        "Exclusivity": 25.3,
+        "Non-Compete": 35.5,
+        "Change Of Control": 36.2
+      },
+      "recall3_hard": 47.4,
+      "ci": [
+        27.1,
+        38.5
+      ]
+    },
+    "GL+taxonomy": {
+      "span_f1_hard": 30.1,
+      "per_cat": {
+        "Exclusivity": 28.0,
+        "Non-Compete": 31.7,
+        "Change Of Control": 30.6
+      },
+      "recall3_hard": 47.6,
+      "ci": [
+        24.7,
+        35.8
+      ]
+    }
+  },
+  "full_vs_best_single": -2.2,
+  "full_vs_baseline": 7.5,
+  "H1_full_ge_best_single_plus3": false,
+  "H2_full_ge_baseline_plus12": false,
+  "verdict": "REJECT"
+}
