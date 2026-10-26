@@ -1,0 +1,29 @@
+{
+  "Exclusivity": [
+    "exclusive right to sell distribute or market the products or services in the territory",
+    "exclusive dealing restriction preventing engagement of third parties or competitors",
+    "geographic territory or market scope of the exclusivity",
+    "duration or term of the exclusive arrangement",
+    "exceptions carve-outs or limitations to the exclusivity obligation",
+    "products services or field of use covered by the exclusive arrangement",
+    "which party grants and which party receives the exclusivity"
+  ],
+  "Non-Compete": [
+    "covenant not to compete with the other party's business",
+    "restricted competitive activities prohibited during the term",
+    "geographic area of the non-compete restriction",
+    "duration of the non-compete obligation including any post-termination period",
+    "exceptions or permitted activities under the non-compete",
+    "line of business or products covered by the non-competition covenant",
+    "which parties or affiliates are bound by the non-compete"
+  ],
+  "Change Of Control": [
+    "change of control or change in ownership of a party",
+    "assignment of the agreement upon merger acquisition or sale of substantially all assets",
+    "definition of what constitutes a change of control",
+    "consent required before a change of control or assignment",
+    "right to terminate the agreement upon a change of control",
+    "obligations of the surviving or acquiring entity after a change of control",
+    "notice required of a change of control event"
+  ]
+}

@@ -1,0 +1,9 @@
+recall@3 (pool N=2, 1325 items):
+  single-query baseline        overall 62.6  hard-mean 34.7  {'Exclusivity': 6.0, 'Non-Compete': 33.0, 'Change Of Control': 65.0}
+  generic 016/030 (3/cat)      overall 63.5  hard-mean 38.7  {'Exclusivity': 26.0, 'Non-Compete': 30.0, 'Change Of Control': 60.0}
+  legal taxonomy (7/cat)       overall 64.9  hard-mean 45.0  {'Exclusivity': 34.0, 'Non-Compete': 41.0, 'Change Of Control': 60.0}
+
+H1 taxo vs single (hard): +10.3pp [>=+10 -> True]
+H2 taxo vs generic (hard): +6.3pp [>=+3]
+H3 overall vs single: +2.3pp [>=-2 -> True]
+-> ADOPT
