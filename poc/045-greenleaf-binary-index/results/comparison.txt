@@ -1,0 +1,8 @@
+recall@3 (pure semantic, 872 items):
+  EmbeddingGemma float   overall 57.2  hard-mean 34.0  {'Exclusivity': 6.0, 'Non-Compete': 36.0, 'Change Of Control': 60.0}
+  GreenLeaf    float     overall 62.7  hard-mean 48.3  {'Exclusivity': 17.0, 'Non-Compete': 59.0, 'Change Of Control': 69.0}
+  GreenLeaf    bin+rerank overall 62.7  hard-mean 48.3  {'Exclusivity': 17.0, 'Non-Compete': 59.0, 'Change Of Control': 69.0}
+index size: GreenLeaf binary 10.1 MB (vs float32 323.7 MB)
+refs: EG hybrid baseline 61.4; EmbeddingGemma 1-bit + float re-rank: 61.0 recall@3 (−1.6 vs float 62.6)
+
+H1 overall>=61.4: True (62.7)   H2 index<=300MB: True (10)   H3 hard-mean +>=5: True (Δ +14.3)   -> ADOPT
