@@ -1,0 +1,7 @@
+key-fact (464 typed-fact): base 66.8% -> reflect 29.1%  (Δ -37.7pp)  [H1 >=+3 -> False]
+absent CAR (hard):         base 84.2% -> reflect 100.0%  (Δ +15.8pp)  [H2 >=+2 -> True]
+answerable refusal (hard): base 52.0% -> reflect 96.0%  (Δ +44.0pp)  [H4 <=+3 -> False]
+latency multiplier: 1.73x  [H3 <=2x -> True]
+per fact-category key-fact Δ: Renewal Term -56.0, Expiration Date -50.8, Governing Law -41.9, Notice Period To Terminate Renewal -44.2, Agreement Date -8.3, Warranty Duration -12.5
+
+-> REJECT

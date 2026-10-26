@@ -1,0 +1,36 @@
+{
+  "n_keyfact": 464,
+  "key_fact_base": 66.8,
+  "key_fact_reflect": 29.1,
+  "key_fact_delta": -37.7,
+  "key_fact_ci_base": [
+    63.0,
+    70.5
+  ],
+  "key_fact_ci_reflect": [
+    25.2,
+    33.3
+  ],
+  "per_category_delta": {
+    "Renewal Term": -56.0,
+    "Expiration Date": -50.8,
+    "Governing Law": -41.9,
+    "Notice Period To Terminate Renewal": -44.2,
+    "Agreement Date": -8.3,
+    "Warranty Duration": -12.5
+  },
+  "n_absent": 101,
+  "CAR_base": 84.2,
+  "CAR_reflect": 100.0,
+  "CAR_delta": 15.8,
+  "n_answerable": 300,
+  "answerable_refusal_base": 52.0,
+  "answerable_refusal_reflect": 96.0,
+  "answerable_refusal_delta": 44.0,
+  "latency_multiplier": 1.73,
+  "H1_keyfact_ge3": false,
+  "H2_car_ge2": true,
+  "H3_latency_le2x": true,
+  "H4_refusal_le3": false,
+  "verdict": "REJECT"
+}
