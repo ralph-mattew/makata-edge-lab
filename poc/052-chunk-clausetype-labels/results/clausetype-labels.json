@@ -1,0 +1,43 @@
+{
+  "n_items": 300,
+  "n_contracts": 216,
+  "flat": {
+    "hard_mean": 34.7,
+    "per_cat": {
+      "Exclusivity": 6.0,
+      "Non-Compete": 33.0,
+      "Change Of Control": 65.0
+    },
+    "ci": [
+      29.6,
+      39.8
+    ]
+  },
+  "clausetype_only": {
+    "hard_mean": 43.0,
+    "per_cat": {
+      "Exclusivity": 19.0,
+      "Non-Compete": 42.0,
+      "Change Of Control": 68.0
+    },
+    "ci": [
+      37.3,
+      48.7
+    ]
+  },
+  "both": {
+    "hard_mean": 43.3,
+    "per_cat": {
+      "Exclusivity": 17.0,
+      "Non-Compete": 44.0,
+      "Change Of Control": 69.0
+    },
+    "ci": [
+      37.8,
+      49.0
+    ]
+  },
+  "H1_best_vs_flat": 8.6,
+  "ref_048": "heading-only chunk context: inert, +0.0 hard-mean",
+  "verdict": "ADOPT"
+}
