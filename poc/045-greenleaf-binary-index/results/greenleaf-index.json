@@ -1,0 +1,43 @@
+{
+  "n_items": 872,
+  "topk": 3,
+  "pool": 50,
+  "dim": 1024,
+  "eg_semantic": {
+    "overall": 57.2,
+    "per_hard": {
+      "Exclusivity": 6.0,
+      "Non-Compete": 36.0,
+      "Change Of Control": 60.0
+    },
+    "hard_mean": 34.0
+  },
+  "greenleaf_float": {
+    "overall": 62.7,
+    "per_hard": {
+      "Exclusivity": 17.0,
+      "Non-Compete": 59.0,
+      "Change Of Control": 69.0
+    },
+    "hard_mean": 48.3
+  },
+  "greenleaf_binary_rerank": {
+    "overall": 62.7,
+    "per_hard": {
+      "Exclusivity": 17.0,
+      "Non-Compete": 59.0,
+      "Change Of Control": 69.0
+    },
+    "hard_mean": 48.3
+  },
+  "index_binary_mb": 10.1,
+  "index_float32_mb": 323.7,
+  "eg_hybrid_baseline_ref": 61.4,
+  "poc035_ref": "EmbeddingGemma 1-bit + float re-rank: 61.0 recall@3 (\u22121.6 vs float 62.6)",
+  "H1_overall_ge_61_4": true,
+  "H2_index_le_300mb": true,
+  "H3_hardmean_ge_plus5": true,
+  "delta_hardmean_vs_eg": 14.3,
+  "delta_overall_vs_eg": 5.5,
+  "verdict": "ADOPT"
+}
