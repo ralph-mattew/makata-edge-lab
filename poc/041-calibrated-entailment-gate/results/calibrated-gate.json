@@ -1,0 +1,732 @@
+{
+  "n_absent": 101,
+  "n_answerable": 300,
+  "baseline_absent_CAR": 84.2,
+  "baseline_answerable_refusal": 52.0,
+  "best_feasible_point": {
+    "tau": 0.0,
+    "absent_CAR": 84.2,
+    "CAR_gain": 0.0,
+    "answerable_abstain": 52.0,
+    "answerable_recall_loss": 0.0
+  },
+  "binary_034_point": {
+    "tau": 0.5,
+    "absent_CAR": 95.0,
+    "CAR_gain": 10.9,
+    "answerable_abstain": 73.7,
+    "answerable_recall_loss": 21.7
+  },
+  "verdict": "REJECT",
+  "H1_car_gain_ge5": false,
+  "H2_loss_le3": true,
+  "curve": [
+    {
+      "tau": 0.0,
+      "absent_CAR": 84.2,
+      "CAR_gain": 0.0,
+      "answerable_abstain": 52.0,
+      "answerable_recall_loss": 0.0
+    },
+    {
+      "tau": 0.01,
+      "absent_CAR": 84.2,
+      "CAR_gain": 0.0,
+      "answerable_abstain": 55.3,
+      "answerable_recall_loss": 3.3
+    },
+    {
+      "tau": 0.02,
+      "absent_CAR": 84.2,
+      "CAR_gain": 0.0,
+      "answerable_abstain": 56.3,
+      "answerable_recall_loss": 4.3
+    },
+    {
+      "tau": 0.03,
+      "absent_CAR": 86.1,
+      "CAR_gain": 2.0,
+      "answerable_abstain": 58.3,
+      "answerable_recall_loss": 6.3
+    },
+    {
+      "tau": 0.04,
+      "absent_CAR": 86.1,
+      "CAR_gain": 2.0,
+      "answerable_abstain": 58.7,
+      "answerable_recall_loss": 6.7
+    },
+    {
+      "tau": 0.05,
+      "absent_CAR": 86.1,
+      "CAR_gain": 2.0,
+      "answerable_abstain": 59.7,
+      "answerable_recall_loss": 7.7
+    },
+    {
+      "tau": 0.06,
+      "absent_CAR": 87.1,
+      "CAR_gain": 3.0,
+      "answerable_abstain": 60.7,
+      "answerable_recall_loss": 8.7
+    },
+    {
+      "tau": 0.07,
+      "absent_CAR": 87.1,
+      "CAR_gain": 3.0,
+      "answerable_abstain": 61.7,
+      "answerable_recall_loss": 9.7
+    },
+    {
+      "tau": 0.08,
+      "absent_CAR": 87.1,
+      "CAR_gain": 3.0,
+      "answerable_abstain": 62.7,
+      "answerable_recall_loss": 10.7
+    },
+    {
+      "tau": 0.09,
+      "absent_CAR": 87.1,
+      "CAR_gain": 3.0,
+      "answerable_abstain": 64.0,
+      "answerable_recall_loss": 12.0
+    },
+    {
+      "tau": 0.1,
+      "absent_CAR": 89.1,
+      "CAR_gain": 5.0,
+      "answerable_abstain": 64.3,
+      "answerable_recall_loss": 12.3
+    },
+    {
+      "tau": 0.11,
+      "absent_CAR": 89.1,
+      "CAR_gain": 5.0,
+      "answerable_abstain": 65.0,
+      "answerable_recall_loss": 13.0
+    },
+    {
+      "tau": 0.12,
+      "absent_CAR": 89.1,
+      "CAR_gain": 5.0,
+      "answerable_abstain": 65.7,
+      "answerable_recall_loss": 13.7
+    },
+    {
+      "tau": 0.13,
+      "absent_CAR": 89.1,
+      "CAR_gain": 5.0,
+      "answerable_abstain": 66.0,
+      "answerable_recall_loss": 14.0
+    },
+    {
+      "tau": 0.14,
+      "absent_CAR": 89.1,
+      "CAR_gain": 5.0,
+      "answerable_abstain": 66.3,
+      "answerable_recall_loss": 14.3
+    },
+    {
+      "tau": 0.15,
+      "absent_CAR": 89.1,
+      "CAR_gain": 5.0,
+      "answerable_abstain": 66.7,
+      "answerable_recall_loss": 14.7
+    },
+    {
+      "tau": 0.16,
+      "absent_CAR": 89.1,
+      "CAR_gain": 5.0,
+      "answerable_abstain": 66.7,
+      "answerable_recall_loss": 14.7
+    },
+    {
+      "tau": 0.17,
+      "absent_CAR": 90.1,
+      "CAR_gain": 5.9,
+      "answerable_abstain": 67.0,
+      "answerable_recall_loss": 15.0
+    },
+    {
+      "tau": 0.18,
+      "absent_CAR": 90.1,
+      "CAR_gain": 5.9,
+      "answerable_abstain": 67.3,
+      "answerable_recall_loss": 15.3
+    },
+    {
+      "tau": 0.19,
+      "absent_CAR": 90.1,
+      "CAR_gain": 5.9,
+      "answerable_abstain": 67.3,
+      "answerable_recall_loss": 15.3
+    },
+    {
+      "tau": 0.2,
+      "absent_CAR": 90.1,
+      "CAR_gain": 5.9,
+      "answerable_abstain": 67.3,
+      "answerable_recall_loss": 15.3
+    },
+    {
+      "tau": 0.21,
+      "absent_CAR": 91.1,
+      "CAR_gain": 6.9,
+      "answerable_abstain": 68.7,
+      "answerable_recall_loss": 16.7
+    },
+    {
+      "tau": 0.22,
+      "absent_CAR": 91.1,
+      "CAR_gain": 6.9,
+      "answerable_abstain": 68.7,
+      "answerable_recall_loss": 16.7
+    },
+    {
+      "tau": 0.23,
+      "absent_CAR": 91.1,
+      "CAR_gain": 6.9,
+      "answerable_abstain": 69.0,
+      "answerable_recall_loss": 17.0
+    },
+    {
+      "tau": 0.24,
+      "absent_CAR": 91.1,
+      "CAR_gain": 6.9,
+      "answerable_abstain": 69.3,
+      "answerable_recall_loss": 17.3
+    },
+    {
+      "tau": 0.25,
+      "absent_CAR": 91.1,
+      "CAR_gain": 6.9,
+      "answerable_abstain": 69.3,
+      "answerable_recall_loss": 17.3
+    },
+    {
+      "tau": 0.26,
+      "absent_CAR": 91.1,
+      "CAR_gain": 6.9,
+      "answerable_abstain": 69.7,
+      "answerable_recall_loss": 17.7
+    },
+    {
+      "tau": 0.27,
+      "absent_CAR": 92.1,
+      "CAR_gain": 7.9,
+      "answerable_abstain": 69.7,
+      "answerable_recall_loss": 17.7
+    },
+    {
+      "tau": 0.28,
+      "absent_CAR": 93.1,
+      "CAR_gain": 8.9,
+      "answerable_abstain": 69.7,
+      "answerable_recall_loss": 17.7
+    },
+    {
+      "tau": 0.29,
+      "absent_CAR": 93.1,
+      "CAR_gain": 8.9,
+      "answerable_abstain": 69.7,
+      "answerable_recall_loss": 17.7
+    },
+    {
+      "tau": 0.3,
+      "absent_CAR": 94.1,
+      "CAR_gain": 9.9,
+      "answerable_abstain": 69.7,
+      "answerable_recall_loss": 17.7
+    },
+    {
+      "tau": 0.31,
+      "absent_CAR": 94.1,
+      "CAR_gain": 9.9,
+      "answerable_abstain": 69.7,
+      "answerable_recall_loss": 17.7
+    },
+    {
+      "tau": 0.32,
+      "absent_CAR": 94.1,
+      "CAR_gain": 9.9,
+      "answerable_abstain": 70.0,
+      "answerable_recall_loss": 18.0
+    },
+    {
+      "tau": 0.33,
+      "absent_CAR": 94.1,
+      "CAR_gain": 9.9,
+      "answerable_abstain": 70.0,
+      "answerable_recall_loss": 18.0
+    },
+    {
+      "tau": 0.34,
+      "absent_CAR": 94.1,
+      "CAR_gain": 9.9,
+      "answerable_abstain": 70.0,
+      "answerable_recall_loss": 18.0
+    },
+    {
+      "tau": 0.35,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 70.3,
+      "answerable_recall_loss": 18.3
+    },
+    {
+      "tau": 0.36,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.0,
+      "answerable_recall_loss": 19.0
+    },
+    {
+      "tau": 0.37,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.0,
+      "answerable_recall_loss": 19.0
+    },
+    {
+      "tau": 0.38,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.0,
+      "answerable_recall_loss": 19.0
+    },
+    {
+      "tau": 0.39,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.3,
+      "answerable_recall_loss": 19.3
+    },
+    {
+      "tau": 0.4,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.7,
+      "answerable_recall_loss": 19.7
+    },
+    {
+      "tau": 0.41,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.7,
+      "answerable_recall_loss": 19.7
+    },
+    {
+      "tau": 0.42,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.7,
+      "answerable_recall_loss": 19.7
+    },
+    {
+      "tau": 0.43,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.7,
+      "answerable_recall_loss": 19.7
+    },
+    {
+      "tau": 0.44,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.7,
+      "answerable_recall_loss": 19.7
+    },
+    {
+      "tau": 0.45,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 71.7,
+      "answerable_recall_loss": 19.7
+    },
+    {
+      "tau": 0.46,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 72.0,
+      "answerable_recall_loss": 20.0
+    },
+    {
+      "tau": 0.47,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 72.0,
+      "answerable_recall_loss": 20.0
+    },
+    {
+      "tau": 0.48,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 72.3,
+      "answerable_recall_loss": 20.3
+    },
+    {
+      "tau": 0.49,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 73.7,
+      "answerable_recall_loss": 21.7
+    },
+    {
+      "tau": 0.5,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 73.7,
+      "answerable_recall_loss": 21.7
+    },
+    {
+      "tau": 0.51,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 73.7,
+      "answerable_recall_loss": 21.7
+    },
+    {
+      "tau": 0.52,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 74.0,
+      "answerable_recall_loss": 22.0
+    },
+    {
+      "tau": 0.53,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 74.0,
+      "answerable_recall_loss": 22.0
+    },
+    {
+      "tau": 0.54,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 74.0,
+      "answerable_recall_loss": 22.0
+    },
+    {
+      "tau": 0.55,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 74.0,
+      "answerable_recall_loss": 22.0
+    },
+    {
+      "tau": 0.56,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 74.0,
+      "answerable_recall_loss": 22.0
+    },
+    {
+      "tau": 0.57,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 74.3,
+      "answerable_recall_loss": 22.3
+    },
+    {
+      "tau": 0.58,
+      "absent_CAR": 95.0,
+      "CAR_gain": 10.9,
+      "answerable_abstain": 74.7,
+      "answerable_recall_loss": 22.7
+    },
+    {
+      "tau": 0.59,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 75.0,
+      "answerable_recall_loss": 23.0
+    },
+    {
+      "tau": 0.6,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 75.3,
+      "answerable_recall_loss": 23.3
+    },
+    {
+      "tau": 0.61,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 75.3,
+      "answerable_recall_loss": 23.3
+    },
+    {
+      "tau": 0.62,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 75.3,
+      "answerable_recall_loss": 23.3
+    },
+    {
+      "tau": 0.63,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 75.7,
+      "answerable_recall_loss": 23.7
+    },
+    {
+      "tau": 0.64,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 76.0,
+      "answerable_recall_loss": 24.0
+    },
+    {
+      "tau": 0.65,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 76.3,
+      "answerable_recall_loss": 24.3
+    },
+    {
+      "tau": 0.66,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 76.3,
+      "answerable_recall_loss": 24.3
+    },
+    {
+      "tau": 0.67,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 76.3,
+      "answerable_recall_loss": 24.3
+    },
+    {
+      "tau": 0.68,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 76.7,
+      "answerable_recall_loss": 24.7
+    },
+    {
+      "tau": 0.69,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 76.7,
+      "answerable_recall_loss": 24.7
+    },
+    {
+      "tau": 0.7,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 77.0,
+      "answerable_recall_loss": 25.0
+    },
+    {
+      "tau": 0.71,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 77.3,
+      "answerable_recall_loss": 25.3
+    },
+    {
+      "tau": 0.72,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 77.7,
+      "answerable_recall_loss": 25.7
+    },
+    {
+      "tau": 0.73,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 78.7,
+      "answerable_recall_loss": 26.7
+    },
+    {
+      "tau": 0.74,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 79.7,
+      "answerable_recall_loss": 27.7
+    },
+    {
+      "tau": 0.75,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 80.3,
+      "answerable_recall_loss": 28.3
+    },
+    {
+      "tau": 0.76,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 80.7,
+      "answerable_recall_loss": 28.7
+    },
+    {
+      "tau": 0.77,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 81.3,
+      "answerable_recall_loss": 29.3
+    },
+    {
+      "tau": 0.78,
+      "absent_CAR": 96.0,
+      "CAR_gain": 11.9,
+      "answerable_abstain": 81.7,
+      "answerable_recall_loss": 29.7
+    },
+    {
+      "tau": 0.79,
+      "absent_CAR": 97.0,
+      "CAR_gain": 12.9,
+      "answerable_abstain": 81.7,
+      "answerable_recall_loss": 29.7
+    },
+    {
+      "tau": 0.8,
+      "absent_CAR": 98.0,
+      "CAR_gain": 13.9,
+      "answerable_abstain": 82.0,
+      "answerable_recall_loss": 30.0
+    },
+    {
+      "tau": 0.81,
+      "absent_CAR": 98.0,
+      "CAR_gain": 13.9,
+      "answerable_abstain": 82.3,
+      "answerable_recall_loss": 30.3
+    },
+    {
+      "tau": 0.82,
+      "absent_CAR": 99.0,
+      "CAR_gain": 14.9,
+      "answerable_abstain": 83.0,
+      "answerable_recall_loss": 31.0
+    },
+    {
+      "tau": 0.83,
+      "absent_CAR": 99.0,
+      "CAR_gain": 14.9,
+      "answerable_abstain": 83.3,
+      "answerable_recall_loss": 31.3
+    },
+    {
+      "tau": 0.84,
+      "absent_CAR": 99.0,
+      "CAR_gain": 14.9,
+      "answerable_abstain": 84.0,
+      "answerable_recall_loss": 32.0
+    },
+    {
+      "tau": 0.85,
+      "absent_CAR": 99.0,
+      "CAR_gain": 14.9,
+      "answerable_abstain": 84.0,
+      "answerable_recall_loss": 32.0
+    },
+    {
+      "tau": 0.86,
+      "absent_CAR": 99.0,
+      "CAR_gain": 14.9,
+      "answerable_abstain": 85.3,
+      "answerable_recall_loss": 33.3
+    },
+    {
+      "tau": 0.87,
+      "absent_CAR": 99.0,
+      "CAR_gain": 14.9,
+      "answerable_abstain": 86.0,
+      "answerable_recall_loss": 34.0
+    },
+    {
+      "tau": 0.88,
+      "absent_CAR": 99.0,
+      "CAR_gain": 14.9,
+      "answerable_abstain": 86.3,
+      "answerable_recall_loss": 34.3
+    },
+    {
+      "tau": 0.89,
+      "absent_CAR": 99.0,
+      "CAR_gain": 14.9,
+      "answerable_abstain": 87.0,
+      "answerable_recall_loss": 35.0
+    },
+    {
+      "tau": 0.9,
+      "absent_CAR": 99.0,
+      "CAR_gain": 14.9,
+      "answerable_abstain": 87.3,
+      "answerable_recall_loss": 35.3
+    },
+    {
+      "tau": 0.91,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 88.3,
+      "answerable_recall_loss": 36.3
+    },
+    {
+      "tau": 0.92,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 88.3,
+      "answerable_recall_loss": 36.3
+    },
+    {
+      "tau": 0.93,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 89.0,
+      "answerable_recall_loss": 37.0
+    },
+    {
+      "tau": 0.94,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 90.3,
+      "answerable_recall_loss": 38.3
+    },
+    {
+      "tau": 0.95,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 92.7,
+      "answerable_recall_loss": 40.7
+    },
+    {
+      "tau": 0.96,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 94.0,
+      "answerable_recall_loss": 42.0
+    },
+    {
+      "tau": 0.97,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 96.0,
+      "answerable_recall_loss": 44.0
+    },
+    {
+      "tau": 0.98,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 98.3,
+      "answerable_recall_loss": 46.3
+    },
+    {
+      "tau": 0.99,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 99.3,
+      "answerable_recall_loss": 47.3
+    },
+    {
+      "tau": 1.0,
+      "absent_CAR": 100.0,
+      "CAR_gain": 15.8,
+      "answerable_abstain": 100.0,
+      "answerable_recall_loss": 48.0
+    }
+  ]
+}

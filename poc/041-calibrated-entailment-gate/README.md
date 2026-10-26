@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | **Registered — host stage pending (not yet run).** Pre-registration: hypotheses + decision rule fixed before the first run. |
-| Verdict | _pending — do not fill until the run concludes._ |
+| Status | Concluded — host stage (101 absent + 300 answerable hard-category items, τ-swept). |
+| Verdict | **Reject — calibration does not rescue the gate; absent and answerable P(YES) overlap too heavily.** The control is exact: at τ=0.5 the calibrated gate reproduces PoC-034's binary point to the decimal (absent CAR +10.9 pp → 95.0%, answerable loss +21.7 pp). But the whole curve is dominated: reaching **+5 pp CAR costs ≥ 12.3 pp** answerable-recall loss, and the **max CAR gain at ≤3 pp loss (H2) is 0.0** (and 0.0 even at ≤5 pp). H1∧H2 unreachable; **H3 fails** — calibration buys nothing because Qwen's entailment confidence is no more separable than the cosine it replaces. By the decision rule (no τ clears +5 pp CAR at ≤5 pp loss) → **REJECT.** This closes the confidence-gate avenue for absent hard clauses (PoC-029 cosine → 031 → 034 binary → 041 calibrated all fail for the same reason): the top-1 chunk for *answerable* hard-cat items frequently doesn't "contain" the clause either (weak hard-cat retrieval), so no entailment threshold can separate absent from answerable. See Verdict. |
 | Authors | Ralph Mattew Palomaria ([@ralph-mattew](https://github.com/ralph-mattew)) |
 | Reviewers | none yet |
 | Source idea | Inbox proposal `2026-10-25-a-lightweight-nlibased-postgeneration-entailment-check` (engine idea `oa-W4411127335-idea-7`, technique extraction, attacks OP-7; source: *Understanding and Mitigating LLM Hallucinations in HR Chatbots*). The lever **PoC-029's verdict explicitly named** ("an NLI/entailment check on the single top chunk") for the ~14% Qwen misses on absent hard clauses (PoC-026). |
@@ -81,15 +81,83 @@ Written before the first run.
 
 inconclusive  ·  confidence 0.45  ·  est. effort 3-5 days
 
-## Harness (to be implemented at run time)
+## Harness
 
-`calibrated-gate.py` forks PoC-034's `entailment-selfcheck.py`: same data loading, retrieval, and
-`is_refusal`; the gate call requests first-token logprobs (llama-server `logprobs`/`n_probs`) and returns
-P(YES); a τ-sweep produces `results/calibrated-gate.json` (curve + best feasible point + 034-binary point)
-and `results/comparison.txt`. Control: at τ = P(YES)>P(NO) the gate must reproduce PoC-034's binary CAR
-(+10.9) and answerable loss (+21.7) within noise.
+`calibrated-gate.py` forks PoC-034's `entailment-selfcheck.py`: identical data loading, hybrid 0.9/0.1
+retrieval, absent/answerable framing, and `is_refusal`. The only change is `qwen_pyes()` — the gate call
+requests first-token logprobs (`logprobs: true, top_logprobs: 20`) and returns **normalised P(YES)** (YES-
+vs NO-starting token mass). A τ-sweep (0.00–1.00, step 0.01) writes `results/calibrated-gate.json` (full
+curve + best-feasible point + the 034 binary point) and `results/comparison.txt`; per-item probes in
+`results/raw/{absent,answerable}-probes.jsonl`. Gitignored committed vectors are read from the lab clone
+via `LAB_POC_ROOT` (defaults to the sibling `poc/` dir for a normal clone).
 
-## Reproduce (planned)
+## Results
+
+MEASURED on the host (Mac16,8 M4 Pro; EmbeddingGemma `--embd-gemma-default` + Qwen2.5-1.5B-Instruct
+Q4_K_M, temperature 0), **101 absent + 300 answerable** hard-category items, deterministic single pass.
+Gate operates on the **top-1** retrieved chunk; abstain iff `P(YES) < τ` OR the base answer is a refusal.
+
+- **Baselines (control):** absent CAR (base refusal only) **84.2%**; answerable baseline refusal **52.0%**
+  — both match PoC-034 exactly. MEASURED.
+- **034 binary point reproduced exactly:** at τ=0.5, absent CAR **95.0% (+10.9 pp)**, answerable loss
+  **+21.7 pp** — identical to PoC-034's reported numbers. The fork is validated. MEASURED.
+
+CAR-gain vs answerable-recall-loss curve (selected τ):
+
+| τ | absent CAR | CAR gain | answerable-recall loss |
+|---|---|---|---|
+| 0.10 | 89.1% | +5.0 | **+12.3** |
+| 0.20 | 90.1% | +5.9 | +15.3 |
+| 0.30 | 94.1% | +9.9 | +17.7 |
+| 0.40 | 95.0% | +10.9 | +19.7 |
+| **0.50 (034 binary)** | 95.0% | +10.9 | +21.7 |
+| 0.70 | 96.0% | +11.9 | +25.0 |
+| 0.90 | 99.0% | +14.9 | +35.3 |
+
+- **H1 (∃τ with CAR gain ≥ +5 pp):** technically yes (τ≥0.10), but only at ruinous loss. The **minimum
+  answerable-recall loss to reach +5 pp CAR is +12.3 pp**. MEASURED.
+- **H2 (loss ≤ 3 pp at that τ):** **FAIL** — max CAR gain at ≤3 pp loss is **0.0** (and 0.0 even at ≤5 pp).
+  MEASURED.
+- **H3 (calibrated dominates 034's binary point):** **FAIL** — the binary point lies *on* the same
+  dominated curve; the continuous threshold exposes no better operating point. Calibration buys nothing.
+  MEASURED.
+- **H4 (feasibility):** one extra Qwen forward pass per item (1-token gate) — negligible host overhead;
+  device latency deferred. OBSERVED.
+
+Full curve + per-item probes in `results/calibrated-gate.json` / `results/raw/`.
+
+## Verdict
+
+**Reject.** The calibrated gate was the right way to test whether PoC-034's binary entailment gate failed
+on *calibration* or on *signal* — and the answer is unambiguous: it failed on **signal**. The P(YES)
+threshold sweep traces the entire precision/recall frontier, and the frontier is dominated everywhere
+above a few points of CAR: there is no operating point with ≥ +5 pp CAR at ≤ 3 pp (or even ≤ 5 pp)
+answerable-recall loss. The absent-clause P(YES) distribution overlaps the answerable one too heavily.
+
+The mechanism fails for a now-familiar structural reason: **hard-category retrieval is weak**, so the
+top-1 chunk often does not "contain" the clause *even for answerable items* — the model correctly reports
+low P(YES), and the gate abstains on genuine answers. The gate cannot separate "absent" from
+"answerable-but-poorly-retrieved" because that distinction isn't present in the top-1 chunk it sees.
+
+This **closes the confidence-gate avenue for absent hard clauses**: PoC-029 (global cosine), PoC-031
+(entailment proxy), PoC-034 (binary entailment), and now PoC-041 (calibrated entailment) all reject for
+the same separability ceiling — moving the gate from a retrieval score to a generative entailment
+judgement does not raise the ceiling. The residual ~14% absent-clause hallucinations (PoC-026) are not
+addressable by a post-hoc confidence gate; the leverage is upstream (hard-category retrieval recall) or in
+the answer representation (evidence the gate can actually see), not in thresholding a confidence signal.
+
+## Limits
+
+- **Top-1 gate passage** (as PoC-034). A gate over the top-3 union might see the clause more often for
+  answerable items — but that also feeds more distractors to absent items; given the curve is dominated by
+  >9 pp, a top-3 gate is unlikely to open a ≤3 pp-loss window. Untested.
+- **P(YES) from YES/NO-starting token mass** (first token, top-20 logprobs). A richer entailment prompt or
+  multi-token scoring could sharpen the score, but the overlap is large enough that calibration quality is
+  not the binding constraint.
+- **Hard categories only, host stage.** Absent set = PoC-008 (101), answerable = PoC-007 (300);
+  distributions, not paired items. Device latency (H4) deferred.
+
+## Reproduce
 
 ```bash
 llama-server --embd-gemma-default --embedding --pooling mean --embd-normalize 2 \
@@ -97,6 +165,8 @@ llama-server --embd-gemma-default --embedding --pooling mean --embd-normalize 2 
 llama-server -m <Qwen2.5-1.5B-Instruct-Q4_K_M.gguf> -c 4096 -ngl 99 --port 8091 --log-disable &
 cd poc/041-calibrated-entailment-gate
 python3 calibrated-gate.py          # absent+answerable hard-cat; τ-sweep; H1–H4 read-out
+# from a detached worktree where gitignored vectors aren't checked out:
+#   LAB_POC_ROOT=/path/to/lab-clone/poc python3 calibrated-gate.py
 ```
 
 ---
@@ -108,5 +178,6 @@ python3 calibrated-gate.py          # absent+answerable hard-cat; τ-sweep; H1�
   weighed accordingly. **Promotion reframe:** the proposal's "lightweight NLI model" is implemented as a
   **calibrated Qwen self-entailment** (zero new params, 6 GB-feasible) with a **threshold sweep** — the
   calibration is the novelty vs PoC-034's rejected binary gate, and the mechanism 029's verdict pointed to.
-- Provenance: idea-evolution-engine (private) DIVERGENT scan 2026-10-25. SCREENING signal, NOT a validated
-  result — the lab runs the formal experiment; the 041 verdict feeds back to the ledger.
+- Provenance: idea-evolution-engine (private) DIVERGENT scan 2026-10-25. SCREENING signal (NOT_VALIDATABLE)
+  — the lab ran the formal experiment; verdict **REJECT** (confidence gates can't separate absent from
+  answerable-but-poorly-retrieved) feeds back to the ledger.
