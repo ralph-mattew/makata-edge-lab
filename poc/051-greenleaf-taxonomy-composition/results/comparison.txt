@@ -1,0 +1,10 @@
+span-F1 grid (hard-mean) / recall@3 (103 items, 80 contracts):
+  EG+generic     span-F1  22.6  recall@3  43.9  {'Exclusivity': 14.4, 'Non-Compete': 26.7, 'Change Of Control': 26.7}
+  EG+taxonomy    span-F1  29.6  recall@3  45.6  {'Exclusivity': 27.3, 'Non-Compete': 24.0, 'Change Of Control': 37.6}
+  GL+generic     span-F1  32.3  recall@3  47.4  {'Exclusivity': 25.3, 'Non-Compete': 35.5, 'Change Of Control': 36.2}
+  GL+taxonomy    span-F1  30.1  recall@3  47.6  {'Exclusivity': 28.0, 'Non-Compete': 31.7, 'Change Of Control': 30.6}
+
+baseline EG+generic 22.6  |  GL-only 32.3  |  EG+taxonomy 29.6  |  FULL GL+taxonomy 30.1
+full - best_single(32.3) = -2.2  [H1 >=+3 -> False]
+full - baseline = +7.5  [H2 >=+12 -> False]
+-> REJECT
