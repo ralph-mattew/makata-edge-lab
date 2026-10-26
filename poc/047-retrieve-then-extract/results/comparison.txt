@@ -1,0 +1,5 @@
+cosine    hard-mean span-F1  21.4  {'Exclusivity': 11.8, 'Non-Compete': 20.6, 'Change Of Control': 31.7}
+copy      hard-mean span-F1  23.5  {'Exclusivity': 9.3, 'Non-Compete': 18.0, 'Change Of Control': 43.2}
+generate  hard-mean span-F1  14.5  {'Exclusivity': 2.5, 'Non-Compete': 12.8, 'Change Of Control': 28.1}
+copy verbatim-substring compliance: 56.3%  (generate: 1.3%)
+H1 copy - cosine (036): +2.1pp [>=+5 -> False]  -> INCONCLUSIVE
