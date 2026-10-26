@@ -1,0 +1,20 @@
+{
+  "n_absent": 101,
+  "n_answerable": 300,
+  "baseline_absent_CAR": 84.2,
+  "quote_gate_absent_CAR": 98.0,
+  "CAR_gain": 13.9,
+  "baseline_answerable_refusal": 52.0,
+  "quote_gate_answerable_refusal": 79.0,
+  "answerable_recall_loss": 27.0,
+  "absent_gate_abstain_from_quotefail_pp": 80.2,
+  "answerable_gate_abstain_from_quotefail_pp": 66.7,
+  "H1_car_ge5": true,
+  "H2_loss_le3": false,
+  "verdict": "REJECT",
+  "ref_034_binary": {
+    "CAR_gain": 10.9,
+    "loss": 21.7
+  },
+  "ref_041_calibrated": "frontier dominated; max CAR gain at <=3pp loss = 0.0"
+}

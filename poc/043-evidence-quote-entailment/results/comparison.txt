@@ -1,0 +1,6 @@
+baseline absent CAR 84.2%  answerable baseline refusal 52.0%
+quote-gate  absent CAR 98.0% (gain +13.9)  answerable refusal 79.0% (loss +27.0pp)
+  gate abstentions from quote-grounding failure: absent 80.2pp / answerable 66.7pp
+refs: 034 binary +10.9 CAR/+21.7 loss ; 041 calibrated frontier dominated (max CAR gain @<=3pp loss = 0.0)
+
+H1 (CAR gain >=+5): True   H2 (loss <=3pp): False   ->  REJECT
