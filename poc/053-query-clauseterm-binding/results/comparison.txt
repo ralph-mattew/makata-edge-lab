@@ -1,0 +1,9 @@
+recall@3 (hard-mean), 300 hard items:
+  question_only       34.7  {'Exclusivity': 6.0, 'Non-Compete': 33.0, 'Change Of Control': 65.0}
+  prefix_only         54.0  {'Exclusivity': 54.0, 'Non-Compete': 44.0, 'Change Of Control': 64.0}
+  concat              50.7  {'Exclusivity': 44.0, 'Non-Compete': 42.0, 'Change Of Control': 66.0}
+  ref_046_taxonomy    45.0  {'Exclusivity': 34.0, 'Non-Compete': 41.0, 'Change Of Control': 60.0}
+
+H1 best-binding vs single: +19.3 [>=+5 -> True]
+H2 best-binding vs 046 taxonomy: +9.0 (>=-2 means ties/beats 046)
+-> ADOPT
