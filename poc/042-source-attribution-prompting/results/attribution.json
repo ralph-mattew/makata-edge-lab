@@ -1,0 +1,55 @@
+{
+  "baseline": {
+    "arm": "base",
+    "overall_key_fact": 66.8,
+    "ci": [
+      63.0,
+      70.5
+    ],
+    "per_category": {
+      "Renewal Term": 84.6,
+      "Expiration Date": 62.3,
+      "Governing Law": 94.6,
+      "Notice Period To Terminate Renewal": 68.4,
+      "Agreement Date": 29.8,
+      "Warranty Duration": 42.5
+    },
+    "answerable_refusal": 14.7,
+    "citation_rate": null,
+    "n": 464
+  },
+  "attribution": {
+    "arm": "attr",
+    "overall_key_fact": 59.5,
+    "ci": [
+      55.3,
+      63.7
+    ],
+    "per_category": {
+      "Renewal Term": 82.4,
+      "Expiration Date": 55.7,
+      "Governing Law": 88.2,
+      "Notice Period To Terminate Renewal": 44.2,
+      "Agreement Date": 29.8,
+      "Warranty Duration": 45.0
+    },
+    "answerable_refusal": 23.3,
+    "citation_rate": 56.5,
+    "n": 464
+  },
+  "delta_overall": -7.3,
+  "delta_refusal": 8.6,
+  "per_category_delta": {
+    "Renewal Term": -2.2,
+    "Expiration Date": -6.6,
+    "Governing Law": -6.4,
+    "Notice Period To Terminate Renewal": -24.2,
+    "Agreement Date": 0.0,
+    "Warranty Duration": 2.5
+  },
+  "hard_cat_key_fact": "N/A \u2014 hard categories carry no typed key_facts (clause-presence)",
+  "H1_overall_ge3": false,
+  "H4_refusal_le3": false,
+  "H2_status": "N/A (no hard-cat key_facts); fact-category cats with +>=5pp: 0",
+  "verdict": "REJECT"
+}

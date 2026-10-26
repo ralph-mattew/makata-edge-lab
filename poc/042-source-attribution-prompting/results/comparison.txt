@@ -1,0 +1,16 @@
+baseline key-fact:    66.8%  (CI 63.0-70.5)  answerable refusal 14.7%   [009 ref ~67.9%]
+attribution key-fact: 59.5%  (CI 55.3-63.7)  answerable refusal 23.3%   citation-rate 56.5%
+
+Δ overall key-fact: -7.3pp  [H1 >=+3 -> False]
+Δ answerable refusal: +8.6pp  [H4 <=+3 -> False]
+H2 (hard-cat key-fact): N/A — hard cats have no typed key_facts
+
+per fact-category Δ (attr - base):
+  Notice Period To Terminate Renewal base  68.4 -> attr  44.2  (-24.2)
+  Expiration Date              base  62.3 -> attr  55.7  (-6.6)
+  Governing Law                base  94.6 -> attr  88.2  (-6.4)
+  Renewal Term                 base  84.6 -> attr  82.4  (-2.2)
+  Agreement Date               base  29.8 -> attr  29.8  (+0.0)
+  Warranty Duration            base  42.5 -> attr  45.0  (+2.5)
+
+-> REJECT
