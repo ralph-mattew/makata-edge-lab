@@ -1,0 +1,6 @@
+recall@3 hard-mean (300 hard items, 216 contracts):
+  flat              34.7  {'Exclusivity': 6.0, 'Non-Compete': 33.0, 'Change Of Control': 65.0}
+  clausetype_only   43.0  {'Exclusivity': 19.0, 'Non-Compete': 42.0, 'Change Of Control': 68.0}
+  both              43.3  {'Exclusivity': 17.0, 'Non-Compete': 44.0, 'Change Of Control': 69.0}
+ref PoC-048 heading-only: inert (+0.0)
+H1 best(clausetype/both) - flat = +8.6 [>=+5 -> True]  -> ADOPT
