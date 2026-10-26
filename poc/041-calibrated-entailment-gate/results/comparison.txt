@@ -1,0 +1,18 @@
+baseline absent CAR (base refusal only): 84.2%   answerable baseline refusal: 52.0%
+
+034 binary point (tau=0.5):  CAR 95.0% (gain +10.9)  answerable loss +21.7pp  [034 ref: +10.9 CAR / +21.7 loss]
+
+curve (selected tau):
+  tau=0.10  CAR  89.1% (gain  +5.0)  answerable loss +12.3pp
+  tau=0.20  CAR  90.1% (gain  +5.9)  answerable loss +15.3pp
+  tau=0.30  CAR  94.1% (gain  +9.9)  answerable loss +17.7pp
+  tau=0.40  CAR  95.0% (gain +10.9)  answerable loss +19.7pp
+  tau=0.50  CAR  95.0% (gain +10.9)  answerable loss +21.7pp
+  tau=0.60  CAR  96.0% (gain +11.9)  answerable loss +23.3pp
+  tau=0.70  CAR  96.0% (gain +11.9)  answerable loss +25.0pp
+  tau=0.80  CAR  98.0% (gain +13.9)  answerable loss +30.0pp
+  tau=0.90  CAR  99.0% (gain +14.9)  answerable loss +35.3pp
+
+best feasible (loss<=3pp): tau=0.00  CAR gain +0.0pp  loss +0.0pp
+
+H1 (CAR gain >=+5): False   H2 (loss <=3pp): True   ->  REJECT
