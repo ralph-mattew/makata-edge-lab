@@ -1,0 +1,54 @@
+{
+  "question_only": {
+    "hard_mean": 34.7,
+    "per_cat": {
+      "Exclusivity": 6.0,
+      "Non-Compete": 33.0,
+      "Change Of Control": 65.0
+    },
+    "ci": [
+      29.6,
+      39.8
+    ]
+  },
+  "prefix_only": {
+    "hard_mean": 54.0,
+    "per_cat": {
+      "Exclusivity": 54.0,
+      "Non-Compete": 44.0,
+      "Change Of Control": 64.0
+    },
+    "ci": [
+      48.2,
+      59.8
+    ]
+  },
+  "concat": {
+    "hard_mean": 50.7,
+    "per_cat": {
+      "Exclusivity": 44.0,
+      "Non-Compete": 42.0,
+      "Change Of Control": 66.0
+    },
+    "ci": [
+      44.8,
+      56.3
+    ]
+  },
+  "ref_046_taxonomy": {
+    "hard_mean": 45.0,
+    "per_cat": {
+      "Exclusivity": 34.0,
+      "Non-Compete": 41.0,
+      "Change Of Control": 60.0
+    },
+    "ci": [
+      39.5,
+      50.5
+    ]
+  },
+  "n_hard": 300,
+  "H1_binding_vs_single": 19.3,
+  "H2_binding_vs_046": 9.0,
+  "verdict": "ADOPT"
+}
