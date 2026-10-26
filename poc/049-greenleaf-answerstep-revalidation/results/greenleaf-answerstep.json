@@ -1,0 +1,39 @@
+{
+  "n_items": 103,
+  "n_contracts": 80,
+  "depth": 10,
+  "embeddinggemma_extractor": {
+    "hard_mean_f1": 22.6,
+    "per_cat": {
+      "Exclusivity": 14.4,
+      "Non-Compete": 26.7,
+      "Change Of Control": 26.7
+    },
+    "recall3_hard": 43.9,
+    "ci": [
+      17.8,
+      28.6
+    ]
+  },
+  "greenleaf_extractor": {
+    "hard_mean_f1": 32.3,
+    "per_cat": {
+      "Exclusivity": 25.3,
+      "Non-Compete": 35.5,
+      "Change Of Control": 36.2
+    },
+    "recall3_hard": 47.4,
+    "ci": [
+      27.1,
+      38.5
+    ]
+  },
+  "delta_span_f1": 9.7,
+  "delta_recall3": 3.5,
+  "conversion_ratio": 2.77,
+  "ref_poc036": "hard-mean span-F1 22.1 (full 300)",
+  "ref_poc040": "chunk-size conversion ~0",
+  "ref_poc045": "GreenLeaf recall@3 hard-mean +14.3 (216-contract sample)",
+  "H1_span_f1_ge5": true,
+  "verdict": "ADOPT"
+}

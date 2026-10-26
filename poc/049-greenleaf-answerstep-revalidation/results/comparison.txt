@@ -1,0 +1,5 @@
+sample: 103 hard items / 80 contracts, extractor N=10, window<=3
+EmbeddingGemma extractor: span-F1 22.6  {'Exclusivity': 14.4, 'Non-Compete': 26.7, 'Change Of Control': 26.7}  | recall@3 43.9
+GreenLeaf      extractor: span-F1 32.3  {'Exclusivity': 25.3, 'Non-Compete': 35.5, 'Change Of Control': 36.2}  | recall@3 47.4
+Δ span-F1 +9.7   Δ recall@3 +3.5   conversion ratio 2.77  (PoC-040 ref ~0)
+H1 span-F1 +>=5: True  -> ADOPT
