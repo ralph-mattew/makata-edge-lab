@@ -1,0 +1,52 @@
+{
+  "cosine_k1": {
+    "hard_mean": 21.7,
+    "per_cat": {
+      "Exclusivity": 13.4,
+      "Non-Compete": 15.1,
+      "Change Of Control": 36.7
+    },
+    "ci": [
+      18.6,
+      24.8
+    ]
+  },
+  "copy_k1": {
+    "hard_mean": 21.1,
+    "per_cat": {
+      "Exclusivity": 12.0,
+      "Non-Compete": 12.9,
+      "Change Of Control": 38.4
+    },
+    "ci": [
+      17.8,
+      24.6
+    ]
+  },
+  "cosine_k3": {
+    "hard_mean": 21.4,
+    "per_cat": {
+      "Exclusivity": 11.8,
+      "Non-Compete": 20.6,
+      "Change Of Control": 31.7
+    },
+    "ci": [
+      18.5,
+      24.4
+    ]
+  },
+  "copy_k3": {
+    "hard_mean": 23.5,
+    "per_cat": {
+      "Exclusivity": 9.3,
+      "Non-Compete": 18.0,
+      "Change Of Control": 43.2
+    },
+    "ci": [
+      20.0,
+      27.3
+    ]
+  },
+  "best_k1_minus_best_k3": -1.8,
+  "verdict": "REJECT k=1"
+}

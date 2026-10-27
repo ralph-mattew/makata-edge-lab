@@ -1,0 +1,5 @@
+cosine_k1    21.7  {'Exclusivity': 13.4, 'Non-Compete': 15.1, 'Change Of Control': 36.7}
+cosine_k3    21.4  {'Exclusivity': 11.8, 'Non-Compete': 20.6, 'Change Of Control': 31.7}
+copy_k1      21.1  {'Exclusivity': 12.0, 'Non-Compete': 12.9, 'Change Of Control': 38.4}
+copy_k3      23.5  {'Exclusivity': 9.3, 'Non-Compete': 18.0, 'Change Of Control': 43.2}
+best_k1 - best_k3 = -1.8  -> REJECT k=1
