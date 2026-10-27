@@ -1,0 +1,1 @@
+{"status":"PARKED","reason":"training-infrastructure required (GPT-4 teacher data + Qwen SFT run); inference-only lab","precedent":"PoC-012 parked on device"}
