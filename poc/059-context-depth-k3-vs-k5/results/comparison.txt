@@ -1,0 +1,3 @@
+k=3 key-fact 66.8 (CI [63.0, 70.5]) refusal 13.8
+k=5 key-fact 72.8 (CI [68.9, 76.6]) refusal 6.9
+Δ(k5-k3) +6.0  -> INCONCLUSIVE
