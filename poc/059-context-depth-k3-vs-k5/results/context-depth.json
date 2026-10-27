@@ -1,0 +1,21 @@
+{
+  "n": 464,
+  "k3": {
+    "key_fact": 66.8,
+    "ci": [
+      63.0,
+      70.5
+    ],
+    "refusal": 13.8
+  },
+  "k5": {
+    "key_fact": 72.8,
+    "ci": [
+      68.9,
+      76.6
+    ],
+    "refusal": 6.9
+  },
+  "delta_k5_minus_k3": 6.0,
+  "verdict": "INCONCLUSIVE"
+}
