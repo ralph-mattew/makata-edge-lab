@@ -1,0 +1,272 @@
+{
+  "n_absent": 101,
+  "n_answerable": 300,
+  "baseline_CAR": 84.2,
+  "baseline_answerable_refusal": 52.0,
+  "best_feasible": {
+    "tau": 0.0,
+    "CAR_gain": 0.0,
+    "loss": 0.0
+  },
+  "min_loss_at_+5CAR": 10.0,
+  "max_CARgain_at_loss<=3": 0.0,
+  "verdict": "REJECT",
+  "ref": "041/043 dominated (max CAR gain @<=3pp loss = 0.0 / +27 loss)",
+  "curve": [
+    {
+      "tau": 0.0,
+      "CAR_gain": 0.0,
+      "loss": 0.0
+    },
+    {
+      "tau": 0.02,
+      "CAR_gain": 1.0,
+      "loss": 7.3
+    },
+    {
+      "tau": 0.04,
+      "CAR_gain": 2.0,
+      "loss": 7.3
+    },
+    {
+      "tau": 0.06,
+      "CAR_gain": 2.0,
+      "loss": 8.7
+    },
+    {
+      "tau": 0.08,
+      "CAR_gain": 3.0,
+      "loss": 9.0
+    },
+    {
+      "tau": 0.1,
+      "CAR_gain": 4.0,
+      "loss": 9.0
+    },
+    {
+      "tau": 0.12,
+      "CAR_gain": 5.0,
+      "loss": 10.0
+    },
+    {
+      "tau": 0.14,
+      "CAR_gain": 5.9,
+      "loss": 10.3
+    },
+    {
+      "tau": 0.16,
+      "CAR_gain": 6.9,
+      "loss": 10.7
+    },
+    {
+      "tau": 0.18,
+      "CAR_gain": 6.9,
+      "loss": 11.0
+    },
+    {
+      "tau": 0.2,
+      "CAR_gain": 6.9,
+      "loss": 11.7
+    },
+    {
+      "tau": 0.22,
+      "CAR_gain": 7.9,
+      "loss": 13.0
+    },
+    {
+      "tau": 0.24,
+      "CAR_gain": 8.9,
+      "loss": 13.7
+    },
+    {
+      "tau": 0.26,
+      "CAR_gain": 8.9,
+      "loss": 18.7
+    },
+    {
+      "tau": 0.28,
+      "CAR_gain": 9.9,
+      "loss": 19.7
+    },
+    {
+      "tau": 0.3,
+      "CAR_gain": 9.9,
+      "loss": 20.7
+    },
+    {
+      "tau": 0.32,
+      "CAR_gain": 10.9,
+      "loss": 21.7
+    },
+    {
+      "tau": 0.34,
+      "CAR_gain": 10.9,
+      "loss": 22.3
+    },
+    {
+      "tau": 0.36,
+      "CAR_gain": 10.9,
+      "loss": 22.7
+    },
+    {
+      "tau": 0.38,
+      "CAR_gain": 10.9,
+      "loss": 22.7
+    },
+    {
+      "tau": 0.4,
+      "CAR_gain": 10.9,
+      "loss": 22.7
+    },
+    {
+      "tau": 0.42,
+      "CAR_gain": 10.9,
+      "loss": 23.3
+    },
+    {
+      "tau": 0.44,
+      "CAR_gain": 10.9,
+      "loss": 24.3
+    },
+    {
+      "tau": 0.46,
+      "CAR_gain": 10.9,
+      "loss": 25.0
+    },
+    {
+      "tau": 0.48,
+      "CAR_gain": 11.9,
+      "loss": 25.3
+    },
+    {
+      "tau": 0.5,
+      "CAR_gain": 11.9,
+      "loss": 25.3
+    },
+    {
+      "tau": 0.52,
+      "CAR_gain": 11.9,
+      "loss": 26.0
+    },
+    {
+      "tau": 0.54,
+      "CAR_gain": 11.9,
+      "loss": 26.7
+    },
+    {
+      "tau": 0.56,
+      "CAR_gain": 11.9,
+      "loss": 27.7
+    },
+    {
+      "tau": 0.58,
+      "CAR_gain": 11.9,
+      "loss": 28.0
+    },
+    {
+      "tau": 0.6,
+      "CAR_gain": 11.9,
+      "loss": 28.0
+    },
+    {
+      "tau": 0.62,
+      "CAR_gain": 13.9,
+      "loss": 29.0
+    },
+    {
+      "tau": 0.64,
+      "CAR_gain": 13.9,
+      "loss": 29.3
+    },
+    {
+      "tau": 0.66,
+      "CAR_gain": 13.9,
+      "loss": 29.7
+    },
+    {
+      "tau": 0.68,
+      "CAR_gain": 13.9,
+      "loss": 30.7
+    },
+    {
+      "tau": 0.7,
+      "CAR_gain": 13.9,
+      "loss": 31.3
+    },
+    {
+      "tau": 0.72,
+      "CAR_gain": 13.9,
+      "loss": 32.3
+    },
+    {
+      "tau": 0.74,
+      "CAR_gain": 13.9,
+      "loss": 32.7
+    },
+    {
+      "tau": 0.76,
+      "CAR_gain": 13.9,
+      "loss": 33.3
+    },
+    {
+      "tau": 0.78,
+      "CAR_gain": 13.9,
+      "loss": 34.7
+    },
+    {
+      "tau": 0.8,
+      "CAR_gain": 14.9,
+      "loss": 35.3
+    },
+    {
+      "tau": 0.82,
+      "CAR_gain": 14.9,
+      "loss": 37.3
+    },
+    {
+      "tau": 0.84,
+      "CAR_gain": 14.9,
+      "loss": 37.7
+    },
+    {
+      "tau": 0.86,
+      "CAR_gain": 14.9,
+      "loss": 39.7
+    },
+    {
+      "tau": 0.88,
+      "CAR_gain": 14.9,
+      "loss": 40.0
+    },
+    {
+      "tau": 0.9,
+      "CAR_gain": 14.9,
+      "loss": 40.3
+    },
+    {
+      "tau": 0.92,
+      "CAR_gain": 14.9,
+      "loss": 41.3
+    },
+    {
+      "tau": 0.94,
+      "CAR_gain": 14.9,
+      "loss": 42.0
+    },
+    {
+      "tau": 0.96,
+      "CAR_gain": 14.9,
+      "loss": 43.3
+    },
+    {
+      "tau": 0.98,
+      "CAR_gain": 14.9,
+      "loss": 43.3
+    },
+    {
+      "tau": 1.0,
+      "CAR_gain": 14.9,
+      "loss": 43.3
+    }
+  ]
+}

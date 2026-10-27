@@ -1,0 +1,4 @@
+baseline CAR 84.2 / answerable refusal 52.0
+min loss to reach +5 CAR: 10.0  | max CAR gain @loss<=3: 0.0
+best feasible (loss<=3): {'tau': 0.0, 'CAR_gain': 0.0, 'loss': 0.0}
+-> REJECT
