@@ -1,0 +1,15 @@
+{
+  "n_keyfact": 464,
+  "n_absent": 101,
+  "Q4": {
+    "key_fact": 66.8,
+    "absent_CAR": 84.2
+  },
+  "Q2_K": {
+    "key_fact": 62.9,
+    "absent_CAR": 3.0
+  },
+  "delta_key_fact": -3.9,
+  "delta_absent_CAR": -81.2,
+  "verdict": "INCONCLUSIVE"
+}
