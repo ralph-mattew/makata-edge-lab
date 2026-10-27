@@ -1,0 +1,3 @@
+baseline top-3 hard-mean 34.7  {'Exclusivity': 6.0, 'Non-Compete': 33.0, 'Change Of Control': 65.0}
+Qwen-reranked  hard-mean 36.0  {'Exclusivity': 16.0, 'Non-Compete': 36.0, 'Change Of Control': 56.0}
+Δ +1.3  -> REJECT
